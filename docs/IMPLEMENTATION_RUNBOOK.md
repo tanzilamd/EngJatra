@@ -1,5 +1,8 @@
 # Codex Build Plan, Operations and Maintainer Handoff
 
+## Current maintenance entry point
+The application is implemented. Read `AGENTS.md`, `README.md`, `docs/STATUS.md` and `docs/HANDOFF.md` before changes. The milestones below preserve the original delivery plan; they do not instruct future maintainers to discard the accepted code or rebuild M0–M7. Use the feature-change checklist for incremental work and the deployment guide for remaining M8 activation.
+
 ## Working style
 Implement in **one continuous development assignment**, using milestone checklists rather than asking for repeated permission or stopping at a prototype. Iteratively build, test, fix and rerun. If tool context/turn cannot finish, write `docs/STATUS.md` with exact next action and test evidence. Stop before requiring real credentials, making paid purchases, changing billing, destructive production migrations or public deploy without approval.
 
@@ -17,7 +20,7 @@ Implement in **one continuous development assignment**, using milestone checklis
 ## Environment and repository conventions
 - Pin a supported Node LTS version in `.nvmrc` and document Windows-compatible `npm` commands. Use one lockfile/one package manager.
 - Root package scripts `dev`, `dev:student`, `dev:admin`, `dev:worker`, `test`, `test:content`, `test:e2e`, `typecheck`, `lint`, `build`, `qa`, and DB setup/test as available; keep scripts working.
-- Provide `.env.example`, `.dev.vars.example`, `.gitignore`, `.editorconfig`, `CONTRIBUTING.md` (future generated) with commands, architecture, errors and upgrade path.
+- Maintain `.env.example`, `.dev.vars.example`, `.gitignore`, `.editorconfig`, and `CONTRIBUTING.md` with current commands, architecture, errors and upgrade path.
 - `.github/workflows/ci.yml` should run lint, typecheck, content tests, unit tests, build and browser tests when supported; no production deploy with missing secrets.
 - Use small well-named feature folders and composable components; no duplicated role guards/answer rules, no giant 2,000-line all-in-one files. README leads a new human/AI to where to start.
 
