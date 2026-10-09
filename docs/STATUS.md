@@ -1,6 +1,6 @@
-# EngJatra development status — 2026-10-09
+# EngJatra development status — 2026-10-10
 
-**Local application and reusable environment implemented and validated. Production and independent educational verification are not complete.** Fresh code was built from the current specifications and teaching data. No cancelled application code was imported.
+**Core production application is live and verified. Email/Google delivery, permanent owner bootstrap, migration-history certification and independent educational verification remain open.** Fresh code was built from the current specifications and teaching data. No cancelled application code was imported.
 
 ## Feature evidence
 
@@ -122,3 +122,21 @@ After restart, the seven core deployment bindings and Supabase Management creden
 Supabase Auth Site URL and exact student/admin/recovery allowlist were corrected through authorized Management API and reread; email confirmation/Google/Brevo configuration preserved. All 18 app tables have RLS, but migration history/checksum evidence is untracked: initial SQL was not replayed and migration certification remains blocked. Google/email delivery and authenticated lesson/progress/staff flows remain separate untested gates. Codex direct Worker URLs are blocked by managed egress; exact-domain draft is saved pending owner publication, while Actions runners can perform authorized live verification.
 
 Live Supabase follow-up: two isolated, explicitly confirmed QA Auth users were created through the authorized admin endpoint, then signed in using the actual public key/password flow. Live read_snapshot/save_checkpoint/restore, independent second-user state, cross-user learner_paths RLS, staff-membership isolation and anonymous RPC denial passed. Both newly created users and their cascading QA progress were deleted; no existing user data was changed. This does not test registration email delivery/confirmation, Google OAuth, Worker-authenticated transport, browser learning or positive staff administration.
+
+Read-only recovery run [37986967688](https://github.com/tanzilamd/EngJatra/actions/runs/37986967688) succeeded: deployed d2d10dc7 source was a trusted main ancestor; all 120 student and 16 admin public files matched binary hashes; all 96 teaching units, six libraries, both SPA shells/security headers, stable Worker versions, public API/Supabase/CORS and anonymous negatives passed. A genuinely verified static baseline was archived and the sole main pipeline resumed automatically as run 37987116414. This is real live artifact/security evidence, separate from browser/Auth evidence still being collected. The preceding full local QA passed 95 unit/API/database tests, 16 browser checks and release validation; formatting/workflow lint/offline dry runs passed. Local npm audit was denied by the managed registry endpoint; GitHub QA's npm audit passed.
+
+Supabase admin_memberships contains no entries. Actual owner access requires one-time identity-verified bootstrap; no arbitrary owner role was granted. A reusable optional controlled-Auth browser QA command now tests disposable learner/reviewer journeys and removes only its new fixtures, without real user/content/owner changes. Real email/Google delivery and legacy migration-history reconciliation remain external evidence gaps.
+
+## Verified live deployment — 2026-10-10, Asia/Dhaka
+
+- Student: https://engjatra.nuvomi.workers.dev
+- Admin: https://engjatra-admin.nuvomi.workers.dev
+- API: https://engjatra-api.nuvomi.workers.dev/api/health
+
+Main run [37987116414](https://github.com/tanzilamd/EngJatra/actions/runs/37987116414) **succeeded** at deployed commit d80e99fd5f9be7d2e1f081dcea1acdd617e6ea9a: QA/audit, three uploads, all active version/artifact/security checks, desktop/320px-mobile Chromium render, Bangla/fonts/branding/CSS, axe accessibility, Auth/recovery UI, SPA refresh and no browser/resource errors. Successful production-release and immutable student baseline archives now exist; monitoring need not fabricate a baseline.
+
+Direct Codex requests through the inherited proxy now return HTTP 200 for all three targets, despite the status tool's older desired-host list/unknown network observation. This is actual request evidence, not a claim that the saved environment draft was published. Chromium required the trusted managed CA and writable NSS certificate database; approved execution retained TLS verification and used the inherited proxy. Do not disable TLS or infer draft enforcement. Public live browser QA also passed directly from Codex.
+
+**Real authenticated browser QA passed:** actual password login with isolated confirmed QA identities; six tracks/96 lesson links; authored lesson navigation; Worker-backed checkpoint and persistence; fresh-context login/restore/reload; second-user and direct RLS isolation; learner denial at admin API/UI; temporary content_reviewer login and protected read dashboard. Reviewer setup used narrowly reviewed Management SQL matching only the freshly created UUID, synthetic QA email and fixture metadata; it did not grant table privileges, disable RLS or create an owner. Both new Auth users, temporary membership and cascading QA progress were deleted. Previous local certificate/REST reviewer-permission failures were resolved and tests rerun successfully. Public browser report intentionally excludes these separate Auth checks; combined evidence verifies them.
+
+Real signup confirmation/email delivery and Google OAuth were **not tested**; administrative QA confirmation is not email delivery. Permanent admin membership remains empty and needs verified owner bootstrap. Legacy schema/history/checksum reconciliation still blocks migration certification; existing RLS and real checkpoint functions were verified, no initial migration replay occurred. AI stays disabled without confirmed eligible credentials. No paid service was enabled, no existing learner/content data was changed and no privileged key/session was logged or archived.

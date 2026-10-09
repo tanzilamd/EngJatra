@@ -43,7 +43,8 @@
     "deploy:recover": "node --use-env-proxy --import tsx scripts/deploy.ts recover",
     "recovery:select": "node --use-env-proxy --import tsx scripts/recover-publication.ts select",
     "recovery:audit": "node --use-env-proxy --import tsx scripts/recover-publication.ts audit",
-    "test:live:browser": "node --use-env-proxy --import tsx scripts/live-browser.ts"
+    "test:live:browser": "node --use-env-proxy --import tsx scripts/live-browser.ts",
+    "test:live:auth": "node --use-env-proxy --import tsx scripts/live-auth.ts"
   },
   "dependencies": {
     "@fontsource/hind-siliguri": "^5.3.0",

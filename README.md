@@ -60,3 +60,9 @@ The workflow and scripts are implemented; actual account linkage, secrets, free 
 [Maintenance and permissions](docs/AUTONOMOUS_MAINTENANCE.md) covers daily read-only production verification, sampled privacy-safe API diagnostics, deployment holds and checksum-based migration planning. `db:check` is part of QA; `db:plan`/`db:audit` never apply SQL. Monitoring uses archived verified releases and defers during active deployments.
 
 Cloudflare gateway failures use bounded read-only version reconciliation; `npm run deploy:recover` verifies configured artifacts without publishing. The complete autonomous access/configuration table is in `docs/ENVIRONMENT_VARIABLES.md`.
+
+## Verified live service
+
+[Student website](https://engjatra.nuvomi.workers.dev) · [Admin panel](https://engjatra-admin.nuvomi.workers.dev) · [API health](https://engjatra-api.nuvomi.workers.dev/api/health).
+
+Production run 37987116414 passed QA, deployment/artifact/security and real desktop/mobile browser checks. Controlled real learner/reviewer browser journeys verified lessons, progress persistence/restore and access isolation. See `docs/STATUS.md` for exact evidence and remaining email/OAuth, verified owner bootstrap and migration-history limitations. Optional reusable checks: `npm run test:live:browser` and `npm run test:live:auth`; they never substitute mocks for live integration and never archive credentials.

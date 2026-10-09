@@ -3,6 +3,7 @@ import AxeBuilder from "@axe-core/playwright";
 import { mkdir, writeFile } from "node:fs/promises";
 import { settings } from "./deployment-config";
 import { redactLog } from "./redact-log";
+import { liveBrowserOptions } from "./live-browser-options";
 
 // Actual public origins only: no request interception, mocks or demo adapters.
 const config = settings({
@@ -10,13 +11,7 @@ const config = settings({
   GEMMA_FREE_CONFIRMED: "false",
   LLAMA_FREE_CONFIRMED: "false",
 });
-const browser = await chromium.launch({
-  executablePath:
-    process.env.CHROMIUM_PATH === ""
-      ? undefined
-      : (process.env.CHROMIUM_PATH ?? "/usr/bin/chromium"),
-  args: ["--no-sandbox"],
-});
+const browser = await chromium.launch(liveBrowserOptions());
 const results: { service: string; width: number; checks: string[] }[] = [];
 try {
   for (const [service, origin] of [
