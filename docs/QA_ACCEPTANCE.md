@@ -8,6 +8,7 @@ Never report “fully correct”, “100% error-free”, “production verified�
 - `npm run typecheck`
 - `npm run test` (unit/integration)
 - `npm run test:content` (counts, schema, refs, public metadata strip, answer consistency, duplicates)
+- `npm run test:docs` (local documentation links/specifications, executable npm commands, public environment names and retired prompt references)
 - `npm run test:e2e` (browser, student/admin flows)
 - `npm run build` (both deployable sites/server functions and assets)
 - `npm run qa` to combine all reliably; may use other commands if documented and reproducible.

@@ -1,11 +1,11 @@
 # Credentials to configure LATER (no values in repository)
 
-The owner will supply/cloud-configure these **after** Codex has completed credential-independent implementation.
+The owner will supply/cloud-configure these after credential-independent implementation. This is the original visibility checklist; use `docs/CREDENTIALS_AND_DEPLOYMENT.md` for the implemented bindings and exact activation procedure. No service-role key is currently required.
 
 | Item | Visibility | Typical location | Required for |
 |---|---|---|---|
 | Supabase project URL | Public config (not secret) | Cloudflare Pages env `VITE_SUPABASE_URL` | Client auth/data access |
-| Supabase publishable/anon key | Public config (RLS still mandatory) | Cloudflare Pages env `VITE_SUPABASE_PUBLISHABLE_KEY` | Supabase client |
+| Supabase publishable/anon key | Public config (RLS still mandatory) | Cloudflare Pages env `VITE_SUPABASE_ANON_KEY` | Supabase client |
 | Supabase role/privileged key (only if architecture truly needs it) | SERVER SECRET | Worker secret, never in browser | Protected server tasks |
 | Supabase local DB/test URL/password | LOCAL SECRET | Developer machine/CI secret, never commit | DB migration/RLS verification |
 | Google OAuth client configuration | Platform secret/settings | Supabase Auth provider configuration | Google sign-in |

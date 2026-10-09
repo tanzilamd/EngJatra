@@ -21,9 +21,9 @@ For credential-backed development, configure the public browser fields in `.env`
 npm run qa
 ```
 
-Runs export, lint, strict types, content audit, unit/API/sync/local PostgreSQL RLS tests, desktop/mobile browser journeys and accessibility checks, production builds, Worker dry-run compilation, and artifact scans. Local browser tests use `/usr/bin/chromium`; set `CHROMIUM_PATH` to your browser, or set it to an empty string after `npx playwright install chromium` to use Playwright's managed browser. CI installs its browser explicitly. Python is used by the original handoff audit; application runtime uses Node/Cloudflare.
+Runs export, documentation consistency, lint, strict types, content audit, unit/API/sync/local PostgreSQL RLS tests, desktop/mobile browser journeys and accessibility checks, production builds, Worker dry-run compilation, and artifact scans. Local browser tests use `/usr/bin/chromium`; set `CHROMIUM_PATH` to your browser, or set it to an empty string after `npx playwright install chromium` to use Playwright's managed browser. CI installs its browser explicitly. Python is used by the original handoff audit; application runtime uses Node/Cloudflare.
 
-Individual commands: `npm run lint`, `npm run typecheck`, `npm test`, `npm run test:content`, `npm run test:db`, `npm run test:e2e`, `npm run build`, `npm run format:check`. `npm run test:production` verifies fail-closed production pages and public offline caching. No normal build deploys or applies migrations.
+Individual commands: `npm run lint`, `npm run typecheck`, `npm test`, `npm run test:content`, `npm run test:docs`, `npm run test:db`, `npm run test:e2e`, `npm run build`, `npm run format:check`. `npm run test:production` verifies fail-closed production pages and public offline caching. No normal build deploys or applies migrations.
 
 ## Repository
 

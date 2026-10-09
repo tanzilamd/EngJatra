@@ -1,5 +1,7 @@
 # Handoff package QA baseline — 2026-10-09
 
+Historical record of the original teaching-data package before implementation. Current application checks and external gates are in `docs/STATUS.md`; this baseline does not supersede them.
+
 ## Checks completed locally (handoff data/artifacts only)
 - All 96 unit records present, 16 in each of Pre-A1/P0, A1, A2, B1, B2, C1.
 - Authored source libraries present: 932 vocab/sense entries, 132 grammar cards, 96 conversations, 480 offline exercises, 12 additional readings.
@@ -12,10 +14,10 @@
 ## What has NOT been verified
 - No independent human/teacher review of all grammar, Bangla translations or answers.
 - Structural checks cannot guarantee accurate language pedagogy, CEFR alignment, unique meanings, fully adequate B2/C1 teaching or valid all-possible open-text answers.
-- No real app exists in this bundle; therefore no browser, auth, DB migrations, RLS, AI APIs, admin security or Cloudflare deploy was tested.
+- At the original package audit, no application existed, so that audit did not test browser, auth, migrations, RLS, AI APIs, admin security or Cloudflare deployment. Later local application evidence is recorded separately in `docs/STATUS.md`.
 - Actual Cloudflare Pages subdomain availability and usage limits are not checked against owner's account.
 
 ## How to rerun baseline
 Python 3: `python scripts/check_handoff.py` (standard library only).
 
-Once Codex builds the app, it MUST implement and run comprehensive tests in `docs/QA_ACCEPTANCE.md`, update `docs/STATUS.md`, and report live integration gates truthfully.
+Continue running the comprehensive checks in `docs/QA_ACCEPTANCE.md`, update `docs/STATUS.md`, and report live integration gates truthfully.

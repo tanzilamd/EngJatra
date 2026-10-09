@@ -14,7 +14,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: npx playwright install --with-deps chromium
-      - run: npm run lint && npm run typecheck && npm run content:export && npm run test:content && npm test
+      - run: npm run test:docs && npm run lint && npm run typecheck && npm run content:export && npm run test:content && npm test
       - run: npm run test:e2e
         env:
           CHROMIUM_PATH: ''

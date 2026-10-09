@@ -27,3 +27,11 @@ Use date, rationale, impacted modules, trade-offs, acceptance tests, rollback if
 - Use audited manual public-safe release export/deploy instead of requesting GitHub write tokens. Verify hashes in four batches, keeping free Worker subrequest budgets bounded; only an owner can record actual deployment after verification.
 - Preserve old immutable release directories. A new lesson uses the current manifest; an in-progress lesson pins its prior version. Static caching never caches private API/auth data or bypasses an unavailable suspension check.
 - Sensitive role grants and account deletion remain explicit verified-owner operations, documented in the operator runbook; the student can submit a deletion request but never receives a false deletion acknowledgment.
+
+## 2026-10-09 — Permanent maintainer documentation
+
+Compared both completed build prompts against every permanent specification before removal. The combined prompt contained an exact copy of the standalone prompt and twelve exact reference attachments; its attachments introduced no unique requirements. Removed the two completed prompts after preserving durable delivery, continuation and reporting guidance in `AGENTS.md`.
+
+The requirements remain organized by responsibility: product/UX in `PRODUCT_PRD.md` and `BRAND_DESIGN.md`; architecture and sync in `ARCHITECTURE_AND_DATA.md` with implemented details in `HANDOFF.md`; corpus coverage, sense semantics, answer variants and limitations in `LEARNING_CONTENT.md` and `CONTENT_GAPS.md`; free provider behavior in `AI_TUTOR.md`; security/privacy in `SECURITY_PRIVACY.md`; protected release/support workflows in `ADMIN_OPERATIONS.md` and `CREDENTIALS_AND_DEPLOYMENT.md`; acceptance evidence in `QA_ACCEPTANCE.md` and `STATUS.md`. No brand, privacy, hosting, learning or free-only requirement was relaxed.
+
+Future sessions maintain the accepted application rather than restart the initial build. Historical milestone/baseline documents are explicitly labelled, the Bangla startup guide uses permanent docs, and the older credential checklist now matches the actual `VITE_SUPABASE_ANON_KEY` binding. A standard-library documentation checker joins root QA and CI. Repository publication is authorized separately from production deployment.

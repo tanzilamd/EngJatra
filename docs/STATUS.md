@@ -34,6 +34,12 @@ Failures found during development were corrected and affected checks rerun: acce
 
 Local PostgreSQL tests use the real migration plus a test-only Supabase `auth.uid()` shim. They are not a live Supabase Auth/PostgREST/RLS or OAuth test. Local API fixtures and mocked provider replies are not production integration. CI configuration exists but GitHub Actions has not run remotely in this task.
 
+## Repository cleanup QA — 2026-10-09
+
+Reviewed both completed build prompts against all permanent documents, preserved durable guidance, then removed them. The combined prompt's master and twelve attachments matched their standalone files exactly. Updated maintainer instructions for the accepted implementation, the Bangla startup guide, historical build/baseline labels and the older Supabase public binding name. No application, UI, teaching content, branding or database changes were made.
+
+After cleanup, `npm run qa` completed with exit code 0: 55 unit/API/database tests, eight demo browser tests, four production browser tests and one release test passed; content integrity, lint/types, both production builds, Worker dry-run and public security scans passed. `npm run test:docs` checked all 24 Markdown files for local links/specifications, npm scripts, public environment names and retired prompt references. `npm run format:check` passed; full and production-only npm audits reported zero vulnerabilities. A recognizable private-key/token scan passed over 202 repository text files without printing values. These checks do not prove absence of every security defect or verify external integrations.
+
 ## External activation and verification still required
 
 | Gate | Precise dependency / next action |
@@ -53,4 +59,4 @@ Clean `npm ci` plus the saved installation checks were rerun successfully. Run `
 
 Reusable `install_script` and `start_skill` were saved in the cloud configuration draft, replacing the earlier content-only setup instructions. Official documentation/API domains were added to that draft while preserving package-manager presets. They have not been published or proven applied in a new task.
 
-Work was performed and committed locally on branch `work`. No default-branch push, pull request, production migration, deployment or paid configuration was performed. Review the local implementation and test evidence before an authorized GitHub publication/deployment step.
+The implementation and cleanup use branch `work`. The owner has authorized GitHub synchronization and a PR to `main`; publication state must be verified against the remote branch SHA and actual PR, separately from cloud activation. No production migration, deployment, DNS claim or paid configuration was performed. Review the implementation and test evidence before a separately authorized deployment.
