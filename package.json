@@ -40,7 +40,10 @@
     "db:check": "tsx scripts/migrations.ts check",
     "db:plan": "node --use-env-proxy --import tsx scripts/migrations.ts plan",
     "db:audit": "node --use-env-proxy --import tsx scripts/migrations.ts audit",
-    "deploy:recover": "node --use-env-proxy --import tsx scripts/deploy.ts recover"
+    "deploy:recover": "node --use-env-proxy --import tsx scripts/deploy.ts recover",
+    "recovery:select": "node --use-env-proxy --import tsx scripts/recover-publication.ts select",
+    "recovery:audit": "node --use-env-proxy --import tsx scripts/recover-publication.ts audit",
+    "test:live:browser": "node --use-env-proxy --import tsx scripts/live-browser.ts"
   },
   "dependencies": {
     "@fontsource/hind-siliguri": "^5.3.0",

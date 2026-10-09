@@ -21,6 +21,7 @@ import { preserveContent } from "./deployment-artifacts";
 import { proofCurrent, commit } from "./qa-proof";
 import { publishWithRecovery } from "./deployment-recovery";
 import { redactLog } from "./redact-log";
+import { deploymentSnapshot, unchangedTarget } from "./deployment-guard";
 for (const file of [".env", ".deploy.env"])
   if (existsSync(file)) process.loadEnvFile(file);
 const [mode = "check", ...args] = process.argv.slice(2);
@@ -231,9 +232,35 @@ async function main() {
   }
   if (!(await proofCurrent()))
     throw Error("Source changed after QA; publishing is blocked");
+  const version = commit();
+  const before = await deploymentSnapshot(config, version);
+  if (Object.values(before).every((active) => active?.commit === version)) {
+    // Read-only reconciliation of a previously accepted current release.
+    // A mismatch fails closed; never upload again merely because a probe failed.
+    await verifySites(config);
+    const versions = await verifyVersions(config, version);
+    await writeFile(
+      ".wrangler/deployment-receipt.local.json",
+      JSON.stringify({
+        commit: version,
+        versions,
+        verified_at: new Date().toISOString(),
+        scope:
+          "accepted current release reconciled without uploads; artifacts/CORS/anonymous negatives",
+      }),
+    );
+    console.log(
+      "PASS existing current release verified; no duplicate uploads performed.",
+    );
+    return;
+  }
+  const assertUnchanged = async (name: string) => {
+    const current = await deploymentSnapshot(config, version);
+    unchangedTarget(before[name], current[name]);
+  };
   const staged = await stage(config);
   try {
-    const version = commit();
+    await assertUnchanged("engjatra-api");
     await publishWithRecovery(config, "engjatra-api", version, () =>
       wrangler([
         "deploy",
@@ -248,7 +275,8 @@ async function main() {
         staged.secrets,
       ]),
     );
-    for (const target of targets.filter((target) => target.service !== "api"))
+    for (const target of targets.filter((target) => target.service !== "api")) {
+      await assertUnchanged(target.name);
       await publishWithRecovery(config, target.name, version, () =>
         wrangler([
           "deploy",
@@ -260,6 +288,7 @@ async function main() {
           version,
         ]),
       );
+    }
     const versions = await verifyVersions(config, version);
     await writeFile(
       ".wrangler/publication-attempt.local.json",

@@ -1,0 +1,121 @@
+name: Verify and Recover Accepted Publication
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [QA and Production]
+    types: [completed]
+permissions:
+  contents: read
+  actions: read
+  checks: read
+concurrency:
+  group: engjatra-read-only-recovery
+  cancel-in-progress: false
+jobs:
+  recover:
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'failure' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.head_repository.full_name == github.repository))
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: production
+    outputs:
+      verified: ${{ steps.audit.outputs.verified }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+      VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
+      VITE_API_URL: ${{ vars.VITE_API_URL }}
+      CONTENT_URL: ${{ vars.CONTENT_URL }}
+      ALLOWED_ORIGINS: ${{ vars.ALLOWED_ORIGINS }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: Select actual active source versions without publishing
+        id: active
+        env:
+          FAILED_RUN_ID: ${{ github.event.workflow_run.id }}
+        run: npm run recovery:select
+      - name: Check out the exact published source in an isolated runner directory
+        if: steps.active.outputs.deferred != 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.active.outputs.commit }}
+          path: published-source
+      - name: Rebuild candidate artifacts from the deployed commit
+        if: steps.active.outputs.deferred != 'true'
+        working-directory: published-source
+        env:
+          GH_TOKEN: ''
+          CLOUDFLARE_API_TOKEN: ''
+        run: npm ci --no-audit --no-fund && npm run build
+      - name: Locate any retained immutable content archive
+        if: steps.active.outputs.deferred != 'true'
+        id: retained
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const {data} = await github.rest.actions.listArtifactsForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              name: 'production-student', per_page: 100
+            });
+            const artifact = data.artifacts.find(a => !a.expired && a.workflow_run?.head_branch === 'main');
+            if (artifact) core.setOutput('run_id', String(artifact.workflow_run.id));
+            else if (data.artifacts.some(a => a.expired)) core.setFailed('Historical static archive expired; restore actual retained versions before recovery');
+      - uses: actions/download-artifact@v4
+        if: steps.active.outputs.deferred != 'true' && steps.retained.outputs.run_id != ''
+        with:
+          name: production-student
+          github-token: ${{ github.token }}
+          run-id: ${{ steps.retained.outputs.run_id }}
+          path: .wrangler/recovery-retained
+      - name: Verify every public file and stable versions before certifying a baseline
+        if: steps.active.outputs.deferred != 'true'
+        id: audit
+        run: npm run recovery:audit -- --source-root published-source
+      - name: Archive only the actually verified static baseline
+        if: steps.audit.outputs.verified == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-student
+          path: published-source/apps/student-web/dist
+          retention-days: 90
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: steps.audit.outputs.verified == 'true'
+        with:
+          name: recovery-receipt
+          path: .wrangler/recovery-receipt.local.json
+          include-hidden-files: true
+          retention-days: 90
+  resume:
+    needs: recover
+    if: needs.recover.outputs.verified == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: Do not compete with a queued or active production job
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: npm run maintenance:push-check
+      - name: Resume the sole guarded production pipeline
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner, repo: context.repo.repo,
+              workflow_id: 'ci.yml', ref: 'main'
+            });
+            core.notice('Verified static baseline retained. Main pipeline dispatched; deployment/live success is not assumed.');
