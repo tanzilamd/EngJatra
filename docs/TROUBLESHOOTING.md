@@ -29,7 +29,7 @@ Current deployment uses three Workers, not Pages. Read `docs/DEPLOYMENT_SIMPLE_B
 | Expected engjatra but engjatra-api uploaded | Root config is student engjatra. API deploy always uses its own validated config; disable generic native trigger. |
 | Frontend built but deployment failed | Build is not deploy. Check account token/target/runtime input and the distinct Actions deployment/verification logs. |
 | Blank vars erase production config | API has no blank defaults and keep_vars true; managed script supplies validated config and additive version secrets. Do not paste secrets in CLI args. |
-| Missing deployment inputs | Set the exact GitHub Actions Variables/Secrets once; Codex secrets are not forwarded automatically. |
+| Missing deployment inputs | Read the redacted EngJatra deployment blocked annotation on the failed GitHub check, then set the exact Actions Variables/Secrets once; Codex secrets are not forwarded automatically. |
 | Native and Actions deploy fight | Disable Workers Builds automatic deploy for the same three names; keep the single Actions trigger. |
 | Stale QA proof | Source or commit changed; deploy reruns QA. Do not fake the proof or skip security checks. |
 | Published content baseline missing | Restore the last approved student artifact. Never drop old versions or reuse a changed immutable version to make deployment pass. |

@@ -18,6 +18,7 @@ import {
 } from "./deployment-verify";
 import { preserveContent } from "./deployment-artifacts";
 import { proofCurrent, commit } from "./qa-proof";
+import { redactLog } from "./redact-log";
 for (const file of [".env", ".deploy.env"])
   if (existsSync(file)) process.loadEnvFile(file);
 const [mode = "check", ...args] = process.argv.slice(2);
@@ -268,6 +269,14 @@ async function main() {
 try {
   await main();
 } catch (error) {
-  console.error((error as Error).message);
+  const message = redactLog((error as Error).message, process.env);
+  console.error(message);
+  if (process.env.GITHUB_ACTIONS === "true")
+    console.error(
+      `::error title=EngJatra deployment blocked::${message
+        .replaceAll("%", "%25")
+        .replaceAll("\r", "%0D")
+        .replaceAll("\n", "%0A")}`,
+    );
   process.exitCode = 1;
 }
