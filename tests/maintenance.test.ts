@@ -135,19 +135,24 @@ it("monitor verifies the archived deployed SHA rather than current main, and rej
   const root = await mkdtemp(join(tmpdir(), "engjatra-maintenance-"));
   try {
     await archive(root);
+    let homepageMiss = true;
     const network = vi.fn(
       async (input: RequestInfo | URL, init?: RequestInit) => {
         const url = new URL(String(input));
         if (url.hostname === "api.cloudflare.com")
           return Response.json({
             success: true,
-            result: url.pathname.endsWith("/deployments")
-              ? {
-                  deployments: [
-                    { versions: [{ version_id: "version", percentage: 100 }] },
-                  ],
-                }
-              : { annotations: { "workers/tag": sha } },
+            result: url.pathname.endsWith("/workers/subdomain")
+              ? { subdomain: "fixture" }
+              : url.pathname.endsWith("/deployments")
+                ? {
+                    deployments: [
+                      {
+                        versions: [{ version_id: "version", percentage: 100 }],
+                      },
+                    ],
+                  }
+                : { annotations: { "workers/tag": sha } },
           });
         if (url.hostname === "fixture.supabase.co")
           return url.pathname.includes("rpc")
@@ -168,6 +173,14 @@ it("monitor verifies the archived deployed SHA rather than current main, and rej
               : { items: [] },
             { headers: { "Access-Control-Allow-Origin": env.CONTENT_URL } },
           );
+        }
+        if (
+          url.origin === env.CONTENT_URL &&
+          url.pathname === "/" &&
+          homepageMiss
+        ) {
+          homepageMiss = false;
+          return new Response("", { status: 404 });
         }
         const service =
           url.origin === env.CONTENT_URL ? "student-web" : "admin-web";

@@ -5,15 +5,32 @@ import type { DeploymentConfig } from "./deployment-config";
 export type Network = typeof fetch;
 export const digest = (text: string) =>
   createHash("sha256").update(text).digest("hex");
-async function get(url: string, network: Network, init?: RequestInit) {
-  const response = await network(url, {
-    ...init,
-    redirect: "error",
-    signal: AbortSignal.timeout(15000),
-  });
-  if (!response.ok)
+async function get(
+  url: string,
+  network: Network,
+  init?: RequestInit,
+  retry404 = false,
+) {
+  let response: Response | undefined;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    response = await network(url, {
+      ...init,
+      redirect: "error",
+      signal: AbortSignal.timeout(15000),
+    });
+    if (
+      !(
+        [502, 503, 504].includes(response.status) ||
+        (retry404 && response.status === 404)
+      ) ||
+      attempt === 2
+    )
+      break;
+    await new Promise<void>((done) => setTimeout(done, 1000));
+  }
+  if (!response?.ok)
     throw Error(
-      `Verification HTTP ${response.status}: ${new URL(url).pathname}`,
+      `Verification HTTP ${response?.status ?? "unknown"}: ${new URL(url).origin}${new URL(url).pathname}`,
     );
   return response;
 }
@@ -57,7 +74,7 @@ export async function verifySites(
       "utf8",
     );
     for (const path of ["/", "/learn"]) {
-      const response = await get(`${base}${path}`, network);
+      const response = await get(`${base}${path}`, network, undefined, true);
       if (digest(await response.text()) !== digest(expected))
         throw Error(
           `${service}: deployed HTML differs from validated artifact or SPA refresh failed`,
@@ -215,4 +232,38 @@ export async function verifyVersions(
   for (const name of ["engjatra-api", "engjatra", "engjatra-admin"])
     result[name] = await verifyWorkerVersion(config, name, sha, network);
   return result;
+}
+
+export async function verifyAccountOrigins(
+  config: DeploymentConfig,
+  network: Network = fetch,
+) {
+  const origins = [
+    ["engjatra", config.student],
+    ["engjatra-admin", config.admin],
+    ["engjatra-api", config.api],
+  ];
+  if (!origins.some(([, value]) => value.endsWith(".workers.dev"))) return;
+  const account = (await cloudRequest(
+    config,
+    "/workers/subdomain",
+    network,
+  )) as { subdomain?: string };
+  if (
+    !account ||
+    typeof account.subdomain !== "string" ||
+    !/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(account.subdomain)
+  )
+    throw Error(
+      "Cloudflare account workers.dev subdomain is unavailable; no origin or deployment success is claimed",
+    );
+  const wrong = origins.filter(
+    ([name, value]) =>
+      value.endsWith(".workers.dev") &&
+      value !== `https://${name}.${account.subdomain}.workers.dev`,
+  );
+  if (wrong.length)
+    throw Error(
+      `Configured workers.dev origins do not match the authorized account. Correct public origins: ${origins.map(([name]) => `${name}=https://${name}.${account.subdomain}.workers.dev`).join(", ")}. No automatic URL override or publishing was performed; update matching CI/CORS/Auth configuration through authorized settings.`,
+    );
 }

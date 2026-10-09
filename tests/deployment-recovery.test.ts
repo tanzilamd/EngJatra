@@ -1,7 +1,10 @@
 import { it, expect, vi } from "vitest";
 import { rm, readFile } from "node:fs/promises";
 import { settings } from "../scripts/deployment-config";
-import { cloudRequest } from "../scripts/deployment-verify";
+import {
+  cloudRequest,
+  verifyAccountOrigins,
+} from "../scripts/deployment-verify";
 import {
   gatewayDiagnostic,
   saveWranglerResult,
@@ -132,4 +135,25 @@ it("only idempotent Cloudflare reads retry transient gateway responses; permissi
     cloudRequest(config, "/workers/scripts", denied),
   ).rejects.toThrow(/403/);
   expect(denied).toHaveBeenCalledTimes(1);
+});
+
+it("account-derived Worker origins reject a wrong subdomain without publishing or overriding configuration", async () => {
+  const network = vi.fn(async () =>
+    Response.json({ success: true, result: { subdomain: "fixture" } }),
+  );
+  await verifyAccountOrigins(config, network);
+  await expect(
+    verifyAccountOrigins(
+      { ...config, student: "https://engjatra.wrong-account.workers.dev" },
+      network,
+    ),
+  ).rejects.toThrow(/do not match.*engjatra=\S*fixture.workers.dev/);
+  expect(config.student).toBe("https://engjatra.fixture.workers.dev");
+  expect(network).toHaveBeenCalledTimes(2);
+  const missing = vi.fn(async () =>
+    Response.json({ success: true, result: {} }),
+  );
+  await expect(verifyAccountOrigins(config, missing)).rejects.toThrow(
+    /subdomain is unavailable/,
+  );
 });

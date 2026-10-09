@@ -15,6 +15,7 @@ import {
   verifySupabase,
   verifyVersions,
   cloudRequest,
+  verifyAccountOrigins,
 } from "./deployment-verify";
 import { preserveContent } from "./deployment-artifacts";
 import { proofCurrent, commit } from "./qa-proof";
@@ -123,13 +124,17 @@ async function main() {
       await artifacts();
       await compile(config);
     }
-    if (args.includes("--live")) await verifySupabase(config);
+    if (args.includes("--live")) {
+      await verifyAccountOrigins(config);
+      await verifySupabase(config);
+    }
     console.log(
       "PASS configured local deployment checks. No services published; dashboard/auth/free eligibility and live production remain unverified.",
     );
     return;
   }
   if (mode === "verify" || mode === "recover") {
+    await verifyAccountOrigins(config);
     if (mode === "recover") {
       console.log(
         "Read-only recovery: no upload, secret mutation, rollback or SQL execution",
@@ -160,6 +165,7 @@ async function main() {
     process.env.GITHUB_SHA === commit();
   if (!args.includes("--dry-run") && branch !== "main" && !trustedMainCI)
     throw Error("Production publishing is restricted to main");
+  if (!args.includes("--dry-run")) await verifyAccountOrigins(config);
   if (!(await proofCurrent()))
     await npm(["run", "qa"], {
       ...process.env,
@@ -255,6 +261,23 @@ async function main() {
         ]),
       );
     const versions = await verifyVersions(config, version);
+    await writeFile(
+      ".wrangler/publication-attempt.local.json",
+      JSON.stringify({
+        commit: version,
+        versions,
+        origins: {
+          student: config.student,
+          admin: config.admin,
+          api: config.api,
+        },
+        recorded_at: new Date().toISOString(),
+        state: "published_versions_only",
+        scope:
+          "attempted build/version evidence; site/security verification incomplete; never a success receipt",
+      }),
+      { mode: 0o600 },
+    );
     await verifySites(config);
     await writeFile(
       ".wrangler/deployment-receipt.local.json",

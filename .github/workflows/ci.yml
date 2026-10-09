@@ -125,3 +125,15 @@ jobs:
           include-hidden-files: true
           retention-days: 7
           if-no-files-found: ignore
+      - name: Preserve partial publication evidence for safe recovery
+        uses: actions/upload-artifact@v4
+        if: failure() && hashFiles('.wrangler/publication-attempt.local.json') != ''
+        with:
+          name: publication-attempt
+          path: |
+            apps/student-web/dist
+            apps/admin-web/dist
+            .wrangler/publication-attempt.local.json
+          include-hidden-files: true
+          retention-days: 90
+          if-no-files-found: error

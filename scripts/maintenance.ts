@@ -9,6 +9,7 @@ import {
   verifySites,
   verifySupabase,
   verifyVersions,
+  verifyAccountOrigins,
   type Network,
 } from "./deployment-verify";
 import { redactLog } from "./redact-log";
@@ -126,6 +127,7 @@ export async function monitor(
     );
   let failure: unknown;
   try {
+    await verifyAccountOrigins(config, network);
     const versions = await verifyVersions(config, expectedCommit, network);
     if (
       Object.entries(versions).some(
