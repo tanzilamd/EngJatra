@@ -1,0 +1,245 @@
+{
+  "id": "P0-02",
+  "level": "P0",
+  "position": 2,
+  "title_bn": "নাম জানাই",
+  "title_en": "My Name",
+  "goal_bn": "নিজের নাম লিখতে পারবে",
+  "rule_bn": "My name is-এর পরে নাম বসে; I am-এর পরেও নিজের পরিচয় দেওয়া যায়।",
+  "example_en": "My name is Sami.",
+  "translation_bn": "আমার নাম সামি।",
+  "vocabulary": [
+    {
+      "en": "name",
+      "bn": "নাম"
+    },
+    {
+      "en": "first name",
+      "bn": "নামের প্রথম অংশ"
+    },
+    {
+      "en": "last name",
+      "bn": "পদবি বা পারিবারিক নাম"
+    },
+    {
+      "en": "friend",
+      "bn": "বন্ধু"
+    },
+    {
+      "en": "call",
+      "bn": "ডাকা"
+    },
+    {
+      "en": "meet",
+      "bn": "দেখা হওয়া"
+    },
+    {
+      "en": "nice",
+      "bn": "ভালো"
+    },
+    {
+      "en": "person",
+      "bn": "ব্যক্তি"
+    },
+    {
+      "en": "my",
+      "bn": "আমার"
+    },
+    {
+      "en": "your",
+      "bn": "তোমার বা আপনার"
+    },
+    {
+      "en": "what",
+      "bn": "কী"
+    },
+    {
+      "en": "who",
+      "bn": "কে"
+    },
+    {
+      "en": "boy",
+      "bn": "ছেলে"
+    },
+    {
+      "en": "girl",
+      "bn": "মেয়ে"
+    },
+    {
+      "en": "class",
+      "bn": "শ্রেণি"
+    },
+    {
+      "en": "spell",
+      "bn": "বানান করা"
+    }
+  ],
+  "quest": {
+    "character": "বন্ধু নীরা",
+    "opening_bn": "শুরু হলো শহরের ছোট্ট ভাষা-অভিযান। আজ তোমার মিশন: নিজের নাম লিখতে পারবে।",
+    "npc_question_en": "What is your name?",
+    "good_response_en": "My name is Sami.",
+    "challenging_response_en": "My name Sami.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "নতুন ক্লাসে সবাই নিজের নাম বলছে।",
+      "follow_up_question_en": "Nice to meet you, Sami. Are you new here?",
+      "guided_reply_en": "Yes, I am new here.",
+      "skill_focus_bn": "নিজের নামের পরে ছোট উত্তর দেওয়া শিখবে।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "P0-02-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "What is your name?",
+      "options": [
+        "My name is Sami.",
+        "My name Sami."
+      ],
+      "correct_index": 0,
+      "answer": "My name is Sami.",
+      "feedback_bn": "My name is-এর পরে নাম বসে; I am-এর পরেও নিজের পরিচয় দেওয়া যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "P0-02-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "My name ___ Sami.",
+      "answer": "is",
+      "feedback_bn": "My name is-এর পরে নাম বসে; I am-এর পরেও নিজের পরিচয় দেওয়া যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "is",
+        "am",
+        "are"
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "P0-02-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "My name Sami.",
+      "answer": "My name is Sami.",
+      "feedback_bn": "My name is-এর পরে নাম বসে; I am-এর পরেও নিজের পরিচয় দেওয়া যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "My name Sami.",
+        "My name is Sami."
+      ],
+      "correct_index": 1,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "P0-02-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: আমার নাম সামি।",
+      "tokens": [
+        "name",
+        "My",
+        "Sami.",
+        "is"
+      ],
+      "answer": "My name is Sami.",
+      "feedback_bn": "My name is-এর পরে নাম বসে; I am-এর পরেও নিজের পরিচয় দেওয়া যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "P0-02-write",
+      "type": "guided_write",
+      "prompt_bn": "নিজের নাম দিয়ে দুটি পরিচয়মূলক বাক্য লেখো।",
+      "sample_answer_en": "My name is Sami.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": null,
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "P0-02-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "name",
+          "bn": "নাম"
+        },
+        {
+          "en": "first name",
+          "bn": "নামের প্রথম অংশ"
+        },
+        {
+          "en": "last name",
+          "bn": "পদবি বা পারিবারিক নাম"
+        },
+        {
+          "en": "friend",
+          "bn": "বন্ধু"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "name",
+          "bn": "নাম"
+        },
+        {
+          "en": "first name",
+          "bn": "নামের প্রথম অংশ"
+        },
+        {
+          "en": "last name",
+          "bn": "পদবি বা পারিবারিক নাম"
+        },
+        {
+          "en": "friend",
+          "bn": "বন্ধু"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "P0-02-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "My name is Sami.",
+      "options_bn": [
+        "হ্যালো, আমি রিনা।",
+        "সে আমার বন্ধু।",
+        "আমার নাম সামি।"
+      ],
+      "correct_index": 2,
+      "answer_bn": "আমার নাম সামি।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "My name is Sami. What is your name? My name is Sami.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

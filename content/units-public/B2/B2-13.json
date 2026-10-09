@@ -1,0 +1,112 @@
+{
+  "id": "B2-13",
+  "level": "B2",
+  "position": 13,
+  "title_bn": "ইমেইল দরকষাকষি",
+  "title_en": "Negotiating by Email",
+  "goal_bn": "বাস্তব কথোপকথনে ইমেইল দরকষাকষি বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "Could we consider... / Would it be possible... ভদ্রভাবে বিকল্প প্রস্তাবের জন্য উপযোগী।",
+  "example_en": "Would it be possible to extend the deadline by two days?",
+  "translation_bn": "সময়সীমা দুই দিন বাড়ানো সম্ভব হবে কি?",
+  "vocabulary": [
+    {
+      "en": "negotiate",
+      "bn": "আলোচনা করে সমাধান করা"
+    },
+    {
+      "en": "extend",
+      "bn": "বাড়ানো"
+    },
+    {
+      "en": "deadline",
+      "bn": "সময়সীমা"
+    },
+    {
+      "en": "flexible",
+      "bn": "নমনীয়"
+    },
+    {
+      "en": "terms",
+      "bn": "শর্তাবলি"
+    },
+    {
+      "en": "agreement",
+      "bn": "সম্মতি"
+    },
+    {
+      "en": "reasonable",
+      "bn": "যুক্তিসংগত"
+    },
+    {
+      "en": "proposal",
+      "bn": "প্রস্তাব"
+    }
+  ],
+  "reading": {
+    "text_en": "Would it be possible to extend the deadline by two days? How do you request an extension? Would it be possible to extend the deadline by two days?",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: ইমেইল দরকষাকষি।",
+    "npc_question_en": "How do you request an extension?",
+    "good_response_en": "Would it be possible to extend the deadline by two days?",
+    "challenging_response_en": "Would possible extending the deadline by two days?",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "B2-13-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "How do you request an extension?",
+      "options": [
+        "Would it be possible to extend the deadline by two days?",
+        "Would possible extending the deadline by two days?"
+      ],
+      "correct_index": 0,
+      "answer": "Would it be possible to extend the deadline by two days?",
+      "feedback_bn": "Could we consider... / Would it be possible... ভদ্রভাবে বিকল্প প্রস্তাবের জন্য উপযোগী।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "B2-13",
+      "level": "B2"
+    },
+    {
+      "id": "B2-13-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"negotiate\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "আলোচনা করে সমাধান করা",
+        "বাড়ানো",
+        "সময়সীমা"
+      ],
+      "correct_index": 0,
+      "answer": "আলোচনা করে সমাধান করা",
+      "feedback_bn": "negotiate = আলোচনা করে সমাধান করা (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "B2-13",
+      "level": "B2"
+    },
+    {
+      "id": "B2-13-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে ইমেইল দরকষাকষি বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "Would it be possible to extend the deadline by two days?",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "B2-13",
+      "level": "B2"
+    }
+  ]
+}

@@ -1,0 +1,250 @@
+{
+  "id": "C1-03",
+  "level": "C1",
+  "position": 3,
+  "title_bn": "যুক্তিতে ছাড়",
+  "title_en": "Conceding a Point",
+  "goal_bn": "বিপরীত মতের শক্তি স্বীকার করে যুক্তি চালাতে পারবে",
+  "rule_bn": "Admittedly দিয়ে কোনো সীমাবদ্ধতা মেনে নিয়ে পরবর্তী যুক্তি তুলে ধরা যায়।",
+  "example_en": "Admittedly, the proposal is expensive; however, it is practical.",
+  "translation_bn": "স্বীকার করতেই হয় প্রস্তাবটি ব্যয়বহুল; তবে এটি বাস্তবসম্মত।",
+  "vocabulary": [
+    {
+      "en": "admittedly",
+      "bn": "স্বীকার্যভাবে"
+    },
+    {
+      "en": "concede",
+      "bn": "মেনে নেওয়া"
+    },
+    {
+      "en": "counterargument",
+      "bn": "পাল্টা যুক্তি"
+    },
+    {
+      "en": "qualification",
+      "bn": "শর্তযুক্ত ব্যাখ্যা"
+    },
+    {
+      "en": "practical",
+      "bn": "বাস্তবসম্মত"
+    },
+    {
+      "en": "nevertheless",
+      "bn": "তবুও"
+    },
+    {
+      "en": "weakness",
+      "bn": "দুর্বলতা"
+    },
+    {
+      "en": "strength",
+      "bn": "শক্তি"
+    },
+    {
+      "en": "albeit",
+      "bn": "যদিও"
+    },
+    {
+      "en": "nonetheless",
+      "bn": "তবুও"
+    },
+    {
+      "en": "reservation",
+      "bn": "সংশয় বা আপত্তি"
+    },
+    {
+      "en": "acknowledge",
+      "bn": "স্বীকার করা"
+    },
+    {
+      "en": "mitigate",
+      "bn": "প্রভাব কমানো"
+    },
+    {
+      "en": "substantial",
+      "bn": "উল্লেখযোগ্য"
+    },
+    {
+      "en": "undermine",
+      "bn": "দুর্বল করা"
+    },
+    {
+      "en": "justify",
+      "bn": "যৌক্তিকতা দেখানো"
+    }
+  ],
+  "quest": {
+    "character": "প্রজেক্ট টিম",
+    "opening_bn": "গবেষণা, নীতি ও দায়িত্বশীল যোগাযোগ। আজ তোমার মিশন: বিপরীত মতের শক্তি স্বীকার করে যুক্তি চালাতে পারবে।",
+    "npc_question_en": "Can you acknowledge a weakness in the proposal?",
+    "good_response_en": "Admittedly, the proposal is expensive; however, it is practical.",
+    "challenging_response_en": "Admittedly the proposal expensive; however practical.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "প্রস্তাবের সীমাবদ্ধতা মেনে তর্ক চালানো।",
+      "follow_up_question_en": "How would you respond to that criticism?",
+      "guided_reply_en": "I acknowledge the concern, but the benefits may outweigh the costs.",
+      "skill_focus_bn": "যুক্তিতে ছাড় দিয়ে পাল্টা বিবেচনা।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "C1-03-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "Can you acknowledge a weakness in the proposal?",
+      "options": [
+        "Admittedly, the proposal is expensive; however, it is practical.",
+        "Admittedly the proposal expensive; however practical."
+      ],
+      "correct_index": 0,
+      "answer": "Admittedly, the proposal is expensive; however, it is practical.",
+      "feedback_bn": "Admittedly দিয়ে কোনো সীমাবদ্ধতা মেনে নিয়ে পরবর্তী যুক্তি তুলে ধরা যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "C1-03-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "___, the proposal is expensive.",
+      "answer": "Admittedly",
+      "feedback_bn": "Admittedly দিয়ে কোনো সীমাবদ্ধতা মেনে নিয়ে পরবর্তী যুক্তি তুলে ধরা যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "Admitted",
+        "Admittedly",
+        "Admit"
+      ],
+      "correct_index": 1,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "C1-03-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "Admittedly, the idea have risks.",
+      "answer": "Admittedly, the idea has risks.",
+      "feedback_bn": "Admittedly দিয়ে কোনো সীমাবদ্ধতা মেনে নিয়ে পরবর্তী যুক্তি তুলে ধরা যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "Admittedly, the idea has risks.",
+        "Admittedly, the idea have risks."
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "C1-03-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: স্বীকার করতেই হয় প্রস্তাবটি ব্যয়বহুল; তবে এটি বাস্তবসম্মত।",
+      "tokens": [
+        "is",
+        "is",
+        "expensive;",
+        "the",
+        "practical.",
+        "proposal",
+        "it",
+        "however,",
+        "Admittedly,"
+      ],
+      "answer": "Admittedly, the proposal is expensive; however, it is practical.",
+      "feedback_bn": "Admittedly দিয়ে কোনো সীমাবদ্ধতা মেনে নিয়ে পরবর্তী যুক্তি তুলে ধরা যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "C1-03-write",
+      "type": "guided_write",
+      "prompt_bn": "নিজের মতের একটি দুর্বলতা স্বীকার করে যুক্তি লেখো।",
+      "sample_answer_en": "Admittedly, the proposal is expensive; however, it is practical.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": null,
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "C1-03-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "admittedly",
+          "bn": "স্বীকার্যভাবে"
+        },
+        {
+          "en": "concede",
+          "bn": "মেনে নেওয়া"
+        },
+        {
+          "en": "counterargument",
+          "bn": "পাল্টা যুক্তি"
+        },
+        {
+          "en": "qualification",
+          "bn": "শর্তযুক্ত ব্যাখ্যা"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "admittedly",
+          "bn": "স্বীকার্যভাবে"
+        },
+        {
+          "en": "concede",
+          "bn": "মেনে নেওয়া"
+        },
+        {
+          "en": "counterargument",
+          "bn": "পাল্টা যুক্তি"
+        },
+        {
+          "en": "qualification",
+          "bn": "শর্তযুক্ত ব্যাখ্যা"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "C1-03-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "Admittedly, the proposal is expensive; however, it is practical.",
+      "options_bn": [
+        "বেশি দাম মানেই যে ভালো মান হবে, তা নয়।",
+        "স্বীকার করতেই হয় প্রস্তাবটি ব্যয়বহুল; তবে এটি বাস্তবসম্মত।",
+        "দেখা যাচ্ছে নীতিটি সুযোগ বাড়িয়েছে, তবে এটি নিশ্চিত সিদ্ধান্ত নয়।"
+      ],
+      "correct_index": 1,
+      "answer_bn": "স্বীকার করতেই হয় প্রস্তাবটি ব্যয়বহুল; তবে এটি বাস্তবসম্মত।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "Admittedly, the proposal is expensive; however, it is practical. Can you acknowledge a weakness in the proposal? Admittedly, the proposal is expensive; however, it is practical.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

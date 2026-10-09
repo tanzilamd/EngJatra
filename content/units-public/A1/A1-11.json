@@ -1,0 +1,112 @@
+{
+  "id": "A1-11",
+  "level": "A1",
+  "position": 11,
+  "title_bn": "এই মুহূর্তে কী হচ্ছে?",
+  "title_en": "Right Now",
+  "goal_bn": "বাস্তব কথোপকথনে এই মুহূর্তে কী হচ্ছে? বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "Present continuous: am/is/are + verb-ing; এখন ঘটছে এমন কাজ বোঝায়।",
+  "example_en": "He is reading now.",
+  "translation_bn": "সে এখন পড়ছে।",
+  "vocabulary": [
+    {
+      "en": "now",
+      "bn": "এখন"
+    },
+    {
+      "en": "currently",
+      "bn": "বর্তমানে"
+    },
+    {
+      "en": "drawing",
+      "bn": "আঁকছে"
+    },
+    {
+      "en": "waiting",
+      "bn": "অপেক্ষা করছে"
+    },
+    {
+      "en": "running",
+      "bn": "দৌড়াচ্ছে"
+    },
+    {
+      "en": "cooking",
+      "bn": "রান্না করছে"
+    },
+    {
+      "en": "studying",
+      "bn": "পড়ছে"
+    },
+    {
+      "en": "working",
+      "bn": "কাজ করছে"
+    }
+  ],
+  "reading": {
+    "text_en": "He is reading now. What is he doing? He is reading now.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: এই মুহূর্তে কী হচ্ছে?।",
+    "npc_question_en": "What is he doing?",
+    "good_response_en": "He is reading now.",
+    "challenging_response_en": "He reading now.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "A1-11-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What is he doing?",
+      "options": [
+        "He is reading now.",
+        "He reading now."
+      ],
+      "correct_index": 0,
+      "answer": "He is reading now.",
+      "feedback_bn": "Present continuous: am/is/are + verb-ing; এখন ঘটছে এমন কাজ বোঝায়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "A1-11",
+      "level": "A1"
+    },
+    {
+      "id": "A1-11-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"now\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "এখন",
+        "বর্তমানে",
+        "আঁকছে"
+      ],
+      "correct_index": 0,
+      "answer": "এখন",
+      "feedback_bn": "now = এখন (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "A1-11",
+      "level": "A1"
+    },
+    {
+      "id": "A1-11-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে এই মুহূর্তে কী হচ্ছে? বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "He is reading now.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "A1-11",
+      "level": "A1"
+    }
+  ]
+}

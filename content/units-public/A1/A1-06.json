@@ -1,0 +1,246 @@
+{
+  "id": "A1-06",
+  "level": "A1",
+  "position": 6,
+  "title_bn": "কেনাকাটা",
+  "title_en": "Shopping Talk",
+  "goal_bn": "দাম জানতে ও কেনার ইচ্ছা জানাতে পারবে",
+  "rule_bn": "How much is ...? একবচন জিনিসের দাম জানতে ব্যবহৃত হয়।",
+  "example_en": "How much is this notebook?",
+  "translation_bn": "এই খাতাটির দাম কত?",
+  "vocabulary": [
+    {
+      "en": "price",
+      "bn": "দাম"
+    },
+    {
+      "en": "shop",
+      "bn": "দোকান"
+    },
+    {
+      "en": "buy",
+      "bn": "কেনা"
+    },
+    {
+      "en": "sell",
+      "bn": "বিক্রি"
+    },
+    {
+      "en": "cheap",
+      "bn": "সস্তা"
+    },
+    {
+      "en": "expensive",
+      "bn": "দামি"
+    },
+    {
+      "en": "cash",
+      "bn": "নগদ"
+    },
+    {
+      "en": "notebook",
+      "bn": "খাতা"
+    },
+    {
+      "en": "money",
+      "bn": "টাকা"
+    },
+    {
+      "en": "change",
+      "bn": "ভাংতি টাকা"
+    },
+    {
+      "en": "size",
+      "bn": "মাপ"
+    },
+    {
+      "en": "color",
+      "bn": "রং"
+    },
+    {
+      "en": "small",
+      "bn": "ছোট"
+    },
+    {
+      "en": "large",
+      "bn": "বড়"
+    },
+    {
+      "en": "cost",
+      "bn": "দাম হওয়া"
+    },
+    {
+      "en": "receipt",
+      "bn": "রসিদ"
+    }
+  ],
+  "quest": {
+    "character": "বন্ধু নীরা",
+    "opening_bn": "নতুন শহরে বন্ধু, দোকান ও ক্লাসের সঙ্গে পরিচয়। আজ তোমার মিশন: দাম জানতে ও কেনার ইচ্ছা জানাতে পারবে।",
+    "npc_question_en": "What do you want to know about the notebook?",
+    "good_response_en": "How much is this notebook?",
+    "challenging_response_en": "How many is this notebook?",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "দোকানে খাতার দাম জানা।",
+      "follow_up_question_en": "Would you like the blue notebook?",
+      "guided_reply_en": "Yes, please. How much is it?",
+      "skill_focus_bn": "রং ও দাম জিজ্ঞেস করা।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "A1-06-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "What do you want to know about the notebook?",
+      "options": [
+        "How many is this notebook?",
+        "How much is this notebook?"
+      ],
+      "correct_index": 1,
+      "answer": "How much is this notebook?",
+      "feedback_bn": "How much is ...? একবচন জিনিসের দাম জানতে ব্যবহৃত হয়।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "A1-06-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "How ___ is this notebook?",
+      "answer": "much",
+      "feedback_bn": "How much is ...? একবচন জিনিসের দাম জানতে ব্যবহৃত হয়।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "many",
+        "much",
+        "more"
+      ],
+      "correct_index": 1,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "A1-06-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "How many is this pen?",
+      "answer": "How much is this pen?",
+      "feedback_bn": "How much is ...? একবচন জিনিসের দাম জানতে ব্যবহৃত হয়।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "How much is this pen?",
+        "How many is this pen?"
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "A1-06-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: এই খাতাটির দাম কত?",
+      "tokens": [
+        "this",
+        "is",
+        "notebook?",
+        "How",
+        "much"
+      ],
+      "answer": "How much is this notebook?",
+      "feedback_bn": "How much is ...? একবচন জিনিসের দাম জানতে ব্যবহৃত হয়।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "A1-06-write",
+      "type": "guided_write",
+      "prompt_bn": "দোকানে দুটি জিনিসের দাম জানতে ইংরেজি প্রশ্ন লেখো।",
+      "sample_answer_en": "How much is this notebook?",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": null,
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "A1-06-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "price",
+          "bn": "দাম"
+        },
+        {
+          "en": "shop",
+          "bn": "দোকান"
+        },
+        {
+          "en": "buy",
+          "bn": "কেনা"
+        },
+        {
+          "en": "sell",
+          "bn": "বিক্রি"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "price",
+          "bn": "দাম"
+        },
+        {
+          "en": "shop",
+          "bn": "দোকান"
+        },
+        {
+          "en": "buy",
+          "bn": "কেনা"
+        },
+        {
+          "en": "sell",
+          "bn": "বিক্রি"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "A1-06-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "How much is this notebook?",
+      "options_bn": [
+        "এই খাতাটির দাম কত?",
+        "সে হেঁটে স্কুলে যায়।",
+        "আমার মা-বাবা দয়ালু।"
+      ],
+      "correct_index": 0,
+      "answer_bn": "এই খাতাটির দাম কত?",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "How much is this notebook? What do you want to know about the notebook? How much is this notebook?",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

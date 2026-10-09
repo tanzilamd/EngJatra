@@ -1,0 +1,2450 @@
+[
+  {
+    "id": "SC-P0-01",
+    "level": "P0",
+    "unit_id": "P0-01",
+    "scene_bn": "স্কুলের গেটে নতুন বন্ধুর সঙ্গে দেখা।",
+    "character_bn": "বন্ধু নীরা",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Hello! How are you?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I am fine, thank you."
+      },
+      {
+        "role": "npc",
+        "text_en": "What is your name?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "My name is Rina."
+      }
+    ],
+    "choice_feedback_bn": "Hello হলো সাধারণ অভিবাদন; Good morning সকালবেলায় ব্যবহৃত হয়।",
+    "learning_focus_bn": "অভিবাদনের পর সহজ পরিচয় দেওয়া শিখবে।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-P0-02",
+    "level": "P0",
+    "unit_id": "P0-02",
+    "scene_bn": "নতুন ক্লাসে সবাই নিজের নাম বলছে।",
+    "character_bn": "বন্ধু নীরা",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What is your name?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "My name is Sami."
+      },
+      {
+        "role": "npc",
+        "text_en": "Nice to meet you, Sami. Are you new here?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, I am new here."
+      }
+    ],
+    "choice_feedback_bn": "My name is-এর পরে নাম বসে; I am-এর পরেও নিজের পরিচয় দেওয়া যায়।",
+    "learning_focus_bn": "নিজের নামের পরে ছোট উত্তর দেওয়া শিখবে।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-P0-03",
+    "level": "P0",
+    "unit_id": "P0-03",
+    "scene_bn": "তিন বন্ধুর ছবি দেখে পরিচয় দেওয়া।",
+    "character_bn": "বন্ধু নীরা",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Who is Mina?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "She is my friend."
+      },
+      {
+        "role": "npc",
+        "text_en": "Who is she?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "She is my friend."
+      }
+    ],
+    "choice_feedback_bn": "I নিজেকে বোঝায়; he একজন পুরুষকে এবং she একজন নারীকে বোঝাতে পারে। You এক বা একাধিক জনকে বোঝাতে পারে।",
+    "learning_focus_bn": "Subject pronoun এবং be verb অনুশীলন।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-P0-04",
+    "level": "P0",
+    "unit_id": "P0-04",
+    "scene_bn": "বন্ধু জিজ্ঞেস করছে তুমি কেমন আছ।",
+    "character_bn": "বন্ধু নীরা",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Are you ready?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, I am ready."
+      },
+      {
+        "role": "npc",
+        "text_en": "Are you tired?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "No, I am not tired."
+      }
+    ],
+    "choice_feedback_bn": "বর্তমানে পরিচয় বা অবস্থা বোঝাতে I am, he/she/it is, you/we/they are হয়।",
+    "learning_focus_bn": "নিজের অবস্থার সহজ বর্ণনা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-P0-05",
+    "level": "P0",
+    "unit_id": "P0-05",
+    "scene_bn": "জন্মদিনের কার্ডে বয়স লেখা।",
+    "character_bn": "বন্ধু নীরা",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How old are you?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I am twelve years old."
+      },
+      {
+        "role": "npc",
+        "text_en": "How old is your friend?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "She is twelve years old."
+      }
+    ],
+    "choice_feedback_bn": "বয়স বলার প্রচলিত কাঠামো I am ... years old।",
+    "learning_focus_bn": "সংখ্যা এবং বয়সের বাক্য গঠন।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-P0-06",
+    "level": "P0",
+    "unit_id": "P0-06",
+    "scene_bn": "টেবিলের জিনিস দেখিয়ে বলা।",
+    "character_bn": "বন্ধু নীরা",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What is this?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "This is my book."
+      },
+      {
+        "role": "npc",
+        "text_en": "Is this your pen?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, it is my pen."
+      }
+    ],
+    "choice_feedback_bn": "কাছের একবচন বস্তুতে this, দূরের একবচন বস্তুতে that ব্যবহার করা হয়।",
+    "learning_focus_bn": "This এবং it-এর ব্যবহার।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-P0-07",
+    "level": "P0",
+    "unit_id": "P0-07",
+    "scene_bn": "একজন বন্ধু সহজ প্রশ্ন করছে।",
+    "character_bn": "বন্ধু নীরা",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Are you tired?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "No, I am not tired."
+      },
+      {
+        "role": "npc",
+        "text_en": "Are you ready?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, I am."
+      }
+    ],
+    "choice_feedback_bn": "Are you ...? প্রশ্নে Yes, I am অথবা No, I am not বলা যায়।",
+    "learning_focus_bn": "Yes/No প্রশ্নের সংক্ষিপ্ত উত্তর।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-P0-08",
+    "level": "P0",
+    "unit_id": "P0-08",
+    "scene_bn": "নতুন বন্ধুকে নিজের শহরের কথা বলা।",
+    "character_bn": "বন্ধু নীরা",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Where do you live?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I live in Dhaka."
+      },
+      {
+        "role": "npc",
+        "text_en": "Do you like your city?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, I like it."
+      }
+    ],
+    "choice_feedback_bn": "পূর্ণ বাক্য বলতে প্রথমে subject, পরে verb ও প্রয়োজনীয় তথ্য যোগ করো।",
+    "learning_focus_bn": "স্থান নিয়ে একটি সহজ মতামত।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-A1-01",
+    "level": "A1",
+    "unit_id": "A1-01",
+    "scene_bn": "পারিবারিক ছবির অ্যালবাম দেখানো।",
+    "character_bn": "বন্ধু নীরা",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Tell me about your parents."
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "My parents are kind."
+      },
+      {
+        "role": "npc",
+        "text_en": "What does your mother do?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "She is a teacher."
+      }
+    ],
+    "choice_feedback_bn": "একজনের সঙ্গে is, একাধিক ব্যক্তির সঙ্গে are ব্যবহার হয়।",
+    "learning_focus_bn": "পরিবার নিয়ে সহজ তথ্য দেওয়া।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-A1-02",
+    "level": "A1",
+    "unit_id": "A1-02",
+    "scene_bn": "স্কুলের আগে সকালের কাজ বলা।",
+    "character_bn": "বন্ধু নীরা",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How does your sister go to school?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "She walks to school."
+      },
+      {
+        "role": "npc",
+        "text_en": "What time do you wake up?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I wake up at seven."
+      }
+    ],
+    "choice_feedback_bn": "I/you/we/they-এর সঙ্গে base verb; he/she/it-এর সঙ্গে সাধারণত verb+s/es।",
+    "learning_focus_bn": "দৈনন্দিন অভ্যাস এবং সময়।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-A1-03",
+    "level": "A1",
+    "unit_id": "A1-03",
+    "scene_bn": "দুজন বন্ধু পছন্দের খেলা নিয়ে কথা বলে।",
+    "character_bn": "বন্ধু নীরা",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What do you like doing?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I like reading books."
+      },
+      {
+        "role": "npc",
+        "text_en": "Do you like music?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, I like music."
+      }
+    ],
+    "choice_feedback_bn": "like-এর পরে noun অথবা verb+ing ব্যবহার করা যায়; he/she/it-এর সঙ্গে likes।",
+    "learning_focus_bn": "পছন্দের বিষয়ে সহজ প্রশ্নোত্তর।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-A1-04",
+    "level": "A1",
+    "unit_id": "A1-04",
+    "scene_bn": "বন্ধুর সঙ্গে দেখা করার সময় ঠিক করা।",
+    "character_bn": "বন্ধু নীরা",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "When does the class start?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "The class starts at nine."
+      },
+      {
+        "role": "npc",
+        "text_en": "Are you free in the evening?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, I am free in the evening."
+      }
+    ],
+    "choice_feedback_bn": "সময় নির্দেশ করতে at ব্যবহার হয়: at seven, at noon।",
+    "learning_focus_bn": "সময়সূচি নিয়ে তথ্য বিনিময়।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-A1-05",
+    "level": "A1",
+    "unit_id": "A1-05",
+    "scene_bn": "ক্যাফেতে খাবার অর্ডার করা।",
+    "character_bn": "বন্ধু নীরা",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What would you like to drink?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I would like a cup of tea."
+      },
+      {
+        "role": "npc",
+        "text_en": "Would you like some water?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, please."
+      }
+    ],
+    "choice_feedback_bn": "I would like ... ভদ্রভাবে কিছু চাওয়ার একটি প্রচলিত উপায়।",
+    "learning_focus_bn": "ভদ্রভাবে খাবার ও পানীয় চাওয়া।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-A1-06",
+    "level": "A1",
+    "unit_id": "A1-06",
+    "scene_bn": "দোকানে খাতার দাম জানা।",
+    "character_bn": "বন্ধু নীরা",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What do you want to know about the notebook?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "How much is this notebook?"
+      },
+      {
+        "role": "npc",
+        "text_en": "Would you like the blue notebook?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, please. How much is it?"
+      }
+    ],
+    "choice_feedback_bn": "How much is ...? একবচন জিনিসের দাম জানতে ব্যবহৃত হয়।",
+    "learning_focus_bn": "রং ও দাম জিজ্ঞেস করা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-A1-07",
+    "level": "A1",
+    "unit_id": "A1-07",
+    "scene_bn": "লাইব্রেরি খুঁজে পাওয়া।",
+    "character_bn": "বন্ধু নীরা",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Where is the bank?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "The bank is next to the library."
+      },
+      {
+        "role": "npc",
+        "text_en": "Is it near the park?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, it is next to the park."
+      }
+    ],
+    "choice_feedback_bn": "Where is ...? স্থান জানতে ব্যবহৃত হয়; next to কাছাকাছি অবস্থান বোঝায়।",
+    "learning_focus_bn": "স্থান নির্দেশনা এবং follow-up।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-A1-08",
+    "level": "A1",
+    "unit_id": "A1-08",
+    "scene_bn": "বন্ধুকে সংক্ষিপ্ত বার্তা পাঠানো।",
+    "character_bn": "বন্ধু নীরা",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Your friend asks what you need. What do you say?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Can you help me today?"
+      },
+      {
+        "role": "npc",
+        "text_en": "Can you reply before Friday?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, I can reply tomorrow."
+      }
+    ],
+    "choice_feedback_bn": "Can you ...? দিয়ে ভদ্রভাবে অনুরোধ করা যায়; can-এর পরে verb-এর base form।",
+    "learning_focus_bn": "অনুরোধে সময় জানিয়ে উত্তর।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-A2-01",
+    "level": "A2",
+    "unit_id": "A2-01",
+    "scene_bn": "বন্ধুকে গতকালের ঘোরার গল্প বলা।",
+    "character_bn": "অভিযাত্রী আরিফ",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What did you do yesterday?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I visited my aunt yesterday."
+      },
+      {
+        "role": "npc",
+        "text_en": "What did you do there?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I took some photos."
+      }
+    ],
+    "choice_feedback_bn": "Past Simple-এ নিয়মিত verb সাধারণত -ed নেয়; অনিয়মিত verb-এর আলাদা past form থাকে।",
+    "learning_focus_bn": "Past simple-এ কাজের ধারাবাহিকতা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-A2-02",
+    "level": "A2",
+    "unit_id": "A2-02",
+    "scene_bn": "ছুটির পরিকল্পনা ভাগাভাগি।",
+    "character_bn": "অভিযাত্রী আরিফ",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What are your plans for the weekend?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "We are going to visit Sylhet."
+      },
+      {
+        "role": "npc",
+        "text_en": "Who are you going with?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I am going with my cousin."
+      }
+    ],
+    "choice_feedback_bn": "আগে থেকে করা পরিকল্পনা বোঝাতে am/is/are going to + base verb ব্যবহার করা যায়।",
+    "learning_focus_bn": "আগাম পরিকল্পনার বিস্তারিত বলা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-A2-03",
+    "level": "A2",
+    "unit_id": "A2-03",
+    "scene_bn": "দুটি ফোনের মধ্যে তুলনা।",
+    "character_bn": "অভিযাত্রী আরিফ",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Which road is wider?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "This road is wider than that one."
+      },
+      {
+        "role": "npc",
+        "text_en": "Which one is cheaper?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "The smaller one is cheaper."
+      }
+    ],
+    "choice_feedback_bn": "Short adjective-এ সাধারণত -er; অনেক দীর্ঘ adjective-এ more ব্যবহার হয়।",
+    "learning_focus_bn": "একাধিক গুণের তুলনা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-A2-04",
+    "level": "A2",
+    "unit_id": "A2-04",
+    "scene_bn": "গরম ঘরে জানালা খুলতে অনুরোধ।",
+    "character_bn": "অভিযাত্রী আরিফ",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "The room is hot. What can you ask?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Could you open the window, please?"
+      },
+      {
+        "role": "npc",
+        "text_en": "Of course. Anything else?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "No, thank you."
+      }
+    ],
+    "choice_feedback_bn": "Could you + base verb? ভদ্র অনুরোধের প্রচলিত কাঠামো।",
+    "learning_focus_bn": "ভদ্র অনুরোধ এবং কৃতজ্ঞতা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-A2-05",
+    "level": "A2",
+    "unit_id": "A2-05",
+    "scene_bn": "বন্ধুর ফোনের সমস্যা বুঝে নেওয়া।",
+    "character_bn": "অভিযাত্রী আরিফ",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What seems to be the problem?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I have a problem with my laptop."
+      },
+      {
+        "role": "npc",
+        "text_en": "Have you tried restarting it?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, but it is still slow."
+      }
+    ],
+    "choice_feedback_bn": "I have a problem with ... দিয়ে কোনো সমস্যার বিষয় বলা যায়।",
+    "learning_focus_bn": "সমস্যার অবস্থার সহজ ব্যাখ্যা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-A2-06",
+    "level": "A2",
+    "unit_id": "A2-06",
+    "scene_bn": "শুক্রবারের দেখা করার সময় ঠিক করা।",
+    "character_bn": "অভিযাত্রী আরিফ",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How can you invite a friend to meet?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Would you like to meet on Friday?"
+      },
+      {
+        "role": "npc",
+        "text_en": "Would three o'clock be okay?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, three o'clock works for me."
+      }
+    ],
+    "choice_feedback_bn": "Would you like to ...? দিয়ে আমন্ত্রণ দেওয়া যায়; এর পরে base verb।",
+    "learning_focus_bn": "সময়ের প্রস্তাবে সম্মতি জানানো।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-A2-07",
+    "level": "A2",
+    "unit_id": "A2-07",
+    "scene_bn": "কোন বই ভালো, তা আলোচনা।",
+    "character_bn": "অভিযাত্রী আরিফ",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Why do you prefer tea?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I prefer tea because it is refreshing."
+      },
+      {
+        "role": "npc",
+        "text_en": "Why do you prefer this book?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Because the examples are clear."
+      }
+    ],
+    "choice_feedback_bn": "I prefer ... because ... দিয়ে পছন্দ ও কারণ বোঝানো যায়।",
+    "learning_focus_bn": "কারণসহ নিজের পছন্দ বলা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-A2-08",
+    "level": "A2",
+    "unit_id": "A2-08",
+    "scene_bn": "স্টেশন থেকে জাদুঘরে যাত্রা।",
+    "character_bn": "অভিযাত্রী আরিফ",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What did you do first at the station?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "First, we bought tickets."
+      },
+      {
+        "role": "npc",
+        "text_en": "What happened after you arrived?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Then we bought tickets."
+      }
+    ],
+    "choice_feedback_bn": "First, then, finally দিয়ে সময়ের ক্রমে ঘটনা সাজানো যায়।",
+    "learning_focus_bn": "ঘটনার ক্রম বলা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-B1-01",
+    "level": "B1",
+    "unit_id": "B1-01",
+    "scene_bn": "বিদ্যুৎ চলে যাওয়ায় একটি ঘটনা বদলে যায়।",
+    "character_bn": "অভিযাত্রী আরিফ",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What were you doing when the lights went out?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I was studying when the lights went out."
+      },
+      {
+        "role": "npc",
+        "text_en": "What were you doing when the lights went out?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I was preparing for a test."
+      }
+    ],
+    "choice_feedback_bn": "Past Continuous-এ was/were + verb-ing; চলমান অতীত ঘটনার সঙ্গে Past Simple ব্যবহার করা যায়।",
+    "learning_focus_bn": "Past continuous ও past simple-এর সম্পর্ক।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-B1-02",
+    "level": "B1",
+    "unit_id": "B1-02",
+    "scene_bn": "এক বন্ধুর ভ্রমণের অভিজ্ঞতা শোনা।",
+    "character_bn": "অভিযাত্রী আরিফ",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Have you ever visited Cox’s Bazar?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, I have visited it twice."
+      },
+      {
+        "role": "npc",
+        "text_en": "When did you go there?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I went there last year."
+      }
+    ],
+    "choice_feedback_bn": "Have/has + past participle দিয়ে সময় নির্দিষ্ট না করে জীবনের অভিজ্ঞতা বোঝানো যায়।",
+    "learning_focus_bn": "অভিজ্ঞতা ও নির্দিষ্ট অতীত সময়ের পার্থক্য।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-B1-03",
+    "level": "B1",
+    "unit_id": "B1-03",
+    "scene_bn": "বৃষ্টির কারণে অনুষ্ঠান পিছিয়ে দেওয়া।",
+    "character_bn": "অভিযাত্রী আরিফ",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Why did you stay home?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I stayed home because it was raining."
+      },
+      {
+        "role": "npc",
+        "text_en": "How did the rain affect the event?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "The organisers moved it indoors."
+      }
+    ],
+    "choice_feedback_bn": "Because-এর পরে কারণের clause, so-এর পরে ফলাফল আসতে পারে; দুটো অপ্রয়োজনে একসঙ্গে বসাবে না।",
+    "learning_focus_bn": "কারণ ও ফল সম্পর্কে ব্যাখ্যা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-B1-04",
+    "level": "B1",
+    "unit_id": "B1-04",
+    "scene_bn": "বন্ধুকে পড়াশোনার রুটিন নিয়ে পরামর্শ।",
+    "character_bn": "অভিযাত্রী আরিফ",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "I feel tired after studying. Any advice?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "You should take regular breaks."
+      },
+      {
+        "role": "npc",
+        "text_en": "What else should I do?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "You should get enough sleep."
+      }
+    ],
+    "choice_feedback_bn": "Should-এর পরে verb-এর base form ব্যবহৃত হয়।",
+    "learning_focus_bn": "বিনীত ও বাস্তবসম্মত পরামর্শ।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-B1-05",
+    "level": "B1",
+    "unit_id": "B1-05",
+    "scene_bn": "খারাপ আবহাওয়ায় বিকল্প পরিকল্পনা।",
+    "character_bn": "অভিযাত্রী আরিফ",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What will you do if it rains?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "If it rains, we will stay indoors."
+      },
+      {
+        "role": "npc",
+        "text_en": "What will you do if it rains?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "We will visit the indoor museum."
+      }
+    ],
+    "choice_feedback_bn": "If + Present Simple, will + base verb দিয়ে সম্ভাব্য ভবিষ্যৎ ফল বোঝানো যায়।",
+    "learning_focus_bn": "সম্ভাব্য শর্ত অনুযায়ী পরিকল্পনা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-B1-06",
+    "level": "B1",
+    "unit_id": "B1-06",
+    "scene_bn": "অনলাইনে একটি সংবাদ যাচাই।",
+    "character_bn": "অভিযাত্রী আরিফ",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What did the report say?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "The report said that the road was closed."
+      },
+      {
+        "role": "npc",
+        "text_en": "How can we check the information?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "We can compare reliable sources."
+      }
+    ],
+    "choice_feedback_bn": "Reported statement-এ said that ব্যবহার করা যায়; সূত্রের বক্তব্যকে নিজের মত বলে উপস্থাপন করবে না।",
+    "learning_focus_bn": "প্রমাণ ছাড়া দাবি গ্রহণ না করা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-B1-07",
+    "level": "B1",
+    "unit_id": "B1-07",
+    "scene_bn": "প্রতিষ্ঠানকে তথ্য জানতে ইমেইল।",
+    "character_bn": "অভিযাত্রী আরিফ",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What would you write to request the schedule?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Could you please send the schedule?"
+      },
+      {
+        "role": "npc",
+        "text_en": "When do you need the reply?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "By next Monday, if possible."
+      }
+    ],
+    "choice_feedback_bn": "Could you please ...? ভদ্র অনুরোধ; ধন্যবাদ দিয়ে ইমেইল শেষ করা যায়।",
+    "learning_focus_bn": "ইমেইলে সময় ও ভদ্রতা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-B1-08",
+    "level": "B1",
+    "unit_id": "B1-08",
+    "scene_bn": "পড়ার সময়সূচি নিয়ে বন্ধুর সঙ্গে ভিন্নমত।",
+    "character_bn": "অভিযাত্রী আরিফ",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Do you agree with my idea?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I see your point, but I disagree."
+      },
+      {
+        "role": "npc",
+        "text_en": "What alternative would you suggest?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I would suggest shorter study sessions."
+      }
+    ],
+    "choice_feedback_bn": "I see your point, but ... দিয়ে সম্মান রেখে ভিন্ন মত দেওয়া যায়।",
+    "learning_focus_bn": "ভিন্নমতের সঙ্গে একটি সমাধান।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-B2-01",
+    "level": "B2",
+    "unit_id": "B2-01",
+    "scene_bn": "স্কুলের একটি উদ্যোগের ভালো-মন্দ বিশ্লেষণ।",
+    "character_bn": "প্রজেক্ট টিম",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Is the costly plan worth trying?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Although the plan is costly, it may help."
+      },
+      {
+        "role": "npc",
+        "text_en": "What is the main drawback?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "The cost could be too high."
+      }
+    ],
+    "choice_feedback_bn": "Although একটি বিপরীত তথ্যের subordinate clause শুরু করতে পারে।",
+    "learning_focus_bn": "মতামতে সীমাবদ্ধতা চিহ্নিত করা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-B2-02",
+    "level": "B2",
+    "unit_id": "B2-02",
+    "scene_bn": "যদি কমিউনিটিতে সময় দিতে পারতে, কী করতে।",
+    "character_bn": "প্রজেক্ট টিম",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What would you do with more free time?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "If I had more time, I would volunteer."
+      },
+      {
+        "role": "npc",
+        "text_en": "Why would you choose that activity?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "It would help more students."
+      }
+    ],
+    "choice_feedback_bn": "If + Past Simple, would + base verb দিয়ে বর্তমানের কাল্পনিক বা কম সম্ভাব্য পরিস্থিতি বোঝানো যায়।",
+    "learning_focus_bn": "কাল্পনিক পরিস্থিতিতে কারণ দেওয়া।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-B2-03",
+    "level": "B2",
+    "unit_id": "B2-03",
+    "scene_bn": "বন্ধু ও শিক্ষককে আলাদা ভাষায় বার্তা লেখা।",
+    "character_bn": "প্রজেক্ট টিম",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "You are emailing a teacher. How would you ask for feedback?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Could you please review my proposal?"
+      },
+      {
+        "role": "npc",
+        "text_en": "Could you make the message more formal?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Certainly. I will revise the wording."
+      }
+    ],
+    "choice_feedback_bn": "Formal লেখায় সরাসরি আদেশের বদলে Could you please ...? ব্যবহার করা যায়।",
+    "learning_focus_bn": "Tone ও register বদলানো।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-B2-04",
+    "level": "B2",
+    "unit_id": "B2-04",
+    "scene_bn": "একটি জরিপের দাবি যাচাই।",
+    "character_bn": "প্রজেক্ট টিম",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What evidence supports that claim?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "According to the survey, most students agreed."
+      },
+      {
+        "role": "npc",
+        "text_en": "Was the sample large enough?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "We need more information to decide."
+      }
+    ],
+    "choice_feedback_bn": "According to ... দিয়ে উৎস উল্লেখ করা যায়; তথ্য আর মতামত আলাদা রাখতে হবে।",
+    "learning_focus_bn": "প্রমাণের সীমা স্বীকার করা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-B2-05",
+    "level": "B2",
+    "unit_id": "B2-05",
+    "scene_bn": "আবেদনপত্রের অগ্রগতি জানানো।",
+    "character_bn": "প্রজেক্ট টিম",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How are the applications processed?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "The applications are reviewed every week."
+      },
+      {
+        "role": "npc",
+        "text_en": "When was the application approved?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "It was approved on Tuesday."
+      }
+    ],
+    "choice_feedback_bn": "Present Simple Passive: am/is/are + past participle; কাজটি কে করেছে জরুরি না হলে passive ব্যবহার করা যায়।",
+    "learning_focus_bn": "Passive voice ও প্রক্রিয়ার সময়।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-B2-06",
+    "level": "B2",
+    "unit_id": "B2-06",
+    "scene_bn": "দুই দলের মধ্যে সমঝোতা।",
+    "character_bn": "প্রজেক্ট টিম",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Under what condition can the plan proceed?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "We can proceed provided that everyone agrees."
+      },
+      {
+        "role": "npc",
+        "text_en": "Would both groups accept this proposal?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "They might, if the timetable changes."
+      }
+    ],
+    "choice_feedback_bn": "Provided that একটি শর্ত পরিচয় করাতে পারে; আলোচনায় প্রস্তাবকে নমনীয় রাখে।",
+    "learning_focus_bn": "সমঝোতার শর্ত স্পষ্ট করা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-B2-07",
+    "level": "B2",
+    "unit_id": "B2-07",
+    "scene_bn": "একই ঘটনার দুটি বিবরণ তুলনা।",
+    "character_bn": "প্রজেক্ট টিম",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How did the two witnesses respond?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "The first witness agreed, whereas the second disagreed."
+      },
+      {
+        "role": "npc",
+        "text_en": "Where do the accounts differ?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "They describe the timing differently."
+      }
+    ],
+    "choice_feedback_bn": "Whereas দিয়ে দুটি বিপরীত বা পৃথক তথ্যের contrast দেখানো যায়।",
+    "learning_focus_bn": "বিভিন্ন বিবরণে নির্দিষ্ট অমিল শনাক্ত।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-B2-08",
+    "level": "B2",
+    "unit_id": "B2-08",
+    "scene_bn": "একটি মতামতকে তথ্য দিয়ে সমর্থন।",
+    "character_bn": "প্রজেক্ট টিম",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Can you give an example for your argument?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "For example, online lessons can save travel time."
+      },
+      {
+        "role": "npc",
+        "text_en": "How will you address the opposing view?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I will acknowledge it and present my evidence."
+      }
+    ],
+    "choice_feedback_bn": "একটি মতামত, কারণ, উদাহরণ ও উপসংহার আলাদা রাখলে লেখার যুক্তি পরিষ্কার হয়।",
+    "learning_focus_bn": "সুসংলগ্ন যুক্তির কাঠামো।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-C1-01",
+    "level": "C1",
+    "unit_id": "C1-01",
+    "scene_bn": "গবেষণার ফল নিয়ে সতর্ক দাবি করা।",
+    "character_bn": "প্রজেক্ট টিম",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Are you certain the policy improved access?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "It appears that the policy has improved access."
+      },
+      {
+        "role": "npc",
+        "text_en": "How confident are you about the conclusion?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "The evidence is promising but not conclusive."
+      }
+    ],
+    "choice_feedback_bn": "It appears that ... নিশ্চিত নয় এমন পর্যবেক্ষণ সাবধানে উপস্থাপন করতে সাহায্য করে।",
+    "learning_focus_bn": "প্রমাণ ও নিশ্চয়তার মাত্রা আলাদা রাখা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-C1-02",
+    "level": "C1",
+    "unit_id": "C1-02",
+    "scene_bn": "একটি বাক্যের অন্তর্নিহিত অর্থ খোঁজা।",
+    "character_bn": "প্রজেক্ট টিম",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Does a higher price always mean better quality?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "A higher price does not necessarily mean better quality."
+      },
+      {
+        "role": "npc",
+        "text_en": "Could the phrase be interpreted differently?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, the wording allows another interpretation."
+      }
+    ],
+    "choice_feedback_bn": "Not necessarily সব ক্ষেত্রে সত্য না-ও হতে পারে বোঝায়; এটি সরাসরি Not-এর সমান নয়।",
+    "learning_focus_bn": "দ্ব্যর্থতা ও সূক্ষ্ম অর্থভেদ বোঝা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-C1-03",
+    "level": "C1",
+    "unit_id": "C1-03",
+    "scene_bn": "প্রস্তাবের সীমাবদ্ধতা মেনে তর্ক চালানো।",
+    "character_bn": "প্রজেক্ট টিম",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Can you acknowledge a weakness in the proposal?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Admittedly, the proposal is expensive; however, it is practical."
+      },
+      {
+        "role": "npc",
+        "text_en": "How would you respond to that criticism?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I acknowledge the concern, but the benefits may outweigh the costs."
+      }
+    ],
+    "choice_feedback_bn": "Admittedly দিয়ে কোনো সীমাবদ্ধতা মেনে নিয়ে পরবর্তী যুক্তি তুলে ধরা যায়।",
+    "learning_focus_bn": "যুক্তিতে ছাড় দিয়ে পাল্টা বিবেচনা।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-C1-04",
+    "level": "C1",
+    "unit_id": "C1-04",
+    "scene_bn": "উৎস উল্লেখ করে নিজের ভাষায় লেখা।",
+    "character_bn": "প্রজেক্ট টিম",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How does the author describe the change?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "The author suggests that the change may be temporary."
+      },
+      {
+        "role": "npc",
+        "text_en": "How will you acknowledge the author?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I will cite the source and explain the idea in my own words."
+      }
+    ],
+    "choice_feedback_bn": "The author suggests that ... লেখকের বক্তব্যের ব্যাখ্যা হতে পারে; সরাসরি উদ্ধৃতি না হলে উদ্ধৃতি চিহ্ন দেবে না।",
+    "learning_focus_bn": "উৎসের স্বীকৃতি ও সঠিক attribution।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-C1-05",
+    "level": "C1",
+    "unit_id": "C1-05",
+    "scene_bn": "একটি অস্পষ্ট রিপোর্ট আরও নির্দিষ্ট করা।",
+    "character_bn": "প্রজেক্ট টিম",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Can you describe the increase precisely?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "The number of participants increased from ten to fifteen."
+      },
+      {
+        "role": "npc",
+        "text_en": "What makes this claim unclear?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "It does not specify the number of participants."
+      }
+    ],
+    "choice_feedback_bn": "Vague শব্দের পরিবর্তে যাচাইযোগ্য বিবরণ দিলে বক্তব্য পরিষ্কার হয়।",
+    "learning_focus_bn": "অস্পষ্টতা চিহ্নিত করে তথ্য চাওয়া।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-C1-06",
+    "level": "C1",
+    "unit_id": "C1-06",
+    "scene_bn": "একই অনুরোধ ভিন্ন পাঠকের জন্য লেখা।",
+    "character_bn": "প্রজেক্ট টিম",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How would you formally ask about the application process?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I am writing to inquire about the application process."
+      },
+      {
+        "role": "npc",
+        "text_en": "How should we phrase it for the committee?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I would use a concise and formal request."
+      }
+    ],
+    "choice_feedback_bn": "An inquiry is একটি আনুষ্ঠানিক বিষয়বস্তুর শব্দ; inquiry এবং informal question প্রসঙ্গভেদে নির্বাচন করতে হয়।",
+    "learning_focus_bn": "পাঠক অনুযায়ী register বেছে নেওয়া।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-C1-07",
+    "level": "C1",
+    "unit_id": "C1-07",
+    "scene_bn": "দুটি সমাধানের সুবিধা-অসুবিধা ওজন করা।",
+    "character_bn": "প্রজেক্ট টিম",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "After considering both sides, what is your view?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "On balance, the benefits outweigh the costs."
+      },
+      {
+        "role": "npc",
+        "text_en": "Which criterion matters most here?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Long-term reliability should take priority."
+      }
+    ],
+    "choice_feedback_bn": "On balance দিয়ে ইতিবাচক ও নেতিবাচক দিক বিবেচনার পর সামগ্রিক সিদ্ধান্ত জানানো যায়।",
+    "learning_focus_bn": "নির্বাচনের মানদণ্ড নির্ধারণ।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-C1-08",
+    "level": "C1",
+    "unit_id": "C1-08",
+    "scene_bn": "আলোচনায় শক্তিশালী পাল্টা যুক্তি মোকাবিলা।",
+    "character_bn": "প্রজেক্ট টিম",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What matters most when choosing a solution?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "What matters most is whether the solution is sustainable."
+      },
+      {
+        "role": "npc",
+        "text_en": "How can you strengthen your response?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I can address the objection directly and provide evidence."
+      }
+    ],
+    "choice_feedback_bn": "What matters most is ... দিয়ে যুক্তির মূল মানদণ্ড স্পষ্ট করা যায়।",
+    "learning_focus_bn": "যুক্তিভিত্তিক ও সম্মানজনক persuasion।",
+    "adaptive_ai_required": false,
+    "note": "Only scripted responses are assessed with authored keys. Free text can be answered but not automatically marked as wrong."
+  },
+  {
+    "id": "SC-P0-09",
+    "level": "P0",
+    "unit_id": "P0-09",
+    "scene_bn": "এটা কী?",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What is this?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "This is a bag."
+      }
+    ],
+    "choice_feedback_bn": "This/That দিয়ে একটি জিনিস দেখানো যায়; দূরের জন্য সাধারণত that ব্যবহৃত হয়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে এটা কী? বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-P0-10",
+    "level": "P0",
+    "unit_id": "P0-10",
+    "scene_bn": "রং চিনি",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What colour is your pen?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "It is blue."
+      }
+    ],
+    "choice_feedback_bn": "রঙের শব্দ সাধারণত বিশেষ্যের আগে বসে: a red pen।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে রং চিনি বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-P0-11",
+    "level": "P0",
+    "unit_id": "P0-11",
+    "scene_bn": "আমার কাছে আছে",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Do you have a notebook?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, I have a notebook."
+      }
+    ],
+    "choice_feedback_bn": "I have-এর পরে একটি জিনিস বোঝাতে সাধারণত a/an ব্যবহার হয়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে আমার কাছে আছে বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-P0-12",
+    "level": "P0",
+    "unit_id": "P0-12",
+    "scene_bn": "পছন্দ করি",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What fruit do you like?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I like mangoes."
+      }
+    ],
+    "choice_feedback_bn": "I like-এর পরে একটি বস্তু বা কাজ বলা যায়; সাধারণভাবে পছন্দ বোঝাতে plural noun ব্যবহার সম্ভব।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে পছন্দ করি বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-P0-13",
+    "level": "P0",
+    "unit_id": "P0-13",
+    "scene_bn": "আমার বাড়ি কোথায়?",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Where do you live?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I live in Rajshahi."
+      }
+    ],
+    "choice_feedback_bn": "I live in-এর পরে শহর বা এলাকায় থাকার কথা বলা যায়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে আমার বাড়ি কোথায়? বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-P0-14",
+    "level": "P0",
+    "unit_id": "P0-14",
+    "scene_bn": "কাজ করি",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What do you do after school?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I read a book."
+      }
+    ],
+    "choice_feedback_bn": "I read/I write-এর মতো সাধারণ বাক্যে I-এর পরে verb-এর base form বসে।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে কাজ করি বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-P0-15",
+    "level": "P0",
+    "unit_id": "P0-15",
+    "scene_bn": "সহজ অনুরোধ",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What can I do for you?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Please open the door."
+      }
+    ],
+    "choice_feedback_bn": "ভদ্র অনুরোধ করতে Please + verb ব্যবহার করা যায়; আরও ভদ্র রূপ পরে শেখানো হবে।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে সহজ অনুরোধ বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-P0-16",
+    "level": "P0",
+    "unit_id": "P0-16",
+    "scene_bn": "ছোট্ট পরিচয়ের গল্প",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Tell me about yourself."
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "My name is Sami. I live in Khulna."
+      }
+    ],
+    "choice_feedback_bn": "নিজের নাম, শহর ও পছন্দের কথা একসঙ্গে দুই-তিনটি ছোট বাক্যে বলা যায়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে ছোট্ট পরিচয়ের গল্প বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-A1-09",
+    "level": "A1",
+    "unit_id": "A1-09",
+    "scene_bn": "ঘরে কী আছে?",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What is in your room?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "There are two windows."
+      }
+    ],
+    "choice_feedback_bn": "একটি জিনিস বোঝাতে there is; একাধিক বোঝাতে there are ব্যবহার করা হয়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে ঘরে কী আছে? বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-A1-10",
+    "level": "A1",
+    "unit_id": "A1-10",
+    "scene_bn": "আজ কী পরেছি?",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What is she wearing?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "She is wearing a red shirt."
+      }
+    ],
+    "choice_feedback_bn": "একটি মানুষ বা জিনিস বর্ণনায় adjective সাধারণত noun-এর আগে বসে।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে আজ কী পরেছি? বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-A1-11",
+    "level": "A1",
+    "unit_id": "A1-11",
+    "scene_bn": "এই মুহূর্তে কী হচ্ছে?",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What is he doing?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "He is reading now."
+      }
+    ],
+    "choice_feedback_bn": "Present continuous: am/is/are + verb-ing; এখন ঘটছে এমন কাজ বোঝায়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে এই মুহূর্তে কী হচ্ছে? বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-A1-12",
+    "level": "A1",
+    "unit_id": "A1-12",
+    "scene_bn": "সপ্তাহের পরিকল্পনা",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "When do you study?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I study on Monday."
+      }
+    ],
+    "choice_feedback_bn": "দিনের নামের আগে সাধারণত on ব্যবহার করি; অভ্যাসের জন্য present simple।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে সপ্তাহের পরিকল্পনা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-A1-13",
+    "level": "A1",
+    "unit_id": "A1-13",
+    "scene_bn": "সক্ষমতা জানাই",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Can you swim?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, I can swim."
+      }
+    ],
+    "choice_feedback_bn": "can-এর পরে মূল verb-এর base form ব্যবহার হয়; can swim, can read।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে সক্ষমতা জানাই বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-A1-14",
+    "level": "A1",
+    "unit_id": "A1-14",
+    "scene_bn": "প্রশ্ন করে জানি",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How do I find the library?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Where is the library?"
+      }
+    ],
+    "choice_feedback_bn": "What, Where, When, Who দিয়ে তথ্যভিত্তিক প্রশ্ন শুরু হতে পারে।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে প্রশ্ন করে জানি বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-A1-15",
+    "level": "A1",
+    "unit_id": "A1-15",
+    "scene_bn": "পরিমাণের কথা",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What do you have?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I have some water."
+      }
+    ],
+    "choice_feedback_bn": "প্রাথমিকভাবে ইতিবাচক বাক্যে some, অনেক প্রশ্ন ও নেতিবাচক বাক্যে any ব্যবহৃত হয়; ব্যতিক্রম আছে।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে পরিমাণের কথা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-A1-16",
+    "level": "A1",
+    "unit_id": "A1-16",
+    "scene_bn": "একটি অনলাইন বার্তা",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How do you tell Maya you will be late?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Hi Maya, I will be late today."
+      }
+    ],
+    "choice_feedback_bn": "ছোট বার্তায় সম্ভাষণ, মূল তথ্য ও ভদ্র সমাপ্তি রাখলে বোঝা সহজ হয়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে একটি অনলাইন বার্তা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-A2-09",
+    "level": "A2",
+    "unit_id": "A2-09",
+    "scene_bn": "অতীতে নিয়মিত করতাম",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How did you travel to school before?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I used to walk to school."
+      }
+    ],
+    "choice_feedback_bn": "used to + base verb অতীতের অভ্যাস বোঝাতে ব্যবহৃত হয়, যা এখন আর একইভাবে নাও থাকতে পারে।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে অতীতে নিয়মিত করতাম বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-A2-10",
+    "level": "A2",
+    "unit_id": "A2-10",
+    "scene_bn": "যত্ন নিয়ে তুলনা",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Which route is better?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "This route is shorter than that one."
+      }
+    ],
+    "choice_feedback_bn": "Comparative-এর পরে দুইটি জিনিস তুলনায় than ব্যবহার করা যায়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে যত্ন নিয়ে তুলনা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-A2-11",
+    "level": "A2",
+    "unit_id": "A2-11",
+    "scene_bn": "কতবার করি?",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Where do you usually eat breakfast?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I usually eat breakfast at home."
+      }
+    ],
+    "choice_feedback_bn": "always, usually, often, sometimes, never সাধারণ ক্রিয়াপদের আগে এবং be-এর পরে বসে।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে কতবার করি? বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-A2-12",
+    "level": "A2",
+    "unit_id": "A2-12",
+    "scene_bn": "বাড়ি খুঁজে পাই",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What is behind your house?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "There is a park behind our house."
+      }
+    ],
+    "choice_feedback_bn": "there is/are ও স্থানবাচক preposition দিয়ে বাসার বর্ণনা করা যায়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে বাড়ি খুঁজে পাই বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-A2-13",
+    "level": "A2",
+    "unit_id": "A2-13",
+    "scene_bn": "একটি আমন্ত্রণ",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How do you invite a friend politely?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Would you like to join us?"
+      }
+    ],
+    "choice_feedback_bn": "Would you like to + verb ভদ্র আমন্ত্রণে ব্যবহৃত হতে পারে।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে একটি আমন্ত্রণ বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-A2-14",
+    "level": "A2",
+    "unit_id": "A2-14",
+    "scene_bn": "অভিজ্ঞতার খবর",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Have you visited Sylhet?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Yes, I have visited Sylhet twice."
+      }
+    ],
+    "choice_feedback_bn": "have/has + past participle দিয়ে পূর্ব অভিজ্ঞতা সম্পর্কে বলা যায়; নির্দিষ্ট অতীত সময় দিলে সাধারণত past simple।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে অভিজ্ঞতার খবর বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-A2-15",
+    "level": "A2",
+    "unit_id": "A2-15",
+    "scene_bn": "ছোট গল্প লিখি",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How did you find the ticket?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "First, I checked my bag. Then, I found the ticket."
+      }
+    ],
+    "choice_feedback_bn": "গল্পে আগে-পরের ঘটনা বোঝাতে first, then, finally ব্যবহার করা যায়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে ছোট গল্প লিখি বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-A2-16",
+    "level": "A2",
+    "unit_id": "A2-16",
+    "scene_bn": "পরামর্শ চেয়ে লেখা",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How can you ask for a book recommendation?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Could you suggest a good book?"
+      }
+    ],
+    "choice_feedback_bn": "সমস্যা বর্ণনা করে Could you suggest...? দিয়ে ভদ্রভাবে পরামর্শ চাওয়া যায়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে পরামর্শ চেয়ে লেখা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-B1-09",
+    "level": "B1",
+    "unit_id": "B1-09",
+    "scene_bn": "মতামতের কারণ",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Why did you stay home?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I stayed home because it was raining."
+      }
+    ],
+    "choice_feedback_bn": "because কারণ জানায়, so ফল জানায়; অর্থ অনুযায়ী সংযোগ বেছে নিতে হয়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে মতামতের কারণ বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-B1-10",
+    "level": "B1",
+    "unit_id": "B1-10",
+    "scene_bn": "বইয়ের রিভিউ",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What is your opinion of the story?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "The story is engaging, although the ending is predictable."
+      }
+    ],
+    "choice_feedback_bn": "রিভিউয়ে বিষয়বস্তুর সংক্ষিপ্ত পরিচয়, মতামত ও উদাহরণ রাখা উপকারী।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে বইয়ের রিভিউ বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-B1-11",
+    "level": "B1",
+    "unit_id": "B1-11",
+    "scene_bn": "ভুল স্বীকার করি",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How would you apologise for a delay?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I apologise for the delay and will send it tomorrow."
+      }
+    ],
+    "choice_feedback_bn": "নিজের ভুল স্বীকার করে ঠিক কীভাবে সংশোধন করবে তা জানালে বার্তা পরিষ্কার হয়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে ভুল স্বীকার করি বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-B1-12",
+    "level": "B1",
+    "unit_id": "B1-12",
+    "scene_bn": "তথ্য যাচাই করি",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Which part is a personal opinion?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I think it should stay open longer."
+      }
+    ],
+    "choice_feedback_bn": "Fact যাচাইযোগ্য; opinion ব্যক্তিগত মত। বাক্যের ভাষা দেখে তাদের আলাদা করা যায়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে তথ্য যাচাই করি বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-B1-13",
+    "level": "B1",
+    "unit_id": "B1-13",
+    "scene_bn": "নিজের লক্ষ্য",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What is your learning plan?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I plan to practise English for twenty minutes a day."
+      }
+    ],
+    "choice_feedback_bn": "achieve a goal-এর মতো প্রচলিত collocation ব্যবহার করলে লেখা স্বাভাবিক হয়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে নিজের লক্ষ্য বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-B1-14",
+    "level": "B1",
+    "unit_id": "B1-14",
+    "scene_bn": "মেসেজে ভদ্রতা",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How can you request details politely?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Could you please send me the details?"
+      }
+    ],
+    "choice_feedback_bn": "Please, could এবং স্পষ্ট প্রসঙ্গ ব্যবহার করে অনলাইন বার্তা ভদ্র করা যায়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে মেসেজে ভদ্রতা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-B1-15",
+    "level": "B1",
+    "unit_id": "B1-15",
+    "scene_bn": "পরিকল্পনায় পরিবর্তন",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Why has the meeting moved?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "The room is unavailable."
+      }
+    ],
+    "choice_feedback_bn": "যখন একটি পরিকল্পনা বদলায়, তখন পরিবর্তনের কারণ ও নতুন সময় স্পষ্ট বলা উচিত।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে পরিকল্পনায় পরিবর্তন বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-B1-16",
+    "level": "B1",
+    "unit_id": "B1-16",
+    "scene_bn": "ঘটনা ও প্রতিক্রিয়া",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What were you doing when it began to rain?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I was waiting for the bus."
+      }
+    ],
+    "choice_feedback_bn": "Past simple এবং past continuous-এর সমন্বয়ে ঘটনাক্রম বোঝানো যায়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে ঘটনা ও প্রতিক্রিয়া বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-B2-09",
+    "level": "B2",
+    "unit_id": "B2-09",
+    "scene_bn": "সমস্যার দুই দিক",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What is one drawback of the proposal?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "It may reduce flexibility."
+      }
+    ],
+    "choice_feedback_bn": "On the one hand... on the other hand... দিয়ে দুইটি দিক দেখানো যায়; শেষে নিজস্ব অবস্থান স্পষ্ট করতে হয়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে সমস্যার দুই দিক বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-B2-10",
+    "level": "B2",
+    "unit_id": "B2-10",
+    "scene_bn": "প্রমাণ কতটা শক্ত?",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What limits this survey?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Its sample is small."
+      }
+    ],
+    "choice_feedback_bn": "A single example does not necessarily prove a general claim; প্রমাণের সীমাবদ্ধতা শনাক্ত করতে হয়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে প্রমাণ কতটা শক্ত? বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-B2-11",
+    "level": "B2",
+    "unit_id": "B2-11",
+    "scene_bn": "মতভেদে সম্মান",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How can you disagree respectfully?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I see your point, but I disagree."
+      }
+    ],
+    "choice_feedback_bn": "I see your point, but... বাক্য দিয়ে সম্মান রেখে ভিন্নমত প্রকাশ করা যায়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে মতভেদে সম্মান বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-B2-12",
+    "level": "B2",
+    "unit_id": "B2-12",
+    "scene_bn": "সুনির্দিষ্ট সারাংশ",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What is the author's main claim?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Flexible schedules improve access."
+      }
+    ],
+    "choice_feedback_bn": "সারাংশে মূল দাবি, গুরুত্বপূর্ণ কারণ ও সীমাবদ্ধতা রাখতে হবে; নতুন তথ্য যোগ করা উচিত নয়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে সুনির্দিষ্ট সারাংশ বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-B2-13",
+    "level": "B2",
+    "unit_id": "B2-13",
+    "scene_bn": "ইমেইল দরকষাকষি",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How do you request an extension?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Would it be possible to extend the deadline by two days?"
+      }
+    ],
+    "choice_feedback_bn": "Could we consider... / Would it be possible... ভদ্রভাবে বিকল্প প্রস্তাবের জন্য উপযোগী।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে ইমেইল দরকষাকষি বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-B2-14",
+    "level": "B2",
+    "unit_id": "B2-14",
+    "scene_bn": "অতীতের অন্য ফল",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What would have happened if you had left earlier?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "We would have caught the train."
+      }
+    ],
+    "choice_feedback_bn": "If + past perfect, would have + past participle দিয়ে অতীতের অঘটিত পরিস্থিতির ফল কল্পনা করা যায়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে অতীতের অন্য ফল বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-B2-15",
+    "level": "B2",
+    "unit_id": "B2-15",
+    "scene_bn": "দুই উৎস তুলনা",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How do the articles differ?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "They reach different conclusions."
+      }
+    ],
+    "choice_feedback_bn": "দুই উৎসের দাবি, প্রমাণ ও উদ্দেশ্য আলাদা করে তুলনা করতে হয়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে দুই উৎস তুলনা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-B2-16",
+    "level": "B2",
+    "unit_id": "B2-16",
+    "scene_bn": "পরামর্শের প্রতিবেদন",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Which option do you recommend?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I recommend the second option."
+      }
+    ],
+    "choice_feedback_bn": "Recommendation লেখায় সমস্যা, কয়েকটি বিকল্প, প্রমাণ ও সুপারিশ ক্রমানুসারে দেওয়া যায়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে পরামর্শের প্রতিবেদন বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-C1-09",
+    "level": "C1",
+    "unit_id": "C1-09",
+    "scene_bn": "দাবির সীমা",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How can you make this claim cautious?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "The results appear to support the hypothesis."
+      }
+    ],
+    "choice_feedback_bn": "may, appears to এবং is likely to দিয়ে পর্যাপ্ত প্রমাণ না থাকলে দাবির নিশ্চয়তা সীমিত করা যায়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে দাবির সীমা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-C1-10",
+    "level": "C1",
+    "unit_id": "C1-10",
+    "scene_bn": "প্রত্যক্ষ নয় অন্তর্নিহিত",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "Did the editor endorse its feasibility?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "No, the editor did not endorse it."
+      }
+    ],
+    "choice_feedback_bn": "লেখকের বলা বক্তব্য ও ইঙ্গিত আলাদা করতে শব্দচয়ন, প্রসঙ্গ ও স্বর বিশ্লেষণ করা হয়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে প্রত্যক্ষ নয় অন্তর্নিহিত বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-C1-11",
+    "level": "C1",
+    "unit_id": "C1-11",
+    "scene_bn": "জোর দিয়ে বলি",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What matters most in the report?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "What matters most is the quality of the evidence."
+      }
+    ],
+    "choice_feedback_bn": "It was...that/who... অথবা What...is... ব্যবহার করে বাক্যের নির্দিষ্ট অংশে জোর দেওয়া যায়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে জোর দিয়ে বলি বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-C1-12",
+    "level": "C1",
+    "unit_id": "C1-12",
+    "scene_bn": "নেতিবাচক ক্রিয়াবিশেষণে Inversion",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How can you emphasise rarity formally?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Rarely have we encountered such a complex problem."
+      }
+    ],
+    "choice_feedback_bn": "Never/Rarely/Not only দিয়ে বাক্য শুরু হলে formal emphasis-এ auxiliary subject-এর আগে বসে।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে নেতিবাচক ক্রিয়াবিশেষণে Inversion বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-C1-13",
+    "level": "C1",
+    "unit_id": "C1-13",
+    "scene_bn": "আনুষ্ঠানিক শর্ত",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How can you offer help formally?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "Should you require assistance, please contact the coordinator."
+      }
+    ],
+    "choice_feedback_bn": "Formal conditional-এ if বাদ দিয়ে Should/Were/Had দিয়ে শুরু করা যায়, প্রসঙ্গভেদে অর্থের সূক্ষ্ম পরিবর্তন হতে পারে।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে আনুষ্ঠানিক শর্ত বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-C1-14",
+    "level": "C1",
+    "unit_id": "C1-14",
+    "scene_bn": "গবেষণার সীমাবদ্ধতা",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What is one limitation of the study?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "The study cannot establish causation."
+      }
+    ],
+    "choice_feedback_bn": "ভালো Academic Writing-এ ফলাফলের পাশাপাশি পদ্ধতি, নমুনা ও সীমাবদ্ধতা জানাতে হয়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে গবেষণার সীমাবদ্ধতা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-C1-15",
+    "level": "C1",
+    "unit_id": "C1-15",
+    "scene_bn": "পরোক্ষ অর্থে দ্বিমত",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "How can you express reservations politely?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "I have reservations about the timeline."
+      }
+    ],
+    "choice_feedback_bn": "সরাসরি প্রত্যাখ্যানের বদলে acknowledge করে আপত্তি জানালে পেশাগত আলোচনা সহযোগিতামূলক থাকে।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে পরোক্ষ অর্থে দ্বিমত বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  },
+  {
+    "id": "SC-C1-16",
+    "level": "C1",
+    "unit_id": "C1-16",
+    "scene_bn": "প্রস্তাবনার সারাংশ",
+    "character_bn": "গল্পের গাইড",
+    "turns": [
+      {
+        "role": "npc",
+        "text_en": "What does the report recommend?"
+      },
+      {
+        "role": "learner_sample",
+        "text_en": "It recommends a phased rollout."
+      }
+    ],
+    "choice_feedback_bn": "সংক্ষিপ্ত প্রাতিষ্ঠানিক সারাংশে সমস্যা, প্রস্তাবিত ব্যবস্থা, সম্ভাব্য প্রভাব ও সীমাবদ্ধতা স্পষ্টভাবে রাখতে হয়।",
+    "learning_focus_bn": "বাস্তব কথোপকথনে প্রস্তাবনার সারাংশ বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+    "adaptive_ai_required": false,
+    "is_scripted": true,
+    "note": "Fixed alternatives only; open answers never auto-marked wrong via exact string matching."
+  }
+]

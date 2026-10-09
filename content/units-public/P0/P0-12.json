@@ -1,0 +1,112 @@
+{
+  "id": "P0-12",
+  "level": "P0",
+  "position": 12,
+  "title_bn": "পছন্দ করি",
+  "title_en": "I Like Mangoes",
+  "goal_bn": "বাস্তব কথোপকথনে পছন্দ করি বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "I like-এর পরে একটি বস্তু বা কাজ বলা যায়; সাধারণভাবে পছন্দ বোঝাতে plural noun ব্যবহার সম্ভব।",
+  "example_en": "I like mangoes.",
+  "translation_bn": "আমি আম পছন্দ করি।",
+  "vocabulary": [
+    {
+      "en": "like",
+      "bn": "পছন্দ করা"
+    },
+    {
+      "en": "mango",
+      "bn": "আম"
+    },
+    {
+      "en": "banana",
+      "bn": "কলা"
+    },
+    {
+      "en": "apple",
+      "bn": "আপেল"
+    },
+    {
+      "en": "fruit",
+      "bn": "ফল"
+    },
+    {
+      "en": "orange",
+      "bn": "কমলা"
+    },
+    {
+      "en": "rice",
+      "bn": "ভাত"
+    },
+    {
+      "en": "water",
+      "bn": "পানি"
+    }
+  ],
+  "reading": {
+    "text_en": "I like mangoes. What fruit do you like? I like mangoes.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: পছন্দ করি।",
+    "npc_question_en": "What fruit do you like?",
+    "good_response_en": "I like mangoes.",
+    "challenging_response_en": "I likes mangoes.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "P0-12-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What fruit do you like?",
+      "options": [
+        "I like mangoes.",
+        "I likes mangoes."
+      ],
+      "correct_index": 0,
+      "answer": "I like mangoes.",
+      "feedback_bn": "I like-এর পরে একটি বস্তু বা কাজ বলা যায়; সাধারণভাবে পছন্দ বোঝাতে plural noun ব্যবহার সম্ভব।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "P0-12",
+      "level": "P0"
+    },
+    {
+      "id": "P0-12-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"like\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "পছন্দ করা",
+        "আম",
+        "কলা"
+      ],
+      "correct_index": 0,
+      "answer": "পছন্দ করা",
+      "feedback_bn": "like = পছন্দ করা (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "P0-12",
+      "level": "P0"
+    },
+    {
+      "id": "P0-12-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে পছন্দ করি বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "I like mangoes.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "P0-12",
+      "level": "P0"
+    }
+  ]
+}

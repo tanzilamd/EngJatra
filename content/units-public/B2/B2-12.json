@@ -1,0 +1,112 @@
+{
+  "id": "B2-12",
+  "level": "B2",
+  "position": 12,
+  "title_bn": "সুনির্দিষ্ট সারাংশ",
+  "title_en": "Summarising an Argument",
+  "goal_bn": "বাস্তব কথোপকথনে সুনির্দিষ্ট সারাংশ বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "সারাংশে মূল দাবি, গুরুত্বপূর্ণ কারণ ও সীমাবদ্ধতা রাখতে হবে; নতুন তথ্য যোগ করা উচিত নয়।",
+  "example_en": "The author argues that flexible schedules improve access, although costs remain uncertain.",
+  "translation_bn": "লেখকের মতে নমনীয় সময়সূচি সুযোগ বাড়ায়, যদিও খরচ অনিশ্চিত।",
+  "vocabulary": [
+    {
+      "en": "summarise",
+      "bn": "সারাংশ করা"
+    },
+    {
+      "en": "argument",
+      "bn": "যুক্তি"
+    },
+    {
+      "en": "central",
+      "bn": "মূল"
+    },
+    {
+      "en": "supporting",
+      "bn": "সমর্থনকারী"
+    },
+    {
+      "en": "qualify",
+      "bn": "শর্তযুক্ত করা"
+    },
+    {
+      "en": "paraphrase",
+      "bn": "নিজের ভাষায় বলা"
+    },
+    {
+      "en": "neutral",
+      "bn": "নিরপেক্ষ"
+    },
+    {
+      "en": "accurate",
+      "bn": "সঠিক"
+    }
+  ],
+  "reading": {
+    "text_en": "The author argues that flexible schedules improve access, although costs remain uncertain. What is the author's main claim? Flexible schedules improve access.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: সুনির্দিষ্ট সারাংশ।",
+    "npc_question_en": "What is the author's main claim?",
+    "good_response_en": "Flexible schedules improve access.",
+    "challenging_response_en": "Flexible schedules improves access.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "B2-12-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What is the author's main claim?",
+      "options": [
+        "Flexible schedules improve access.",
+        "Flexible schedules improves access."
+      ],
+      "correct_index": 0,
+      "answer": "Flexible schedules improve access.",
+      "feedback_bn": "সারাংশে মূল দাবি, গুরুত্বপূর্ণ কারণ ও সীমাবদ্ধতা রাখতে হবে; নতুন তথ্য যোগ করা উচিত নয়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "B2-12",
+      "level": "B2"
+    },
+    {
+      "id": "B2-12-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"summarise\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "সারাংশ করা",
+        "যুক্তি",
+        "মূল"
+      ],
+      "correct_index": 0,
+      "answer": "সারাংশ করা",
+      "feedback_bn": "summarise = সারাংশ করা (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "B2-12",
+      "level": "B2"
+    },
+    {
+      "id": "B2-12-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে সুনির্দিষ্ট সারাংশ বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "The author argues that flexible schedules improve access, although costs remain uncertain.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "B2-12",
+      "level": "B2"
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "id": "B1-07",
+  "level": "B1",
+  "position": 7,
+  "title_bn": "ইমেইল লিখি",
+  "title_en": "Useful Emails",
+  "goal_bn": "ভদ্র সহজ ইমেইল লিখতে পারবে",
+  "rule_bn": "Could you please ...? ভদ্র অনুরোধ; ধন্যবাদ দিয়ে ইমেইল শেষ করা যায়।",
+  "example_en": "Could you please send the schedule?",
+  "translation_bn": "আপনি কি দয়া করে সময়সূচিটি পাঠাবেন?",
+  "vocabulary": [
+    {
+      "en": "subject",
+      "bn": "বিষয়"
+    },
+    {
+      "en": "greeting",
+      "bn": "সম্বোধন"
+    },
+    {
+      "en": "request",
+      "bn": "অনুরোধ"
+    },
+    {
+      "en": "schedule",
+      "bn": "সময়সূচি"
+    },
+    {
+      "en": "attach",
+      "bn": "সংযুক্ত করা"
+    },
+    {
+      "en": "regards",
+      "bn": "শুভেচ্ছা"
+    },
+    {
+      "en": "reply",
+      "bn": "উত্তর"
+    },
+    {
+      "en": "formal",
+      "bn": "আনুষ্ঠানিক"
+    },
+    {
+      "en": "recipient",
+      "bn": "প্রাপক"
+    },
+    {
+      "en": "introduction",
+      "bn": "ভূমিকা"
+    },
+    {
+      "en": "purpose",
+      "bn": "উদ্দেশ্য"
+    },
+    {
+      "en": "detail",
+      "bn": "বিস্তারিত তথ্য"
+    },
+    {
+      "en": "deadline",
+      "bn": "শেষ সময়"
+    },
+    {
+      "en": "respond",
+      "bn": "জবাব দেওয়া"
+    },
+    {
+      "en": "appreciate",
+      "bn": "কৃতজ্ঞ থাকা"
+    },
+    {
+      "en": "enclosure",
+      "bn": "সংযুক্ত নথি"
+    }
+  ],
+  "quest": {
+    "character": "অভিযাত্রী আরিফ",
+    "opening_bn": "একটি কমিউনিটি প্রজেক্টের নানা সিদ্ধান্ত। আজ তোমার মিশন: ভদ্র সহজ ইমেইল লিখতে পারবে।",
+    "npc_question_en": "What would you write to request the schedule?",
+    "good_response_en": "Could you please send the schedule?",
+    "challenging_response_en": "Could you please sending the schedule?",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "প্রতিষ্ঠানকে তথ্য জানতে ইমেইল।",
+      "follow_up_question_en": "When do you need the reply?",
+      "guided_reply_en": "By next Monday, if possible.",
+      "skill_focus_bn": "ইমেইলে সময় ও ভদ্রতা।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "B1-07-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "What would you write to request the schedule?",
+      "options": [
+        "Could you please send the schedule?",
+        "Could you please sending the schedule?"
+      ],
+      "correct_index": 0,
+      "answer": "Could you please send the schedule?",
+      "feedback_bn": "Could you please ...? ভদ্র অনুরোধ; ধন্যবাদ দিয়ে ইমেইল শেষ করা যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "B1-07-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "Could you please ___ the schedule?",
+      "answer": "send",
+      "feedback_bn": "Could you please ...? ভদ্র অনুরোধ; ধন্যবাদ দিয়ে ইমেইল শেষ করা যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "sending",
+        "send",
+        "sent"
+      ],
+      "correct_index": 1,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "B1-07-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "Could you please to reply?",
+      "answer": "Could you please reply?",
+      "feedback_bn": "Could you please ...? ভদ্র অনুরোধ; ধন্যবাদ দিয়ে ইমেইল শেষ করা যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "Could you please reply?",
+        "Could you please to reply?"
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "B1-07-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: আপনি কি দয়া করে সময়সূচিটি পাঠাবেন?",
+      "tokens": [
+        "the",
+        "you",
+        "schedule?",
+        "Could",
+        "please",
+        "send"
+      ],
+      "answer": "Could you please send the schedule?",
+      "feedback_bn": "Could you please ...? ভদ্র অনুরোধ; ধন্যবাদ দিয়ে ইমেইল শেষ করা যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "B1-07-write",
+      "type": "guided_write",
+      "prompt_bn": "একটি সময়সূচি চেয়ে চার বাক্যের ইমেইল লেখো।",
+      "sample_answer_en": "Could you please send the schedule?",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": null,
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "B1-07-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "subject",
+          "bn": "বিষয়"
+        },
+        {
+          "en": "greeting",
+          "bn": "সম্বোধন"
+        },
+        {
+          "en": "request",
+          "bn": "অনুরোধ"
+        },
+        {
+          "en": "schedule",
+          "bn": "সময়সূচি"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "subject",
+          "bn": "বিষয়"
+        },
+        {
+          "en": "greeting",
+          "bn": "সম্বোধন"
+        },
+        {
+          "en": "request",
+          "bn": "অনুরোধ"
+        },
+        {
+          "en": "schedule",
+          "bn": "সময়সূচি"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "B1-07-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "Could you please send the schedule?",
+      "options_bn": [
+        "আমি দুইবার কক্সবাজার গিয়েছি।",
+        "আপনি কি দয়া করে সময়সূচিটি পাঠাবেন?",
+        "আলো নিভে যাওয়ার সময় আমি পড়ছিলাম।"
+      ],
+      "correct_index": 1,
+      "answer_bn": "আপনি কি দয়া করে সময়সূচিটি পাঠাবেন?",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "Could you please send the schedule? What would you write to request the schedule? Could you please send the schedule?",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "id": "A2-03",
+  "level": "A2",
+  "position": 3,
+  "title_bn": "তুলনা করি",
+  "title_en": "Comparing Things",
+  "goal_bn": "সহজ comparative adjective ব্যবহার করতে পারবে",
+  "rule_bn": "Short adjective-এ সাধারণত -er; অনেক দীর্ঘ adjective-এ more ব্যবহার হয়।",
+  "example_en": "This road is wider than that one.",
+  "translation_bn": "এই রাস্তাটি ওইটির চেয়ে বেশি চওড়া।",
+  "vocabulary": [
+    {
+      "en": "bigger",
+      "bn": "আরও বড়"
+    },
+    {
+      "en": "smaller",
+      "bn": "আরও ছোট"
+    },
+    {
+      "en": "faster",
+      "bn": "আরও দ্রুত"
+    },
+    {
+      "en": "slower",
+      "bn": "আরও ধীর"
+    },
+    {
+      "en": "better",
+      "bn": "আরও ভালো"
+    },
+    {
+      "en": "worse",
+      "bn": "আরও খারাপ"
+    },
+    {
+      "en": "than",
+      "bn": "চেয়ে"
+    },
+    {
+      "en": "compare",
+      "bn": "তুলনা করা"
+    },
+    {
+      "en": "taller",
+      "bn": "আরও লম্বা"
+    },
+    {
+      "en": "shorter",
+      "bn": "আরও খাটো বা ছোট"
+    },
+    {
+      "en": "cheaper",
+      "bn": "আরও সস্তা"
+    },
+    {
+      "en": "heavier",
+      "bn": "আরও ভারী"
+    },
+    {
+      "en": "lighter",
+      "bn": "আরও হালকা"
+    },
+    {
+      "en": "similar",
+      "bn": "সদৃশ"
+    },
+    {
+      "en": "different",
+      "bn": "ভিন্ন"
+    },
+    {
+      "en": "both",
+      "bn": "উভয়"
+    }
+  ],
+  "quest": {
+    "character": "অভিযাত্রী আরিফ",
+    "opening_bn": "ছোট ভ্রমণ, সমস্যা আর পরিকল্পনা। আজ তোমার মিশন: সহজ comparative adjective ব্যবহার করতে পারবে।",
+    "npc_question_en": "Which road is wider?",
+    "good_response_en": "This road is wider than that one.",
+    "challenging_response_en": "This road more wide than that one.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "দুটি ফোনের মধ্যে তুলনা।",
+      "follow_up_question_en": "Which one is cheaper?",
+      "guided_reply_en": "The smaller one is cheaper.",
+      "skill_focus_bn": "একাধিক গুণের তুলনা।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "A2-03-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "Which road is wider?",
+      "options": [
+        "This road more wide than that one.",
+        "This road is wider than that one."
+      ],
+      "correct_index": 1,
+      "answer": "This road is wider than that one.",
+      "feedback_bn": "Short adjective-এ সাধারণত -er; অনেক দীর্ঘ adjective-এ more ব্যবহার হয়।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "A2-03-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "This road is ___ than that one.",
+      "answer": "wider",
+      "feedback_bn": "Short adjective-এ সাধারণত -er; অনেক দীর্ঘ adjective-এ more ব্যবহার হয়।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "widest",
+        "wider",
+        "wide"
+      ],
+      "correct_index": 1,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "A2-03-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "This book is more cheaper.",
+      "answer": "This book is cheaper.",
+      "feedback_bn": "Short adjective-এ সাধারণত -er; অনেক দীর্ঘ adjective-এ more ব্যবহার হয়।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "This book is cheaper.",
+        "This book is more cheaper."
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "A2-03-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: এই রাস্তাটি ওইটির চেয়ে বেশি চওড়া।",
+      "tokens": [
+        "is",
+        "than",
+        "This",
+        "road",
+        "that",
+        "one.",
+        "wider"
+      ],
+      "answer": "This road is wider than that one.",
+      "feedback_bn": "Short adjective-এ সাধারণত -er; অনেক দীর্ঘ adjective-এ more ব্যবহার হয়।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "A2-03-write",
+      "type": "guided_write",
+      "prompt_bn": "দুটি স্থান বা জিনিসের মধ্যে দুটি তুলনা লেখো।",
+      "sample_answer_en": "This road is wider than that one.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": null,
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "A2-03-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "bigger",
+          "bn": "আরও বড়"
+        },
+        {
+          "en": "smaller",
+          "bn": "আরও ছোট"
+        },
+        {
+          "en": "faster",
+          "bn": "আরও দ্রুত"
+        },
+        {
+          "en": "slower",
+          "bn": "আরও ধীর"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "bigger",
+          "bn": "আরও বড়"
+        },
+        {
+          "en": "smaller",
+          "bn": "আরও ছোট"
+        },
+        {
+          "en": "faster",
+          "bn": "আরও দ্রুত"
+        },
+        {
+          "en": "slower",
+          "bn": "আরও ধীর"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "A2-03-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "This road is wider than that one.",
+      "options_bn": [
+        "আমরা সিলেট ভ্রমণ করতে যাচ্ছি।",
+        "আমি গতকাল আমার খালার/ফুফুর সঙ্গে দেখা করেছি।",
+        "এই রাস্তাটি ওইটির চেয়ে বেশি চওড়া।"
+      ],
+      "correct_index": 2,
+      "answer_bn": "এই রাস্তাটি ওইটির চেয়ে বেশি চওড়া।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "This road is wider than that one. Which road is wider? This road is wider than that one.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

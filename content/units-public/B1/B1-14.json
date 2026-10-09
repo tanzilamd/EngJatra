@@ -1,0 +1,112 @@
+{
+  "id": "B1-14",
+  "level": "B1",
+  "position": 14,
+  "title_bn": "মেসেজে ভদ্রতা",
+  "title_en": "Tone in Online Messages",
+  "goal_bn": "বাস্তব কথোপকথনে মেসেজে ভদ্রতা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "Please, could এবং স্পষ্ট প্রসঙ্গ ব্যবহার করে অনলাইন বার্তা ভদ্র করা যায়।",
+  "example_en": "Could you please send me the details?",
+  "translation_bn": "আপনি কি অনুগ্রহ করে আমাকে বিস্তারিত পাঠাতে পারবেন?",
+  "vocabulary": [
+    {
+      "en": "tone",
+      "bn": "ভাষার ভঙ্গি"
+    },
+    {
+      "en": "formal",
+      "bn": "আনুষ্ঠানিক"
+    },
+    {
+      "en": "informal",
+      "bn": "অনানুষ্ঠানিক"
+    },
+    {
+      "en": "polite",
+      "bn": "ভদ্র"
+    },
+    {
+      "en": "clarify",
+      "bn": "পরিষ্কার করা"
+    },
+    {
+      "en": "detail",
+      "bn": "বিস্তারিত"
+    },
+    {
+      "en": "context",
+      "bn": "প্রসঙ্গ"
+    },
+    {
+      "en": "request",
+      "bn": "অনুরোধ"
+    }
+  ],
+  "reading": {
+    "text_en": "Could you please send me the details? How can you request details politely? Could you please send me the details?",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: মেসেজে ভদ্রতা।",
+    "npc_question_en": "How can you request details politely?",
+    "good_response_en": "Could you please send me the details?",
+    "challenging_response_en": "Send details now please me.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "B1-14-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "How can you request details politely?",
+      "options": [
+        "Could you please send me the details?",
+        "Send details now please me."
+      ],
+      "correct_index": 0,
+      "answer": "Could you please send me the details?",
+      "feedback_bn": "Please, could এবং স্পষ্ট প্রসঙ্গ ব্যবহার করে অনলাইন বার্তা ভদ্র করা যায়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "B1-14",
+      "level": "B1"
+    },
+    {
+      "id": "B1-14-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"tone\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "ভাষার ভঙ্গি",
+        "আনুষ্ঠানিক",
+        "অনানুষ্ঠানিক"
+      ],
+      "correct_index": 0,
+      "answer": "ভাষার ভঙ্গি",
+      "feedback_bn": "tone = ভাষার ভঙ্গি (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "B1-14",
+      "level": "B1"
+    },
+    {
+      "id": "B1-14-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে মেসেজে ভদ্রতা বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "Could you please send me the details?",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "B1-14",
+      "level": "B1"
+    }
+  ]
+}

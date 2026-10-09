@@ -1,0 +1,112 @@
+{
+  "id": "A2-11",
+  "level": "A2",
+  "position": 11,
+  "title_bn": "কতবার করি?",
+  "title_en": "Frequency and Habits",
+  "goal_bn": "বাস্তব কথোপকথনে কতবার করি? বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "always, usually, often, sometimes, never সাধারণ ক্রিয়াপদের আগে এবং be-এর পরে বসে।",
+  "example_en": "I usually eat breakfast at home.",
+  "translation_bn": "আমি সাধারণত বাসায় নাশতা করি।",
+  "vocabulary": [
+    {
+      "en": "always",
+      "bn": "সবসময়"
+    },
+    {
+      "en": "usually",
+      "bn": "সাধারণত"
+    },
+    {
+      "en": "often",
+      "bn": "প্রায়ই"
+    },
+    {
+      "en": "sometimes",
+      "bn": "মাঝেমধ্যে"
+    },
+    {
+      "en": "never",
+      "bn": "কখনো নয়"
+    },
+    {
+      "en": "rarely",
+      "bn": "কদাচিৎ"
+    },
+    {
+      "en": "routine",
+      "bn": "দৈনন্দিন নিয়ম"
+    },
+    {
+      "en": "frequency",
+      "bn": "পুনরাবৃত্তির হার"
+    }
+  ],
+  "reading": {
+    "text_en": "I usually eat breakfast at home. Where do you usually eat breakfast? I usually eat breakfast at home.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: কতবার করি?।",
+    "npc_question_en": "Where do you usually eat breakfast?",
+    "good_response_en": "I usually eat breakfast at home.",
+    "challenging_response_en": "I eat usually breakfast at home.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "A2-11-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "Where do you usually eat breakfast?",
+      "options": [
+        "I usually eat breakfast at home.",
+        "I eat usually breakfast at home."
+      ],
+      "correct_index": 0,
+      "answer": "I usually eat breakfast at home.",
+      "feedback_bn": "always, usually, often, sometimes, never সাধারণ ক্রিয়াপদের আগে এবং be-এর পরে বসে।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "A2-11",
+      "level": "A2"
+    },
+    {
+      "id": "A2-11-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"always\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "সবসময়",
+        "সাধারণত",
+        "প্রায়ই"
+      ],
+      "correct_index": 0,
+      "answer": "সবসময়",
+      "feedback_bn": "always = সবসময় (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "A2-11",
+      "level": "A2"
+    },
+    {
+      "id": "A2-11-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে কতবার করি? বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "I usually eat breakfast at home.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "A2-11",
+      "level": "A2"
+    }
+  ]
+}

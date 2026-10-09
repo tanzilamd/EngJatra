@@ -1,0 +1,112 @@
+{
+  "id": "P0-15",
+  "level": "P0",
+  "position": 15,
+  "title_bn": "সহজ অনুরোধ",
+  "title_en": "Please Help Me",
+  "goal_bn": "বাস্তব কথোপকথনে সহজ অনুরোধ বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "ভদ্র অনুরোধ করতে Please + verb ব্যবহার করা যায়; আরও ভদ্র রূপ পরে শেখানো হবে।",
+  "example_en": "Please open the door.",
+  "translation_bn": "দয়া করে দরজাটি খোলো।",
+  "vocabulary": [
+    {
+      "en": "please",
+      "bn": "দয়া করে"
+    },
+    {
+      "en": "help",
+      "bn": "সাহায্য"
+    },
+    {
+      "en": "open",
+      "bn": "খোলা"
+    },
+    {
+      "en": "close",
+      "bn": "বন্ধ করা"
+    },
+    {
+      "en": "give",
+      "bn": "দেওয়া"
+    },
+    {
+      "en": "take",
+      "bn": "নেওয়া"
+    },
+    {
+      "en": "listen",
+      "bn": "শোনা"
+    },
+    {
+      "en": "repeat",
+      "bn": "পুনরাবৃত্তি করা"
+    }
+  ],
+  "reading": {
+    "text_en": "Please open the door. What can I do for you? Please open the door.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: সহজ অনুরোধ।",
+    "npc_question_en": "What can I do for you?",
+    "good_response_en": "Please open the door.",
+    "challenging_response_en": "Please opens the door.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "P0-15-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What can I do for you?",
+      "options": [
+        "Please open the door.",
+        "Please opens the door."
+      ],
+      "correct_index": 0,
+      "answer": "Please open the door.",
+      "feedback_bn": "ভদ্র অনুরোধ করতে Please + verb ব্যবহার করা যায়; আরও ভদ্র রূপ পরে শেখানো হবে।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "P0-15",
+      "level": "P0"
+    },
+    {
+      "id": "P0-15-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"please\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "দয়া করে",
+        "সাহায্য",
+        "খোলা"
+      ],
+      "correct_index": 0,
+      "answer": "দয়া করে",
+      "feedback_bn": "please = দয়া করে (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "P0-15",
+      "level": "P0"
+    },
+    {
+      "id": "P0-15-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে সহজ অনুরোধ বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "Please open the door.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "P0-15",
+      "level": "P0"
+    }
+  ]
+}

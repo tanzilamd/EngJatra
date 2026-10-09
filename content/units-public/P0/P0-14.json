@@ -1,0 +1,112 @@
+{
+  "id": "P0-14",
+  "level": "P0",
+  "position": 14,
+  "title_bn": "কাজ করি",
+  "title_en": "Simple Actions",
+  "goal_bn": "বাস্তব কথোপকথনে কাজ করি বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "I read/I write-এর মতো সাধারণ বাক্যে I-এর পরে verb-এর base form বসে।",
+  "example_en": "I read a book.",
+  "translation_bn": "আমি একটি বই পড়ি।",
+  "vocabulary": [
+    {
+      "en": "read",
+      "bn": "পড়া"
+    },
+    {
+      "en": "write",
+      "bn": "লেখা"
+    },
+    {
+      "en": "play",
+      "bn": "খেলা"
+    },
+    {
+      "en": "eat",
+      "bn": "খাওয়া"
+    },
+    {
+      "en": "drink",
+      "bn": "পান করা"
+    },
+    {
+      "en": "sit",
+      "bn": "বসা"
+    },
+    {
+      "en": "stand",
+      "bn": "দাঁড়ানো"
+    },
+    {
+      "en": "walk",
+      "bn": "হাঁটা"
+    }
+  ],
+  "reading": {
+    "text_en": "I read a book. What do you do after school? I read a book.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: কাজ করি।",
+    "npc_question_en": "What do you do after school?",
+    "good_response_en": "I read a book.",
+    "challenging_response_en": "I reads a book.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "P0-14-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What do you do after school?",
+      "options": [
+        "I read a book.",
+        "I reads a book."
+      ],
+      "correct_index": 0,
+      "answer": "I read a book.",
+      "feedback_bn": "I read/I write-এর মতো সাধারণ বাক্যে I-এর পরে verb-এর base form বসে।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "P0-14",
+      "level": "P0"
+    },
+    {
+      "id": "P0-14-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"read\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "পড়া",
+        "লেখা",
+        "খেলা"
+      ],
+      "correct_index": 0,
+      "answer": "পড়া",
+      "feedback_bn": "read = পড়া (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "P0-14",
+      "level": "P0"
+    },
+    {
+      "id": "P0-14-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে কাজ করি বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "I read a book.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "P0-14",
+      "level": "P0"
+    }
+  ]
+}

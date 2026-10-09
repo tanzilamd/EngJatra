@@ -1,0 +1,247 @@
+{
+  "id": "A2-04",
+  "level": "A2",
+  "position": 4,
+  "title_bn": "বিনীত অনুরোধ",
+  "title_en": "Polite Requests",
+  "goal_bn": "Could you দিয়ে ভদ্র অনুরোধ করতে পারবে",
+  "rule_bn": "Could you + base verb? ভদ্র অনুরোধের প্রচলিত কাঠামো।",
+  "example_en": "Could you open the window, please?",
+  "translation_bn": "আপনি কি দয়া করে জানালাটি খুলবেন?",
+  "vocabulary": [
+    {
+      "en": "could",
+      "bn": "পারতেন বা পারবেন"
+    },
+    {
+      "en": "open",
+      "bn": "খোলা"
+    },
+    {
+      "en": "close",
+      "bn": "বন্ধ করা"
+    },
+    {
+      "en": "window",
+      "bn": "জানালা"
+    },
+    {
+      "en": "door",
+      "bn": "দরজা"
+    },
+    {
+      "en": "borrow",
+      "bn": "ধার নেওয়া"
+    },
+    {
+      "en": "please",
+      "bn": "দয়া করে"
+    },
+    {
+      "en": "favor",
+      "bn": "উপকার"
+    },
+    {
+      "en": "may",
+      "bn": "পারা (অনুমতি)"
+    },
+    {
+      "en": "might",
+      "bn": "হতে পারে"
+    },
+    {
+      "en": "lend",
+      "bn": "ধার দেওয়া"
+    },
+    {
+      "en": "pass",
+      "bn": "এগিয়ে দেওয়া"
+    },
+    {
+      "en": "carry",
+      "bn": "বহন করা"
+    },
+    {
+      "en": "permission",
+      "bn": "অনুমতি"
+    },
+    {
+      "en": "request",
+      "bn": "অনুরোধ"
+    },
+    {
+      "en": "kindly",
+      "bn": "দয়া করে"
+    }
+  ],
+  "quest": {
+    "character": "অভিযাত্রী আরিফ",
+    "opening_bn": "ছোট ভ্রমণ, সমস্যা আর পরিকল্পনা। আজ তোমার মিশন: Could you দিয়ে ভদ্র অনুরোধ করতে পারবে।",
+    "npc_question_en": "The room is hot. What can you ask?",
+    "good_response_en": "Could you open the window, please?",
+    "challenging_response_en": "Could you opening the window?",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "গরম ঘরে জানালা খুলতে অনুরোধ।",
+      "follow_up_question_en": "Of course. Anything else?",
+      "guided_reply_en": "No, thank you.",
+      "skill_focus_bn": "ভদ্র অনুরোধ এবং কৃতজ্ঞতা।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "A2-04-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "The room is hot. What can you ask?",
+      "options": [
+        "Could you open the window, please?",
+        "Could you opening the window?"
+      ],
+      "correct_index": 0,
+      "answer": "Could you open the window, please?",
+      "feedback_bn": "Could you + base verb? ভদ্র অনুরোধের প্রচলিত কাঠামো।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "A2-04-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "Could you ___ the window, please?",
+      "answer": "open",
+      "feedback_bn": "Could you + base verb? ভদ্র অনুরোধের প্রচলিত কাঠামো।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "opened",
+        "open",
+        "opening"
+      ],
+      "correct_index": 1,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "A2-04-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "Could you to open the door?",
+      "answer": "Could you open the door?",
+      "feedback_bn": "Could you + base verb? ভদ্র অনুরোধের প্রচলিত কাঠামো।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "Could you to open the door?",
+        "Could you open the door?"
+      ],
+      "correct_index": 1,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "A2-04-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: আপনি কি দয়া করে জানালাটি খুলবেন?",
+      "tokens": [
+        "please?",
+        "window,",
+        "the",
+        "open",
+        "you",
+        "Could"
+      ],
+      "answer": "Could you open the window, please?",
+      "feedback_bn": "Could you + base verb? ভদ্র অনুরোধের প্রচলিত কাঠামো।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "A2-04-write",
+      "type": "guided_write",
+      "prompt_bn": "কাউকে দুটি ভদ্র অনুরোধ লিখো।",
+      "sample_answer_en": "Could you open the window, please?",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": null,
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "A2-04-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "could",
+          "bn": "পারতেন বা পারবেন"
+        },
+        {
+          "en": "open",
+          "bn": "খোলা"
+        },
+        {
+          "en": "close",
+          "bn": "বন্ধ করা"
+        },
+        {
+          "en": "window",
+          "bn": "জানালা"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "could",
+          "bn": "পারতেন বা পারবেন"
+        },
+        {
+          "en": "open",
+          "bn": "খোলা"
+        },
+        {
+          "en": "close",
+          "bn": "বন্ধ করা"
+        },
+        {
+          "en": "window",
+          "bn": "জানালা"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "A2-04-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "Could you open the window, please?",
+      "options_bn": [
+        "আপনি কি দয়া করে জানালাটি খুলবেন?",
+        "আমি গতকাল আমার খালার/ফুফুর সঙ্গে দেখা করেছি।",
+        "আমরা সিলেট ভ্রমণ করতে যাচ্ছি।"
+      ],
+      "correct_index": 0,
+      "answer_bn": "আপনি কি দয়া করে জানালাটি খুলবেন?",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "Could you open the window, please? The room is hot. What can you ask? Could you open the window, please?",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

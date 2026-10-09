@@ -1,0 +1,112 @@
+{
+  "id": "P0-13",
+  "level": "P0",
+  "position": 13,
+  "title_bn": "আমার বাড়ি কোথায়?",
+  "title_en": "My Home",
+  "goal_bn": "বাস্তব কথোপকথনে আমার বাড়ি কোথায়? বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "I live in-এর পরে শহর বা এলাকায় থাকার কথা বলা যায়।",
+  "example_en": "I live in Rajshahi.",
+  "translation_bn": "আমি রাজশাহীতে থাকি।",
+  "vocabulary": [
+    {
+      "en": "live",
+      "bn": "বাস করা"
+    },
+    {
+      "en": "home",
+      "bn": "বাড়ি"
+    },
+    {
+      "en": "city",
+      "bn": "শহর"
+    },
+    {
+      "en": "village",
+      "bn": "গ্রাম"
+    },
+    {
+      "en": "street",
+      "bn": "রাস্তা"
+    },
+    {
+      "en": "country",
+      "bn": "দেশ"
+    },
+    {
+      "en": "near",
+      "bn": "কাছে"
+    },
+    {
+      "en": "far",
+      "bn": "দূরে"
+    }
+  ],
+  "reading": {
+    "text_en": "I live in Rajshahi. Where do you live? I live in Rajshahi.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: আমার বাড়ি কোথায়?।",
+    "npc_question_en": "Where do you live?",
+    "good_response_en": "I live in Rajshahi.",
+    "challenging_response_en": "I am live in Rajshahi.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "P0-13-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "Where do you live?",
+      "options": [
+        "I live in Rajshahi.",
+        "I am live in Rajshahi."
+      ],
+      "correct_index": 0,
+      "answer": "I live in Rajshahi.",
+      "feedback_bn": "I live in-এর পরে শহর বা এলাকায় থাকার কথা বলা যায়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "P0-13",
+      "level": "P0"
+    },
+    {
+      "id": "P0-13-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"live\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "বাস করা",
+        "বাড়ি",
+        "শহর"
+      ],
+      "correct_index": 0,
+      "answer": "বাস করা",
+      "feedback_bn": "live = বাস করা (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "P0-13",
+      "level": "P0"
+    },
+    {
+      "id": "P0-13-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে আমার বাড়ি কোথায়? বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "I live in Rajshahi.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "P0-13",
+      "level": "P0"
+    }
+  ]
+}

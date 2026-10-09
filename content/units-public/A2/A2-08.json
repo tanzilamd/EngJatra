@@ -1,0 +1,245 @@
+{
+  "id": "A2-08",
+  "level": "A2",
+  "position": 8,
+  "title_bn": "একটি অভিজ্ঞতা",
+  "title_en": "A Small Adventure",
+  "goal_bn": "ঘটনার ক্রমে ছোট বিবরণ লিখতে পারবে",
+  "rule_bn": "First, then, finally দিয়ে সময়ের ক্রমে ঘটনা সাজানো যায়।",
+  "example_en": "First, we bought tickets.",
+  "translation_bn": "প্রথমে আমরা টিকিট কিনেছিলাম।",
+  "vocabulary": [
+    {
+      "en": "first",
+      "bn": "প্রথমে"
+    },
+    {
+      "en": "then",
+      "bn": "তারপর"
+    },
+    {
+      "en": "after",
+      "bn": "পরে"
+    },
+    {
+      "en": "finally",
+      "bn": "অবশেষে"
+    },
+    {
+      "en": "ticket",
+      "bn": "টিকিট"
+    },
+    {
+      "en": "station",
+      "bn": "স্টেশন"
+    },
+    {
+      "en": "journey",
+      "bn": "যাত্রা"
+    },
+    {
+      "en": "arrive",
+      "bn": "পৌঁছানো"
+    },
+    {
+      "en": "platform",
+      "bn": "প্ল্যাটফর্ম"
+    },
+    {
+      "en": "bus",
+      "bn": "বাস"
+    },
+    {
+      "en": "train",
+      "bn": "ট্রেন"
+    },
+    {
+      "en": "driver",
+      "bn": "চালক"
+    },
+    {
+      "en": "passenger",
+      "bn": "যাত্রী"
+    },
+    {
+      "en": "route",
+      "bn": "যাত্রাপথ"
+    },
+    {
+      "en": "delay",
+      "bn": "বিলম্ব"
+    },
+    {
+      "en": "destination",
+      "bn": "গন্তব্য"
+    }
+  ],
+  "quest": {
+    "character": "অভিযাত্রী আরিফ",
+    "opening_bn": "ছোট ভ্রমণ, সমস্যা আর পরিকল্পনা। আজ তোমার মিশন: ঘটনার ক্রমে ছোট বিবরণ লিখতে পারবে।",
+    "npc_question_en": "What did you do first at the station?",
+    "good_response_en": "First, we bought tickets.",
+    "challenging_response_en": "First, we buy tickets yesterday.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "স্টেশন থেকে জাদুঘরে যাত্রা।",
+      "follow_up_question_en": "What happened after you arrived?",
+      "guided_reply_en": "Then we bought tickets.",
+      "skill_focus_bn": "ঘটনার ক্রম বলা।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "A2-08-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "What did you do first at the station?",
+      "options": [
+        "First, we buy tickets yesterday.",
+        "First, we bought tickets."
+      ],
+      "correct_index": 1,
+      "answer": "First, we bought tickets.",
+      "feedback_bn": "ঘটনার ক্রম বোঝাতে first, then, finally ব্যবহার করা যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "A2-08-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "___, we bought tickets.",
+      "answer": "First",
+      "feedback_bn": "ঘটনার ক্রম বোঝাতে first, then, finally ব্যবহার করা যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "For first",
+        "First of",
+        "First"
+      ],
+      "correct_index": 2,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "A2-08-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "Finally we goes home.",
+      "answer": "Finally, we went home.",
+      "feedback_bn": "ঘটনার ক্রম বোঝাতে first, then, finally ব্যবহার করা যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "Finally, we went home.",
+        "Finally we goes home."
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "A2-08-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: প্রথমে আমরা টিকিট কিনেছিলাম।",
+      "tokens": [
+        "tickets.",
+        "bought",
+        "we",
+        "First,"
+      ],
+      "answer": "First, we bought tickets.",
+      "feedback_bn": "ঘটনার ক্রম বোঝাতে first, then, finally ব্যবহার করা যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "A2-08-write",
+      "type": "guided_write",
+      "prompt_bn": "First, then, finally দিয়ে ছোট গল্প লেখো।",
+      "sample_answer_en": "First, we bought tickets.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": "ঘটনার ক্রম বোঝাতে first, then, finally ব্যবহার করা যায়।",
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "A2-08-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "first",
+          "bn": "প্রথমে"
+        },
+        {
+          "en": "then",
+          "bn": "তারপর"
+        },
+        {
+          "en": "after",
+          "bn": "পরে"
+        },
+        {
+          "en": "finally",
+          "bn": "অবশেষে"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "first",
+          "bn": "প্রথমে"
+        },
+        {
+          "en": "then",
+          "bn": "তারপর"
+        },
+        {
+          "en": "after",
+          "bn": "পরে"
+        },
+        {
+          "en": "finally",
+          "bn": "অবশেষে"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "A2-08-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "First, we bought tickets.",
+      "options_bn": [
+        "আমরা সিলেট ভ্রমণ করতে যাচ্ছি।",
+        "আমি গতকাল আমার খালার/ফুফুর সঙ্গে দেখা করেছি।",
+        "প্রথমে আমরা টিকিট কিনেছিলাম।"
+      ],
+      "correct_index": 2,
+      "answer_bn": "প্রথমে আমরা টিকিট কিনেছিলাম।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "First, we bought tickets. What did you do first at the station? First, we bought tickets.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "id": "A1-02",
+  "level": "A1",
+  "position": 2,
+  "title_bn": "প্রতিদিনের কাজ",
+  "title_en": "Daily Routine",
+  "goal_bn": "নিয়মিত কাজ Present Simple-এ বলতে পারবে",
+  "rule_bn": "I/you/we/they-এর সঙ্গে base verb; he/she/it-এর সঙ্গে সাধারণত verb+s/es।",
+  "example_en": "She walks to school.",
+  "translation_bn": "সে হেঁটে স্কুলে যায়।",
+  "vocabulary": [
+    {
+      "en": "wake",
+      "bn": "জাগা"
+    },
+    {
+      "en": "walk",
+      "bn": "হাঁটা"
+    },
+    {
+      "en": "study",
+      "bn": "পড়া"
+    },
+    {
+      "en": "work",
+      "bn": "কাজ করা"
+    },
+    {
+      "en": "start",
+      "bn": "শুরু করা"
+    },
+    {
+      "en": "finish",
+      "bn": "শেষ করা"
+    },
+    {
+      "en": "usually",
+      "bn": "সাধারণত"
+    },
+    {
+      "en": "daily",
+      "bn": "প্রতিদিন"
+    },
+    {
+      "en": "breakfast",
+      "bn": "সকালের খাবার"
+    },
+    {
+      "en": "lunch",
+      "bn": "দুপুরের খাবার"
+    },
+    {
+      "en": "dinner",
+      "bn": "রাতের খাবার"
+    },
+    {
+      "en": "read",
+      "bn": "পড়া"
+    },
+    {
+      "en": "sleep",
+      "bn": "ঘুমানো"
+    },
+    {
+      "en": "leave",
+      "bn": "বেরিয়ে যাওয়া"
+    },
+    {
+      "en": "return",
+      "bn": "ফিরে আসা"
+    },
+    {
+      "en": "every",
+      "bn": "প্রতিটি"
+    }
+  ],
+  "quest": {
+    "character": "বন্ধু নীরা",
+    "opening_bn": "নতুন শহরে বন্ধু, দোকান ও ক্লাসের সঙ্গে পরিচয়। আজ তোমার মিশন: নিয়মিত কাজ Present Simple-এ বলতে পারবে।",
+    "npc_question_en": "How does your sister go to school?",
+    "good_response_en": "She walks to school.",
+    "challenging_response_en": "She walk to school.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "স্কুলের আগে সকালের কাজ বলা।",
+      "follow_up_question_en": "What time do you wake up?",
+      "guided_reply_en": "I wake up at seven.",
+      "skill_focus_bn": "দৈনন্দিন অভ্যাস এবং সময়।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "A1-02-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "How does your sister go to school?",
+      "options": [
+        "She walks to school.",
+        "She walk to school."
+      ],
+      "correct_index": 0,
+      "answer": "She walks to school.",
+      "feedback_bn": "I/you/we/they-এর সঙ্গে base verb; he/she/it-এর সঙ্গে সাধারণত verb+s/es।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "A1-02-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "She ___ to school.",
+      "answer": "walks",
+      "feedback_bn": "I/you/we/they-এর সঙ্গে base verb; he/she/it-এর সঙ্গে সাধারণত verb+s/es।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "walk",
+        "walking",
+        "walks"
+      ],
+      "correct_index": 2,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "A1-02-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "He walk to school.",
+      "answer": "He walks to school.",
+      "feedback_bn": "I/you/we/they-এর সঙ্গে base verb; he/she/it-এর সঙ্গে সাধারণত verb+s/es।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "He walks to school.",
+        "He walk to school."
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "A1-02-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: সে হেঁটে স্কুলে যায়।",
+      "tokens": [
+        "school.",
+        "to",
+        "walks",
+        "She"
+      ],
+      "answer": "She walks to school.",
+      "feedback_bn": "I/you/we/they-এর সঙ্গে base verb; he/she/it-এর সঙ্গে সাধারণত verb+s/es।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "A1-02-write",
+      "type": "guided_write",
+      "prompt_bn": "নিজের দিনের তিনটি নিয়মিত কাজ লিখো।",
+      "sample_answer_en": "She walks to school.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": null,
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "A1-02-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "wake",
+          "bn": "জাগা"
+        },
+        {
+          "en": "walk",
+          "bn": "হাঁটা"
+        },
+        {
+          "en": "study",
+          "bn": "পড়া"
+        },
+        {
+          "en": "work",
+          "bn": "কাজ করা"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "wake",
+          "bn": "জাগা"
+        },
+        {
+          "en": "walk",
+          "bn": "হাঁটা"
+        },
+        {
+          "en": "study",
+          "bn": "পড়া"
+        },
+        {
+          "en": "work",
+          "bn": "কাজ করা"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "A1-02-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "She walks to school.",
+      "options_bn": [
+        "আমি বই পড়তে পছন্দ করি।",
+        "সে হেঁটে স্কুলে যায়।",
+        "আমার মা-বাবা দয়ালু।"
+      ],
+      "correct_index": 1,
+      "answer_bn": "সে হেঁটে স্কুলে যায়।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "She walks to school. How does your sister go to school? She walks to school.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

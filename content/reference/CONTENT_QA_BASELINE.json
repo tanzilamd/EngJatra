@@ -1,0 +1,18 @@
+{
+  "as_of": "2026-10-09",
+  "source": "English_Learning_C1_Content_Pack_v3",
+  "structural_issues_in_source_report": 0,
+  "units": 96,
+  "vocabulary_records": 932,
+  "grammar_cards": 132,
+  "scripted_conversations": 96,
+  "non_ai_activities": 480,
+  "extended_readings": 12,
+  "independent_human_review_completed": false,
+  "notes": [
+    "Structural checks in original report are not a semantic correctness guarantee",
+    "C1 coverage is a draft curriculum track, not certification",
+    "Assess all user-visible Bangla/English examples and keys before broad release",
+    "Do not surface author internal review statuses to learners"
+  ]
+}

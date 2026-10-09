@@ -1,0 +1,182 @@
+[
+  {
+    "id": "R-B2-01",
+    "level": "B2",
+    "title_en": "Community Library",
+    "text_en": "A local council is considering extending the opening hours of its public library. Supporters believe evening access would benefit students and workers, especially those who cannot visit during the day. Critics are concerned about staffing costs and the limited number of evening visitors recorded during a short pilot. However, the pilot took place during the holiday season, which may not reflect usual demand. Before making a permanent decision, the council plans to examine attendance over a longer period and consult local residents.",
+    "question_en": "Why might the pilot data be unrepresentative?",
+    "options": [
+      "It took place during the holiday season.",
+      "Because staffing costs are guaranteed to fall."
+    ],
+    "correct_index": 0,
+    "answer_explanation_bn": "উত্তরটি পাঠ্যের তথ্য ও দাবির সীমাবদ্ধতার সঙ্গে মিলিয়ে নির্বাচন করতে হবে।",
+    "is_original": true,
+    "quiz_type": "fixed_choice"
+  },
+  {
+    "id": "R-B2-02",
+    "level": "B2",
+    "title_en": "Digital Notes",
+    "text_en": "A school introduced optional digital note-taking software. Some learners appreciated its search function and the ability to organise class material. Others found that notifications distracted them and preferred paper notebooks. The teachers therefore avoided making one method compulsory. Instead, they encouraged students to compare their concentration and recall after each approach. The decision recognises that a useful tool for one learner may not be the best choice for another.",
+    "question_en": "Why did teachers avoid a compulsory method?",
+    "options": [
+      "Different students benefited from different methods.",
+      "Digital notes never help students."
+    ],
+    "correct_index": 0,
+    "answer_explanation_bn": "উত্তরটি পাঠ্যের তথ্য ও দাবির সীমাবদ্ধতার সঙ্গে মিলিয়ে নির্বাচন করতে হবে।",
+    "is_original": true,
+    "quiz_type": "fixed_choice"
+  },
+  {
+    "id": "R-B2-03",
+    "level": "B2",
+    "title_en": "Public Transport Proposal",
+    "text_en": "The transport committee proposed a new bus route to connect two neighbourhoods with a training centre. The original plan reduced travel distance for some passengers but increased waiting times for others. A revised route attempted to balance both concerns, although it would require an additional vehicle. The committee concluded that affordability and accessibility should be assessed together rather than treating the shortest route as automatically the best.",
+    "question_en": "What trade-off does the revised route involve?",
+    "options": [
+      "It may improve access but requires another vehicle.",
+      "It removes the need for buses."
+    ],
+    "correct_index": 0,
+    "answer_explanation_bn": "উত্তরটি পাঠ্যের তথ্য ও দাবির সীমাবদ্ধতার সঙ্গে মিলিয়ে নির্বাচন করতে হবে।",
+    "is_original": true,
+    "quiz_type": "fixed_choice"
+  },
+  {
+    "id": "R-B2-04",
+    "level": "B2",
+    "title_en": "An Online Review",
+    "text_en": "An online review praised a language-learning app for its clear explanations and engaging challenges. However, the reviewer had used it for only two days and had not tried the advanced material. The review offers useful first impressions but cannot establish whether the app supports sustained progress. Readers should therefore consider longer-term evidence before relying on the review as a complete evaluation.",
+    "question_en": "What limits the strength of the review?",
+    "options": [
+      "The reviewer tested the app for only two days.",
+      "The reviewer used the app for several years."
+    ],
+    "correct_index": 0,
+    "answer_explanation_bn": "উত্তরটি পাঠ্যের তথ্য ও দাবির সীমাবদ্ধতার সঙ্গে মিলিয়ে নির্বাচন করতে হবে।",
+    "is_original": true,
+    "quiz_type": "fixed_choice"
+  },
+  {
+    "id": "R-C1-05",
+    "level": "C1",
+    "title_en": "Interpreting a Survey",
+    "text_en": "A university survey reported that students who attended optional workshops tended to submit assignments earlier than those who did not. While the association is worth investigating, it does not establish that the workshops caused the difference. Students who already manage their time effectively may be more likely to attend. Moreover, the survey relied on self-reported attendance, leaving room for inaccuracies. A stronger evaluation would compare similar groups over time and consider alternative explanations. Until then, the workshops may be described as promising rather than proven to improve time management.",
+    "question_en": "Which claim is justified by the passage?",
+    "options": [
+      "Workshop attendance is associated with earlier submission, but causation is unproven.",
+      "The workshops have been proven to cause earlier submission."
+    ],
+    "correct_index": 0,
+    "answer_explanation_bn": "উত্তরটি পাঠ্যের তথ্য ও দাবির সীমাবদ্ধতার সঙ্গে মিলিয়ে নির্বাচন করতে হবে।",
+    "is_original": true,
+    "quiz_type": "fixed_choice"
+  },
+  {
+    "id": "R-C1-06",
+    "level": "C1",
+    "title_en": "A Qualified Recommendation",
+    "text_en": "The committee recommends extending the pilot programme for a further term, subject to a clearly defined evaluation plan. Early feedback has been favourable, yet the current evidence does not adequately represent participants who discontinued the programme. If the extension proceeds, the team should collect both positive and negative responses and publish the criteria used to judge success. This would make the eventual decision more transparent without committing resources indefinitely. The recommendation is therefore conditional, not an unconditional endorsement of the programme.",
+    "question_en": "What condition is attached to the recommendation?",
+    "options": [
+      "A clearly defined evaluation plan is required.",
+      "The programme must be continued indefinitely."
+    ],
+    "correct_index": 0,
+    "answer_explanation_bn": "উত্তরটি পাঠ্যের তথ্য ও দাবির সীমাবদ্ধতার সঙ্গে মিলিয়ে নির্বাচন করতে হবে।",
+    "is_original": true,
+    "quiz_type": "fixed_choice"
+  },
+  {
+    "id": "R-C1-07",
+    "level": "C1",
+    "title_en": "The Meaning of an Apology",
+    "text_en": "In a public statement, the manager said that delays had occurred and that the team regretted any inconvenience. Although the statement acknowledged the outcome, it did not explain what caused the delays or what would change. Some customers interpreted the wording as courteous but evasive. Others viewed it as an appropriate first response while the investigation remained open. The contrasting reactions illustrate how an apparently straightforward apology can imply different degrees of accountability depending on what is included and omitted.",
+    "question_en": "Why did some customers find the statement evasive?",
+    "options": [
+      "It did not explain causes or corrective action.",
+      "It gave a complete account of the causes."
+    ],
+    "correct_index": 0,
+    "answer_explanation_bn": "উত্তরটি পাঠ্যের তথ্য ও দাবির সীমাবদ্ধতার সঙ্গে মিলিয়ে নির্বাচন করতে হবে।",
+    "is_original": true,
+    "quiz_type": "fixed_choice"
+  },
+  {
+    "id": "R-C1-08",
+    "level": "C1",
+    "title_en": "Evidence and the Headline",
+    "text_en": "A headline declared that remote study produces better results, yet the article underneath described a narrow trial in one department. The trial participants chose their own study format, and the researchers reported differences in average scores without controlling for prior attainment. These limitations do not make the findings worthless; they make a universal conclusion premature. A careful summary would say that the trial identified a possible advantage in a particular context, pending broader investigation.",
+    "question_en": "Which assessment of the headline is best?",
+    "options": [
+      "It overstates what the limited trial can establish.",
+      "It accurately proves a universal advantage."
+    ],
+    "correct_index": 0,
+    "answer_explanation_bn": "উত্তরটি পাঠ্যের তথ্য ও দাবির সীমাবদ্ধতার সঙ্গে মিলিয়ে নির্বাচন করতে হবে।",
+    "is_original": true,
+    "quiz_type": "fixed_choice"
+  },
+  {
+    "id": "R-C1-09",
+    "level": "C1",
+    "title_en": "Editorial Nuance",
+    "text_en": "An editorial described the proposed reform as attractive in principle but difficult to implement under current conditions. The writer praised its long-term aims while questioning whether the available funding could sustain the necessary training. Rather than reject the reform outright, the article argued for a smaller trial accompanied by independent evaluation. Its overall position is cautious support contingent on feasibility, not wholehearted approval or outright opposition. Readers who focus only on the opening praise risk misrepresenting the conclusion.",
+    "question_en": "What is the writer’s overall position?",
+    "options": [
+      "Conditional support with a smaller trial and evaluation.",
+      "Unqualified approval of immediate full implementation."
+    ],
+    "correct_index": 0,
+    "answer_explanation_bn": "উত্তরটি পাঠ্যের তথ্য ও দাবির সীমাবদ্ধতার সঙ্গে মিলিয়ে নির্বাচন করতে হবে।",
+    "is_original": true,
+    "quiz_type": "fixed_choice"
+  },
+  {
+    "id": "R-C1-10",
+    "level": "C1",
+    "title_en": "Distinguishing Two Arguments",
+    "text_en": "Both authors argue for improving access to public learning resources, but their priorities differ. The first emphasises affordability and recommends wider distribution of existing materials. The second focuses on effectiveness and proposes training educators to adapt resources for different learners. These positions are not necessarily incompatible: wider distribution without support may have limited impact, while training alone cannot overcome a shortage of materials. A coherent proposal could address both obstacles, provided costs and implementation capacity are assessed.",
+    "question_en": "How are the two positions best understood?",
+    "options": [
+      "They address different obstacles and may be combined.",
+      "They are logically incompatible in every respect."
+    ],
+    "correct_index": 0,
+    "answer_explanation_bn": "উত্তরটি পাঠ্যের তথ্য ও দাবির সীমাবদ্ধতার সঙ্গে মিলিয়ে নির্বাচন করতে হবে।",
+    "is_original": true,
+    "quiz_type": "fixed_choice"
+  },
+  {
+    "id": "R-C1-11",
+    "level": "C1",
+    "title_en": "An Incident Report",
+    "text_en": "The investigation established that the system stopped responding during a scheduled update. It did not, however, establish that the update itself was defective; a separate network interruption occurred at approximately the same time. The report distinguishes the sequence of events from their cause and recommends collecting additional diagnostic evidence before assigning responsibility. Its deliberately restrained wording is important because an unsupported allegation could lead to ineffective corrective action and unfair blame.",
+    "question_en": "What does the report avoid claiming?",
+    "options": [
+      "That the update has been proven to cause the outage.",
+      "That the system stopped responding."
+    ],
+    "correct_index": 0,
+    "answer_explanation_bn": "উত্তরটি পাঠ্যের তথ্য ও দাবির সীমাবদ্ধতার সঙ্গে মিলিয়ে নির্বাচন করতে হবে।",
+    "is_original": true,
+    "quiz_type": "fixed_choice"
+  },
+  {
+    "id": "R-C1-12",
+    "level": "C1",
+    "title_en": "Summarising a Policy",
+    "text_en": "The draft policy seeks to reduce unnecessary notifications while preserving urgent communication. It proposes grouping routine messages into scheduled summaries, but exempts safety alerts and time-sensitive operational updates. The authors acknowledge that different teams have different communication needs and therefore recommend an initial trial with user feedback. The policy’s purpose is not to eliminate notifications; it is to distinguish messages that require immediate attention from those that can wait.",
+    "question_en": "What is the main aim of the policy?",
+    "options": [
+      "To reduce unnecessary alerts while retaining urgent ones.",
+      "To prevent every notification without exception."
+    ],
+    "correct_index": 0,
+    "answer_explanation_bn": "উত্তরটি পাঠ্যের তথ্য ও দাবির সীমাবদ্ধতার সঙ্গে মিলিয়ে নির্বাচন করতে হবে।",
+    "is_original": true,
+    "quiz_type": "fixed_choice"
+  }
+]

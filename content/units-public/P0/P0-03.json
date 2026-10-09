@@ -1,0 +1,245 @@
+{
+  "id": "P0-03",
+  "level": "P0",
+  "position": 3,
+  "title_bn": "আমি তুমি সে",
+  "title_en": "People & Pronouns",
+  "goal_bn": "I, you, he, she চিনতে পারবে",
+  "rule_bn": "I নিজেকে বোঝায়; he একজন পুরুষকে এবং she একজন নারীকে বোঝাতে পারে। You এক বা একাধিক জনকে বোঝাতে পারে।",
+  "example_en": "She is my friend.",
+  "translation_bn": "সে আমার বন্ধু।",
+  "vocabulary": [
+    {
+      "en": "I",
+      "bn": "আমি"
+    },
+    {
+      "en": "you",
+      "bn": "তুমি বা আপনি"
+    },
+    {
+      "en": "he",
+      "bn": "সে পুরুষ"
+    },
+    {
+      "en": "she",
+      "bn": "সে নারী"
+    },
+    {
+      "en": "we",
+      "bn": "আমরা"
+    },
+    {
+      "en": "they",
+      "bn": "তারা"
+    },
+    {
+      "en": "friend",
+      "bn": "বন্ধু"
+    },
+    {
+      "en": "teacher",
+      "bn": "শিক্ষক"
+    },
+    {
+      "en": "it",
+      "bn": "এটি"
+    },
+    {
+      "en": "me",
+      "bn": "আমাকে"
+    },
+    {
+      "en": "him",
+      "bn": "তাকে (পুরুষ)"
+    },
+    {
+      "en": "her",
+      "bn": "তাকে (নারী)"
+    },
+    {
+      "en": "us",
+      "bn": "আমাদেরকে"
+    },
+    {
+      "en": "them",
+      "bn": "তাদেরকে"
+    },
+    {
+      "en": "our",
+      "bn": "আমাদের"
+    },
+    {
+      "en": "their",
+      "bn": "তাদের"
+    }
+  ],
+  "quest": {
+    "character": "বন্ধু নীরা",
+    "opening_bn": "শুরু হলো শহরের ছোট্ট ভাষা-অভিযান। আজ তোমার মিশন: I, you, he, she চিনতে পারবে।",
+    "npc_question_en": "Who is Mina?",
+    "good_response_en": "She is my friend.",
+    "challenging_response_en": "Her is my friend.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "তিন বন্ধুর ছবি দেখে পরিচয় দেওয়া।",
+      "follow_up_question_en": "Who is she?",
+      "guided_reply_en": "She is my friend.",
+      "skill_focus_bn": "Subject pronoun এবং be verb অনুশীলন।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "P0-03-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "Who is Mina?",
+      "options": [
+        "She is my friend.",
+        "Her is my friend."
+      ],
+      "correct_index": 0,
+      "answer": "She is my friend.",
+      "feedback_bn": "She-এর সঙ্গে is বসে; We/They-এর সঙ্গে are বসে।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "P0-03-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "___ is my friend.",
+      "answer": "She",
+      "feedback_bn": "She-এর সঙ্গে is বসে; We/They-এর সঙ্গে are বসে।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "They",
+        "We",
+        "She"
+      ],
+      "correct_index": 2,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "P0-03-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "Her is my friend.",
+      "answer": "She is my friend.",
+      "feedback_bn": "She-এর সঙ্গে is বসে; We/They-এর সঙ্গে are বসে।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "She is my friend.",
+        "Her is my friend."
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "P0-03-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: সে আমার বন্ধু।",
+      "tokens": [
+        "is",
+        "She",
+        "friend.",
+        "my"
+      ],
+      "answer": "She is my friend.",
+      "feedback_bn": "She-এর সঙ্গে is বসে; We/They-এর সঙ্গে are বসে।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "P0-03-write",
+      "type": "guided_write",
+      "prompt_bn": "নিজের সম্পর্কে I এবং বন্ধুর সম্পর্কে he বা she দিয়ে বাক্য লেখো।",
+      "sample_answer_en": "She is my friend.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": "She-এর সঙ্গে is বসে; We/They-এর সঙ্গে are বসে।",
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "P0-03-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "I",
+          "bn": "আমি"
+        },
+        {
+          "en": "you",
+          "bn": "তুমি বা আপনি"
+        },
+        {
+          "en": "he",
+          "bn": "সে পুরুষ"
+        },
+        {
+          "en": "she",
+          "bn": "সে নারী"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "I",
+          "bn": "আমি"
+        },
+        {
+          "en": "you",
+          "bn": "তুমি বা আপনি"
+        },
+        {
+          "en": "he",
+          "bn": "সে পুরুষ"
+        },
+        {
+          "en": "she",
+          "bn": "সে নারী"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "P0-03-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "She is my friend.",
+      "options_bn": [
+        "সে আমার বন্ধু।",
+        "আমার নাম সামি।",
+        "হ্যালো, আমি রিনা।"
+      ],
+      "correct_index": 0,
+      "answer_bn": "সে আমার বন্ধু।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "She is my friend. Who is Mina? She is my friend.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

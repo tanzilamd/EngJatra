@@ -1,0 +1,112 @@
+{
+  "id": "C1-11",
+  "level": "C1",
+  "position": 11,
+  "title_bn": "জোর দিয়ে বলি",
+  "title_en": "Cleft Sentences",
+  "goal_bn": "বাস্তব কথোপকথনে জোর দিয়ে বলি বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "It was...that/who... অথবা What...is... ব্যবহার করে বাক্যের নির্দিষ্ট অংশে জোর দেওয়া যায়।",
+  "example_en": "What matters most is the quality of the evidence.",
+  "translation_bn": "সবচেয়ে গুরুত্বপূর্ণ হলো প্রমাণের মান।",
+  "vocabulary": [
+    {
+      "en": "emphasis",
+      "bn": "জোর"
+    },
+    {
+      "en": "cleft",
+      "bn": "দ্বিখণ্ডিত জোরসূচক বাক্য"
+    },
+    {
+      "en": "highlight",
+      "bn": "বিশেষভাবে তুলে ধরা"
+    },
+    {
+      "en": "focus",
+      "bn": "মনোযোগের কেন্দ্র"
+    },
+    {
+      "en": "essential",
+      "bn": "অত্যাবশ্যক"
+    },
+    {
+      "en": "priority",
+      "bn": "অগ্রাধিকার"
+    },
+    {
+      "en": "rhetorical",
+      "bn": "অলংকারধর্মী"
+    },
+    {
+      "en": "structure",
+      "bn": "গঠন"
+    }
+  ],
+  "reading": {
+    "text_en": "What matters most is the quality of the evidence. What matters most in the report? What matters most is the quality of the evidence.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: জোর দিয়ে বলি।",
+    "npc_question_en": "What matters most in the report?",
+    "good_response_en": "What matters most is the quality of the evidence.",
+    "challenging_response_en": "What matters most are the quality of the evidence.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "C1-11-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What matters most in the report?",
+      "options": [
+        "What matters most is the quality of the evidence.",
+        "What matters most are the quality of the evidence."
+      ],
+      "correct_index": 0,
+      "answer": "What matters most is the quality of the evidence.",
+      "feedback_bn": "It was...that/who... অথবা What...is... ব্যবহার করে বাক্যের নির্দিষ্ট অংশে জোর দেওয়া যায়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "C1-11",
+      "level": "C1"
+    },
+    {
+      "id": "C1-11-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"emphasis\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "জোর",
+        "দ্বিখণ্ডিত জোরসূচক বাক্য",
+        "বিশেষভাবে তুলে ধরা"
+      ],
+      "correct_index": 0,
+      "answer": "জোর",
+      "feedback_bn": "emphasis = জোর (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "C1-11",
+      "level": "C1"
+    },
+    {
+      "id": "C1-11-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে জোর দিয়ে বলি বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "What matters most is the quality of the evidence.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "C1-11",
+      "level": "C1"
+    }
+  ]
+}

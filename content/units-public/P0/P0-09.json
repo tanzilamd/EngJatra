@@ -1,0 +1,112 @@
+{
+  "id": "P0-09",
+  "level": "P0",
+  "position": 9,
+  "title_bn": "এটা কী?",
+  "title_en": "What Is This?",
+  "goal_bn": "বাস্তব কথোপকথনে এটা কী? বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "This/That দিয়ে একটি জিনিস দেখানো যায়; দূরের জন্য সাধারণত that ব্যবহৃত হয়।",
+  "example_en": "This is my bag.",
+  "translation_bn": "এটি আমার ব্যাগ।",
+  "vocabulary": [
+    {
+      "en": "this",
+      "bn": "এটি"
+    },
+    {
+      "en": "that",
+      "bn": "ওটি"
+    },
+    {
+      "en": "bag",
+      "bn": "ব্যাগ"
+    },
+    {
+      "en": "pen",
+      "bn": "কলম"
+    },
+    {
+      "en": "book",
+      "bn": "বই"
+    },
+    {
+      "en": "chair",
+      "bn": "চেয়ার"
+    },
+    {
+      "en": "table",
+      "bn": "টেবিল"
+    },
+    {
+      "en": "door",
+      "bn": "দরজা"
+    }
+  ],
+  "reading": {
+    "text_en": "This is my bag. What is this? This is a bag.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: এটা কী?।",
+    "npc_question_en": "What is this?",
+    "good_response_en": "This is a bag.",
+    "challenging_response_en": "These is a bag.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "P0-09-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What is this?",
+      "options": [
+        "This is a bag.",
+        "These is a bag."
+      ],
+      "correct_index": 0,
+      "answer": "This is a bag.",
+      "feedback_bn": "This/That দিয়ে একটি জিনিস দেখানো যায়; দূরের জন্য সাধারণত that ব্যবহৃত হয়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "P0-09",
+      "level": "P0"
+    },
+    {
+      "id": "P0-09-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"this\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "এটি",
+        "ওটি",
+        "ব্যাগ"
+      ],
+      "correct_index": 0,
+      "answer": "এটি",
+      "feedback_bn": "this = এটি (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "P0-09",
+      "level": "P0"
+    },
+    {
+      "id": "P0-09-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে এটা কী? বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "This is my bag.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "P0-09",
+      "level": "P0"
+    }
+  ]
+}

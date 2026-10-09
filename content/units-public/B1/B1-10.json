@@ -1,0 +1,112 @@
+{
+  "id": "B1-10",
+  "level": "B1",
+  "position": 10,
+  "title_bn": "বইয়ের রিভিউ",
+  "title_en": "Writing a Book Review",
+  "goal_bn": "বাস্তব কথোপকথনে বইয়ের রিভিউ বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "রিভিউয়ে বিষয়বস্তুর সংক্ষিপ্ত পরিচয়, মতামত ও উদাহরণ রাখা উপকারী।",
+  "example_en": "The story is engaging, although the ending is predictable.",
+  "translation_bn": "গল্প আকর্ষণীয় হলেও শেষটি অনুমানযোগ্য।",
+  "vocabulary": [
+    {
+      "en": "review",
+      "bn": "পর্যালোচনা"
+    },
+    {
+      "en": "engaging",
+      "bn": "আকর্ষণীয়"
+    },
+    {
+      "en": "predictable",
+      "bn": "অনুমানযোগ্য"
+    },
+    {
+      "en": "plot",
+      "bn": "কাহিনি"
+    },
+    {
+      "en": "character",
+      "bn": "চরিত্র"
+    },
+    {
+      "en": "ending",
+      "bn": "সমাপ্তি"
+    },
+    {
+      "en": "recommend",
+      "bn": "সুপারিশ করা"
+    },
+    {
+      "en": "opinion",
+      "bn": "মতামত"
+    }
+  ],
+  "reading": {
+    "text_en": "The story is engaging, although the ending is predictable. What is your opinion of the story? The story is engaging, although the ending is predictable.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: বইয়ের রিভিউ।",
+    "npc_question_en": "What is your opinion of the story?",
+    "good_response_en": "The story is engaging, although the ending is predictable.",
+    "challenging_response_en": "The story engaging, although the ending predictable.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "B1-10-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What is your opinion of the story?",
+      "options": [
+        "The story is engaging, although the ending is predictable.",
+        "The story engaging, although the ending predictable."
+      ],
+      "correct_index": 0,
+      "answer": "The story is engaging, although the ending is predictable.",
+      "feedback_bn": "রিভিউয়ে বিষয়বস্তুর সংক্ষিপ্ত পরিচয়, মতামত ও উদাহরণ রাখা উপকারী।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "B1-10",
+      "level": "B1"
+    },
+    {
+      "id": "B1-10-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"review\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "পর্যালোচনা",
+        "আকর্ষণীয়",
+        "অনুমানযোগ্য"
+      ],
+      "correct_index": 0,
+      "answer": "পর্যালোচনা",
+      "feedback_bn": "review = পর্যালোচনা (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "B1-10",
+      "level": "B1"
+    },
+    {
+      "id": "B1-10-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে বইয়ের রিভিউ বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "The story is engaging, although the ending is predictable.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "B1-10",
+      "level": "B1"
+    }
+  ]
+}

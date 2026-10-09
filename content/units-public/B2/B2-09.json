@@ -1,0 +1,112 @@
+{
+  "id": "B2-09",
+  "level": "B2",
+  "position": 9,
+  "title_bn": "সমস্যার দুই দিক",
+  "title_en": "Weighing Trade-offs",
+  "goal_bn": "বাস্তব কথোপকথনে সমস্যার দুই দিক বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "On the one hand... on the other hand... দিয়ে দুইটি দিক দেখানো যায়; শেষে নিজস্ব অবস্থান স্পষ্ট করতে হয়।",
+  "example_en": "The proposal saves time, but it may reduce flexibility.",
+  "translation_bn": "প্রস্তাবটি সময় বাঁচালেও নমনীয়তা কমাতে পারে।",
+  "vocabulary": [
+    {
+      "en": "trade-off",
+      "bn": "এক সুবিধার বিনিময়ে অন্য ছাড়"
+    },
+    {
+      "en": "drawback",
+      "bn": "অসুবিধা"
+    },
+    {
+      "en": "benefit",
+      "bn": "সুবিধা"
+    },
+    {
+      "en": "flexibility",
+      "bn": "নমনীয়তা"
+    },
+    {
+      "en": "proposal",
+      "bn": "প্রস্তাব"
+    },
+    {
+      "en": "compromise",
+      "bn": "সমঝোতা"
+    },
+    {
+      "en": "weigh",
+      "bn": "বিবেচনা করা"
+    },
+    {
+      "en": "priority",
+      "bn": "অগ্রাধিকার"
+    }
+  ],
+  "reading": {
+    "text_en": "The proposal saves time, but it may reduce flexibility. What is one drawback of the proposal? It may reduce flexibility.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: সমস্যার দুই দিক।",
+    "npc_question_en": "What is one drawback of the proposal?",
+    "good_response_en": "It may reduce flexibility.",
+    "challenging_response_en": "It may reduces flexibility.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "B2-09-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What is one drawback of the proposal?",
+      "options": [
+        "It may reduce flexibility.",
+        "It may reduces flexibility."
+      ],
+      "correct_index": 0,
+      "answer": "It may reduce flexibility.",
+      "feedback_bn": "On the one hand... on the other hand... দিয়ে দুইটি দিক দেখানো যায়; শেষে নিজস্ব অবস্থান স্পষ্ট করতে হয়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "B2-09",
+      "level": "B2"
+    },
+    {
+      "id": "B2-09-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"trade-off\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "এক সুবিধার বিনিময়ে অন্য ছাড়",
+        "অসুবিধা",
+        "সুবিধা"
+      ],
+      "correct_index": 0,
+      "answer": "এক সুবিধার বিনিময়ে অন্য ছাড়",
+      "feedback_bn": "trade-off = এক সুবিধার বিনিময়ে অন্য ছাড় (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "B2-09",
+      "level": "B2"
+    },
+    {
+      "id": "B2-09-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে সমস্যার দুই দিক বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "The proposal saves time, but it may reduce flexibility.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "B2-09",
+      "level": "B2"
+    }
+  ]
+}

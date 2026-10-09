@@ -1,0 +1,112 @@
+{
+  "id": "C1-09",
+  "level": "C1",
+  "position": 9,
+  "title_bn": "দাবির সীমা",
+  "title_en": "Hedging Complex Claims",
+  "goal_bn": "বাস্তব কথোপকথনে দাবির সীমা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "may, appears to এবং is likely to দিয়ে পর্যাপ্ত প্রমাণ না থাকলে দাবির নিশ্চয়তা সীমিত করা যায়।",
+  "example_en": "The results appear to support the hypothesis, although further testing is needed.",
+  "translation_bn": "ফলাফল অনুমানটিকে সমর্থন করছে বলে মনে হয়, তবে আরও পরীক্ষা প্রয়োজন।",
+  "vocabulary": [
+    {
+      "en": "hedging",
+      "bn": "সতর্ক ভাষায় দাবি করা"
+    },
+    {
+      "en": "hypothesis",
+      "bn": "অনুমান"
+    },
+    {
+      "en": "tentative",
+      "bn": "অনিশ্চিত"
+    },
+    {
+      "en": "plausible",
+      "bn": "সম্ভাব্য"
+    },
+    {
+      "en": "robust",
+      "bn": "দৃঢ়"
+    },
+    {
+      "en": "preliminary",
+      "bn": "প্রাথমিক"
+    },
+    {
+      "en": "correlation",
+      "bn": "সহসম্পর্ক"
+    },
+    {
+      "en": "uncertainty",
+      "bn": "অনিশ্চয়তা"
+    }
+  ],
+  "reading": {
+    "text_en": "The results appear to support the hypothesis, although further testing is needed. How can you make this claim cautious? The results appear to support the hypothesis.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: দাবির সীমা।",
+    "npc_question_en": "How can you make this claim cautious?",
+    "good_response_en": "The results appear to support the hypothesis.",
+    "challenging_response_en": "The results proves the hypothesis maybe.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "C1-09-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "How can you make this claim cautious?",
+      "options": [
+        "The results appear to support the hypothesis.",
+        "The results proves the hypothesis maybe."
+      ],
+      "correct_index": 0,
+      "answer": "The results appear to support the hypothesis.",
+      "feedback_bn": "may, appears to এবং is likely to দিয়ে পর্যাপ্ত প্রমাণ না থাকলে দাবির নিশ্চয়তা সীমিত করা যায়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "C1-09",
+      "level": "C1"
+    },
+    {
+      "id": "C1-09-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"hedging\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "সতর্ক ভাষায় দাবি করা",
+        "অনুমান",
+        "অনিশ্চিত"
+      ],
+      "correct_index": 0,
+      "answer": "সতর্ক ভাষায় দাবি করা",
+      "feedback_bn": "hedging = সতর্ক ভাষায় দাবি করা (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "C1-09",
+      "level": "C1"
+    },
+    {
+      "id": "C1-09-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে দাবির সীমা বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "The results appear to support the hypothesis, although further testing is needed.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "C1-09",
+      "level": "C1"
+    }
+  ]
+}

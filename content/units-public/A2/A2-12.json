@@ -1,0 +1,112 @@
+{
+  "id": "A2-12",
+  "level": "A2",
+  "position": 12,
+  "title_bn": "বাড়ি খুঁজে পাই",
+  "title_en": "Describing Accommodation",
+  "goal_bn": "বাস্তব কথোপকথনে বাড়ি খুঁজে পাই বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "there is/are ও স্থানবাচক preposition দিয়ে বাসার বর্ণনা করা যায়।",
+  "example_en": "There is a park behind our house.",
+  "translation_bn": "আমাদের বাড়ির পেছনে একটি পার্ক আছে।",
+  "vocabulary": [
+    {
+      "en": "behind",
+      "bn": "পেছনে"
+    },
+    {
+      "en": "in front of",
+      "bn": "সামনে"
+    },
+    {
+      "en": "between",
+      "bn": "মাঝখানে"
+    },
+    {
+      "en": "opposite",
+      "bn": "বিপরীতে"
+    },
+    {
+      "en": "neighbour",
+      "bn": "প্রতিবেশী"
+    },
+    {
+      "en": "apartment",
+      "bn": "ফ্ল্যাট"
+    },
+    {
+      "en": "rent",
+      "bn": "ভাড়া"
+    },
+    {
+      "en": "balcony",
+      "bn": "বারান্দা"
+    }
+  ],
+  "reading": {
+    "text_en": "There is a park behind our house. What is behind your house? There is a park behind our house.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: বাড়ি খুঁজে পাই।",
+    "npc_question_en": "What is behind your house?",
+    "good_response_en": "There is a park behind our house.",
+    "challenging_response_en": "There are a park behind our house.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "A2-12-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What is behind your house?",
+      "options": [
+        "There is a park behind our house.",
+        "There are a park behind our house."
+      ],
+      "correct_index": 0,
+      "answer": "There is a park behind our house.",
+      "feedback_bn": "there is/are ও স্থানবাচক preposition দিয়ে বাসার বর্ণনা করা যায়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "A2-12",
+      "level": "A2"
+    },
+    {
+      "id": "A2-12-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"behind\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "পেছনে",
+        "সামনে",
+        "মাঝখানে"
+      ],
+      "correct_index": 0,
+      "answer": "পেছনে",
+      "feedback_bn": "behind = পেছনে (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "A2-12",
+      "level": "A2"
+    },
+    {
+      "id": "A2-12-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে বাড়ি খুঁজে পাই বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "There is a park behind our house.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "A2-12",
+      "level": "A2"
+    }
+  ]
+}

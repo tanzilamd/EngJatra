@@ -1,0 +1,112 @@
+{
+  "id": "A2-10",
+  "level": "A2",
+  "position": 10,
+  "title_bn": "যত্ন নিয়ে তুলনা",
+  "title_en": "Comparisons in Context",
+  "goal_bn": "বাস্তব কথোপকথনে যত্ন নিয়ে তুলনা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "Comparative-এর পরে দুইটি জিনিস তুলনায় than ব্যবহার করা যায়।",
+  "example_en": "This route is shorter than that one.",
+  "translation_bn": "এই পথটি ওই পথটির চেয়ে ছোট।",
+  "vocabulary": [
+    {
+      "en": "route",
+      "bn": "পথ"
+    },
+    {
+      "en": "shorter",
+      "bn": "আরও ছোট"
+    },
+    {
+      "en": "longer",
+      "bn": "আরও দীর্ঘ"
+    },
+    {
+      "en": "cheaper",
+      "bn": "আরও সস্তা"
+    },
+    {
+      "en": "safer",
+      "bn": "আরও নিরাপদ"
+    },
+    {
+      "en": "faster",
+      "bn": "আরও দ্রুত"
+    },
+    {
+      "en": "compare",
+      "bn": "তুলনা করা"
+    },
+    {
+      "en": "distance",
+      "bn": "দূরত্ব"
+    }
+  ],
+  "reading": {
+    "text_en": "This route is shorter than that one. Which route is better? This route is shorter than that one.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: যত্ন নিয়ে তুলনা।",
+    "npc_question_en": "Which route is better?",
+    "good_response_en": "This route is shorter than that one.",
+    "challenging_response_en": "This route more short than that one.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "A2-10-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "Which route is better?",
+      "options": [
+        "This route is shorter than that one.",
+        "This route more short than that one."
+      ],
+      "correct_index": 0,
+      "answer": "This route is shorter than that one.",
+      "feedback_bn": "Comparative-এর পরে দুইটি জিনিস তুলনায় than ব্যবহার করা যায়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "A2-10",
+      "level": "A2"
+    },
+    {
+      "id": "A2-10-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"route\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "পথ",
+        "আরও ছোট",
+        "আরও দীর্ঘ"
+      ],
+      "correct_index": 0,
+      "answer": "পথ",
+      "feedback_bn": "route = পথ (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "A2-10",
+      "level": "A2"
+    },
+    {
+      "id": "A2-10-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে যত্ন নিয়ে তুলনা বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "This route is shorter than that one.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "A2-10",
+      "level": "A2"
+    }
+  ]
+}

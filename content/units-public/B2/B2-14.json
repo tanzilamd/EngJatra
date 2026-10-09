@@ -1,0 +1,112 @@
+{
+  "id": "B2-14",
+  "level": "B2",
+  "position": 14,
+  "title_bn": "অতীতের অন্য ফল",
+  "title_en": "Third Conditional",
+  "goal_bn": "বাস্তব কথোপকথনে অতীতের অন্য ফল বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "If + past perfect, would have + past participle দিয়ে অতীতের অঘটিত পরিস্থিতির ফল কল্পনা করা যায়।",
+  "example_en": "If we had left earlier, we would have caught the train.",
+  "translation_bn": "আমরা আগে বের হলে ট্রেনটি ধরতে পারতাম।",
+  "vocabulary": [
+    {
+      "en": "regret",
+      "bn": "আক্ষেপ"
+    },
+    {
+      "en": "hypothetical",
+      "bn": "কাল্পনিক"
+    },
+    {
+      "en": "consequence",
+      "bn": "ফল"
+    },
+    {
+      "en": "miss",
+      "bn": "মিস করা"
+    },
+    {
+      "en": "earlier",
+      "bn": "আগে"
+    },
+    {
+      "en": "alternative",
+      "bn": "বিকল্প"
+    },
+    {
+      "en": "reflect",
+      "bn": "বিবেচনা করা"
+    },
+    {
+      "en": "outcome",
+      "bn": "ফলাফল"
+    }
+  ],
+  "reading": {
+    "text_en": "If we had left earlier, we would have caught the train. What would have happened if you had left earlier? We would have caught the train.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: অতীতের অন্য ফল।",
+    "npc_question_en": "What would have happened if you had left earlier?",
+    "good_response_en": "We would have caught the train.",
+    "challenging_response_en": "We would caught the train.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "B2-14-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What would have happened if you had left earlier?",
+      "options": [
+        "We would have caught the train.",
+        "We would caught the train."
+      ],
+      "correct_index": 0,
+      "answer": "We would have caught the train.",
+      "feedback_bn": "If + past perfect, would have + past participle দিয়ে অতীতের অঘটিত পরিস্থিতির ফল কল্পনা করা যায়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "B2-14",
+      "level": "B2"
+    },
+    {
+      "id": "B2-14-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"regret\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "আক্ষেপ",
+        "কাল্পনিক",
+        "ফল"
+      ],
+      "correct_index": 0,
+      "answer": "আক্ষেপ",
+      "feedback_bn": "regret = আক্ষেপ (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "B2-14",
+      "level": "B2"
+    },
+    {
+      "id": "B2-14-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে অতীতের অন্য ফল বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "If we had left earlier, we would have caught the train.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "B2-14",
+      "level": "B2"
+    }
+  ]
+}

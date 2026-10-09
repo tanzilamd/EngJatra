@@ -1,0 +1,248 @@
+{
+  "id": "B1-08",
+  "level": "B1",
+  "position": 8,
+  "title_bn": "আলোচনায় অংশ নিই",
+  "title_en": "Friendly Debate",
+  "goal_bn": "মত প্রকাশ ও বিনীত দ্বিমত করতে পারবে",
+  "rule_bn": "I see your point, but ... দিয়ে সম্মান রেখে ভিন্ন মত দেওয়া যায়।",
+  "example_en": "I see your point, but I disagree.",
+  "translation_bn": "তোমার যুক্তি বুঝছি, কিন্তু আমি একমত নই।",
+  "vocabulary": [
+    {
+      "en": "debate",
+      "bn": "বিতর্ক"
+    },
+    {
+      "en": "opinion",
+      "bn": "মত"
+    },
+    {
+      "en": "point",
+      "bn": "যুক্তি"
+    },
+    {
+      "en": "respect",
+      "bn": "সম্মান"
+    },
+    {
+      "en": "disagree",
+      "bn": "দ্বিমত"
+    },
+    {
+      "en": "support",
+      "bn": "সমর্থন"
+    },
+    {
+      "en": "argue",
+      "bn": "যুক্তি দেওয়া"
+    },
+    {
+      "en": "evidence",
+      "bn": "প্রমাণ"
+    },
+    {
+      "en": "persuade",
+      "bn": "রাজি করানো"
+    },
+    {
+      "en": "counterclaim",
+      "bn": "বিপরীত দাবি"
+    },
+    {
+      "en": "reasoning",
+      "bn": "যুক্তির ধারা"
+    },
+    {
+      "en": "respectful",
+      "bn": "সম্মানজনক"
+    },
+    {
+      "en": "discussion",
+      "bn": "আলোচনা"
+    },
+    {
+      "en": "conclude",
+      "bn": "উপসংহারে আসা"
+    },
+    {
+      "en": "clarify",
+      "bn": "স্পষ্ট করা"
+    },
+    {
+      "en": "fairness",
+      "bn": "ন্যায্যতা"
+    }
+  ],
+  "quest": {
+    "character": "অভিযাত্রী আরিফ",
+    "opening_bn": "একটি কমিউনিটি প্রজেক্টের নানা সিদ্ধান্ত। আজ তোমার মিশন: মত প্রকাশ ও বিনীত দ্বিমত করতে পারবে।",
+    "npc_question_en": "Do you agree with my idea?",
+    "good_response_en": "I see your point, but I disagree.",
+    "challenging_response_en": "I see your point, but I am disagree.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "পড়ার সময়সূচি নিয়ে বন্ধুর সঙ্গে ভিন্নমত।",
+      "follow_up_question_en": "What alternative would you suggest?",
+      "guided_reply_en": "I would suggest shorter study sessions.",
+      "skill_focus_bn": "ভিন্নমতের সঙ্গে একটি সমাধান।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "B1-08-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "Do you agree with my idea?",
+      "options": [
+        "I see your point, but I am disagree.",
+        "I see your point, but I disagree."
+      ],
+      "correct_index": 1,
+      "answer": "I see your point, but I disagree.",
+      "feedback_bn": "I see your point, but ... দিয়ে সম্মান রেখে ভিন্ন মত দেওয়া যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "B1-08-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "I see your point, but I ___.",
+      "answer": "disagree",
+      "feedback_bn": "I see your point, but ... দিয়ে সম্মান রেখে ভিন্ন মত দেওয়া যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "disagree",
+        "disagrees",
+        "disagreeing"
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "B1-08-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "I am agree with you.",
+      "answer": "I agree with you.",
+      "feedback_bn": "I see your point, but ... দিয়ে সম্মান রেখে ভিন্ন মত দেওয়া যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "I am agree with you.",
+        "I agree with you."
+      ],
+      "correct_index": 1,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "B1-08-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: তোমার যুক্তি বুঝছি, কিন্তু আমি একমত নই।",
+      "tokens": [
+        "see",
+        "disagree.",
+        "your",
+        "point,",
+        "I",
+        "I",
+        "but"
+      ],
+      "answer": "I see your point, but I disagree.",
+      "feedback_bn": "I see your point, but ... দিয়ে সম্মান রেখে ভিন্ন মত দেওয়া যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "B1-08-write",
+      "type": "guided_write",
+      "prompt_bn": "একটি দৈনন্দিন বিষয়ে দুই পক্ষের যুক্তি লেখো।",
+      "sample_answer_en": "I see your point, but I disagree.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": null,
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "B1-08-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "debate",
+          "bn": "বিতর্ক"
+        },
+        {
+          "en": "opinion",
+          "bn": "মত"
+        },
+        {
+          "en": "point",
+          "bn": "যুক্তি"
+        },
+        {
+          "en": "respect",
+          "bn": "সম্মান"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "debate",
+          "bn": "বিতর্ক"
+        },
+        {
+          "en": "opinion",
+          "bn": "মত"
+        },
+        {
+          "en": "point",
+          "bn": "যুক্তি"
+        },
+        {
+          "en": "respect",
+          "bn": "সম্মান"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "B1-08-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "I see your point, but I disagree.",
+      "options_bn": [
+        "তোমার যুক্তি বুঝছি, কিন্তু আমি একমত নই।",
+        "আমি দুইবার কক্সবাজার গিয়েছি।",
+        "আলো নিভে যাওয়ার সময় আমি পড়ছিলাম।"
+      ],
+      "correct_index": 0,
+      "answer_bn": "তোমার যুক্তি বুঝছি, কিন্তু আমি একমত নই।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "I see your point, but I disagree. Do you agree with my idea? I see your point, but I disagree.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

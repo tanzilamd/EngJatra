@@ -1,0 +1,112 @@
+{
+  "id": "A2-14",
+  "level": "A2",
+  "position": 14,
+  "title_bn": "অভিজ্ঞতার খবর",
+  "title_en": "A First Experience",
+  "goal_bn": "বাস্তব কথোপকথনে অভিজ্ঞতার খবর বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "have/has + past participle দিয়ে পূর্ব অভিজ্ঞতা সম্পর্কে বলা যায়; নির্দিষ্ট অতীত সময় দিলে সাধারণত past simple।",
+  "example_en": "I have visited Sylhet twice.",
+  "translation_bn": "আমি দুইবার সিলেট ভ্রমণ করেছি।",
+  "vocabulary": [
+    {
+      "en": "visit",
+      "bn": "ভ্রমণ করা"
+    },
+    {
+      "en": "twice",
+      "bn": "দুইবার"
+    },
+    {
+      "en": "already",
+      "bn": "ইতিমধ্যে"
+    },
+    {
+      "en": "yet",
+      "bn": "এখনো"
+    },
+    {
+      "en": "ever",
+      "bn": "কখনো"
+    },
+    {
+      "en": "never",
+      "bn": "কখনো নয়"
+    },
+    {
+      "en": "experience",
+      "bn": "অভিজ্ঞতা"
+    },
+    {
+      "en": "trip",
+      "bn": "ভ্রমণ"
+    }
+  ],
+  "reading": {
+    "text_en": "I have visited Sylhet twice. Have you visited Sylhet? Yes, I have visited Sylhet twice.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: অভিজ্ঞতার খবর।",
+    "npc_question_en": "Have you visited Sylhet?",
+    "good_response_en": "Yes, I have visited Sylhet twice.",
+    "challenging_response_en": "Yes, I have visit Sylhet twice.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "A2-14-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "Have you visited Sylhet?",
+      "options": [
+        "Yes, I have visited Sylhet twice.",
+        "Yes, I have visit Sylhet twice."
+      ],
+      "correct_index": 0,
+      "answer": "Yes, I have visited Sylhet twice.",
+      "feedback_bn": "have/has + past participle দিয়ে পূর্ব অভিজ্ঞতা সম্পর্কে বলা যায়; নির্দিষ্ট অতীত সময় দিলে সাধারণত past simple।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "A2-14",
+      "level": "A2"
+    },
+    {
+      "id": "A2-14-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"visit\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "ভ্রমণ করা",
+        "দুইবার",
+        "ইতিমধ্যে"
+      ],
+      "correct_index": 0,
+      "answer": "ভ্রমণ করা",
+      "feedback_bn": "visit = ভ্রমণ করা (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "A2-14",
+      "level": "A2"
+    },
+    {
+      "id": "A2-14-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে অভিজ্ঞতার খবর বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "I have visited Sylhet twice.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "A2-14",
+      "level": "A2"
+    }
+  ]
+}

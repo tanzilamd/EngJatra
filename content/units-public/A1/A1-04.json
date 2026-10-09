@@ -1,0 +1,246 @@
+{
+  "id": "A1-04",
+  "level": "A1",
+  "position": 4,
+  "title_bn": "সময় বলি",
+  "title_en": "Time & Plans",
+  "goal_bn": "সহজ সময় ও সূচি বলতে পারবে",
+  "rule_bn": "সময় নির্দেশ করতে at ব্যবহার হয়: at seven, at noon।",
+  "example_en": "The class starts at nine.",
+  "translation_bn": "ক্লাসটি নয়টায় শুরু হয়।",
+  "vocabulary": [
+    {
+      "en": "clock",
+      "bn": "ঘড়ি"
+    },
+    {
+      "en": "hour",
+      "bn": "ঘণ্টা"
+    },
+    {
+      "en": "minute",
+      "bn": "মিনিট"
+    },
+    {
+      "en": "morning",
+      "bn": "সকাল"
+    },
+    {
+      "en": "afternoon",
+      "bn": "বিকেল"
+    },
+    {
+      "en": "evening",
+      "bn": "সন্ধ্যা"
+    },
+    {
+      "en": "early",
+      "bn": "আগে"
+    },
+    {
+      "en": "late",
+      "bn": "দেরি"
+    },
+    {
+      "en": "Monday",
+      "bn": "সোমবার"
+    },
+    {
+      "en": "Tuesday",
+      "bn": "মঙ্গলবার"
+    },
+    {
+      "en": "Wednesday",
+      "bn": "বুধবার"
+    },
+    {
+      "en": "Thursday",
+      "bn": "বৃহস্পতিবার"
+    },
+    {
+      "en": "Saturday",
+      "bn": "শনিবার"
+    },
+    {
+      "en": "Sunday",
+      "bn": "রবিবার"
+    },
+    {
+      "en": "week",
+      "bn": "সপ্তাহ"
+    },
+    {
+      "en": "date",
+      "bn": "তারিখ"
+    }
+  ],
+  "quest": {
+    "character": "বন্ধু নীরা",
+    "opening_bn": "নতুন শহরে বন্ধু, দোকান ও ক্লাসের সঙ্গে পরিচয়। আজ তোমার মিশন: সহজ সময় ও সূচি বলতে পারবে।",
+    "npc_question_en": "When does the class start?",
+    "good_response_en": "The class starts at nine.",
+    "challenging_response_en": "The class starts in nine.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "বন্ধুর সঙ্গে দেখা করার সময় ঠিক করা।",
+      "follow_up_question_en": "Are you free in the evening?",
+      "guided_reply_en": "Yes, I am free in the evening.",
+      "skill_focus_bn": "সময়সূচি নিয়ে তথ্য বিনিময়।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "A1-04-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "When does the class start?",
+      "options": [
+        "The class starts at nine.",
+        "The class starts in nine."
+      ],
+      "correct_index": 0,
+      "answer": "The class starts at nine.",
+      "feedback_bn": "সময় নির্দেশ করতে at ব্যবহার হয়: at seven, at noon।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "A1-04-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "The class starts ___ nine.",
+      "answer": "at",
+      "feedback_bn": "সময় নির্দেশ করতে at ব্যবহার হয়: at seven, at noon।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "in",
+        "on",
+        "at"
+      ],
+      "correct_index": 2,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "A1-04-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "The meeting is in six o'clock.",
+      "answer": "The meeting is at six o'clock.",
+      "feedback_bn": "সময় নির্দেশ করতে at ব্যবহার হয়: at seven, at noon।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "The meeting is at six o'clock.",
+        "The meeting is in six o'clock."
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "A1-04-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: ক্লাসটি নয়টায় শুরু হয়।",
+      "tokens": [
+        "at",
+        "The",
+        "class",
+        "starts",
+        "nine."
+      ],
+      "answer": "The class starts at nine.",
+      "feedback_bn": "সময় নির্দেশ করতে at ব্যবহার হয়: at seven, at noon।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "A1-04-write",
+      "type": "guided_write",
+      "prompt_bn": "তোমার পড়ার সময় নিয়ে দুটি বাক্য লেখো।",
+      "sample_answer_en": "The class starts at nine.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": null,
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "A1-04-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "clock",
+          "bn": "ঘড়ি"
+        },
+        {
+          "en": "hour",
+          "bn": "ঘণ্টা"
+        },
+        {
+          "en": "minute",
+          "bn": "মিনিট"
+        },
+        {
+          "en": "morning",
+          "bn": "সকাল"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "clock",
+          "bn": "ঘড়ি"
+        },
+        {
+          "en": "hour",
+          "bn": "ঘণ্টা"
+        },
+        {
+          "en": "minute",
+          "bn": "মিনিট"
+        },
+        {
+          "en": "morning",
+          "bn": "সকাল"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "A1-04-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "The class starts at nine.",
+      "options_bn": [
+        "সে হেঁটে স্কুলে যায়।",
+        "আমার মা-বাবা দয়ালু।",
+        "ক্লাসটি নয়টায় শুরু হয়।"
+      ],
+      "correct_index": 2,
+      "answer_bn": "ক্লাসটি নয়টায় শুরু হয়।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "The class starts at nine. When does the class start? The class starts at nine.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

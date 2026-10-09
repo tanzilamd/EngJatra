@@ -1,0 +1,112 @@
+{
+  "id": "B1-12",
+  "level": "B1",
+  "position": 12,
+  "title_bn": "তথ্য যাচাই করি",
+  "title_en": "Fact and Opinion",
+  "goal_bn": "বাস্তব কথোপকথনে তথ্য যাচাই করি বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "Fact যাচাইযোগ্য; opinion ব্যক্তিগত মত। বাক্যের ভাষা দেখে তাদের আলাদা করা যায়।",
+  "example_en": "The shop closes at six, but I think it should stay open longer.",
+  "translation_bn": "দোকান ছয়টায় বন্ধ হয়, তবে আমার মতে আরও বেশি সময় খোলা থাকা উচিত।",
+  "vocabulary": [
+    {
+      "en": "fact",
+      "bn": "তথ্য"
+    },
+    {
+      "en": "opinion",
+      "bn": "মতামত"
+    },
+    {
+      "en": "evidence",
+      "bn": "প্রমাণ"
+    },
+    {
+      "en": "verify",
+      "bn": "যাচাই করা"
+    },
+    {
+      "en": "claim",
+      "bn": "দাবি"
+    },
+    {
+      "en": "view",
+      "bn": "দৃষ্টিভঙ্গি"
+    },
+    {
+      "en": "source",
+      "bn": "উৎস"
+    },
+    {
+      "en": "reliable",
+      "bn": "নির্ভরযোগ্য"
+    }
+  ],
+  "reading": {
+    "text_en": "The shop closes at six, but I think it should stay open longer. Which part is a personal opinion? I think it should stay open longer.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: তথ্য যাচাই করি।",
+    "npc_question_en": "Which part is a personal opinion?",
+    "good_response_en": "I think it should stay open longer.",
+    "challenging_response_en": "The shop closes at six is my think.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "B1-12-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "Which part is a personal opinion?",
+      "options": [
+        "I think it should stay open longer.",
+        "The shop closes at six is my think."
+      ],
+      "correct_index": 0,
+      "answer": "I think it should stay open longer.",
+      "feedback_bn": "Fact যাচাইযোগ্য; opinion ব্যক্তিগত মত। বাক্যের ভাষা দেখে তাদের আলাদা করা যায়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "B1-12",
+      "level": "B1"
+    },
+    {
+      "id": "B1-12-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"fact\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "তথ্য",
+        "মতামত",
+        "প্রমাণ"
+      ],
+      "correct_index": 0,
+      "answer": "তথ্য",
+      "feedback_bn": "fact = তথ্য (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "B1-12",
+      "level": "B1"
+    },
+    {
+      "id": "B1-12-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে তথ্য যাচাই করি বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "The shop closes at six, but I think it should stay open longer.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "B1-12",
+      "level": "B1"
+    }
+  ]
+}

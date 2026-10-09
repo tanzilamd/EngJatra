@@ -1,0 +1,112 @@
+{
+  "id": "A1-12",
+  "level": "A1",
+  "position": 12,
+  "title_bn": "সপ্তাহের পরিকল্পনা",
+  "title_en": "My Week",
+  "goal_bn": "বাস্তব কথোপকথনে সপ্তাহের পরিকল্পনা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "দিনের নামের আগে সাধারণত on ব্যবহার করি; অভ্যাসের জন্য present simple।",
+  "example_en": "I study on Monday.",
+  "translation_bn": "আমি সোমবার পড়াশোনা করি।",
+  "vocabulary": [
+    {
+      "en": "Monday",
+      "bn": "সোমবার"
+    },
+    {
+      "en": "Tuesday",
+      "bn": "মঙ্গলবার"
+    },
+    {
+      "en": "Wednesday",
+      "bn": "বুধবার"
+    },
+    {
+      "en": "Thursday",
+      "bn": "বৃহস্পতিবার"
+    },
+    {
+      "en": "Friday",
+      "bn": "শুক্রবার"
+    },
+    {
+      "en": "Saturday",
+      "bn": "শনিবার"
+    },
+    {
+      "en": "Sunday",
+      "bn": "রবিবার"
+    },
+    {
+      "en": "week",
+      "bn": "সপ্তাহ"
+    }
+  ],
+  "reading": {
+    "text_en": "I study on Monday. When do you study? I study on Monday.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: সপ্তাহের পরিকল্পনা।",
+    "npc_question_en": "When do you study?",
+    "good_response_en": "I study on Monday.",
+    "challenging_response_en": "I studies on Monday.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "A1-12-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "When do you study?",
+      "options": [
+        "I study on Monday.",
+        "I studies on Monday."
+      ],
+      "correct_index": 0,
+      "answer": "I study on Monday.",
+      "feedback_bn": "দিনের নামের আগে সাধারণত on ব্যবহার করি; অভ্যাসের জন্য present simple।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "A1-12",
+      "level": "A1"
+    },
+    {
+      "id": "A1-12-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"Monday\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "সোমবার",
+        "মঙ্গলবার",
+        "বুধবার"
+      ],
+      "correct_index": 0,
+      "answer": "সোমবার",
+      "feedback_bn": "Monday = সোমবার (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "A1-12",
+      "level": "A1"
+    },
+    {
+      "id": "A1-12-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে সপ্তাহের পরিকল্পনা বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "I study on Monday.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "A1-12",
+      "level": "A1"
+    }
+  ]
+}

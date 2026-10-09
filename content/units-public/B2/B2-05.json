@@ -1,0 +1,247 @@
+{
+  "id": "B2-05",
+  "level": "B2",
+  "position": 5,
+  "title_bn": "প্যাসিভ ভয়েস",
+  "title_en": "What Happened?",
+  "goal_bn": "Passive Voice দিয়ে প্রক্রিয়া বর্ণনা করতে পারবে",
+  "rule_bn": "Present Simple Passive: am/is/are + past participle; কাজটি কে করেছে জরুরি না হলে passive ব্যবহার করা যায়।",
+  "example_en": "The applications are reviewed every week.",
+  "translation_bn": "আবেদনগুলো প্রতি সপ্তাহে পর্যালোচনা করা হয়।",
+  "vocabulary": [
+    {
+      "en": "process",
+      "bn": "প্রক্রিয়া"
+    },
+    {
+      "en": "reviewed",
+      "bn": "পর্যালোচিত"
+    },
+    {
+      "en": "approved",
+      "bn": "অনুমোদিত"
+    },
+    {
+      "en": "rejected",
+      "bn": "প্রত্যাখ্যাত"
+    },
+    {
+      "en": "submit",
+      "bn": "জমা দেওয়া"
+    },
+    {
+      "en": "application",
+      "bn": "আবেদন"
+    },
+    {
+      "en": "system",
+      "bn": "ব্যবস্থা"
+    },
+    {
+      "en": "regularly",
+      "bn": "নিয়মিত"
+    },
+    {
+      "en": "procedure",
+      "bn": "কার্যপদ্ধতি"
+    },
+    {
+      "en": "deadline",
+      "bn": "শেষ সময়"
+    },
+    {
+      "en": "confirm",
+      "bn": "নিশ্চিত করা"
+    },
+    {
+      "en": "notify",
+      "bn": "জানানো"
+    },
+    {
+      "en": "document",
+      "bn": "নথি"
+    },
+    {
+      "en": "approval",
+      "bn": "অনুমোদন"
+    },
+    {
+      "en": "requirement",
+      "bn": "শর্ত বা প্রয়োজনীয়তা"
+    },
+    {
+      "en": "revise",
+      "bn": "সংশোধন করা"
+    }
+  ],
+  "quest": {
+    "character": "প্রজেক্ট টিম",
+    "opening_bn": "একটি সামাজিক উদ্যোগের পরিকল্পনা ও বিতর্ক। আজ তোমার মিশন: Passive Voice দিয়ে প্রক্রিয়া বর্ণনা করতে পারবে।",
+    "npc_question_en": "How are the applications processed?",
+    "good_response_en": "The applications are reviewed every week.",
+    "challenging_response_en": "The applications reviewed every week.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "আবেদনপত্রের অগ্রগতি জানানো।",
+      "follow_up_question_en": "When was the application approved?",
+      "guided_reply_en": "It was approved on Tuesday.",
+      "skill_focus_bn": "Passive voice ও প্রক্রিয়ার সময়।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "B2-05-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "How are the applications processed?",
+      "options": [
+        "The applications are reviewed every week.",
+        "The applications reviewed every week."
+      ],
+      "correct_index": 0,
+      "answer": "The applications are reviewed every week.",
+      "feedback_bn": "Present Simple Passive: am/is/are + past participle; কাজটি কে করেছে জরুরি না হলে passive ব্যবহার করা যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "B2-05-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "The applications are ___ every week.",
+      "answer": "reviewed",
+      "feedback_bn": "Present Simple Passive: am/is/are + past participle; কাজটি কে করেছে জরুরি না হলে passive ব্যবহার করা যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "reviewed",
+        "reviewing",
+        "review"
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "B2-05-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "The letters are send every day.",
+      "answer": "The letters are sent every day.",
+      "feedback_bn": "Present Simple Passive: am/is/are + past participle; কাজটি কে করেছে জরুরি না হলে passive ব্যবহার করা যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "The letters are send every day.",
+        "The letters are sent every day."
+      ],
+      "correct_index": 1,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "B2-05-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: আবেদনগুলো প্রতি সপ্তাহে পর্যালোচনা করা হয়।",
+      "tokens": [
+        "applications",
+        "every",
+        "week.",
+        "are",
+        "reviewed",
+        "The"
+      ],
+      "answer": "The applications are reviewed every week.",
+      "feedback_bn": "Present Simple Passive: am/is/are + past participle; কাজটি কে করেছে জরুরি না হলে passive ব্যবহার করা যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "B2-05-write",
+      "type": "guided_write",
+      "prompt_bn": "একটি অফিসিয়াল প্রক্রিয়া Passive Voice-এ লেখো।",
+      "sample_answer_en": "The applications are reviewed every week.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": null,
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "B2-05-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "process",
+          "bn": "প্রক্রিয়া"
+        },
+        {
+          "en": "reviewed",
+          "bn": "পর্যালোচিত"
+        },
+        {
+          "en": "approved",
+          "bn": "অনুমোদিত"
+        },
+        {
+          "en": "rejected",
+          "bn": "প্রত্যাখ্যাত"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "process",
+          "bn": "প্রক্রিয়া"
+        },
+        {
+          "en": "reviewed",
+          "bn": "পর্যালোচিত"
+        },
+        {
+          "en": "approved",
+          "bn": "অনুমোদিত"
+        },
+        {
+          "en": "rejected",
+          "bn": "প্রত্যাখ্যাত"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "B2-05-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "The applications are reviewed every week.",
+      "options_bn": [
+        "আবেদনগুলো প্রতি সপ্তাহে পর্যালোচনা করা হয়।",
+        "আরও সময় থাকলে আমি স্বেচ্ছাসেবা করতাম।",
+        "পরিকল্পনাটি ব্যয়বহুল হলেও এটি সাহায্য করতে পারে।"
+      ],
+      "correct_index": 0,
+      "answer_bn": "আবেদনগুলো প্রতি সপ্তাহে পর্যালোচনা করা হয়।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "The applications are reviewed every week. How are the applications processed? The applications are reviewed every week.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "id": "C1-16",
+  "level": "C1",
+  "position": 16,
+  "title_bn": "প্রস্তাবনার সারাংশ",
+  "title_en": "Executive Summary",
+  "goal_bn": "বাস্তব কথোপকথনে প্রস্তাবনার সারাংশ বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "সংক্ষিপ্ত প্রাতিষ্ঠানিক সারাংশে সমস্যা, প্রস্তাবিত ব্যবস্থা, সম্ভাব্য প্রভাব ও সীমাবদ্ধতা স্পষ্টভাবে রাখতে হয়।",
+  "example_en": "The report recommends a phased rollout to minimise disruption and evaluate outcomes.",
+  "translation_bn": "প্রতিবেদনটি ব্যাঘাত কমাতে এবং ফল মূল্যায়নে ধাপে বাস্তবায়নের সুপারিশ করে।",
+  "vocabulary": [
+    {
+      "en": "executive summary",
+      "bn": "নির্বাহী সারাংশ"
+    },
+    {
+      "en": "phased",
+      "bn": "ধাপে ধাপে"
+    },
+    {
+      "en": "rollout",
+      "bn": "ধাপে চালু করা"
+    },
+    {
+      "en": "disruption",
+      "bn": "ব্যাঘাত"
+    },
+    {
+      "en": "stakeholder",
+      "bn": "সংশ্লিষ্ট পক্ষ"
+    },
+    {
+      "en": "outcome",
+      "bn": "ফলাফল"
+    },
+    {
+      "en": "implementation",
+      "bn": "বাস্তবায়ন"
+    },
+    {
+      "en": "evaluate",
+      "bn": "মূল্যায়ন করা"
+    }
+  ],
+  "reading": {
+    "text_en": "The report recommends a phased rollout to minimise disruption and evaluate outcomes. What does the report recommend? It recommends a phased rollout.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: প্রস্তাবনার সারাংশ।",
+    "npc_question_en": "What does the report recommend?",
+    "good_response_en": "It recommends a phased rollout.",
+    "challenging_response_en": "It recommend a phased rollout.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "C1-16-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What does the report recommend?",
+      "options": [
+        "It recommends a phased rollout.",
+        "It recommend a phased rollout."
+      ],
+      "correct_index": 0,
+      "answer": "It recommends a phased rollout.",
+      "feedback_bn": "সংক্ষিপ্ত প্রাতিষ্ঠানিক সারাংশে সমস্যা, প্রস্তাবিত ব্যবস্থা, সম্ভাব্য প্রভাব ও সীমাবদ্ধতা স্পষ্টভাবে রাখতে হয়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "C1-16",
+      "level": "C1"
+    },
+    {
+      "id": "C1-16-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"executive summary\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "নির্বাহী সারাংশ",
+        "ধাপে ধাপে",
+        "ধাপে চালু করা"
+      ],
+      "correct_index": 0,
+      "answer": "নির্বাহী সারাংশ",
+      "feedback_bn": "executive summary = নির্বাহী সারাংশ (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "C1-16",
+      "level": "C1"
+    },
+    {
+      "id": "C1-16-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে প্রস্তাবনার সারাংশ বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "The report recommends a phased rollout to minimise disruption and evaluate outcomes.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "C1-16",
+      "level": "C1"
+    }
+  ]
+}

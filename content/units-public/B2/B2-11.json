@@ -1,0 +1,112 @@
+{
+  "id": "B2-11",
+  "level": "B2",
+  "position": 11,
+  "title_bn": "মতভেদে সম্মান",
+  "title_en": "Respectful Disagreement",
+  "goal_bn": "বাস্তব কথোপকথনে মতভেদে সম্মান বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "I see your point, but... বাক্য দিয়ে সম্মান রেখে ভিন্নমত প্রকাশ করা যায়।",
+  "example_en": "I see your point, but the evidence leads me to a different conclusion.",
+  "translation_bn": "আপনার যুক্তি বুঝছি, তবে প্রমাণ আমাকে ভিন্ন সিদ্ধান্তে পৌঁছায়।",
+  "vocabulary": [
+    {
+      "en": "disagree",
+      "bn": "ভিন্নমত হওয়া"
+    },
+    {
+      "en": "acknowledge",
+      "bn": "স্বীকার করা"
+    },
+    {
+      "en": "perspective",
+      "bn": "দৃষ্টিভঙ্গি"
+    },
+    {
+      "en": "respectfully",
+      "bn": "শ্রদ্ধার সঙ্গে"
+    },
+    {
+      "en": "interpret",
+      "bn": "ব্যাখ্যা করা"
+    },
+    {
+      "en": "conclusion",
+      "bn": "উপসংহার"
+    },
+    {
+      "en": "constructive",
+      "bn": "গঠনমূলক"
+    },
+    {
+      "en": "dialogue",
+      "bn": "সংলাপ"
+    }
+  ],
+  "reading": {
+    "text_en": "I see your point, but the evidence leads me to a different conclusion. How can you disagree respectfully? I see your point, but I disagree.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: মতভেদে সম্মান।",
+    "npc_question_en": "How can you disagree respectfully?",
+    "good_response_en": "I see your point, but I disagree.",
+    "challenging_response_en": "Your point no agree me.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "B2-11-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "How can you disagree respectfully?",
+      "options": [
+        "I see your point, but I disagree.",
+        "Your point no agree me."
+      ],
+      "correct_index": 0,
+      "answer": "I see your point, but I disagree.",
+      "feedback_bn": "I see your point, but... বাক্য দিয়ে সম্মান রেখে ভিন্নমত প্রকাশ করা যায়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "B2-11",
+      "level": "B2"
+    },
+    {
+      "id": "B2-11-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"disagree\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "ভিন্নমত হওয়া",
+        "স্বীকার করা",
+        "দৃষ্টিভঙ্গি"
+      ],
+      "correct_index": 0,
+      "answer": "ভিন্নমত হওয়া",
+      "feedback_bn": "disagree = ভিন্নমত হওয়া (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "B2-11",
+      "level": "B2"
+    },
+    {
+      "id": "B2-11-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে মতভেদে সম্মান বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "I see your point, but the evidence leads me to a different conclusion.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "B2-11",
+      "level": "B2"
+    }
+  ]
+}

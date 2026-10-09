@@ -1,0 +1,572 @@
+[
+  {
+    "id": "CHK-P0",
+    "level": "P0",
+    "type": "internal_formative_practice_not_official_cefr_assessment",
+    "items": [
+      {
+        "item_id": "P0-09-choice",
+        "type": "fixed_choice",
+        "question": "What is this?",
+        "options": [
+          "This is a bag.",
+          "These is a bag."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "This/That দিয়ে একটি জিনিস দেখানো যায়; দূরের জন্য সাধারণত that ব্যবহৃত হয়।"
+      },
+      {
+        "item_id": "P0-10-choice",
+        "type": "fixed_choice",
+        "question": "What colour is your pen?",
+        "options": [
+          "It is blue.",
+          "It blue."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "রঙের শব্দ সাধারণত বিশেষ্যের আগে বসে: a red pen।"
+      },
+      {
+        "item_id": "P0-11-choice",
+        "type": "fixed_choice",
+        "question": "Do you have a notebook?",
+        "options": [
+          "Yes, I have a notebook.",
+          "Yes, I has a notebook."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "I have-এর পরে একটি জিনিস বোঝাতে সাধারণত a/an ব্যবহার হয়।"
+      },
+      {
+        "item_id": "P0-12-choice",
+        "type": "fixed_choice",
+        "question": "What fruit do you like?",
+        "options": [
+          "I like mangoes.",
+          "I likes mangoes."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "I like-এর পরে একটি বস্তু বা কাজ বলা যায়; সাধারণভাবে পছন্দ বোঝাতে plural noun ব্যবহার সম্ভব।"
+      },
+      {
+        "item_id": "P0-13-choice",
+        "type": "fixed_choice",
+        "question": "Where do you live?",
+        "options": [
+          "I live in Rajshahi.",
+          "I am live in Rajshahi."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "I live in-এর পরে শহর বা এলাকায় থাকার কথা বলা যায়।"
+      },
+      {
+        "item_id": "P0-14-choice",
+        "type": "fixed_choice",
+        "question": "What do you do after school?",
+        "options": [
+          "I read a book.",
+          "I reads a book."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "I read/I write-এর মতো সাধারণ বাক্যে I-এর পরে verb-এর base form বসে।"
+      },
+      {
+        "item_id": "P0-15-choice",
+        "type": "fixed_choice",
+        "question": "What can I do for you?",
+        "options": [
+          "Please open the door.",
+          "Please opens the door."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "ভদ্র অনুরোধ করতে Please + verb ব্যবহার করা যায়; আরও ভদ্র রূপ পরে শেখানো হবে।"
+      },
+      {
+        "item_id": "P0-16-choice",
+        "type": "fixed_choice",
+        "question": "Tell me about yourself.",
+        "options": [
+          "My name is Sami. I live in Khulna.",
+          "My name Sami. I live Khulna."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "নিজের নাম, শহর ও পছন্দের কথা একসঙ্গে দুই-তিনটি ছোট বাক্যে বলা যায়।"
+      }
+    ]
+  },
+  {
+    "id": "CHK-A1",
+    "level": "A1",
+    "type": "internal_formative_practice_not_official_cefr_assessment",
+    "items": [
+      {
+        "item_id": "A1-09-choice",
+        "type": "fixed_choice",
+        "question": "What is in your room?",
+        "options": [
+          "There are two windows.",
+          "There is two windows."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "একটি জিনিস বোঝাতে there is; একাধিক বোঝাতে there are ব্যবহার করা হয়।"
+      },
+      {
+        "item_id": "A1-10-choice",
+        "type": "fixed_choice",
+        "question": "What is she wearing?",
+        "options": [
+          "She is wearing a red shirt.",
+          "She wearing a red shirt."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "একটি মানুষ বা জিনিস বর্ণনায় adjective সাধারণত noun-এর আগে বসে।"
+      },
+      {
+        "item_id": "A1-11-choice",
+        "type": "fixed_choice",
+        "question": "What is he doing?",
+        "options": [
+          "He is reading now.",
+          "He reading now."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "Present continuous: am/is/are + verb-ing; এখন ঘটছে এমন কাজ বোঝায়।"
+      },
+      {
+        "item_id": "A1-12-choice",
+        "type": "fixed_choice",
+        "question": "When do you study?",
+        "options": [
+          "I study on Monday.",
+          "I studies on Monday."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "দিনের নামের আগে সাধারণত on ব্যবহার করি; অভ্যাসের জন্য present simple।"
+      },
+      {
+        "item_id": "A1-13-choice",
+        "type": "fixed_choice",
+        "question": "Can you swim?",
+        "options": [
+          "Yes, I can swim.",
+          "Yes, I can swims."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "can-এর পরে মূল verb-এর base form ব্যবহার হয়; can swim, can read।"
+      },
+      {
+        "item_id": "A1-14-choice",
+        "type": "fixed_choice",
+        "question": "How do I find the library?",
+        "options": [
+          "Where is the library?",
+          "Where the library is?"
+        ],
+        "correct_index": 0,
+        "feedback_bn": "What, Where, When, Who দিয়ে তথ্যভিত্তিক প্রশ্ন শুরু হতে পারে।"
+      },
+      {
+        "item_id": "A1-15-choice",
+        "type": "fixed_choice",
+        "question": "What do you have?",
+        "options": [
+          "I have some water.",
+          "I have any water."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "প্রাথমিকভাবে ইতিবাচক বাক্যে some, অনেক প্রশ্ন ও নেতিবাচক বাক্যে any ব্যবহৃত হয়; ব্যতিক্রম আছে।"
+      },
+      {
+        "item_id": "A1-16-choice",
+        "type": "fixed_choice",
+        "question": "How do you tell Maya you will be late?",
+        "options": [
+          "Hi Maya, I will be late today.",
+          "Hi Maya, I late today."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "ছোট বার্তায় সম্ভাষণ, মূল তথ্য ও ভদ্র সমাপ্তি রাখলে বোঝা সহজ হয়।"
+      }
+    ]
+  },
+  {
+    "id": "CHK-A2",
+    "level": "A2",
+    "type": "internal_formative_practice_not_official_cefr_assessment",
+    "items": [
+      {
+        "item_id": "A2-09-choice",
+        "type": "fixed_choice",
+        "question": "How did you travel to school before?",
+        "options": [
+          "I used to walk to school.",
+          "I used to walking to school."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "used to + base verb অতীতের অভ্যাস বোঝাতে ব্যবহৃত হয়, যা এখন আর একইভাবে নাও থাকতে পারে।"
+      },
+      {
+        "item_id": "A2-10-choice",
+        "type": "fixed_choice",
+        "question": "Which route is better?",
+        "options": [
+          "This route is shorter than that one.",
+          "This route more short than that one."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "Comparative-এর পরে দুইটি জিনিস তুলনায় than ব্যবহার করা যায়।"
+      },
+      {
+        "item_id": "A2-11-choice",
+        "type": "fixed_choice",
+        "question": "Where do you usually eat breakfast?",
+        "options": [
+          "I usually eat breakfast at home.",
+          "I eat usually breakfast at home."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "always, usually, often, sometimes, never সাধারণ ক্রিয়াপদের আগে এবং be-এর পরে বসে।"
+      },
+      {
+        "item_id": "A2-12-choice",
+        "type": "fixed_choice",
+        "question": "What is behind your house?",
+        "options": [
+          "There is a park behind our house.",
+          "There are a park behind our house."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "there is/are ও স্থানবাচক preposition দিয়ে বাসার বর্ণনা করা যায়।"
+      },
+      {
+        "item_id": "A2-13-choice",
+        "type": "fixed_choice",
+        "question": "How do you invite a friend politely?",
+        "options": [
+          "Would you like to join us?",
+          "Would you like joining us?"
+        ],
+        "correct_index": 0,
+        "feedback_bn": "Would you like to + verb ভদ্র আমন্ত্রণে ব্যবহৃত হতে পারে।"
+      },
+      {
+        "item_id": "A2-14-choice",
+        "type": "fixed_choice",
+        "question": "Have you visited Sylhet?",
+        "options": [
+          "Yes, I have visited Sylhet twice.",
+          "Yes, I have visit Sylhet twice."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "have/has + past participle দিয়ে পূর্ব অভিজ্ঞতা সম্পর্কে বলা যায়; নির্দিষ্ট অতীত সময় দিলে সাধারণত past simple।"
+      },
+      {
+        "item_id": "A2-15-choice",
+        "type": "fixed_choice",
+        "question": "How did you find the ticket?",
+        "options": [
+          "First, I checked my bag. Then, I found the ticket.",
+          "First, I check my bag. Then, I find the ticket."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "গল্পে আগে-পরের ঘটনা বোঝাতে first, then, finally ব্যবহার করা যায়।"
+      },
+      {
+        "item_id": "A2-16-choice",
+        "type": "fixed_choice",
+        "question": "How can you ask for a book recommendation?",
+        "options": [
+          "Could you suggest a good book?",
+          "Could you suggesting a good book?"
+        ],
+        "correct_index": 0,
+        "feedback_bn": "সমস্যা বর্ণনা করে Could you suggest...? দিয়ে ভদ্রভাবে পরামর্শ চাওয়া যায়।"
+      }
+    ]
+  },
+  {
+    "id": "CHK-B1",
+    "level": "B1",
+    "type": "internal_formative_practice_not_official_cefr_assessment",
+    "items": [
+      {
+        "item_id": "B1-09-choice",
+        "type": "fixed_choice",
+        "question": "Why did you stay home?",
+        "options": [
+          "I stayed home because it was raining.",
+          "I stayed home so it was raining."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "because কারণ জানায়, so ফল জানায়; অর্থ অনুযায়ী সংযোগ বেছে নিতে হয়।"
+      },
+      {
+        "item_id": "B1-10-choice",
+        "type": "fixed_choice",
+        "question": "What is your opinion of the story?",
+        "options": [
+          "The story is engaging, although the ending is predictable.",
+          "The story engaging, although the ending predictable."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "রিভিউয়ে বিষয়বস্তুর সংক্ষিপ্ত পরিচয়, মতামত ও উদাহরণ রাখা উপকারী।"
+      },
+      {
+        "item_id": "B1-11-choice",
+        "type": "fixed_choice",
+        "question": "How would you apologise for a delay?",
+        "options": [
+          "I apologise for the delay and will send it tomorrow.",
+          "I apologise the delay and will send tomorrow."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "নিজের ভুল স্বীকার করে ঠিক কীভাবে সংশোধন করবে তা জানালে বার্তা পরিষ্কার হয়।"
+      },
+      {
+        "item_id": "B1-12-choice",
+        "type": "fixed_choice",
+        "question": "Which part is a personal opinion?",
+        "options": [
+          "I think it should stay open longer.",
+          "The shop closes at six is my think."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "Fact যাচাইযোগ্য; opinion ব্যক্তিগত মত। বাক্যের ভাষা দেখে তাদের আলাদা করা যায়।"
+      },
+      {
+        "item_id": "B1-13-choice",
+        "type": "fixed_choice",
+        "question": "What is your learning plan?",
+        "options": [
+          "I plan to practise English for twenty minutes a day.",
+          "I plan practise English for twenty minutes a day."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "achieve a goal-এর মতো প্রচলিত collocation ব্যবহার করলে লেখা স্বাভাবিক হয়।"
+      },
+      {
+        "item_id": "B1-14-choice",
+        "type": "fixed_choice",
+        "question": "How can you request details politely?",
+        "options": [
+          "Could you please send me the details?",
+          "Send details now please me."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "Please, could এবং স্পষ্ট প্রসঙ্গ ব্যবহার করে অনলাইন বার্তা ভদ্র করা যায়।"
+      },
+      {
+        "item_id": "B1-15-choice",
+        "type": "fixed_choice",
+        "question": "Why has the meeting moved?",
+        "options": [
+          "The room is unavailable.",
+          "Because the room unavailable is."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "যখন একটি পরিকল্পনা বদলায়, তখন পরিবর্তনের কারণ ও নতুন সময় স্পষ্ট বলা উচিত।"
+      },
+      {
+        "item_id": "B1-16-choice",
+        "type": "fixed_choice",
+        "question": "What were you doing when it began to rain?",
+        "options": [
+          "I was waiting for the bus.",
+          "I was wait for the bus."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "Past simple এবং past continuous-এর সমন্বয়ে ঘটনাক্রম বোঝানো যায়।"
+      }
+    ]
+  },
+  {
+    "id": "CHK-B2",
+    "level": "B2",
+    "type": "internal_formative_practice_not_official_cefr_assessment",
+    "items": [
+      {
+        "item_id": "B2-09-choice",
+        "type": "fixed_choice",
+        "question": "What is one drawback of the proposal?",
+        "options": [
+          "It may reduce flexibility.",
+          "It may reduces flexibility."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "On the one hand... on the other hand... দিয়ে দুইটি দিক দেখানো যায়; শেষে নিজস্ব অবস্থান স্পষ্ট করতে হয়।"
+      },
+      {
+        "item_id": "B2-10-choice",
+        "type": "fixed_choice",
+        "question": "What limits this survey?",
+        "options": [
+          "Its sample is small.",
+          "Its sample are small."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "A single example does not necessarily prove a general claim; প্রমাণের সীমাবদ্ধতা শনাক্ত করতে হয়।"
+      },
+      {
+        "item_id": "B2-11-choice",
+        "type": "fixed_choice",
+        "question": "How can you disagree respectfully?",
+        "options": [
+          "I see your point, but I disagree.",
+          "Your point no agree me."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "I see your point, but... বাক্য দিয়ে সম্মান রেখে ভিন্নমত প্রকাশ করা যায়।"
+      },
+      {
+        "item_id": "B2-12-choice",
+        "type": "fixed_choice",
+        "question": "What is the author's main claim?",
+        "options": [
+          "Flexible schedules improve access.",
+          "Flexible schedules improves access."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "সারাংশে মূল দাবি, গুরুত্বপূর্ণ কারণ ও সীমাবদ্ধতা রাখতে হবে; নতুন তথ্য যোগ করা উচিত নয়।"
+      },
+      {
+        "item_id": "B2-13-choice",
+        "type": "fixed_choice",
+        "question": "How do you request an extension?",
+        "options": [
+          "Would it be possible to extend the deadline by two days?",
+          "Would possible extending the deadline by two days?"
+        ],
+        "correct_index": 0,
+        "feedback_bn": "Could we consider... / Would it be possible... ভদ্রভাবে বিকল্প প্রস্তাবের জন্য উপযোগী।"
+      },
+      {
+        "item_id": "B2-14-choice",
+        "type": "fixed_choice",
+        "question": "What would have happened if you had left earlier?",
+        "options": [
+          "We would have caught the train.",
+          "We would caught the train."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "If + past perfect, would have + past participle দিয়ে অতীতের অঘটিত পরিস্থিতির ফল কল্পনা করা যায়।"
+      },
+      {
+        "item_id": "B2-15-choice",
+        "type": "fixed_choice",
+        "question": "How do the articles differ?",
+        "options": [
+          "They reach different conclusions.",
+          "They reaches different conclusions."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "দুই উৎসের দাবি, প্রমাণ ও উদ্দেশ্য আলাদা করে তুলনা করতে হয়।"
+      },
+      {
+        "item_id": "B2-16-choice",
+        "type": "fixed_choice",
+        "question": "Which option do you recommend?",
+        "options": [
+          "I recommend the second option.",
+          "I recommending the second option."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "Recommendation লেখায় সমস্যা, কয়েকটি বিকল্প, প্রমাণ ও সুপারিশ ক্রমানুসারে দেওয়া যায়।"
+      }
+    ]
+  },
+  {
+    "id": "CHK-C1",
+    "level": "C1",
+    "type": "internal_formative_practice_not_official_cefr_assessment",
+    "items": [
+      {
+        "item_id": "C1-09-choice",
+        "type": "fixed_choice",
+        "question": "How can you make this claim cautious?",
+        "options": [
+          "The results appear to support the hypothesis.",
+          "The results proves the hypothesis maybe."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "may, appears to এবং is likely to দিয়ে পর্যাপ্ত প্রমাণ না থাকলে দাবির নিশ্চয়তা সীমিত করা যায়।"
+      },
+      {
+        "item_id": "C1-10-choice",
+        "type": "fixed_choice",
+        "question": "Did the editor endorse its feasibility?",
+        "options": [
+          "No, the editor did not endorse it.",
+          "Yes, the editor fully endorsed it."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "লেখকের বলা বক্তব্য ও ইঙ্গিত আলাদা করতে শব্দচয়ন, প্রসঙ্গ ও স্বর বিশ্লেষণ করা হয়।"
+      },
+      {
+        "item_id": "C1-11-choice",
+        "type": "fixed_choice",
+        "question": "What matters most in the report?",
+        "options": [
+          "What matters most is the quality of the evidence.",
+          "What matters most are the quality of the evidence."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "It was...that/who... অথবা What...is... ব্যবহার করে বাক্যের নির্দিষ্ট অংশে জোর দেওয়া যায়।"
+      },
+      {
+        "item_id": "C1-12-choice",
+        "type": "fixed_choice",
+        "question": "How can you emphasise rarity formally?",
+        "options": [
+          "Rarely have we encountered such a complex problem.",
+          "Rarely we have encountered such a complex problem."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "Never/Rarely/Not only দিয়ে বাক্য শুরু হলে formal emphasis-এ auxiliary subject-এর আগে বসে।"
+      },
+      {
+        "item_id": "C1-13-choice",
+        "type": "fixed_choice",
+        "question": "How can you offer help formally?",
+        "options": [
+          "Should you require assistance, please contact the coordinator.",
+          "Should you requires assistance, please contact the coordinator."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "Formal conditional-এ if বাদ দিয়ে Should/Were/Had দিয়ে শুরু করা যায়, প্রসঙ্গভেদে অর্থের সূক্ষ্ম পরিবর্তন হতে পারে।"
+      },
+      {
+        "item_id": "C1-14-choice",
+        "type": "fixed_choice",
+        "question": "What is one limitation of the study?",
+        "options": [
+          "The study cannot establish causation.",
+          "The study can proves causation."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "ভালো Academic Writing-এ ফলাফলের পাশাপাশি পদ্ধতি, নমুনা ও সীমাবদ্ধতা জানাতে হয়।"
+      },
+      {
+        "item_id": "C1-15-choice",
+        "type": "fixed_choice",
+        "question": "How can you express reservations politely?",
+        "options": [
+          "I have reservations about the timeline.",
+          "I have reserve about the timeline."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "সরাসরি প্রত্যাখ্যানের বদলে acknowledge করে আপত্তি জানালে পেশাগত আলোচনা সহযোগিতামূলক থাকে।"
+      },
+      {
+        "item_id": "C1-16-choice",
+        "type": "fixed_choice",
+        "question": "What does the report recommend?",
+        "options": [
+          "It recommends a phased rollout.",
+          "It recommend a phased rollout."
+        ],
+        "correct_index": 0,
+        "feedback_bn": "সংক্ষিপ্ত প্রাতিষ্ঠানিক সারাংশে সমস্যা, প্রস্তাবিত ব্যবস্থা, সম্ভাব্য প্রভাব ও সীমাবদ্ধতা স্পষ্টভাবে রাখতে হয়।"
+      }
+    ]
+  }
+]

@@ -1,0 +1,112 @@
+{
+  "id": "B2-16",
+  "level": "B2",
+  "position": 16,
+  "title_bn": "পরামর্শের প্রতিবেদন",
+  "title_en": "A Brief Recommendation",
+  "goal_bn": "বাস্তব কথোপকথনে পরামর্শের প্রতিবেদন বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "Recommendation লেখায় সমস্যা, কয়েকটি বিকল্প, প্রমাণ ও সুপারিশ ক্রমানুসারে দেওয়া যায়।",
+  "example_en": "I recommend the second option because it balances cost and accessibility.",
+  "translation_bn": "আমি দ্বিতীয় বিকল্পটি সুপারিশ করি, কারণ এতে খরচ ও প্রবেশগম্যতার ভারসাম্য আছে।",
+  "vocabulary": [
+    {
+      "en": "recommendation",
+      "bn": "সুপারিশ"
+    },
+    {
+      "en": "feasibility",
+      "bn": "বাস্তবায়নযোগ্যতা"
+    },
+    {
+      "en": "accessibility",
+      "bn": "সহজপ্রাপ্যতা"
+    },
+    {
+      "en": "criteria",
+      "bn": "মানদণ্ড"
+    },
+    {
+      "en": "evaluate",
+      "bn": "মূল্যায়ন করা"
+    },
+    {
+      "en": "cost",
+      "bn": "খরচ"
+    },
+    {
+      "en": "impact",
+      "bn": "প্রভাব"
+    },
+    {
+      "en": "justify",
+      "bn": "যুক্তি দেওয়া"
+    }
+  ],
+  "reading": {
+    "text_en": "I recommend the second option because it balances cost and accessibility. Which option do you recommend? I recommend the second option.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: পরামর্শের প্রতিবেদন।",
+    "npc_question_en": "Which option do you recommend?",
+    "good_response_en": "I recommend the second option.",
+    "challenging_response_en": "I recommending the second option.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "B2-16-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "Which option do you recommend?",
+      "options": [
+        "I recommend the second option.",
+        "I recommending the second option."
+      ],
+      "correct_index": 0,
+      "answer": "I recommend the second option.",
+      "feedback_bn": "Recommendation লেখায় সমস্যা, কয়েকটি বিকল্প, প্রমাণ ও সুপারিশ ক্রমানুসারে দেওয়া যায়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "B2-16",
+      "level": "B2"
+    },
+    {
+      "id": "B2-16-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"recommendation\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "সুপারিশ",
+        "বাস্তবায়নযোগ্যতা",
+        "সহজপ্রাপ্যতা"
+      ],
+      "correct_index": 0,
+      "answer": "সুপারিশ",
+      "feedback_bn": "recommendation = সুপারিশ (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "B2-16",
+      "level": "B2"
+    },
+    {
+      "id": "B2-16-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে পরামর্শের প্রতিবেদন বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "I recommend the second option because it balances cost and accessibility.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "B2-16",
+      "level": "B2"
+    }
+  ]
+}

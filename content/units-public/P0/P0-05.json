@@ -1,0 +1,246 @@
+{
+  "id": "P0-05",
+  "level": "P0",
+  "position": 5,
+  "title_bn": "সংখ্যা ও বয়স",
+  "title_en": "Numbers & Age",
+  "goal_bn": "সহজ সংখ্যা ও বয়স লিখতে পারবে",
+  "rule_bn": "বয়স বলার প্রচলিত কাঠামো I am ... years old।",
+  "example_en": "I am twelve years old.",
+  "translation_bn": "আমার বয়স বারো বছর।",
+  "vocabulary": [
+    {
+      "en": "one",
+      "bn": "এক"
+    },
+    {
+      "en": "two",
+      "bn": "দুই"
+    },
+    {
+      "en": "three",
+      "bn": "তিন"
+    },
+    {
+      "en": "ten",
+      "bn": "দশ"
+    },
+    {
+      "en": "twelve",
+      "bn": "বারো"
+    },
+    {
+      "en": "twenty",
+      "bn": "বিশ"
+    },
+    {
+      "en": "year",
+      "bn": "বছর"
+    },
+    {
+      "en": "old",
+      "bn": "বয়সী বা পুরোনো"
+    },
+    {
+      "en": "four",
+      "bn": "চার"
+    },
+    {
+      "en": "five",
+      "bn": "পাঁচ"
+    },
+    {
+      "en": "six",
+      "bn": "ছয়"
+    },
+    {
+      "en": "seven",
+      "bn": "সাত"
+    },
+    {
+      "en": "eight",
+      "bn": "আট"
+    },
+    {
+      "en": "nine",
+      "bn": "নয়"
+    },
+    {
+      "en": "eleven",
+      "bn": "এগারো"
+    },
+    {
+      "en": "age",
+      "bn": "বয়স"
+    }
+  ],
+  "quest": {
+    "character": "বন্ধু নীরা",
+    "opening_bn": "শুরু হলো শহরের ছোট্ট ভাষা-অভিযান। আজ তোমার মিশন: সহজ সংখ্যা ও বয়স লিখতে পারবে।",
+    "npc_question_en": "How old are you?",
+    "good_response_en": "I am twelve years old.",
+    "challenging_response_en": "I have twelve years old.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "জন্মদিনের কার্ডে বয়স লেখা।",
+      "follow_up_question_en": "How old is your friend?",
+      "guided_reply_en": "She is twelve years old.",
+      "skill_focus_bn": "সংখ্যা এবং বয়সের বাক্য গঠন।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "P0-05-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "How old are you?",
+      "options": [
+        "I am twelve years old.",
+        "I have twelve years old."
+      ],
+      "correct_index": 0,
+      "answer": "I am twelve years old.",
+      "feedback_bn": "বয়স বলতে be verb + number + years old ব্যবহার করা যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "P0-05-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "I am twelve years ___.",
+      "answer": "old",
+      "feedback_bn": "বয়স বলতে be verb + number + years old ব্যবহার করা যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "older",
+        "old",
+        "age"
+      ],
+      "correct_index": 1,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "P0-05-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "I have twelve years old.",
+      "answer": "I am twelve years old.",
+      "feedback_bn": "বয়স বলতে be verb + number + years old ব্যবহার করা যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "I am twelve years old.",
+        "I have twelve years old."
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "P0-05-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: আমার বয়স বারো বছর।",
+      "tokens": [
+        "I",
+        "years",
+        "am",
+        "old.",
+        "twelve"
+      ],
+      "answer": "I am twelve years old.",
+      "feedback_bn": "বয়স বলতে be verb + number + years old ব্যবহার করা যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "P0-05-write",
+      "type": "guided_write",
+      "prompt_bn": "নিজের বয়স লিখে একটি বাক্য তৈরি করো।",
+      "sample_answer_en": "I am twelve years old.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": "বয়স বলতে be verb + number + years old ব্যবহার করা যায়।",
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "P0-05-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "one",
+          "bn": "এক"
+        },
+        {
+          "en": "two",
+          "bn": "দুই"
+        },
+        {
+          "en": "three",
+          "bn": "তিন"
+        },
+        {
+          "en": "ten",
+          "bn": "দশ"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "one",
+          "bn": "এক"
+        },
+        {
+          "en": "two",
+          "bn": "দুই"
+        },
+        {
+          "en": "three",
+          "bn": "তিন"
+        },
+        {
+          "en": "ten",
+          "bn": "দশ"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "P0-05-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "I am twelve years old.",
+      "options_bn": [
+        "আমার নাম সামি।",
+        "আমার বয়স বারো বছর।",
+        "হ্যালো, আমি রিনা।"
+      ],
+      "correct_index": 1,
+      "answer_bn": "আমার বয়স বারো বছর।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "I am twelve years old. How old are you? I am twelve years old.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

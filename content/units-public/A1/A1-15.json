@@ -1,0 +1,112 @@
+{
+  "id": "A1-15",
+  "level": "A1",
+  "position": 15,
+  "title_bn": "পরিমাণের কথা",
+  "title_en": "Some and Any",
+  "goal_bn": "বাস্তব কথোপকথনে পরিমাণের কথা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "প্রাথমিকভাবে ইতিবাচক বাক্যে some, অনেক প্রশ্ন ও নেতিবাচক বাক্যে any ব্যবহৃত হয়; ব্যতিক্রম আছে।",
+  "example_en": "I have some water.",
+  "translation_bn": "আমার কিছু পানি আছে।",
+  "vocabulary": [
+    {
+      "en": "some",
+      "bn": "কিছু"
+    },
+    {
+      "en": "any",
+      "bn": "কোনো"
+    },
+    {
+      "en": "much",
+      "bn": "বেশি পরিমাণ"
+    },
+    {
+      "en": "many",
+      "bn": "অনেকগুলো"
+    },
+    {
+      "en": "little",
+      "bn": "অল্প"
+    },
+    {
+      "en": "few",
+      "bn": "অল্প কয়েকটি"
+    },
+    {
+      "en": "bottle",
+      "bn": "বোতল"
+    },
+    {
+      "en": "cup",
+      "bn": "কাপ"
+    }
+  ],
+  "reading": {
+    "text_en": "I have some water. What do you have? I have some water.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: পরিমাণের কথা।",
+    "npc_question_en": "What do you have?",
+    "good_response_en": "I have some water.",
+    "challenging_response_en": "I have any water.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "A1-15-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What do you have?",
+      "options": [
+        "I have some water.",
+        "I have any water."
+      ],
+      "correct_index": 0,
+      "answer": "I have some water.",
+      "feedback_bn": "প্রাথমিকভাবে ইতিবাচক বাক্যে some, অনেক প্রশ্ন ও নেতিবাচক বাক্যে any ব্যবহৃত হয়; ব্যতিক্রম আছে।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "A1-15",
+      "level": "A1"
+    },
+    {
+      "id": "A1-15-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"some\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "কিছু",
+        "কোনো",
+        "বেশি পরিমাণ"
+      ],
+      "correct_index": 0,
+      "answer": "কিছু",
+      "feedback_bn": "some = কিছু (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "A1-15",
+      "level": "A1"
+    },
+    {
+      "id": "A1-15-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে পরিমাণের কথা বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "I have some water.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "A1-15",
+      "level": "A1"
+    }
+  ]
+}

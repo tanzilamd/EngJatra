@@ -1,0 +1,112 @@
+{
+  "id": "A2-15",
+  "level": "A2",
+  "position": 15,
+  "title_bn": "ছোট গল্প লিখি",
+  "title_en": "A Missing Ticket",
+  "goal_bn": "বাস্তব কথোপকথনে ছোট গল্প লিখি বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "গল্পে আগে-পরের ঘটনা বোঝাতে first, then, finally ব্যবহার করা যায়।",
+  "example_en": "First, I checked my bag. Then, I found the ticket.",
+  "translation_bn": "প্রথমে ব্যাগ দেখলাম, তারপর টিকিট পেলাম।",
+  "vocabulary": [
+    {
+      "en": "first",
+      "bn": "প্রথমে"
+    },
+    {
+      "en": "then",
+      "bn": "তারপর"
+    },
+    {
+      "en": "finally",
+      "bn": "শেষে"
+    },
+    {
+      "en": "ticket",
+      "bn": "টিকিট"
+    },
+    {
+      "en": "search",
+      "bn": "খোঁজা"
+    },
+    {
+      "en": "lost",
+      "bn": "হারানো"
+    },
+    {
+      "en": "found",
+      "bn": "পেয়েছি"
+    },
+    {
+      "en": "station",
+      "bn": "স্টেশন"
+    }
+  ],
+  "reading": {
+    "text_en": "First, I checked my bag. Then, I found the ticket. How did you find the ticket? First, I checked my bag. Then, I found the ticket.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: ছোট গল্প লিখি।",
+    "npc_question_en": "How did you find the ticket?",
+    "good_response_en": "First, I checked my bag. Then, I found the ticket.",
+    "challenging_response_en": "First, I check my bag. Then, I find the ticket.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "A2-15-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "How did you find the ticket?",
+      "options": [
+        "First, I checked my bag. Then, I found the ticket.",
+        "First, I check my bag. Then, I find the ticket."
+      ],
+      "correct_index": 0,
+      "answer": "First, I checked my bag. Then, I found the ticket.",
+      "feedback_bn": "গল্পে আগে-পরের ঘটনা বোঝাতে first, then, finally ব্যবহার করা যায়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "A2-15",
+      "level": "A2"
+    },
+    {
+      "id": "A2-15-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"first\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "প্রথমে",
+        "তারপর",
+        "শেষে"
+      ],
+      "correct_index": 0,
+      "answer": "প্রথমে",
+      "feedback_bn": "first = প্রথমে (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "A2-15",
+      "level": "A2"
+    },
+    {
+      "id": "A2-15-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে ছোট গল্প লিখি বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "First, I checked my bag. Then, I found the ticket.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "A2-15",
+      "level": "A2"
+    }
+  ]
+}

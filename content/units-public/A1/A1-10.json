@@ -1,0 +1,112 @@
+{
+  "id": "A1-10",
+  "level": "A1",
+  "position": 10,
+  "title_bn": "আজ কী পরেছি?",
+  "title_en": "Clothes and Descriptions",
+  "goal_bn": "বাস্তব কথোপকথনে আজ কী পরেছি? বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "একটি মানুষ বা জিনিস বর্ণনায় adjective সাধারণত noun-এর আগে বসে।",
+  "example_en": "She is wearing a red shirt.",
+  "translation_bn": "সে একটি লাল শার্ট পরে আছে।",
+  "vocabulary": [
+    {
+      "en": "wear",
+      "bn": "পরা"
+    },
+    {
+      "en": "shirt",
+      "bn": "শার্ট"
+    },
+    {
+      "en": "trousers",
+      "bn": "প্যান্ট"
+    },
+    {
+      "en": "skirt",
+      "bn": "স্কার্ট"
+    },
+    {
+      "en": "shoes",
+      "bn": "জুতা"
+    },
+    {
+      "en": "jacket",
+      "bn": "জ্যাকেট"
+    },
+    {
+      "en": "size",
+      "bn": "মাপ"
+    },
+    {
+      "en": "comfortable",
+      "bn": "আরামদায়ক"
+    }
+  ],
+  "reading": {
+    "text_en": "She is wearing a red shirt. What is she wearing? She is wearing a red shirt.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: আজ কী পরেছি?।",
+    "npc_question_en": "What is she wearing?",
+    "good_response_en": "She is wearing a red shirt.",
+    "challenging_response_en": "She wearing a red shirt.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "A1-10-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What is she wearing?",
+      "options": [
+        "She is wearing a red shirt.",
+        "She wearing a red shirt."
+      ],
+      "correct_index": 0,
+      "answer": "She is wearing a red shirt.",
+      "feedback_bn": "একটি মানুষ বা জিনিস বর্ণনায় adjective সাধারণত noun-এর আগে বসে।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "A1-10",
+      "level": "A1"
+    },
+    {
+      "id": "A1-10-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"wear\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "পরা",
+        "শার্ট",
+        "প্যান্ট"
+      ],
+      "correct_index": 0,
+      "answer": "পরা",
+      "feedback_bn": "wear = পরা (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "A1-10",
+      "level": "A1"
+    },
+    {
+      "id": "A1-10-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে আজ কী পরেছি? বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "She is wearing a red shirt.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "A1-10",
+      "level": "A1"
+    }
+  ]
+}

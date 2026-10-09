@@ -1,0 +1,32 @@
+{
+  "CEFR": {
+    "title": "Council of Europe — CEFR descriptors",
+    "url": "https://www.coe.int/en/web/common-european-framework-reference-languages/cefr-descriptors",
+    "use": "can-do/interaction framework"
+  },
+  "BC_GRAMMAR": {
+    "title": "British Council LearnEnglish Grammar",
+    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar",
+    "use": "reference for grammar-topic scope, not copied lessons"
+  },
+  "BC_WRITING": {
+    "title": "British Council LearnEnglish Writing",
+    "url": "https://learnenglish.britishcouncil.org/free-resources/writing",
+    "use": "writing task types and progression"
+  },
+  "BC_READING": {
+    "title": "British Council LearnEnglish Reading",
+    "url": "https://learnenglish.britishcouncil.org/free-resources/reading",
+    "use": "reading text types and progression"
+  },
+  "OXFORD": {
+    "title": "Oxford 3000/5000 methodology",
+    "url": "https://www.oxfordlearnersdictionaries.com/about/wordlists/oxford3000-5000",
+    "use": "how frequency/sense level is established; no reproduction of list"
+  },
+  "CAMBRIDGE": {
+    "title": "Cambridge English Vocabulary Profile research",
+    "url": "https://www.cambridge.org/core/journals/english-profile-journal/article/completing-the-english-vocabulary-profile-c1-and-c2-vocabulary/418955FC7ED2455E98A499BC40C2C816",
+    "use": "word-sense-specific CEFR methodology"
+  }
+}

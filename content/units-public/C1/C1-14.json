@@ -1,0 +1,112 @@
+{
+  "id": "C1-14",
+  "level": "C1",
+  "position": 14,
+  "title_bn": "গবেষণার সীমাবদ্ধতা",
+  "title_en": "Acknowledging Limitations",
+  "goal_bn": "বাস্তব কথোপকথনে গবেষণার সীমাবদ্ধতা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "ভালো Academic Writing-এ ফলাফলের পাশাপাশি পদ্ধতি, নমুনা ও সীমাবদ্ধতা জানাতে হয়।",
+  "example_en": "Although the findings are promising, the study cannot establish causation.",
+  "translation_bn": "ফল আশাব্যঞ্জক হলেও গবেষণাটি কার্যকারণ সম্পর্ক প্রমাণ করতে পারে না।",
+  "vocabulary": [
+    {
+      "en": "limitation",
+      "bn": "সীমাবদ্ধতা"
+    },
+    {
+      "en": "causation",
+      "bn": "কার্যকারণ সম্পর্ক"
+    },
+    {
+      "en": "promising",
+      "bn": "আশাব্যঞ্জক"
+    },
+    {
+      "en": "methodology",
+      "bn": "গবেষণাপদ্ধতি"
+    },
+    {
+      "en": "validity",
+      "bn": "বৈধতা"
+    },
+    {
+      "en": "generalisability",
+      "bn": "সাধারণীকরণযোগ্যতা"
+    },
+    {
+      "en": "sample size",
+      "bn": "নমুনার আকার"
+    },
+    {
+      "en": "caveat",
+      "bn": "সতর্কীকরণ"
+    }
+  ],
+  "reading": {
+    "text_en": "Although the findings are promising, the study cannot establish causation. What is one limitation of the study? The study cannot establish causation.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: গবেষণার সীমাবদ্ধতা।",
+    "npc_question_en": "What is one limitation of the study?",
+    "good_response_en": "The study cannot establish causation.",
+    "challenging_response_en": "The study can proves causation.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "C1-14-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What is one limitation of the study?",
+      "options": [
+        "The study cannot establish causation.",
+        "The study can proves causation."
+      ],
+      "correct_index": 0,
+      "answer": "The study cannot establish causation.",
+      "feedback_bn": "ভালো Academic Writing-এ ফলাফলের পাশাপাশি পদ্ধতি, নমুনা ও সীমাবদ্ধতা জানাতে হয়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "C1-14",
+      "level": "C1"
+    },
+    {
+      "id": "C1-14-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"limitation\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "সীমাবদ্ধতা",
+        "কার্যকারণ সম্পর্ক",
+        "আশাব্যঞ্জক"
+      ],
+      "correct_index": 0,
+      "answer": "সীমাবদ্ধতা",
+      "feedback_bn": "limitation = সীমাবদ্ধতা (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "C1-14",
+      "level": "C1"
+    },
+    {
+      "id": "C1-14-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে গবেষণার সীমাবদ্ধতা বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "Although the findings are promising, the study cannot establish causation.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "C1-14",
+      "level": "C1"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "id": "A2-16",
+  "level": "A2",
+  "position": 16,
+  "title_bn": "পরামর্শ চেয়ে লেখা",
+  "title_en": "Asking for Advice",
+  "goal_bn": "বাস্তব কথোপকথনে পরামর্শ চেয়ে লেখা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "সমস্যা বর্ণনা করে Could you suggest...? দিয়ে ভদ্রভাবে পরামর্শ চাওয়া যায়।",
+  "example_en": "Could you suggest a good book?",
+  "translation_bn": "আপনি কি একটি ভালো বইয়ের পরামর্শ দিতে পারেন?",
+  "vocabulary": [
+    {
+      "en": "suggest",
+      "bn": "পরামর্শ দেওয়া"
+    },
+    {
+      "en": "recommend",
+      "bn": "সুপারিশ করা"
+    },
+    {
+      "en": "advice",
+      "bn": "পরামর্শ"
+    },
+    {
+      "en": "choice",
+      "bn": "পছন্দ"
+    },
+    {
+      "en": "option",
+      "bn": "বিকল্প"
+    },
+    {
+      "en": "useful",
+      "bn": "উপকারী"
+    },
+    {
+      "en": "helpful",
+      "bn": "সহায়ক"
+    },
+    {
+      "en": "prefer",
+      "bn": "বেশি পছন্দ করা"
+    }
+  ],
+  "reading": {
+    "text_en": "Could you suggest a good book? How can you ask for a book recommendation? Could you suggest a good book?",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: পরামর্শ চেয়ে লেখা।",
+    "npc_question_en": "How can you ask for a book recommendation?",
+    "good_response_en": "Could you suggest a good book?",
+    "challenging_response_en": "Could you suggesting a good book?",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "A2-16-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "How can you ask for a book recommendation?",
+      "options": [
+        "Could you suggest a good book?",
+        "Could you suggesting a good book?"
+      ],
+      "correct_index": 0,
+      "answer": "Could you suggest a good book?",
+      "feedback_bn": "সমস্যা বর্ণনা করে Could you suggest...? দিয়ে ভদ্রভাবে পরামর্শ চাওয়া যায়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "A2-16",
+      "level": "A2"
+    },
+    {
+      "id": "A2-16-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"suggest\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "পরামর্শ দেওয়া",
+        "সুপারিশ করা",
+        "পরামর্শ"
+      ],
+      "correct_index": 0,
+      "answer": "পরামর্শ দেওয়া",
+      "feedback_bn": "suggest = পরামর্শ দেওয়া (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "A2-16",
+      "level": "A2"
+    },
+    {
+      "id": "A2-16-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে পরামর্শ চেয়ে লেখা বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "Could you suggest a good book?",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "A2-16",
+      "level": "A2"
+    }
+  ]
+}

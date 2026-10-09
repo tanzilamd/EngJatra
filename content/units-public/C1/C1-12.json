@@ -1,0 +1,112 @@
+{
+  "id": "C1-12",
+  "level": "C1",
+  "position": 12,
+  "title_bn": "নেতিবাচক ক্রিয়াবিশেষণে Inversion",
+  "title_en": "Formal Inversion",
+  "goal_bn": "বাস্তব কথোপকথনে নেতিবাচক ক্রিয়াবিশেষণে Inversion বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "Never/Rarely/Not only দিয়ে বাক্য শুরু হলে formal emphasis-এ auxiliary subject-এর আগে বসে।",
+  "example_en": "Rarely have we encountered such a complex problem.",
+  "translation_bn": "এত জটিল সমস্যার মুখে আমরা খুব কমই পড়েছি।",
+  "vocabulary": [
+    {
+      "en": "inversion",
+      "bn": "উল্টোক্রম"
+    },
+    {
+      "en": "rarely",
+      "bn": "খুব কমই"
+    },
+    {
+      "en": "auxiliary",
+      "bn": "সহায়ক ক্রিয়া"
+    },
+    {
+      "en": "emphasis",
+      "bn": "জোর"
+    },
+    {
+      "en": "formal",
+      "bn": "আনুষ্ঠানিক"
+    },
+    {
+      "en": "encounter",
+      "bn": "সম্মুখীন হওয়া"
+    },
+    {
+      "en": "exceptional",
+      "bn": "ব্যতিক্রমী"
+    },
+    {
+      "en": "syntax",
+      "bn": "বাক্যগঠন"
+    }
+  ],
+  "reading": {
+    "text_en": "Rarely have we encountered such a complex problem. How can you emphasise rarity formally? Rarely have we encountered such a complex problem.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: নেতিবাচক ক্রিয়াবিশেষণে Inversion।",
+    "npc_question_en": "How can you emphasise rarity formally?",
+    "good_response_en": "Rarely have we encountered such a complex problem.",
+    "challenging_response_en": "Rarely we have encountered such a complex problem.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "C1-12-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "How can you emphasise rarity formally?",
+      "options": [
+        "Rarely have we encountered such a complex problem.",
+        "Rarely we have encountered such a complex problem."
+      ],
+      "correct_index": 0,
+      "answer": "Rarely have we encountered such a complex problem.",
+      "feedback_bn": "Never/Rarely/Not only দিয়ে বাক্য শুরু হলে formal emphasis-এ auxiliary subject-এর আগে বসে।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "C1-12",
+      "level": "C1"
+    },
+    {
+      "id": "C1-12-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"inversion\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "উল্টোক্রম",
+        "খুব কমই",
+        "সহায়ক ক্রিয়া"
+      ],
+      "correct_index": 0,
+      "answer": "উল্টোক্রম",
+      "feedback_bn": "inversion = উল্টোক্রম (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "C1-12",
+      "level": "C1"
+    },
+    {
+      "id": "C1-12-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে নেতিবাচক ক্রিয়াবিশেষণে Inversion বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "Rarely have we encountered such a complex problem.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "C1-12",
+      "level": "C1"
+    }
+  ]
+}

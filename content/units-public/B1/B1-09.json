@@ -1,0 +1,112 @@
+{
+  "id": "B1-09",
+  "level": "B1",
+  "position": 9,
+  "title_bn": "মতামতের কারণ",
+  "title_en": "Reasons and Results",
+  "goal_bn": "বাস্তব কথোপকথনে মতামতের কারণ বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "because কারণ জানায়, so ফল জানায়; অর্থ অনুযায়ী সংযোগ বেছে নিতে হয়।",
+  "example_en": "I stayed home because it was raining.",
+  "translation_bn": "বৃষ্টি হচ্ছিল বলে আমি বাসায় ছিলাম।",
+  "vocabulary": [
+    {
+      "en": "reason",
+      "bn": "কারণ"
+    },
+    {
+      "en": "result",
+      "bn": "ফল"
+    },
+    {
+      "en": "because",
+      "bn": "কারণ"
+    },
+    {
+      "en": "therefore",
+      "bn": "সুতরাং"
+    },
+    {
+      "en": "consequence",
+      "bn": "পরিণতি"
+    },
+    {
+      "en": "rainfall",
+      "bn": "বৃষ্টিপাত"
+    },
+    {
+      "en": "decision",
+      "bn": "সিদ্ধান্ত"
+    },
+    {
+      "en": "explain",
+      "bn": "ব্যাখ্যা করা"
+    }
+  ],
+  "reading": {
+    "text_en": "I stayed home because it was raining. Why did you stay home? I stayed home because it was raining.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: মতামতের কারণ।",
+    "npc_question_en": "Why did you stay home?",
+    "good_response_en": "I stayed home because it was raining.",
+    "challenging_response_en": "I stayed home so it was raining.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "B1-09-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "Why did you stay home?",
+      "options": [
+        "I stayed home because it was raining.",
+        "I stayed home so it was raining."
+      ],
+      "correct_index": 0,
+      "answer": "I stayed home because it was raining.",
+      "feedback_bn": "because কারণ জানায়, so ফল জানায়; অর্থ অনুযায়ী সংযোগ বেছে নিতে হয়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "B1-09",
+      "level": "B1"
+    },
+    {
+      "id": "B1-09-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"reason\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "কারণ",
+        "ফল",
+        "সুতরাং"
+      ],
+      "correct_index": 0,
+      "answer": "কারণ",
+      "feedback_bn": "reason = কারণ (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "B1-09",
+      "level": "B1"
+    },
+    {
+      "id": "B1-09-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে মতামতের কারণ বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "I stayed home because it was raining.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "B1-09",
+      "level": "B1"
+    }
+  ]
+}

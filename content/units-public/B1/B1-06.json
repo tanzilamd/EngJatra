@@ -1,0 +1,249 @@
+{
+  "id": "B1-06",
+  "level": "B1",
+  "position": 6,
+  "title_bn": "খবরের সারাংশ",
+  "title_en": "News in Your Words",
+  "goal_bn": "মূল ঘটনা ও উৎস পরিষ্কার করে লিখতে পারবে",
+  "rule_bn": "Reported statement-এ said that ব্যবহার করা যায়; সূত্রের বক্তব্যকে নিজের মত বলে উপস্থাপন করবে না।",
+  "example_en": "The report said that the road was closed.",
+  "translation_bn": "প্রতিবেদনে বলা হয়েছিল যে রাস্তাটি বন্ধ ছিল।",
+  "vocabulary": [
+    {
+      "en": "report",
+      "bn": "প্রতিবেদন"
+    },
+    {
+      "en": "source",
+      "bn": "উৎস"
+    },
+    {
+      "en": "headline",
+      "bn": "শিরোনাম"
+    },
+    {
+      "en": "claim",
+      "bn": "দাবি"
+    },
+    {
+      "en": "fact",
+      "bn": "তথ্য"
+    },
+    {
+      "en": "summary",
+      "bn": "সারাংশ"
+    },
+    {
+      "en": "confirm",
+      "bn": "যাচাই করা"
+    },
+    {
+      "en": "closed",
+      "bn": "বন্ধ"
+    },
+    {
+      "en": "article",
+      "bn": "নিবন্ধ"
+    },
+    {
+      "en": "publish",
+      "bn": "প্রকাশ করা"
+    },
+    {
+      "en": "reliable",
+      "bn": "নির্ভরযোগ্য"
+    },
+    {
+      "en": "verify",
+      "bn": "যাচাই করা"
+    },
+    {
+      "en": "misleading",
+      "bn": "বিভ্রান্তিকর"
+    },
+    {
+      "en": "context",
+      "bn": "প্রসঙ্গ"
+    },
+    {
+      "en": "quote",
+      "bn": "উদ্ধৃত করা"
+    },
+    {
+      "en": "accurate",
+      "bn": "নির্ভুল"
+    }
+  ],
+  "quest": {
+    "character": "অভিযাত্রী আরিফ",
+    "opening_bn": "একটি কমিউনিটি প্রজেক্টের নানা সিদ্ধান্ত। আজ তোমার মিশন: মূল ঘটনা ও উৎস পরিষ্কার করে লিখতে পারবে।",
+    "npc_question_en": "What did the report say?",
+    "good_response_en": "The report said that the road was closed.",
+    "challenging_response_en": "The report told that the road was closed.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "অনলাইনে একটি সংবাদ যাচাই।",
+      "follow_up_question_en": "How can we check the information?",
+      "guided_reply_en": "We can compare reliable sources.",
+      "skill_focus_bn": "প্রমাণ ছাড়া দাবি গ্রহণ না করা।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "B1-06-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "What did the report say?",
+      "options": [
+        "The report told that the road was closed.",
+        "The report said that the road was closed."
+      ],
+      "correct_index": 1,
+      "answer": "The report said that the road was closed.",
+      "feedback_bn": "খবর সম্পর্কে বলার সময় তথ্যের উৎস উল্লেখ করতে হবে; উদাহরণটি কাল্পনিক।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "B1-06-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "The report ___ that the road was closed.",
+      "answer": "said",
+      "feedback_bn": "খবর সম্পর্কে বলার সময় তথ্যের উৎস উল্লেখ করতে হবে; উদাহরণটি কাল্পনিক।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "said",
+        "is saying to",
+        "were said"
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "B1-06-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "The report said me the road was closed.",
+      "answer": "The report said the road was closed.",
+      "feedback_bn": "খবর সম্পর্কে বলার সময় তথ্যের উৎস উল্লেখ করতে হবে; উদাহরণটি কাল্পনিক।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "The report said me the road was closed.",
+        "The report said the road was closed."
+      ],
+      "correct_index": 1,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "B1-06-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: প্রতিবেদনে বলা হয়েছিল যে রাস্তাটি বন্ধ ছিল।",
+      "tokens": [
+        "closed.",
+        "road",
+        "the",
+        "report",
+        "that",
+        "said",
+        "The",
+        "was"
+      ],
+      "answer": "The report said that the road was closed.",
+      "feedback_bn": "খবর সম্পর্কে বলার সময় তথ্যের উৎস উল্লেখ করতে হবে; উদাহরণটি কাল্পনিক।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "B1-06-write",
+      "type": "guided_write",
+      "prompt_bn": "কাল্পনিক একটি সংবাদের তথ্য ও উৎস আলাদা করে লেখো।",
+      "sample_answer_en": "The report said that the road was closed.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": "খবর সম্পর্কে বলার সময় তথ্যের উৎস উল্লেখ করতে হবে; উদাহরণটি কাল্পনিক।",
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "B1-06-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "report",
+          "bn": "প্রতিবেদন"
+        },
+        {
+          "en": "source",
+          "bn": "উৎস"
+        },
+        {
+          "en": "headline",
+          "bn": "শিরোনাম"
+        },
+        {
+          "en": "claim",
+          "bn": "দাবি"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "report",
+          "bn": "প্রতিবেদন"
+        },
+        {
+          "en": "source",
+          "bn": "উৎস"
+        },
+        {
+          "en": "headline",
+          "bn": "শিরোনাম"
+        },
+        {
+          "en": "claim",
+          "bn": "দাবি"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "B1-06-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "The report said that the road was closed.",
+      "options_bn": [
+        "প্রতিবেদনে বলা হয়েছিল যে রাস্তাটি বন্ধ ছিল।",
+        "আলো নিভে যাওয়ার সময় আমি পড়ছিলাম।",
+        "আমি দুইবার কক্সবাজার গিয়েছি।"
+      ],
+      "correct_index": 0,
+      "answer_bn": "প্রতিবেদনে বলা হয়েছিল যে রাস্তাটি বন্ধ ছিল।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "The report said that the road was closed. What did the report say? The report said that the road was closed.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

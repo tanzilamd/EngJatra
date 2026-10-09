@@ -1,0 +1,34 @@
+[
+  {
+    "skill": "listening",
+    "level_range": "A1-A2",
+    "name": "British Council LearnEnglish Listening",
+    "url": "https://learnenglish.britishcouncil.org/free-resources/listening",
+    "availability": "external site, may change",
+    "auto_assessment": false
+  },
+  {
+    "skill": "listening",
+    "level_range": "A1-B2",
+    "name": "British Council LearnEnglish Teens Listening",
+    "url": "https://learnenglishteens.britishcouncil.org/skills/listening",
+    "availability": "external site, may change",
+    "auto_assessment": false
+  },
+  {
+    "skill": "speaking",
+    "level_range": "A1-B2",
+    "name": "British Council Speaking Practice",
+    "url": "https://learnenglishteens.britishcouncil.org/skills/speaking",
+    "availability": "external site, may change",
+    "auto_assessment": false
+  },
+  {
+    "skill": "skills",
+    "level_range": "A1-C1",
+    "name": "Cambridge English Activities",
+    "url": "https://www.cambridgeenglish.org/learning-english/activities-for-learners/",
+    "availability": "external site, may change",
+    "auto_assessment": false
+  }
+]

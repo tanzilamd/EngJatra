@@ -1,0 +1,19 @@
+{
+  "units": 96,
+  "levels": {
+    "P0": 16,
+    "A1": 16,
+    "A2": 16,
+    "B1": 16,
+    "B2": 16,
+    "C1": 16
+  },
+  "unique_sense_records": 932,
+  "grammar_cards": 132,
+  "scripted_conversations": 96,
+  "non_ai_activities": 480,
+  "auto_graded": 384,
+  "ungraded_writing": 96,
+  "extended_readings": 12,
+  "new_units": 48
+}

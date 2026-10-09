@@ -1,0 +1,112 @@
+{
+  "id": "A1-14",
+  "level": "A1",
+  "position": 14,
+  "title_bn": "প্রশ্ন করে জানি",
+  "title_en": "Simple Wh-Questions",
+  "goal_bn": "বাস্তব কথোপকথনে প্রশ্ন করে জানি বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "What, Where, When, Who দিয়ে তথ্যভিত্তিক প্রশ্ন শুরু হতে পারে।",
+  "example_en": "Where is the library?",
+  "translation_bn": "গ্রন্থাগার কোথায়?",
+  "vocabulary": [
+    {
+      "en": "what",
+      "bn": "কী"
+    },
+    {
+      "en": "where",
+      "bn": "কোথায়"
+    },
+    {
+      "en": "when",
+      "bn": "কখন"
+    },
+    {
+      "en": "who",
+      "bn": "কে"
+    },
+    {
+      "en": "why",
+      "bn": "কেন"
+    },
+    {
+      "en": "how",
+      "bn": "কীভাবে"
+    },
+    {
+      "en": "library",
+      "bn": "গ্রন্থাগার"
+    },
+    {
+      "en": "question",
+      "bn": "প্রশ্ন"
+    }
+  ],
+  "reading": {
+    "text_en": "Where is the library? How do I find the library? Where is the library?",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: প্রশ্ন করে জানি।",
+    "npc_question_en": "How do I find the library?",
+    "good_response_en": "Where is the library?",
+    "challenging_response_en": "Where the library is?",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "A1-14-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "How do I find the library?",
+      "options": [
+        "Where is the library?",
+        "Where the library is?"
+      ],
+      "correct_index": 0,
+      "answer": "Where is the library?",
+      "feedback_bn": "What, Where, When, Who দিয়ে তথ্যভিত্তিক প্রশ্ন শুরু হতে পারে।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "A1-14",
+      "level": "A1"
+    },
+    {
+      "id": "A1-14-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"what\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "কী",
+        "কোথায়",
+        "কখন"
+      ],
+      "correct_index": 0,
+      "answer": "কী",
+      "feedback_bn": "what = কী (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "A1-14",
+      "level": "A1"
+    },
+    {
+      "id": "A1-14-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে প্রশ্ন করে জানি বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "Where is the library?",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "A1-14",
+      "level": "A1"
+    }
+  ]
+}

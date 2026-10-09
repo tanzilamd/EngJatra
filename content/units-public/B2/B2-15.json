@@ -1,0 +1,112 @@
+{
+  "id": "B2-15",
+  "level": "B2",
+  "position": 15,
+  "title_bn": "দুই উৎস তুলনা",
+  "title_en": "Comparing Sources",
+  "goal_bn": "বাস্তব কথোপকথনে দুই উৎস তুলনা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "দুই উৎসের দাবি, প্রমাণ ও উদ্দেশ্য আলাদা করে তুলনা করতে হয়।",
+  "example_en": "Both articles discuss the same issue, yet they reach different conclusions.",
+  "translation_bn": "দুই লেখাই একই বিষয় আলোচনা করে, তবু ভিন্ন সিদ্ধান্তে পৌঁছায়।",
+  "vocabulary": [
+    {
+      "en": "article",
+      "bn": "প্রবন্ধ"
+    },
+    {
+      "en": "source",
+      "bn": "উৎস"
+    },
+    {
+      "en": "contrast",
+      "bn": "পার্থক্য দেখানো"
+    },
+    {
+      "en": "similarity",
+      "bn": "সাদৃশ্য"
+    },
+    {
+      "en": "emphasis",
+      "bn": "গুরুত্ব দেওয়া"
+    },
+    {
+      "en": "persuasion",
+      "bn": "প্ররোচনামূলক বক্তব্য"
+    },
+    {
+      "en": "audience",
+      "bn": "পাঠকশ্রেণি"
+    },
+    {
+      "en": "purpose",
+      "bn": "উদ্দেশ্য"
+    }
+  ],
+  "reading": {
+    "text_en": "Both articles discuss the same issue, yet they reach different conclusions. How do the articles differ? They reach different conclusions.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: দুই উৎস তুলনা।",
+    "npc_question_en": "How do the articles differ?",
+    "good_response_en": "They reach different conclusions.",
+    "challenging_response_en": "They reaches different conclusions.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "B2-15-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "How do the articles differ?",
+      "options": [
+        "They reach different conclusions.",
+        "They reaches different conclusions."
+      ],
+      "correct_index": 0,
+      "answer": "They reach different conclusions.",
+      "feedback_bn": "দুই উৎসের দাবি, প্রমাণ ও উদ্দেশ্য আলাদা করে তুলনা করতে হয়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "B2-15",
+      "level": "B2"
+    },
+    {
+      "id": "B2-15-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"article\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "প্রবন্ধ",
+        "উৎস",
+        "পার্থক্য দেখানো"
+      ],
+      "correct_index": 0,
+      "answer": "প্রবন্ধ",
+      "feedback_bn": "article = প্রবন্ধ (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "B2-15",
+      "level": "B2"
+    },
+    {
+      "id": "B2-15-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে দুই উৎস তুলনা বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "Both articles discuss the same issue, yet they reach different conclusions.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "B2-15",
+      "level": "B2"
+    }
+  ]
+}

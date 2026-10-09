@@ -1,0 +1,249 @@
+{
+  "id": "B2-01",
+  "level": "B2",
+  "position": 1,
+  "title_bn": "জটিল মতামত",
+  "title_en": "Balanced Opinions",
+  "goal_bn": "মতামতের দুটি দিক তুলনা করতে পারবে",
+  "rule_bn": "Although একটি বিপরীত তথ্যের subordinate clause শুরু করতে পারে।",
+  "example_en": "Although the plan is costly, it may help.",
+  "translation_bn": "পরিকল্পনাটি ব্যয়বহুল হলেও এটি সাহায্য করতে পারে।",
+  "vocabulary": [
+    {
+      "en": "although",
+      "bn": "যদিও"
+    },
+    {
+      "en": "despite",
+      "bn": "সত্ত্বেও"
+    },
+    {
+      "en": "however",
+      "bn": "তবে"
+    },
+    {
+      "en": "balance",
+      "bn": "ভারসাম্য"
+    },
+    {
+      "en": "benefit",
+      "bn": "সুবিধা"
+    },
+    {
+      "en": "drawback",
+      "bn": "অসুবিধা"
+    },
+    {
+      "en": "costly",
+      "bn": "ব্যয়বহুল"
+    },
+    {
+      "en": "worth",
+      "bn": "সার্থক বা মূল্য রয়েছে এমন (প্রসঙ্গভেদে)"
+    },
+    {
+      "en": "nevertheless",
+      "bn": "তবুও"
+    },
+    {
+      "en": "on the other hand",
+      "bn": "অন্যদিকে"
+    },
+    {
+      "en": "advantage",
+      "bn": "সুবিধা"
+    },
+    {
+      "en": "disadvantage",
+      "bn": "অসুবিধা"
+    },
+    {
+      "en": "significant",
+      "bn": "তাৎপর্যপূর্ণ"
+    },
+    {
+      "en": "limitation",
+      "bn": "সীমাবদ্ধতা"
+    },
+    {
+      "en": "contribute",
+      "bn": "অবদান রাখা"
+    },
+    {
+      "en": "overall",
+      "bn": "সামগ্রিকভাবে"
+    }
+  ],
+  "quest": {
+    "character": "প্রজেক্ট টিম",
+    "opening_bn": "একটি সামাজিক উদ্যোগের পরিকল্পনা ও বিতর্ক। আজ তোমার মিশন: মতামতের দুটি দিক তুলনা করতে পারবে।",
+    "npc_question_en": "Is the costly plan worth trying?",
+    "good_response_en": "Although the plan is costly, it may help.",
+    "challenging_response_en": "Although the plan is costly, but it may help.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "স্কুলের একটি উদ্যোগের ভালো-মন্দ বিশ্লেষণ।",
+      "follow_up_question_en": "What is the main drawback?",
+      "guided_reply_en": "The cost could be too high.",
+      "skill_focus_bn": "মতামতে সীমাবদ্ধতা চিহ্নিত করা।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "B2-01-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "Is the costly plan worth trying?",
+      "options": [
+        "Although the plan is costly, it may help.",
+        "Although the plan is costly, but it may help."
+      ],
+      "correct_index": 0,
+      "answer": "Although the plan is costly, it may help.",
+      "feedback_bn": "Although একটি বিপরীত তথ্যের subordinate clause শুরু করতে পারে।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "B2-01-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "___ the plan is costly, it may help.",
+      "answer": "Although",
+      "feedback_bn": "Although একটি বিপরীত তথ্যের subordinate clause শুরু করতে পারে।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "Although",
+        "Because of",
+        "Despite"
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "B2-01-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "Although it was late, but we continued.",
+      "answer": "Although it was late, we continued.",
+      "feedback_bn": "Although একটি বিপরীত তথ্যের subordinate clause শুরু করতে পারে।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "Although it was late, we continued.",
+        "Although it was late, but we continued."
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "B2-01-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: পরিকল্পনাটি ব্যয়বহুল হলেও এটি সাহায্য করতে পারে।",
+      "tokens": [
+        "costly,",
+        "it",
+        "plan",
+        "help.",
+        "the",
+        "Although",
+        "is",
+        "may"
+      ],
+      "answer": "Although the plan is costly, it may help.",
+      "feedback_bn": "Although একটি বিপরীত তথ্যের subordinate clause শুরু করতে পারে।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "B2-01-write",
+      "type": "guided_write",
+      "prompt_bn": "একটি সিদ্ধান্তের দুটি সুবিধা ও অসুবিধা লেখো।",
+      "sample_answer_en": "Although the plan is costly, it may help.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": null,
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "B2-01-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "although",
+          "bn": "যদিও"
+        },
+        {
+          "en": "despite",
+          "bn": "সত্ত্বেও"
+        },
+        {
+          "en": "however",
+          "bn": "তবে"
+        },
+        {
+          "en": "balance",
+          "bn": "ভারসাম্য"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "although",
+          "bn": "যদিও"
+        },
+        {
+          "en": "despite",
+          "bn": "সত্ত্বেও"
+        },
+        {
+          "en": "however",
+          "bn": "তবে"
+        },
+        {
+          "en": "balance",
+          "bn": "ভারসাম্য"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "B2-01-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "Although the plan is costly, it may help.",
+      "options_bn": [
+        "আপনি কি দয়া করে আমার প্রস্তাবটি পর্যালোচনা করবেন?",
+        "পরিকল্পনাটি ব্যয়বহুল হলেও এটি সাহায্য করতে পারে।",
+        "আরও সময় থাকলে আমি স্বেচ্ছাসেবা করতাম।"
+      ],
+      "correct_index": 1,
+      "answer_bn": "পরিকল্পনাটি ব্যয়বহুল হলেও এটি সাহায্য করতে পারে।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "Although the plan is costly, it may help. Is the costly plan worth trying? Although the plan is costly, it may help.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

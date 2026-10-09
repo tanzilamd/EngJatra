@@ -1,0 +1,245 @@
+{
+  "id": "A1-03",
+  "level": "A1",
+  "position": 3,
+  "title_bn": "পছন্দ অপছন্দ",
+  "title_en": "Likes & Dislikes",
+  "goal_bn": "পছন্দ জানাতে পারবে",
+  "rule_bn": "like-এর পরে noun অথবা verb+ing ব্যবহার করা যায়; he/she/it-এর সঙ্গে likes।",
+  "example_en": "I like reading books.",
+  "translation_bn": "আমি বই পড়তে পছন্দ করি।",
+  "vocabulary": [
+    {
+      "en": "like",
+      "bn": "পছন্দ করা"
+    },
+    {
+      "en": "love",
+      "bn": "খুব পছন্দ করা"
+    },
+    {
+      "en": "enjoy",
+      "bn": "উপভোগ করা"
+    },
+    {
+      "en": "music",
+      "bn": "সংগীত"
+    },
+    {
+      "en": "reading",
+      "bn": "পড়া"
+    },
+    {
+      "en": "drawing",
+      "bn": "আঁকা"
+    },
+    {
+      "en": "game",
+      "bn": "খেলা"
+    },
+    {
+      "en": "hobby",
+      "bn": "শখ"
+    },
+    {
+      "en": "dance",
+      "bn": "নাচা"
+    },
+    {
+      "en": "sing",
+      "bn": "গান গাওয়া"
+    },
+    {
+      "en": "swim",
+      "bn": "সাঁতার কাটা"
+    },
+    {
+      "en": "play",
+      "bn": "খেলা"
+    },
+    {
+      "en": "watch",
+      "bn": "দেখা"
+    },
+    {
+      "en": "movie",
+      "bn": "চলচ্চিত্র"
+    },
+    {
+      "en": "sport",
+      "bn": "খেলাধুলা"
+    },
+    {
+      "en": "favorite",
+      "bn": "প্রিয়"
+    }
+  ],
+  "quest": {
+    "character": "বন্ধু নীরা",
+    "opening_bn": "নতুন শহরে বন্ধু, দোকান ও ক্লাসের সঙ্গে পরিচয়। আজ তোমার মিশন: পছন্দ জানাতে পারবে।",
+    "npc_question_en": "What do you like doing?",
+    "good_response_en": "I like reading books.",
+    "challenging_response_en": "I like read books.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "দুজন বন্ধু পছন্দের খেলা নিয়ে কথা বলে।",
+      "follow_up_question_en": "Do you like music?",
+      "guided_reply_en": "Yes, I like music.",
+      "skill_focus_bn": "পছন্দের বিষয়ে সহজ প্রশ্নোত্তর।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "A1-03-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "What do you like doing?",
+      "options": [
+        "I like reading books.",
+        "I like read books."
+      ],
+      "correct_index": 0,
+      "answer": "I like reading books.",
+      "feedback_bn": "like-এর পরে কোনো কাজকে সাধারণভাবে বোঝাতে verb-ing ব্যবহার করা যায়: like reading। তবে like to read-ও সঠিক।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "A1-03-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "I like ___ books.",
+      "answer": "reading",
+      "feedback_bn": "like-এর পরে কোনো কাজকে সাধারণভাবে বোঝাতে verb-ing ব্যবহার করা যায়: like reading। তবে like to read-ও সঠিক।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "reading",
+        "read",
+        "reads"
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "A1-03-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "I like read books.",
+      "answer": "I like reading books.",
+      "feedback_bn": "like-এর পরে কোনো কাজকে সাধারণভাবে বোঝাতে verb-ing ব্যবহার করা যায়: like reading। তবে like to read-ও সঠিক।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "I like read books.",
+        "I like reading books."
+      ],
+      "correct_index": 1,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "A1-03-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: আমি বই পড়তে পছন্দ করি।",
+      "tokens": [
+        "like",
+        "I",
+        "reading",
+        "books."
+      ],
+      "answer": "I like reading books.",
+      "feedback_bn": "like-এর পরে কোনো কাজকে সাধারণভাবে বোঝাতে verb-ing ব্যবহার করা যায়: like reading। তবে like to read-ও সঠিক।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "A1-03-write",
+      "type": "guided_write",
+      "prompt_bn": "দুটি পছন্দ এবং একটি অপছন্দ লেখো।",
+      "sample_answer_en": "I like reading books.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": "like-এর পরে কোনো কাজকে সাধারণভাবে বোঝাতে verb-ing ব্যবহার করা যায়: like reading। তবে like to read-ও সঠিক।",
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "A1-03-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "like",
+          "bn": "পছন্দ করা"
+        },
+        {
+          "en": "love",
+          "bn": "খুব পছন্দ করা"
+        },
+        {
+          "en": "enjoy",
+          "bn": "উপভোগ করা"
+        },
+        {
+          "en": "music",
+          "bn": "সংগীত"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "like",
+          "bn": "পছন্দ করা"
+        },
+        {
+          "en": "love",
+          "bn": "খুব পছন্দ করা"
+        },
+        {
+          "en": "enjoy",
+          "bn": "উপভোগ করা"
+        },
+        {
+          "en": "music",
+          "bn": "সংগীত"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "A1-03-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "I like reading books.",
+      "options_bn": [
+        "আমি বই পড়তে পছন্দ করি।",
+        "আমার মা-বাবা দয়ালু।",
+        "সে হেঁটে স্কুলে যায়।"
+      ],
+      "correct_index": 0,
+      "answer_bn": "আমি বই পড়তে পছন্দ করি।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "I like reading books. What do you like doing? I like reading books.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

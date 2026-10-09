@@ -1,0 +1,112 @@
+{
+  "id": "C1-13",
+  "level": "C1",
+  "position": 13,
+  "title_bn": "আনুষ্ঠানিক শর্ত",
+  "title_en": "Inverted Conditionals",
+  "goal_bn": "বাস্তব কথোপকথনে আনুষ্ঠানিক শর্ত বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "Formal conditional-এ if বাদ দিয়ে Should/Were/Had দিয়ে শুরু করা যায়, প্রসঙ্গভেদে অর্থের সূক্ষ্ম পরিবর্তন হতে পারে।",
+  "example_en": "Should you require assistance, please contact the coordinator.",
+  "translation_bn": "আপনার সাহায্য প্রয়োজন হলে সমন্বয়কারীর সঙ্গে যোগাযোগ করুন।",
+  "vocabulary": [
+    {
+      "en": "conditional",
+      "bn": "শর্তসূচক বাক্য"
+    },
+    {
+      "en": "inverted",
+      "bn": "উল্টোক্রমে সাজানো"
+    },
+    {
+      "en": "require",
+      "bn": "প্রয়োজন হওয়া"
+    },
+    {
+      "en": "assistance",
+      "bn": "সহায়তা"
+    },
+    {
+      "en": "coordinator",
+      "bn": "সমন্বয়কারী"
+    },
+    {
+      "en": "formal",
+      "bn": "আনুষ্ঠানিক"
+    },
+    {
+      "en": "contingency",
+      "bn": "সম্ভাব্য পরিস্থিতি"
+    },
+    {
+      "en": "notify",
+      "bn": "অবহিত করা"
+    }
+  ],
+  "reading": {
+    "text_en": "Should you require assistance, please contact the coordinator. How can you offer help formally? Should you require assistance, please contact the coordinator.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: আনুষ্ঠানিক শর্ত।",
+    "npc_question_en": "How can you offer help formally?",
+    "good_response_en": "Should you require assistance, please contact the coordinator.",
+    "challenging_response_en": "Should you requires assistance, please contact the coordinator.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "C1-13-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "How can you offer help formally?",
+      "options": [
+        "Should you require assistance, please contact the coordinator.",
+        "Should you requires assistance, please contact the coordinator."
+      ],
+      "correct_index": 0,
+      "answer": "Should you require assistance, please contact the coordinator.",
+      "feedback_bn": "Formal conditional-এ if বাদ দিয়ে Should/Were/Had দিয়ে শুরু করা যায়, প্রসঙ্গভেদে অর্থের সূক্ষ্ম পরিবর্তন হতে পারে।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "C1-13",
+      "level": "C1"
+    },
+    {
+      "id": "C1-13-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"conditional\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "শর্তসূচক বাক্য",
+        "উল্টোক্রমে সাজানো",
+        "প্রয়োজন হওয়া"
+      ],
+      "correct_index": 0,
+      "answer": "শর্তসূচক বাক্য",
+      "feedback_bn": "conditional = শর্তসূচক বাক্য (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "C1-13",
+      "level": "C1"
+    },
+    {
+      "id": "C1-13-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে আনুষ্ঠানিক শর্ত বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "Should you require assistance, please contact the coordinator.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "C1-13",
+      "level": "C1"
+    }
+  ]
+}

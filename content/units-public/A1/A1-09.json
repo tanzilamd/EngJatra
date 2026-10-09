@@ -1,0 +1,112 @@
+{
+  "id": "A1-09",
+  "level": "A1",
+  "position": 9,
+  "title_bn": "ঘরে কী আছে?",
+  "title_en": "There Is a Window",
+  "goal_bn": "বাস্তব কথোপকথনে ঘরে কী আছে? বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "একটি জিনিস বোঝাতে there is; একাধিক বোঝাতে there are ব্যবহার করা হয়।",
+  "example_en": "There are two windows.",
+  "translation_bn": "দুটি জানালা আছে।",
+  "vocabulary": [
+    {
+      "en": "window",
+      "bn": "জানালা"
+    },
+    {
+      "en": "room",
+      "bn": "কক্ষ"
+    },
+    {
+      "en": "wall",
+      "bn": "দেয়াল"
+    },
+    {
+      "en": "floor",
+      "bn": "মেঝে"
+    },
+    {
+      "en": "lamp",
+      "bn": "বাতি"
+    },
+    {
+      "en": "bed",
+      "bn": "বিছানা"
+    },
+    {
+      "en": "mirror",
+      "bn": "আয়না"
+    },
+    {
+      "en": "ceiling",
+      "bn": "সিলিং"
+    }
+  ],
+  "reading": {
+    "text_en": "There are two windows. What is in your room? There are two windows.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: ঘরে কী আছে?।",
+    "npc_question_en": "What is in your room?",
+    "good_response_en": "There are two windows.",
+    "challenging_response_en": "There is two windows.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "A1-09-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What is in your room?",
+      "options": [
+        "There are two windows.",
+        "There is two windows."
+      ],
+      "correct_index": 0,
+      "answer": "There are two windows.",
+      "feedback_bn": "একটি জিনিস বোঝাতে there is; একাধিক বোঝাতে there are ব্যবহার করা হয়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "A1-09",
+      "level": "A1"
+    },
+    {
+      "id": "A1-09-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"window\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "জানালা",
+        "কক্ষ",
+        "দেয়াল"
+      ],
+      "correct_index": 0,
+      "answer": "জানালা",
+      "feedback_bn": "window = জানালা (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "A1-09",
+      "level": "A1"
+    },
+    {
+      "id": "A1-09-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে ঘরে কী আছে? বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "There are two windows.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "A1-09",
+      "level": "A1"
+    }
+  ]
+}

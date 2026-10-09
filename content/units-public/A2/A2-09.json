@@ -1,0 +1,112 @@
+{
+  "id": "A2-09",
+  "level": "A2",
+  "position": 9,
+  "title_bn": "অতীতে নিয়মিত করতাম",
+  "title_en": "Used To",
+  "goal_bn": "বাস্তব কথোপকথনে অতীতে নিয়মিত করতাম বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "used to + base verb অতীতের অভ্যাস বোঝাতে ব্যবহৃত হয়, যা এখন আর একইভাবে নাও থাকতে পারে।",
+  "example_en": "I used to walk to school.",
+  "translation_bn": "আমি আগে হেঁটে স্কুলে যেতাম।",
+  "vocabulary": [
+    {
+      "en": "habit",
+      "bn": "অভ্যাস"
+    },
+    {
+      "en": "before",
+      "bn": "আগে"
+    },
+    {
+      "en": "change",
+      "bn": "পরিবর্তন"
+    },
+    {
+      "en": "childhood",
+      "bn": "শৈশব"
+    },
+    {
+      "en": "used to",
+      "bn": "আগে অভ্যাস ছিল"
+    },
+    {
+      "en": "regularly",
+      "bn": "নিয়মিত"
+    },
+    {
+      "en": "cycle",
+      "bn": "সাইকেল চালানো"
+    },
+    {
+      "en": "past",
+      "bn": "অতীত"
+    }
+  ],
+  "reading": {
+    "text_en": "I used to walk to school. How did you travel to school before? I used to walk to school.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: অতীতে নিয়মিত করতাম।",
+    "npc_question_en": "How did you travel to school before?",
+    "good_response_en": "I used to walk to school.",
+    "challenging_response_en": "I used to walking to school.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "A2-09-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "How did you travel to school before?",
+      "options": [
+        "I used to walk to school.",
+        "I used to walking to school."
+      ],
+      "correct_index": 0,
+      "answer": "I used to walk to school.",
+      "feedback_bn": "used to + base verb অতীতের অভ্যাস বোঝাতে ব্যবহৃত হয়, যা এখন আর একইভাবে নাও থাকতে পারে।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "A2-09",
+      "level": "A2"
+    },
+    {
+      "id": "A2-09-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"habit\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "অভ্যাস",
+        "আগে",
+        "পরিবর্তন"
+      ],
+      "correct_index": 0,
+      "answer": "অভ্যাস",
+      "feedback_bn": "habit = অভ্যাস (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "A2-09",
+      "level": "A2"
+    },
+    {
+      "id": "A2-09-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে অতীতে নিয়মিত করতাম বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "I used to walk to school.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "A2-09",
+      "level": "A2"
+    }
+  ]
+}

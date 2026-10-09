@@ -1,0 +1,248 @@
+{
+  "id": "A1-05",
+  "level": "A1",
+  "position": 5,
+  "title_bn": "খাবার অর্ডার",
+  "title_en": "At the Café",
+  "goal_bn": "ভদ্রভাবে খাবার চাইতে পারবে",
+  "rule_bn": "I would like ... ভদ্রভাবে কিছু চাওয়ার একটি প্রচলিত উপায়।",
+  "example_en": "I would like a cup of tea.",
+  "translation_bn": "আমি এক কাপ চা চাই।",
+  "vocabulary": [
+    {
+      "en": "tea",
+      "bn": "চা"
+    },
+    {
+      "en": "water",
+      "bn": "পানি"
+    },
+    {
+      "en": "rice",
+      "bn": "ভাত"
+    },
+    {
+      "en": "bread",
+      "bn": "রুটি"
+    },
+    {
+      "en": "cup",
+      "bn": "কাপ"
+    },
+    {
+      "en": "menu",
+      "bn": "খাবারের তালিকা"
+    },
+    {
+      "en": "order",
+      "bn": "অর্ডার"
+    },
+    {
+      "en": "bill",
+      "bn": "বিল"
+    },
+    {
+      "en": "coffee",
+      "bn": "কফি"
+    },
+    {
+      "en": "milk",
+      "bn": "দুধ"
+    },
+    {
+      "en": "sugar",
+      "bn": "চিনি"
+    },
+    {
+      "en": "soup",
+      "bn": "স্যুপ"
+    },
+    {
+      "en": "fruit",
+      "bn": "ফল"
+    },
+    {
+      "en": "vegetable",
+      "bn": "সবজি"
+    },
+    {
+      "en": "hungry",
+      "bn": "ক্ষুধার্ত"
+    },
+    {
+      "en": "delicious",
+      "bn": "সুস্বাদু"
+    }
+  ],
+  "quest": {
+    "character": "বন্ধু নীরা",
+    "opening_bn": "নতুন শহরে বন্ধু, দোকান ও ক্লাসের সঙ্গে পরিচয়। আজ তোমার মিশন: ভদ্রভাবে খাবার চাইতে পারবে।",
+    "npc_question_en": "What would you like to drink?",
+    "good_response_en": "I would like a cup of tea.",
+    "challenging_response_en": "I like a cup tea please.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "ক্যাফেতে খাবার অর্ডার করা।",
+      "follow_up_question_en": "Would you like some water?",
+      "guided_reply_en": "Yes, please.",
+      "skill_focus_bn": "ভদ্রভাবে খাবার ও পানীয় চাওয়া।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "A1-05-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "What would you like to drink?",
+      "options": [
+        "I like a cup tea please.",
+        "I would like a cup of tea."
+      ],
+      "correct_index": 1,
+      "answer": "I would like a cup of tea.",
+      "feedback_bn": "I would like ... ভদ্রভাবে কিছু চাওয়ার একটি প্রচলিত উপায়।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "A1-05-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "I would ___ a cup of tea.",
+      "answer": "like",
+      "feedback_bn": "I would like ... ভদ্রভাবে কিছু চাওয়ার একটি প্রচলিত উপায়।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "liking",
+        "likes",
+        "like"
+      ],
+      "correct_index": 2,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "A1-05-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "I would like cup of tea.",
+      "answer": "I would like a cup of tea.",
+      "feedback_bn": "I would like ... ভদ্রভাবে কিছু চাওয়ার একটি প্রচলিত উপায়।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "I would like a cup of tea.",
+        "I would like cup of tea."
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "A1-05-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: আমি এক কাপ চা চাই।",
+      "tokens": [
+        "cup",
+        "I",
+        "would",
+        "of",
+        "like",
+        "tea.",
+        "a"
+      ],
+      "answer": "I would like a cup of tea.",
+      "feedback_bn": "I would like ... ভদ্রভাবে কিছু চাওয়ার একটি প্রচলিত উপায়।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "A1-05-write",
+      "type": "guided_write",
+      "prompt_bn": "একটি খাবার ও একটি পানীয় ভদ্রভাবে অর্ডার করো।",
+      "sample_answer_en": "I would like a cup of tea.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": null,
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "A1-05-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "tea",
+          "bn": "চা"
+        },
+        {
+          "en": "water",
+          "bn": "পানি"
+        },
+        {
+          "en": "rice",
+          "bn": "ভাত"
+        },
+        {
+          "en": "bread",
+          "bn": "রুটি"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "tea",
+          "bn": "চা"
+        },
+        {
+          "en": "water",
+          "bn": "পানি"
+        },
+        {
+          "en": "rice",
+          "bn": "ভাত"
+        },
+        {
+          "en": "bread",
+          "bn": "রুটি"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "A1-05-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "I would like a cup of tea.",
+      "options_bn": [
+        "আমি এক কাপ চা চাই।",
+        "সে হেঁটে স্কুলে যায়।",
+        "আমার মা-বাবা দয়ালু।"
+      ],
+      "correct_index": 0,
+      "answer_bn": "আমি এক কাপ চা চাই।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "I would like a cup of tea. What would you like to drink? I would like a cup of tea.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

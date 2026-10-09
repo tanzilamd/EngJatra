@@ -1,0 +1,112 @@
+{
+  "id": "P0-16",
+  "level": "P0",
+  "position": 16,
+  "title_bn": "ছোট্ট পরিচয়ের গল্প",
+  "title_en": "Meet a New Friend",
+  "goal_bn": "বাস্তব কথোপকথনে ছোট্ট পরিচয়ের গল্প বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "নিজের নাম, শহর ও পছন্দের কথা একসঙ্গে দুই-তিনটি ছোট বাক্যে বলা যায়।",
+  "example_en": "My name is Sami. I live in Khulna.",
+  "translation_bn": "আমার নাম সামি। আমি খুলনায় থাকি।",
+  "vocabulary": [
+    {
+      "en": "name",
+      "bn": "নাম"
+    },
+    {
+      "en": "friend",
+      "bn": "বন্ধু"
+    },
+    {
+      "en": "meet",
+      "bn": "দেখা করা"
+    },
+    {
+      "en": "student",
+      "bn": "শিক্ষার্থী"
+    },
+    {
+      "en": "class",
+      "bn": "শ্রেণি"
+    },
+    {
+      "en": "happy",
+      "bn": "খুশি"
+    },
+    {
+      "en": "together",
+      "bn": "একসঙ্গে"
+    },
+    {
+      "en": "introduce",
+      "bn": "পরিচয় করানো"
+    }
+  ],
+  "reading": {
+    "text_en": "My name is Sami. I live in Khulna. Tell me about yourself. My name is Sami. I live in Khulna.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: ছোট্ট পরিচয়ের গল্প।",
+    "npc_question_en": "Tell me about yourself.",
+    "good_response_en": "My name is Sami. I live in Khulna.",
+    "challenging_response_en": "My name Sami. I live Khulna.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "P0-16-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "Tell me about yourself.",
+      "options": [
+        "My name is Sami. I live in Khulna.",
+        "My name Sami. I live Khulna."
+      ],
+      "correct_index": 0,
+      "answer": "My name is Sami. I live in Khulna.",
+      "feedback_bn": "নিজের নাম, শহর ও পছন্দের কথা একসঙ্গে দুই-তিনটি ছোট বাক্যে বলা যায়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "P0-16",
+      "level": "P0"
+    },
+    {
+      "id": "P0-16-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"name\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "নাম",
+        "বন্ধু",
+        "দেখা করা"
+      ],
+      "correct_index": 0,
+      "answer": "নাম",
+      "feedback_bn": "name = নাম (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "P0-16",
+      "level": "P0"
+    },
+    {
+      "id": "P0-16-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে ছোট্ট পরিচয়ের গল্প বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "My name is Sami. I live in Khulna.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "P0-16",
+      "level": "P0"
+    }
+  ]
+}

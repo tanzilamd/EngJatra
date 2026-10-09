@@ -1,0 +1,245 @@
+{
+  "id": "P0-08",
+  "level": "P0",
+  "position": 8,
+  "title_bn": "প্রথম আলাপ",
+  "title_en": "First Chat",
+  "goal_bn": "নিজেকে পরিচয় দিয়ে কথোপকথন চালাতে পারবে",
+  "rule_bn": "পূর্ণ বাক্য বলতে প্রথমে subject, পরে verb ও প্রয়োজনীয় তথ্য যোগ করো।",
+  "example_en": "I live in Dhaka.",
+  "translation_bn": "আমি ঢাকায় থাকি।",
+  "vocabulary": [
+    {
+      "en": "live",
+      "bn": "থাকা"
+    },
+    {
+      "en": "city",
+      "bn": "শহর"
+    },
+    {
+      "en": "village",
+      "bn": "গ্রাম"
+    },
+    {
+      "en": "home",
+      "bn": "বাড়ি"
+    },
+    {
+      "en": "from",
+      "bn": "থেকে"
+    },
+    {
+      "en": "in",
+      "bn": "মধ্যে বা তে"
+    },
+    {
+      "en": "near",
+      "bn": "কাছে"
+    },
+    {
+      "en": "place",
+      "bn": "স্থান"
+    },
+    {
+      "en": "country",
+      "bn": "দেশ"
+    },
+    {
+      "en": "address",
+      "bn": "ঠিকানা"
+    },
+    {
+      "en": "town",
+      "bn": "ছোট শহর"
+    },
+    {
+      "en": "road",
+      "bn": "সড়ক"
+    },
+    {
+      "en": "here",
+      "bn": "এখানে"
+    },
+    {
+      "en": "there",
+      "bn": "ওখানে"
+    },
+    {
+      "en": "where",
+      "bn": "কোথায়"
+    },
+    {
+      "en": "stay",
+      "bn": "থাকা"
+    }
+  ],
+  "quest": {
+    "character": "বন্ধু নীরা",
+    "opening_bn": "শুরু হলো শহরের ছোট্ট ভাষা-অভিযান। আজ তোমার মিশন: নিজেকে পরিচয় দিয়ে কথোপকথন চালাতে পারবে।",
+    "npc_question_en": "Where do you live?",
+    "good_response_en": "I live in Dhaka.",
+    "challenging_response_en": "I am live in Dhaka.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "নতুন বন্ধুকে নিজের শহরের কথা বলা।",
+      "follow_up_question_en": "Do you like your city?",
+      "guided_reply_en": "Yes, I like it.",
+      "skill_focus_bn": "স্থান নিয়ে একটি সহজ মতামত।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "P0-08-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "Where do you live?",
+      "options": [
+        "I live in Dhaka.",
+        "I am live in Dhaka."
+      ],
+      "correct_index": 0,
+      "answer": "I live in Dhaka.",
+      "feedback_bn": "পূর্ণ বাক্য বলতে প্রথমে subject, পরে verb ও প্রয়োজনীয় তথ্য যোগ করো।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "P0-08-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "I ___ in Dhaka.",
+      "answer": "live",
+      "feedback_bn": "পূর্ণ বাক্য বলতে প্রথমে subject, পরে verb ও প্রয়োজনীয় তথ্য যোগ করো।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "living",
+        "lives",
+        "live"
+      ],
+      "correct_index": 2,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "P0-08-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "I am live in Dhaka.",
+      "answer": "I live in Dhaka.",
+      "feedback_bn": "পূর্ণ বাক্য বলতে প্রথমে subject, পরে verb ও প্রয়োজনীয় তথ্য যোগ করো।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "I live in Dhaka.",
+        "I am live in Dhaka."
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "P0-08-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: আমি ঢাকায় থাকি।",
+      "tokens": [
+        "I",
+        "in",
+        "Dhaka.",
+        "live"
+      ],
+      "answer": "I live in Dhaka.",
+      "feedback_bn": "পূর্ণ বাক্য বলতে প্রথমে subject, পরে verb ও প্রয়োজনীয় তথ্য যোগ করো।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "P0-08-write",
+      "type": "guided_write",
+      "prompt_bn": "নিজের নাম ও কোথায় থাকো তা দুই বাক্যে লিখো।",
+      "sample_answer_en": "I live in Dhaka.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": null,
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "P0-08-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "live",
+          "bn": "থাকা"
+        },
+        {
+          "en": "city",
+          "bn": "শহর"
+        },
+        {
+          "en": "village",
+          "bn": "গ্রাম"
+        },
+        {
+          "en": "home",
+          "bn": "বাড়ি"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "live",
+          "bn": "থাকা"
+        },
+        {
+          "en": "city",
+          "bn": "শহর"
+        },
+        {
+          "en": "village",
+          "bn": "গ্রাম"
+        },
+        {
+          "en": "home",
+          "bn": "বাড়ি"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "P0-08-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "I live in Dhaka.",
+      "options_bn": [
+        "আমি ঢাকায় থাকি।",
+        "হ্যালো, আমি রিনা।",
+        "আমার নাম সামি।"
+      ],
+      "correct_index": 0,
+      "answer_bn": "আমি ঢাকায় থাকি।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "I live in Dhaka. Where do you live? I live in Dhaka.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

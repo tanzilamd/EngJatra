@@ -1,0 +1,112 @@
+{
+  "id": "C1-15",
+  "level": "C1",
+  "position": 15,
+  "title_bn": "পরোক্ষ অর্থে দ্বিমত",
+  "title_en": "Diplomatic Disagreement",
+  "goal_bn": "বাস্তব কথোপকথনে পরোক্ষ অর্থে দ্বিমত বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "সরাসরি প্রত্যাখ্যানের বদলে acknowledge করে আপত্তি জানালে পেশাগত আলোচনা সহযোগিতামূলক থাকে।",
+  "example_en": "I appreciate the proposal; however, I have reservations about the timeline.",
+  "translation_bn": "আমি প্রস্তাবটির মূল্য দিচ্ছি; তবে সময়সূচি নিয়ে আমার কিছু আপত্তি আছে।",
+  "vocabulary": [
+    {
+      "en": "reservation",
+      "bn": "আপত্তি বা সংশয়"
+    },
+    {
+      "en": "diplomatic",
+      "bn": "কূটনৈতিকভাবে সতর্ক"
+    },
+    {
+      "en": "acknowledge",
+      "bn": "স্বীকৃতি দেওয়া"
+    },
+    {
+      "en": "concession",
+      "bn": "আংশিক স্বীকারোক্তি"
+    },
+    {
+      "en": "objection",
+      "bn": "আপত্তি"
+    },
+    {
+      "en": "nuanced",
+      "bn": "সূক্ষ্মার্থপূর্ণ"
+    },
+    {
+      "en": "timeline",
+      "bn": "সময়সূচি"
+    },
+    {
+      "en": "counterproposal",
+      "bn": "বিকল্প প্রস্তাব"
+    }
+  ],
+  "reading": {
+    "text_en": "I appreciate the proposal; however, I have reservations about the timeline. How can you express reservations politely? I have reservations about the timeline.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: পরোক্ষ অর্থে দ্বিমত।",
+    "npc_question_en": "How can you express reservations politely?",
+    "good_response_en": "I have reservations about the timeline.",
+    "challenging_response_en": "I have reserve about the timeline.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "C1-15-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "How can you express reservations politely?",
+      "options": [
+        "I have reservations about the timeline.",
+        "I have reserve about the timeline."
+      ],
+      "correct_index": 0,
+      "answer": "I have reservations about the timeline.",
+      "feedback_bn": "সরাসরি প্রত্যাখ্যানের বদলে acknowledge করে আপত্তি জানালে পেশাগত আলোচনা সহযোগিতামূলক থাকে।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "C1-15",
+      "level": "C1"
+    },
+    {
+      "id": "C1-15-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"reservation\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "আপত্তি বা সংশয়",
+        "কূটনৈতিকভাবে সতর্ক",
+        "স্বীকৃতি দেওয়া"
+      ],
+      "correct_index": 0,
+      "answer": "আপত্তি বা সংশয়",
+      "feedback_bn": "reservation = আপত্তি বা সংশয় (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "C1-15",
+      "level": "C1"
+    },
+    {
+      "id": "C1-15-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে পরোক্ষ অর্থে দ্বিমত বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "I appreciate the proposal; however, I have reservations about the timeline.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "C1-15",
+      "level": "C1"
+    }
+  ]
+}

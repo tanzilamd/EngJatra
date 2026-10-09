@@ -1,0 +1,112 @@
+{
+  "id": "P0-10",
+  "level": "P0",
+  "position": 10,
+  "title_bn": "রং চিনি",
+  "title_en": "Colours Around Us",
+  "goal_bn": "বাস্তব কথোপকথনে রং চিনি বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "রঙের শব্দ সাধারণত বিশেষ্যের আগে বসে: a red pen।",
+  "example_en": "I have a blue pen.",
+  "translation_bn": "আমার একটি নীল কলম আছে।",
+  "vocabulary": [
+    {
+      "en": "red",
+      "bn": "লাল"
+    },
+    {
+      "en": "blue",
+      "bn": "নীল"
+    },
+    {
+      "en": "green",
+      "bn": "সবুজ"
+    },
+    {
+      "en": "yellow",
+      "bn": "হলুদ"
+    },
+    {
+      "en": "black",
+      "bn": "কালো"
+    },
+    {
+      "en": "white",
+      "bn": "সাদা"
+    },
+    {
+      "en": "colour",
+      "bn": "রং"
+    },
+    {
+      "en": "purple",
+      "bn": "বেগুনি"
+    }
+  ],
+  "reading": {
+    "text_en": "I have a blue pen. What colour is your pen? It is blue.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: রং চিনি।",
+    "npc_question_en": "What colour is your pen?",
+    "good_response_en": "It is blue.",
+    "challenging_response_en": "It blue.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "P0-10-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What colour is your pen?",
+      "options": [
+        "It is blue.",
+        "It blue."
+      ],
+      "correct_index": 0,
+      "answer": "It is blue.",
+      "feedback_bn": "রঙের শব্দ সাধারণত বিশেষ্যের আগে বসে: a red pen।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "P0-10",
+      "level": "P0"
+    },
+    {
+      "id": "P0-10-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"red\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "লাল",
+        "নীল",
+        "সবুজ"
+      ],
+      "correct_index": 0,
+      "answer": "লাল",
+      "feedback_bn": "red = লাল (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "P0-10",
+      "level": "P0"
+    },
+    {
+      "id": "P0-10-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে রং চিনি বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "I have a blue pen.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "P0-10",
+      "level": "P0"
+    }
+  ]
+}

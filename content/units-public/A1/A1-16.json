@@ -1,0 +1,112 @@
+{
+  "id": "A1-16",
+  "level": "A1",
+  "position": 16,
+  "title_bn": "একটি অনলাইন বার্তা",
+  "title_en": "A Friendly Text Message",
+  "goal_bn": "বাস্তব কথোপকথনে একটি অনলাইন বার্তা বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "ছোট বার্তায় সম্ভাষণ, মূল তথ্য ও ভদ্র সমাপ্তি রাখলে বোঝা সহজ হয়।",
+  "example_en": "Hi Maya, I will be late today.",
+  "translation_bn": "হাই মায়া, আজ আমার দেরি হবে।",
+  "vocabulary": [
+    {
+      "en": "message",
+      "bn": "বার্তা"
+    },
+    {
+      "en": "late",
+      "bn": "দেরি"
+    },
+    {
+      "en": "early",
+      "bn": "আগে"
+    },
+    {
+      "en": "reply",
+      "bn": "উত্তর দেওয়া"
+    },
+    {
+      "en": "send",
+      "bn": "পাঠানো"
+    },
+    {
+      "en": "receive",
+      "bn": "পাওয়া"
+    },
+    {
+      "en": "today",
+      "bn": "আজ"
+    },
+    {
+      "en": "tomorrow",
+      "bn": "আগামীকাল"
+    }
+  ],
+  "reading": {
+    "text_en": "Hi Maya, I will be late today. How do you tell Maya you will be late? Hi Maya, I will be late today.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: একটি অনলাইন বার্তা।",
+    "npc_question_en": "How do you tell Maya you will be late?",
+    "good_response_en": "Hi Maya, I will be late today.",
+    "challenging_response_en": "Hi Maya, I late today.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "A1-16-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "How do you tell Maya you will be late?",
+      "options": [
+        "Hi Maya, I will be late today.",
+        "Hi Maya, I late today."
+      ],
+      "correct_index": 0,
+      "answer": "Hi Maya, I will be late today.",
+      "feedback_bn": "ছোট বার্তায় সম্ভাষণ, মূল তথ্য ও ভদ্র সমাপ্তি রাখলে বোঝা সহজ হয়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "A1-16",
+      "level": "A1"
+    },
+    {
+      "id": "A1-16-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"message\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "বার্তা",
+        "দেরি",
+        "আগে"
+      ],
+      "correct_index": 0,
+      "answer": "বার্তা",
+      "feedback_bn": "message = বার্তা (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "A1-16",
+      "level": "A1"
+    },
+    {
+      "id": "A1-16-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে একটি অনলাইন বার্তা বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "Hi Maya, I will be late today.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "A1-16",
+      "level": "A1"
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "id": "B1-02",
+  "level": "B1",
+  "position": 2,
+  "title_bn": "অভিজ্ঞতা আছে?",
+  "title_en": "Life Experiences",
+  "goal_bn": "Present Perfect দিয়ে অভিজ্ঞতা বলতে পারবে",
+  "rule_bn": "Have/has + past participle দিয়ে সময় নির্দিষ্ট না করে জীবনের অভিজ্ঞতা বোঝানো যায়।",
+  "example_en": "I have visited Cox’s Bazar twice.",
+  "translation_bn": "আমি দুইবার কক্সবাজার গিয়েছি।",
+  "vocabulary": [
+    {
+      "en": "experience",
+      "bn": "অভিজ্ঞতা"
+    },
+    {
+      "en": "ever",
+      "bn": "কখনো"
+    },
+    {
+      "en": "never",
+      "bn": "কখনো না"
+    },
+    {
+      "en": "already",
+      "bn": "ইতিমধ্যে"
+    },
+    {
+      "en": "yet",
+      "bn": "এখনো"
+    },
+    {
+      "en": "visited",
+      "bn": "গিয়েছি বা ঘুরেছি"
+    },
+    {
+      "en": "twice",
+      "bn": "দুইবার"
+    },
+    {
+      "en": "abroad",
+      "bn": "বিদেশে"
+    },
+    {
+      "en": "achievement",
+      "bn": "অর্জন"
+    },
+    {
+      "en": "challenge",
+      "bn": "চ্যালেঞ্জ"
+    },
+    {
+      "en": "opportunity",
+      "bn": "সুযোগ"
+    },
+    {
+      "en": "memory",
+      "bn": "স্মৃতি"
+    },
+    {
+      "en": "recently",
+      "bn": "সম্প্রতি"
+    },
+    {
+      "en": "since",
+      "bn": "থেকে (সময়ের শুরু)"
+    },
+    {
+      "en": "for",
+      "bn": "ধরে (সময়সীমা)"
+    },
+    {
+      "en": "accomplish",
+      "bn": "অর্জন করা"
+    }
+  ],
+  "quest": {
+    "character": "অভিযাত্রী আরিফ",
+    "opening_bn": "একটি কমিউনিটি প্রজেক্টের নানা সিদ্ধান্ত। আজ তোমার মিশন: Present Perfect দিয়ে অভিজ্ঞতা বলতে পারবে।",
+    "npc_question_en": "Have you ever visited Cox’s Bazar?",
+    "good_response_en": "Yes, I have visited it twice.",
+    "challenging_response_en": "Yes, I have visit it twice.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "এক বন্ধুর ভ্রমণের অভিজ্ঞতা শোনা।",
+      "follow_up_question_en": "When did you go there?",
+      "guided_reply_en": "I went there last year.",
+      "skill_focus_bn": "অভিজ্ঞতা ও নির্দিষ্ট অতীত সময়ের পার্থক্য।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "B1-02-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "Have you ever visited Cox’s Bazar?",
+      "options": [
+        "Yes, I have visit it twice.",
+        "Yes, I have visited it twice."
+      ],
+      "correct_index": 1,
+      "answer": "Yes, I have visited it twice.",
+      "feedback_bn": "Have/has + past participle দিয়ে সময় নির্দিষ্ট না করে জীবনের অভিজ্ঞতা বোঝানো যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "B1-02-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "I have ___ Cox’s Bazar twice.",
+      "answer": "visited",
+      "feedback_bn": "Have/has + past participle দিয়ে সময় নির্দিষ্ট না করে জীবনের অভিজ্ঞতা বোঝানো যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "visits",
+        "visited",
+        "visiting"
+      ],
+      "correct_index": 1,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "B1-02-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "She has went there.",
+      "answer": "She has gone there.",
+      "feedback_bn": "Have/has + past participle দিয়ে সময় নির্দিষ্ট না করে জীবনের অভিজ্ঞতা বোঝানো যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "She has gone there.",
+        "She has went there."
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "B1-02-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: আমি দুইবার কক্সবাজার গিয়েছি।",
+      "tokens": [
+        "twice.",
+        "Bazar",
+        "I",
+        "visited",
+        "Cox’s",
+        "have"
+      ],
+      "answer": "I have visited Cox’s Bazar twice.",
+      "feedback_bn": "Have/has + past participle দিয়ে সময় নির্দিষ্ট না করে জীবনের অভিজ্ঞতা বোঝানো যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "B1-02-write",
+      "type": "guided_write",
+      "prompt_bn": "তোমার করা বা না-করা একটি অভিজ্ঞতা লেখো।",
+      "sample_answer_en": "I have visited Cox’s Bazar twice.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": null,
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "B1-02-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "experience",
+          "bn": "অভিজ্ঞতা"
+        },
+        {
+          "en": "ever",
+          "bn": "কখনো"
+        },
+        {
+          "en": "never",
+          "bn": "কখনো না"
+        },
+        {
+          "en": "already",
+          "bn": "ইতিমধ্যে"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "experience",
+          "bn": "অভিজ্ঞতা"
+        },
+        {
+          "en": "ever",
+          "bn": "কখনো"
+        },
+        {
+          "en": "never",
+          "bn": "কখনো না"
+        },
+        {
+          "en": "already",
+          "bn": "ইতিমধ্যে"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "B1-02-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "I have visited Cox’s Bazar twice.",
+      "options_bn": [
+        "আমি দুইবার কক্সবাজার গিয়েছি।",
+        "আলো নিভে যাওয়ার সময় আমি পড়ছিলাম।",
+        "বৃষ্টি হচ্ছিল বলে আমি বাড়িতে ছিলাম।"
+      ],
+      "correct_index": 0,
+      "answer_bn": "আমি দুইবার কক্সবাজার গিয়েছি।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "I have visited Cox’s Bazar twice. Have you ever visited Cox’s Bazar? Yes, I have visited it twice.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

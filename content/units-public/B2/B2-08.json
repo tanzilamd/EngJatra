@@ -1,0 +1,249 @@
+{
+  "id": "B2-08",
+  "level": "B2",
+  "position": 8,
+  "title_bn": "একটি যুক্তিপূর্ণ লেখা",
+  "title_en": "Structured Argument",
+  "goal_bn": "যুক্তিপূর্ণ অনুচ্ছেদ লিখতে পারবে",
+  "rule_bn": "একটি মতামত, কারণ, উদাহরণ ও উপসংহার আলাদা রাখলে লেখার যুক্তি পরিষ্কার হয়।",
+  "example_en": "For example, online lessons can save travel time.",
+  "translation_bn": "উদাহরণস্বরূপ, অনলাইন ক্লাস যাতায়াতের সময় বাঁচাতে পারে।",
+  "vocabulary": [
+    {
+      "en": "argument",
+      "bn": "যুক্তি"
+    },
+    {
+      "en": "example",
+      "bn": "উদাহরণ"
+    },
+    {
+      "en": "conclusion",
+      "bn": "উপসংহার"
+    },
+    {
+      "en": "paragraph",
+      "bn": "অনুচ্ছেদ"
+    },
+    {
+      "en": "topic",
+      "bn": "বিষয়"
+    },
+    {
+      "en": "justify",
+      "bn": "যৌক্তিকতা দেখানো"
+    },
+    {
+      "en": "counterpoint",
+      "bn": "পাল্টা যুক্তি"
+    },
+    {
+      "en": "coherent",
+      "bn": "সুসংলগ্ন"
+    },
+    {
+      "en": "thesis",
+      "bn": "মূল বক্তব্য"
+    },
+    {
+      "en": "premise",
+      "bn": "যুক্তির ভিত্তি"
+    },
+    {
+      "en": "supporting",
+      "bn": "সমর্থনকারী"
+    },
+    {
+      "en": "transition",
+      "bn": "সংযোগ"
+    },
+    {
+      "en": "logical",
+      "bn": "যৌক্তিক"
+    },
+    {
+      "en": "refute",
+      "bn": "খণ্ডন করা"
+    },
+    {
+      "en": "assertion",
+      "bn": "দৃঢ় দাবি"
+    },
+    {
+      "en": "inference",
+      "bn": "অনুমানভিত্তিক সিদ্ধান্ত"
+    }
+  ],
+  "quest": {
+    "character": "প্রজেক্ট টিম",
+    "opening_bn": "একটি সামাজিক উদ্যোগের পরিকল্পনা ও বিতর্ক। আজ তোমার মিশন: যুক্তিপূর্ণ অনুচ্ছেদ লিখতে পারবে।",
+    "npc_question_en": "Can you give an example for your argument?",
+    "good_response_en": "For example, online lessons can save travel time.",
+    "challenging_response_en": "For an example, online lessons can save travel time.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "একটি মতামতকে তথ্য দিয়ে সমর্থন।",
+      "follow_up_question_en": "How will you address the opposing view?",
+      "guided_reply_en": "I will acknowledge it and present my evidence.",
+      "skill_focus_bn": "সুসংলগ্ন যুক্তির কাঠামো।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "B2-08-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "Can you give an example for your argument?",
+      "options": [
+        "For an example, online lessons can save travel time.",
+        "For example, online lessons can save travel time."
+      ],
+      "correct_index": 1,
+      "answer": "For example, online lessons can save travel time.",
+      "feedback_bn": "একটি মতামত, কারণ, উদাহরণ ও উপসংহার আলাদা রাখলে লেখার যুক্তি পরিষ্কার হয়।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "B2-08-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "For ___, online lessons can save travel time.",
+      "answer": "example",
+      "feedback_bn": "একটি মতামত, কারণ, উদাহরণ ও উপসংহার আলাদা রাখলে লেখার যুক্তি পরিষ্কার হয়।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "example",
+        "exemplary",
+        "exemplify"
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "B2-08-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "For an example, many students learn online.",
+      "answer": "For example, many students learn online.",
+      "feedback_bn": "একটি মতামত, কারণ, উদাহরণ ও উপসংহার আলাদা রাখলে লেখার যুক্তি পরিষ্কার হয়।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "For an example, many students learn online.",
+        "For example, many students learn online."
+      ],
+      "correct_index": 1,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "B2-08-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: উদাহরণস্বরূপ, অনলাইন ক্লাস যাতায়াতের সময় বাঁচাতে পারে।",
+      "tokens": [
+        "can",
+        "travel",
+        "time.",
+        "online",
+        "example,",
+        "lessons",
+        "For",
+        "save"
+      ],
+      "answer": "For example, online lessons can save travel time.",
+      "feedback_bn": "একটি মতামত, কারণ, উদাহরণ ও উপসংহার আলাদা রাখলে লেখার যুক্তি পরিষ্কার হয়।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "B2-08-write",
+      "type": "guided_write",
+      "prompt_bn": "মতামত, কারণ, উদাহরণ ও উপসংহার দিয়ে ছোট লেখা তৈরি করো।",
+      "sample_answer_en": "For example, online lessons can save travel time.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": null,
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "B2-08-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "argument",
+          "bn": "যুক্তি"
+        },
+        {
+          "en": "example",
+          "bn": "উদাহরণ"
+        },
+        {
+          "en": "conclusion",
+          "bn": "উপসংহার"
+        },
+        {
+          "en": "paragraph",
+          "bn": "অনুচ্ছেদ"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "argument",
+          "bn": "যুক্তি"
+        },
+        {
+          "en": "example",
+          "bn": "উদাহরণ"
+        },
+        {
+          "en": "conclusion",
+          "bn": "উপসংহার"
+        },
+        {
+          "en": "paragraph",
+          "bn": "অনুচ্ছেদ"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "B2-08-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "For example, online lessons can save travel time.",
+      "options_bn": [
+        "উদাহরণস্বরূপ, অনলাইন ক্লাস যাতায়াতের সময় বাঁচাতে পারে।",
+        "পরিকল্পনাটি ব্যয়বহুল হলেও এটি সাহায্য করতে পারে।",
+        "আরও সময় থাকলে আমি স্বেচ্ছাসেবা করতাম।"
+      ],
+      "correct_index": 0,
+      "answer_bn": "উদাহরণস্বরূপ, অনলাইন ক্লাস যাতায়াতের সময় বাঁচাতে পারে।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "For example, online lessons can save travel time. Can you give an example for your argument? For example, online lessons can save travel time.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

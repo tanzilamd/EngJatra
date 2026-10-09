@@ -1,0 +1,245 @@
+{
+  "id": "A1-01",
+  "level": "A1",
+  "position": 1,
+  "title_bn": "পরিবার পরিচয়",
+  "title_en": "My Family",
+  "goal_bn": "পরিবারের সদস্যদের পরিচয় দিতে পারবে",
+  "rule_bn": "একজনের সঙ্গে is, একাধিক ব্যক্তির সঙ্গে are ব্যবহার হয়।",
+  "example_en": "My parents are kind.",
+  "translation_bn": "আমার মা-বাবা দয়ালু।",
+  "vocabulary": [
+    {
+      "en": "mother",
+      "bn": "মা"
+    },
+    {
+      "en": "father",
+      "bn": "বাবা"
+    },
+    {
+      "en": "parent",
+      "bn": "বাবা বা মা"
+    },
+    {
+      "en": "brother",
+      "bn": "ভাই"
+    },
+    {
+      "en": "sister",
+      "bn": "বোন"
+    },
+    {
+      "en": "family",
+      "bn": "পরিবার"
+    },
+    {
+      "en": "kind",
+      "bn": "দয়ালু"
+    },
+    {
+      "en": "relative",
+      "bn": "আত্মীয়"
+    },
+    {
+      "en": "grandmother",
+      "bn": "দাদি বা নানি"
+    },
+    {
+      "en": "grandfather",
+      "bn": "দাদা বা নানা"
+    },
+    {
+      "en": "uncle",
+      "bn": "মামা, চাচা, খালু বা ফুফা (প্রসঙ্গভেদে)"
+    },
+    {
+      "en": "aunt",
+      "bn": "খালা, ফুফু, চাচি বা মামি (প্রসঙ্গভেদে)"
+    },
+    {
+      "en": "child",
+      "bn": "শিশু"
+    },
+    {
+      "en": "children",
+      "bn": "শিশুরা"
+    },
+    {
+      "en": "young",
+      "bn": "তরুণ বা ছোট"
+    },
+    {
+      "en": "elder",
+      "bn": "বয়োজ্যেষ্ঠ"
+    }
+  ],
+  "quest": {
+    "character": "বন্ধু নীরা",
+    "opening_bn": "নতুন শহরে বন্ধু, দোকান ও ক্লাসের সঙ্গে পরিচয়। আজ তোমার মিশন: পরিবারের সদস্যদের পরিচয় দিতে পারবে।",
+    "npc_question_en": "Tell me about your parents.",
+    "good_response_en": "My parents are kind.",
+    "challenging_response_en": "My parents is kind.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "পারিবারিক ছবির অ্যালবাম দেখানো।",
+      "follow_up_question_en": "What does your mother do?",
+      "guided_reply_en": "She is a teacher.",
+      "skill_focus_bn": "পরিবার নিয়ে সহজ তথ্য দেওয়া।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "A1-01-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "Tell me about your parents.",
+      "options": [
+        "My parents is kind.",
+        "My parents are kind."
+      ],
+      "correct_index": 1,
+      "answer": "My parents are kind.",
+      "feedback_bn": "একজনের সঙ্গে is, একাধিক ব্যক্তির সঙ্গে are ব্যবহার হয়।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "A1-01-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "My parents ___ kind.",
+      "answer": "are",
+      "feedback_bn": "একজনের সঙ্গে is, একাধিক ব্যক্তির সঙ্গে are ব্যবহার হয়।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "am",
+        "is",
+        "are"
+      ],
+      "correct_index": 2,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "A1-01-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "My parents is kind.",
+      "answer": "My parents are kind.",
+      "feedback_bn": "একজনের সঙ্গে is, একাধিক ব্যক্তির সঙ্গে are ব্যবহার হয়।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "My parents are kind.",
+        "My parents is kind."
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "A1-01-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: আমার মা-বাবা দয়ালু।",
+      "tokens": [
+        "kind.",
+        "My",
+        "parents",
+        "are"
+      ],
+      "answer": "My parents are kind.",
+      "feedback_bn": "একজনের সঙ্গে is, একাধিক ব্যক্তির সঙ্গে are ব্যবহার হয়।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "A1-01-write",
+      "type": "guided_write",
+      "prompt_bn": "পরিবারের দুই সদস্য সম্পর্কে লিখো।",
+      "sample_answer_en": "My parents are kind.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": null,
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "A1-01-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "mother",
+          "bn": "মা"
+        },
+        {
+          "en": "father",
+          "bn": "বাবা"
+        },
+        {
+          "en": "parent",
+          "bn": "বাবা বা মা"
+        },
+        {
+          "en": "brother",
+          "bn": "ভাই"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "mother",
+          "bn": "মা"
+        },
+        {
+          "en": "father",
+          "bn": "বাবা"
+        },
+        {
+          "en": "parent",
+          "bn": "বাবা বা মা"
+        },
+        {
+          "en": "brother",
+          "bn": "ভাই"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "A1-01-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "My parents are kind.",
+      "options_bn": [
+        "আমি বই পড়তে পছন্দ করি।",
+        "আমার মা-বাবা দয়ালু।",
+        "সে হেঁটে স্কুলে যায়।"
+      ],
+      "correct_index": 1,
+      "answer_bn": "আমার মা-বাবা দয়ালু।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "My parents are kind. Tell me about your parents. My parents are kind.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

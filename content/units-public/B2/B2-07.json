@@ -1,0 +1,249 @@
+{
+  "id": "B2-07",
+  "level": "B2",
+  "position": 7,
+  "title_bn": "গল্পে পার্থক্য",
+  "title_en": "Contrasting Accounts",
+  "goal_bn": "ঘটনা দুটির তুলনা ও ব্যাখ্যা করতে পারবে",
+  "rule_bn": "Whereas দিয়ে দুটি বিপরীত বা পৃথক তথ্যের contrast দেখানো যায়।",
+  "example_en": "The first witness agreed, whereas the second disagreed.",
+  "translation_bn": "প্রথম সাক্ষী একমত হয়েছিলেন, অন্যদিকে দ্বিতীয়জন দ্বিমত করেছিলেন।",
+  "vocabulary": [
+    {
+      "en": "whereas",
+      "bn": "অন্যদিকে"
+    },
+    {
+      "en": "witness",
+      "bn": "সাক্ষী"
+    },
+    {
+      "en": "account",
+      "bn": "বিবরণ"
+    },
+    {
+      "en": "contrast",
+      "bn": "পার্থক্য"
+    },
+    {
+      "en": "details",
+      "bn": "বিস্তারিত"
+    },
+    {
+      "en": "consistent",
+      "bn": "সামঞ্জস্যপূর্ণ"
+    },
+    {
+      "en": "different",
+      "bn": "ভিন্ন"
+    },
+    {
+      "en": "compare",
+      "bn": "তুলনা"
+    },
+    {
+      "en": "perspective",
+      "bn": "দৃষ্টিভঙ্গি"
+    },
+    {
+      "en": "contradict",
+      "bn": "বিরোধিতা করা"
+    },
+    {
+      "en": "reportedly",
+      "bn": "খবর অনুযায়ী"
+    },
+    {
+      "en": "interpretation",
+      "bn": "ব্যাখ্যা"
+    },
+    {
+      "en": "reconcile",
+      "bn": "মিলিয়ে দেখা"
+    },
+    {
+      "en": "accountability",
+      "bn": "জবাবদিহি"
+    },
+    {
+      "en": "credibility",
+      "bn": "বিশ্বাসযোগ্যতা"
+    },
+    {
+      "en": "sequence",
+      "bn": "ক্রম"
+    }
+  ],
+  "quest": {
+    "character": "প্রজেক্ট টিম",
+    "opening_bn": "একটি সামাজিক উদ্যোগের পরিকল্পনা ও বিতর্ক। আজ তোমার মিশন: ঘটনা দুটির তুলনা ও ব্যাখ্যা করতে পারবে।",
+    "npc_question_en": "How did the two witnesses respond?",
+    "good_response_en": "The first witness agreed, whereas the second disagreed.",
+    "challenging_response_en": "The first witness agreed, whereas the second disagree.",
+    "success_bn": "দারুণ! এবার নিজের ভাষায় নতুন একটি বাক্য তৈরি করো।",
+    "revision_bn": "আরেকবার চেষ্টা করো। নিয়মটি দেখো, তারপর নতুন উত্তর দাও।",
+    "scripted_continuation": {
+      "setting_bn": "একই ঘটনার দুটি বিবরণ তুলনা।",
+      "follow_up_question_en": "Where do the accounts differ?",
+      "guided_reply_en": "They describe the timing differently.",
+      "skill_focus_bn": "বিভিন্ন বিবরণে নির্দিষ্ট অমিল শনাক্ত।",
+      "is_scripted": true,
+      "ai_required": false
+    },
+    "no_ai_fallback": "The scripted dialogue and its choices remain available; no free-text AI grading occurs."
+  },
+  "exercises": [
+    {
+      "id": "B2-07-choice",
+      "type": "branch_choice",
+      "prompt_bn": "গল্পে পরের উত্তরটি বেছে নাও।",
+      "npc_en": "How did the two witnesses respond?",
+      "options": [
+        "The first witness agreed, whereas the second disagreed.",
+        "The first witness agreed, whereas the second disagree."
+      ],
+      "correct_index": 0,
+      "answer": "The first witness agreed, whereas the second disagreed.",
+      "feedback_bn": "Whereas দিয়ে দুটি বিপরীত বা পৃথক তথ্যের contrast দেখানো যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "evaluation": "two fixed alternatives only; do not reject other valid free-form answers"
+    },
+    {
+      "id": "B2-07-cloze",
+      "type": "choice_cloze",
+      "prompt_bn": "শূন্যস্থানে সঠিক শব্দ বসাও।",
+      "sentence": "The first witness agreed, ___ the second disagreed.",
+      "answer": "whereas",
+      "feedback_bn": "Whereas দিয়ে দুটি বিপরীত বা পৃথক তথ্যের contrast দেখানো যায়।",
+      "points": 15,
+      "auto_graded": true,
+      "options": [
+        "whereas",
+        "despite",
+        "however"
+      ],
+      "correct_index": 0,
+      "evaluation": "closed_choice_only"
+    },
+    {
+      "id": "B2-07-repair",
+      "type": "detective_choice",
+      "prompt_bn": "এই নির্দিষ্ট দুটি বাক্যের মধ্যে মানসম্মত সঠিকটি বেছে নাও।",
+      "sentence": "She liked the film, whereas he prefer the book.",
+      "answer": "She liked the film, whereas he preferred the book.",
+      "feedback_bn": "Whereas দিয়ে দুটি বিপরীত বা পৃথক তথ্যের contrast দেখানো যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "options": [
+        "She liked the film, whereas he prefer the book.",
+        "She liked the film, whereas he preferred the book."
+      ],
+      "correct_index": 1,
+      "evaluation": "closed_choice_only; other correct rewrites possible"
+    },
+    {
+      "id": "B2-07-reorder",
+      "type": "word_order",
+      "prompt_bn": "বাক্য সাজাও: প্রথম সাক্ষী একমত হয়েছিলেন, অন্যদিকে দ্বিতীয়জন দ্বিমত করেছিলেন।",
+      "tokens": [
+        "second",
+        "disagreed.",
+        "The",
+        "whereas",
+        "first",
+        "agreed,",
+        "the",
+        "witness"
+      ],
+      "answer": "The first witness agreed, whereas the second disagreed.",
+      "feedback_bn": "Whereas দিয়ে দুটি বিপরীত বা পৃথক তথ্যের contrast দেখানো যায়।",
+      "points": 20,
+      "auto_graded": true,
+      "evaluation": "exact_permutation_of_given_tokens_only; not a free-writing grade"
+    },
+    {
+      "id": "B2-07-write",
+      "type": "guided_write",
+      "prompt_bn": "একই ঘটনার দুটি ভিন্ন বিবরণ তুলনা করে লিখো।",
+      "sample_answer_en": "The first witness agreed, whereas the second disagreed.",
+      "auto_graded": false,
+      "points": 0,
+      "feedback_bn": null,
+      "evaluation": "self_review_or_ai_feedback_only; never exact-match score"
+    },
+    {
+      "id": "B2-07-vocab-match",
+      "type": "vocab_match",
+      "prompt_bn": "ইংরেজি শব্দের সঙ্গে বাংলা অর্থ মেলাও।",
+      "pairs": [
+        {
+          "en": "whereas",
+          "bn": "অন্যদিকে"
+        },
+        {
+          "en": "witness",
+          "bn": "সাক্ষী"
+        },
+        {
+          "en": "account",
+          "bn": "বিবরণ"
+        },
+        {
+          "en": "contrast",
+          "bn": "পার্থক্য"
+        }
+      ],
+      "answer_key": [
+        {
+          "en": "whereas",
+          "bn": "অন্যদিকে"
+        },
+        {
+          "en": "witness",
+          "bn": "সাক্ষী"
+        },
+        {
+          "en": "account",
+          "bn": "বিবরণ"
+        },
+        {
+          "en": "contrast",
+          "bn": "পার্থক্য"
+        }
+      ],
+      "auto_graded": true,
+      "evaluation": "one-to-one match against displayed pairs",
+      "points": 10
+    },
+    {
+      "id": "B2-07-reading",
+      "type": "reading_meaning_choice",
+      "prompt_bn": "বাক্যটির অর্থ কোনটি?",
+      "sentence_en": "The first witness agreed, whereas the second disagreed.",
+      "options_bn": [
+        "প্রথম সাক্ষী একমত হয়েছিলেন, অন্যদিকে দ্বিতীয়জন দ্বিমত করেছিলেন।",
+        "আরও সময় থাকলে আমি স্বেচ্ছাসেবা করতাম।",
+        "পরিকল্পনাটি ব্যয়বহুল হলেও এটি সাহায্য করতে পারে।"
+      ],
+      "correct_index": 0,
+      "answer_bn": "প্রথম সাক্ষী একমত হয়েছিলেন, অন্যদিকে দ্বিতীয়জন দ্বিমত করেছিলেন।",
+      "feedback_bn": "বাক্যটি আবার পড়ো; এতে যে তথ্য দেওয়া আছে, সেটির সঙ্গে বাংলা অর্থ মিলিয়ে দেখো।",
+      "auto_graded": true,
+      "points": 10,
+      "evaluation": "choose among three authored meanings"
+    }
+  ],
+  "source_ids": [
+    "coe_cefr",
+    "bc_grammar",
+    "english_profile"
+  ],
+  "learning_goal_assessment": "brief authored objective tasks; not a validated CEFR certification",
+  "reading": {
+    "text_en": "The first witness agreed, whereas the second disagreed. How did the two witnesses respond? The first witness agreed, whereas the second disagreed.",
+    "format": "short_dialogue",
+    "original": true,
+    "focus_bn": "পাঠ্য থেকে মূল তথ্য শনাক্ত করো।"
+  }
+}

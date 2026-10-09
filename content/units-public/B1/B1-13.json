@@ -1,0 +1,112 @@
+{
+  "id": "B1-13",
+  "level": "B1",
+  "position": 13,
+  "title_bn": "নিজের লক্ষ্য",
+  "title_en": "Setting Learning Goals",
+  "goal_bn": "বাস্তব কথোপকথনে নিজের লক্ষ্য বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "achieve a goal-এর মতো প্রচলিত collocation ব্যবহার করলে লেখা স্বাভাবিক হয়।",
+  "example_en": "I plan to practise English for twenty minutes a day.",
+  "translation_bn": "আমি প্রতিদিন বিশ মিনিট ইংরেজি অনুশীলনের পরিকল্পনা করেছি।",
+  "vocabulary": [
+    {
+      "en": "goal",
+      "bn": "লক্ষ্য"
+    },
+    {
+      "en": "achieve",
+      "bn": "অর্জন করা"
+    },
+    {
+      "en": "progress",
+      "bn": "অগ্রগতি"
+    },
+    {
+      "en": "habit",
+      "bn": "অভ্যাস"
+    },
+    {
+      "en": "focus",
+      "bn": "মনোযোগ দেওয়া"
+    },
+    {
+      "en": "measure",
+      "bn": "পরিমাপ করা"
+    },
+    {
+      "en": "regular",
+      "bn": "নিয়মিত"
+    },
+    {
+      "en": "realistic",
+      "bn": "বাস্তবসম্মত"
+    }
+  ],
+  "reading": {
+    "text_en": "I plan to practise English for twenty minutes a day. What is your learning plan? I plan to practise English for twenty minutes a day.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: নিজের লক্ষ্য।",
+    "npc_question_en": "What is your learning plan?",
+    "good_response_en": "I plan to practise English for twenty minutes a day.",
+    "challenging_response_en": "I plan practise English for twenty minutes a day.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "B1-13-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "What is your learning plan?",
+      "options": [
+        "I plan to practise English for twenty minutes a day.",
+        "I plan practise English for twenty minutes a day."
+      ],
+      "correct_index": 0,
+      "answer": "I plan to practise English for twenty minutes a day.",
+      "feedback_bn": "achieve a goal-এর মতো প্রচলিত collocation ব্যবহার করলে লেখা স্বাভাবিক হয়।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "B1-13",
+      "level": "B1"
+    },
+    {
+      "id": "B1-13-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"goal\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "লক্ষ্য",
+        "অর্জন করা",
+        "অগ্রগতি"
+      ],
+      "correct_index": 0,
+      "answer": "লক্ষ্য",
+      "feedback_bn": "goal = লক্ষ্য (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "B1-13",
+      "level": "B1"
+    },
+    {
+      "id": "B1-13-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে নিজের লক্ষ্য বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "I plan to practise English for twenty minutes a day.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "B1-13",
+      "level": "B1"
+    }
+  ]
+}

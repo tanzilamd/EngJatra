@@ -1,0 +1,112 @@
+{
+  "id": "B1-15",
+  "level": "B1",
+  "position": 15,
+  "title_bn": "পরিকল্পনায় পরিবর্তন",
+  "title_en": "Changing Arrangements",
+  "goal_bn": "বাস্তব কথোপকথনে পরিকল্পনায় পরিবর্তন বিষয়টি বুঝতে ও ব্যবহার করতে পারবে।",
+  "rule_bn": "যখন একটি পরিকল্পনা বদলায়, তখন পরিবর্তনের কারণ ও নতুন সময় স্পষ্ট বলা উচিত।",
+  "example_en": "The meeting has moved to Thursday because the room is unavailable.",
+  "translation_bn": "কক্ষটি খালি না থাকায় সভাটি বৃহস্পতিবারে সরানো হয়েছে।",
+  "vocabulary": [
+    {
+      "en": "reschedule",
+      "bn": "পুনঃসময় নির্ধারণ করা"
+    },
+    {
+      "en": "unavailable",
+      "bn": "খালি নয়"
+    },
+    {
+      "en": "meeting",
+      "bn": "সভা"
+    },
+    {
+      "en": "confirm",
+      "bn": "নিশ্চিত করা"
+    },
+    {
+      "en": "schedule",
+      "bn": "সময়সূচি"
+    },
+    {
+      "en": "alternative",
+      "bn": "বিকল্প"
+    },
+    {
+      "en": "notify",
+      "bn": "জানানো"
+    },
+    {
+      "en": "arrangement",
+      "bn": "ব্যবস্থা"
+    }
+  ],
+  "reading": {
+    "text_en": "The meeting has moved to Thursday because the room is unavailable. Why has the meeting moved? The room is unavailable.",
+    "focus_bn": "পড়ার পর বাক্যগুলোর মূল তথ্য খুঁজে বের করো।",
+    "original": true,
+    "format": "short_dialogue"
+  },
+  "quest": {
+    "character": "AI Tutor / Story Guide",
+    "opening_bn": "আজকের মিশন: পরিকল্পনায় পরিবর্তন।",
+    "npc_question_en": "Why has the meeting moved?",
+    "good_response_en": "The room is unavailable.",
+    "challenging_response_en": "Because the room unavailable is.",
+    "success_bn": "ভালো হয়েছে। এবার অন্য একটি বাক্যে একই দক্ষতা প্রয়োগ করো।",
+    "revision_bn": "ব্যাখ্যা দেখে আবার চেষ্টা করো।",
+    "no_ai_fallback": "Use scripted choice and guided writing."
+  },
+  "exercises": [
+    {
+      "id": "B1-15-choice",
+      "type": "branch_choice",
+      "prompt_bn": "এই প্রসঙ্গে শুদ্ধ ও স্বাভাবিক উত্তর বেছে নাও।",
+      "npc_en": "Why has the meeting moved?",
+      "options": [
+        "The room is unavailable.",
+        "Because the room unavailable is."
+      ],
+      "correct_index": 0,
+      "answer": "The room is unavailable.",
+      "feedback_bn": "যখন একটি পরিকল্পনা বদলায়, তখন পরিবর্তনের কারণ ও নতুন সময় স্পষ্ট বলা উচিত।",
+      "auto_graded": true,
+      "evaluation": "authored alternatives only, not grading all free-form responses",
+      "unit_id": "B1-15",
+      "level": "B1"
+    },
+    {
+      "id": "B1-15-meaning",
+      "type": "meaning_choice",
+      "prompt_bn": "\"reschedule\" এখানে কী অর্থে ব্যবহৃত হয়েছে?",
+      "options": [
+        "পুনঃসময় নির্ধারণ করা",
+        "খালি নয়",
+        "সভা"
+      ],
+      "correct_index": 0,
+      "answer": "পুনঃসময় নির্ধারণ করা",
+      "feedback_bn": "reschedule = পুনঃসময় নির্ধারণ করা (এই পাঠের প্রসঙ্গে)।",
+      "auto_graded": true,
+      "evaluation": "fixed-sense multiple-choice only",
+      "unit_id": "B1-15",
+      "level": "B1"
+    },
+    {
+      "id": "B1-15-guided-writing",
+      "type": "guided_writing",
+      "prompt_bn": "নিজের জীবনের উদাহরণ দিয়ে পরিকল্পনায় পরিবর্তন বিষয়ে ১–৩টি ইংরেজি বাক্য লেখো।",
+      "sample_answer": "The meeting has moved to Thursday because the room is unavailable.",
+      "rubric_bn": [
+        "মূল ভাব বোঝা যাচ্ছে কি",
+        "ব্যবহৃত Grammar প্রসঙ্গ অনুযায়ী ঠিক কি",
+        "বাক্যে অপ্রয়োজনীয় শব্দ আছে কি"
+      ],
+      "auto_graded": false,
+      "evaluation": "requires human/AI contextual review; never exact-string grade",
+      "unit_id": "B1-15",
+      "level": "B1"
+    }
+  ]
+}
