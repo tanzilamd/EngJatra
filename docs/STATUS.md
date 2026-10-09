@@ -60,3 +60,18 @@ Clean `npm ci` plus the saved installation checks were rerun successfully. Run `
 Reusable `install_script` and `start_skill` were saved in the cloud configuration draft, replacing the earlier content-only setup instructions. Official documentation/API domains were added to that draft while preserving package-manager presets. They have not been published or proven applied in a new task.
 
 The implementation and cleanup use branch `work`. The owner has authorized GitHub synchronization and a PR to `main`; publication state must be verified against the remote branch SHA and actual PR, separately from cloud activation. No production migration, deployment, DNS claim or paid configuration was performed. Review the implementation and test evidence before a separately authorized deployment.
+
+## GitHub synchronization — 2026-10-09
+
+Repository: https://github.com/tanzilamd/EngJatra. Pushed the completed implementation (`7ab1755`) and documentation/prompt cleanup (`1ceef76`) through the connected Git transport to `origin/work`. `git ls-remote` verified the remote branch SHA exactly matched the local cleanup commit; `main` remains at `ed0b830`. No force-push or branch deletion was used. This status update is a separate follow-up documentation commit.
+
+PR creation is blocked by this environment's GitHub API access: `gh pr create` returned `Post "https://api.github.com/graphql": Forbidden`; repository API reads were also denied. `gh auth status` reports the injected `GH_TOKEN` as invalid. Successful Git transport is not proof of working API authentication. No PR success or remote CI pass is claimed.
+
+Open the [PR creation form](https://github.com/tanzilamd/EngJatra/compare/main...work?expand=1), or run from an environment with authorized GitHub API access. If the injected token is invalid, use a secure CLI login without exposing its value:
+
+```sh
+env -u GH_TOKEN gh auth login --hostname github.com --web
+env -u GH_TOKEN gh pr create --repo tanzilamd/EngJatra --base main --head work --fill
+```
+
+Verify the resulting PR targets `main` and its head is the pushed `work` branch. Do not paste access tokens into chat or Git. Live deployment, provider credentials and independent educational/legal checks remain the separate gates above.
