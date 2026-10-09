@@ -8,6 +8,8 @@ The supplied public project URL is `https://ahxhhasraganuqspfqer.supabase.co`; t
 
 Status shorthand below: **U** = destination inaccessible/unverified; absent from this session. **D** = explicit safe code default. **P** = provided public information, external behavior unverified. **T** = tool/platform-managed, not an application credential.
 
+Verified GitHub run [37963190292](https://github.com/tanzilamd/EngJatra/actions/runs/37963190292) passed QA and stopped before uploads. Its redacted readiness annotation confirms **missing/invalid CI inputs** for `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_API_URL`, `CONTENT_URL`, `ALLOWED_ORIGINS`, `CLOUDFLARE_ACCOUNT_ID`, and `CLOUDFLARE_API_TOKEN`. Their dashboard values remain inaccessible; this proves the deploy job did not receive usable configuration, not that every dashboard field is blank. The remaining table statuses retain that distinction.
+
 ## Application, Worker and deployment values
 
 Production is three independent Workers: `engjatra` student Static Assets, `engjatra-admin` admin Static Assets, `engjatra-api` protected API. GitHub Actions is the only production trigger. Configure the GitHub repository or its `production` environment at **Settings → Secrets and variables → Actions → Variables/Secrets**. The workflow maps the values below into builds and the API's additive secret upload; Codex secrets do not do that automatically.
