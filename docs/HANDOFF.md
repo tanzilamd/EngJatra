@@ -1,6 +1,6 @@
 # Maintainer handoff
 
-Read `AGENTS.md`, `STATUS.md`, `DECISIONS.md`, then relevant original specifications. This application was written fresh. The handoff baseline documents describe the original data audit, not the implemented runtime.
+Read `AGENTS.md`, `STATUS.md`, `DECISIONS.md`, `ENVIRONMENT_VARIABLES.md`, then relevant specifications. This application was written fresh. The handoff baseline documents describe the original data audit, not the implemented runtime.
 
 ## Runtime boundaries
 
@@ -57,3 +57,11 @@ Provider health rows have no fabricated samples. Operational counts come from DB
 Staff edits remain private DB drafts. Reviewers can annotate workflow state; this never establishes teacher review or deployment. Editors export normalized public patches. The CLI builds a separate site artifact retaining old versions. An approved owner deploys it, verifies all hashes in four batches (keeps requests below the free Worker subrequest ceiling), and records the deployment using protected owner SQL. Authenticated RPC clients have no action that can mark deployed state. Rollback is an audited request followed by actual manifest/site restoration and hash verification, not an automatic fake success.
 
 For a migration change, add a new forward-only file after the initial migration is applied; never edit an already-applied file. Fresh-schema tests execute migrations in lexical order. Production permission, rollback, deletion and role-grant operations require operator identity verification, backups, and the explicitly approved project. There are no arbitrary uploads or paid-service paths.
+
+## Main and delivery automation
+
+Maintain synchronized `main` directly for routine work; no routine feature branches or PRs. The owner authorizes main pushes and the configured Free deployment pipeline, never force-push/protection bypass, destructive migrations, DNS claims or paid upgrades. `.github/workflows/ci.yml` is the sole deployment mechanism. Disable matching native Cloudflare Builds.
+
+Three targets: root `wrangler.jsonc` → `engjatra` student Static Assets; admin config → `engjatra-admin`; API TOML → `engjatra-api`. No frontend script/runtime secret or API upload to the student target. Generated API config is ignored/validated; preserve-vars plus additive secrets prevents blank binding deletion. Public Vite fields exist at build time; Supabase OAuth/SMTP belong in its dashboard. Read `docs/DEPLOYMENT_SIMPLE_BN.md` for one-time setup.
+
+QA fingerprints the tested commit/source. A deploy requires current proof (reruns QA otherwise), then configured build/scans/three dry runs, remote backend/account preflight, explicit sequential uploads and current version tags plus actual artifact hashes/security. Previous verified static artifacts retain old immutable content; missing archives/version conflict fail closed. This remains local-tested automation until actual Actions/account/services are verified.

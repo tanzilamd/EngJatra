@@ -131,7 +131,7 @@ export async function handle(
     env.LOCAL_DEMO === "true" &&
     ["localhost", "127.0.0.1"].includes(url.hostname);
   const origin = request.headers.get("Origin");
-  const allowed = env.ALLOWED_ORIGINS.split(",").filter(Boolean);
+  const allowed = (env.ALLOWED_ORIGINS ?? "").split(",").filter(Boolean);
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
     "Cache-Control": "no-store",

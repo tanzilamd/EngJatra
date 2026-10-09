@@ -19,3 +19,19 @@
 | Source audit passes but language seems wrong | Structural validation is not semantic/teacher review. File a versioned report and use private correction workflow. |
 
 Detailed local browser traces/screenshots live in ignored `test-results` and `playwright-report`. Public production source maps are disabled. Do not log credentials, provider response dumps or full learner messages while diagnosing live incidents.
+
+Current deployment uses three Workers, not Pages. Read `docs/DEPLOYMENT_SIMPLE_BN.md` and `docs/ENVIRONMENT_VARIABLES.md` first.
+
+| Deployment error | Permanent diagnosis / action |
+| --- | --- |
+| Assets missing directory | Use root student or explicit admin config; both have actual Vite dist directories. Do not generate framework config. |
+| Compatibility date missing | Three checked-in targets use the same date; run `npm run deploy:check -- --offline` after building. |
+| Expected engjatra but engjatra-api uploaded | Root config is student engjatra. API deploy always uses its own validated config; disable generic native trigger. |
+| Frontend built but deployment failed | Build is not deploy. Check account token/target/runtime input and the distinct Actions deployment/verification logs. |
+| Blank vars erase production config | API has no blank defaults and keep_vars true; managed script supplies validated config and additive version secrets. Do not paste secrets in CLI args. |
+| Missing deployment inputs | Set the exact GitHub Actions Variables/Secrets once; Codex secrets are not forwarded automatically. |
+| Native and Actions deploy fight | Disable Workers Builds automatic deploy for the same three names; keep the single Actions trigger. |
+| Stale QA proof | Source or commit changed; deploy reruns QA. Do not fake the proof or skip security checks. |
+| Published content baseline missing | Restore the last approved student artifact. Never drop old versions or reuse a changed immutable version to make deployment pass. |
+| Strict upload / hash verification failed | Investigate conflicting edits or partial deploy; inspect versions, rollback affected targets and fix source on main. No force-push. |
+| Google/SMTP fields not found in env | They belong in Supabase Auth provider/email dashboards, not Worker/Vite. See inventory. |

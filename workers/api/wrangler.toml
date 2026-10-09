@@ -1,13 +1,10 @@
 name = "engjatra-api"
 main = "src/index.ts"
 compatibility_date = "2026-10-09"
+workers_dev = true
+keep_vars = true
 [vars]
 ENVIRONMENT = "production"
-ALLOWED_ORIGINS = ""
-SUPABASE_URL = ""
-SUPABASE_ANON_KEY = ""
-CONTENT_URL = ""
-GEMMA_FREE_CONFIRMED = "false"
-LLAMA_FREE_CONFIRMED = "false"
-GEMMA_MODEL = ""
-LLAMA_MODEL = ""
+LOCAL_DEMO = "false"
+# No blank runtime bindings: direct Wrangler deploys preserve dashboard values.
+# The managed deploy script injects validated production bindings and additive secrets.

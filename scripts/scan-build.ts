@@ -1,6 +1,7 @@
 import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { scan } from "./content-tools";
+import { scanPublicText } from "./public-security";
 async function files(root: string): Promise<string[]> {
   const entries = await readdir(root, { withFileTypes: true });
   const result = [];
@@ -16,12 +17,7 @@ for (const site of ["student-web", "admin-web"])
     if (p.endsWith(".map")) throw Error("Public source map found");
     if (/\.(js|json|html)$/.test(p)) {
       const text = await readFile(p, "utf8");
-      if (
-        /(AIza[\w-]{25,}|sk-[A-Za-z0-9]{20,}|sb_secret_[\w-]+|eyJhbGciOiJIUzI1NiI[^\s"']{80,})/.test(
-          text,
-        )
-      )
-        throw Error(`Potential secret in ${p}`);
+      scanPublicText(text);
       if (site === "student-web") {
         if (p.endsWith(".json")) scan(JSON.parse(text));
         else if (

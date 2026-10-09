@@ -1,7 +1,7 @@
 # Protected Admin Panel — workflows, permissions and publishing
 
 ## Admin scope
-Dedicated admin UI (prefer separate Cloudflare Pages project with different route/hostname), sharing EngJatra visual language but using calm tables, filters, clear forms. **Server and Supabase RLS are the security boundary**, not front-end hidden nav. Default-deny all privileged operations.
+Dedicated admin UI (separate Cloudflare Static Assets Worker with different hostname), sharing EngJatra visual language but using calm tables, filters, clear forms. **Server and Supabase RLS are the security boundary**, not front-end hidden nav. Default-deny all privileged operations.
 
 ## Roles
 - `learner`: personal learning/report only; never review metadata or other profiles.
@@ -16,7 +16,7 @@ Prevent privilege escalation via editable profile/metadata/JWT claims. Allowlist
 2. Content Explorer: search/filter ID, band, lesson type; view current published content, public source and private staff-only research/correction notes. Permission-protected statuses ONLY here.
 3. Editorial workbench: adjust sentence, translation, distractor, feedback, alternative accepted response, help hint. Validation preview using real learner component. Keep draft revision and immutable published baseline.
 4. Report queue: users report wrong key/translation/grammar/ambiguous answer/AI feedback; attach release/unit/item/model context automatically, avoid gratuitous personal text.
-5. Publish manager: deterministic content patch -> editorial checks -> versioned JSON export -> reviewed deploy/commit flow -> verify published hash + deployment -> announce success. Use only authorized GitHub/cloud service integration. If no publishing credential, allow manual exported artifact or documented PR process, state "awaiting deploy" truthfully.
+5. Publish manager: deterministic content patch -> editorial checks -> versioned JSON export -> reviewed deploy/commit flow -> verify published hash + deployment -> announce success. Use only authorized GitHub/cloud service integration. If no publishing credential, allow manual exported artifact or documented reviewed main-commit process, state "awaiting deploy" truthfully.
 6. Emergency suspend: authorized admin can immediately disable clearly invalid/harmful *item*, with minimal public blocklist, no leak of reason, cache TTL test, reinstate after correction.
 7. Rollback: retain previous release manifest and patch audit; safely revert changed item while preserving student progress. Admin sees release IDs and actor/time.
 8. Support: users/status/search by minimal profile only, no unnecessary display of full private AI conversations to all admin roles; data deletion/export request workflow.

@@ -51,7 +51,7 @@ Provide adequate contrast; token values may be deepened for accessible text (e.g
 ## UX content and errors
 Bengali-first: `শেখা চালিয়ে যাও`, `বাংলায় বুঝিয়ে দাও`, `উত্তর দেখাও`, `আবার চেষ্টা করি`, `পরে দেখব`, `অগ্রগতি সংরক্ষণ হচ্ছে…`, `সংরক্ষিত হয়েছে`, `ইন্টারনেট ফিরে এলে সংরক্ষণ হবে` (only if queued). No fake congratulation for incorrect answer; acknowledge effort and explain actual correction. Student should not see `Research-Based` / `Verified` / `Under Review` badges or internal verification in tooltips or fetched JSON.
 
-## Pages-specific polish
+## Hosting and responsive polish
 Mobile-first responsive, bottom nav on small screens, wide max-width learning area on desktop; low-bandwidth unit fetch, lazy loading and good perceived speed; no hero videos, no autoplay or heavy animations. Accessible light theme first; dark mode can be built if not disruptive, but not at expense of core functionality.
 
 ## Admin design style

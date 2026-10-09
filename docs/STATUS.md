@@ -6,7 +6,7 @@
 
 | Area | Implemented and locally verified |
 | --- | --- |
-| Foundation | Node 24.19.0, React/Vite/strict TypeScript/Tailwind, one npm lockfile, modular packages, separate student/admin sites, CI, self-hosted Inter/Hind Siliguri, responsive Bangla brand UI |
+| Foundation | Node 24.19.0, React/Vite/strict TypeScript/Tailwind, one npm lockfile, modular packages, separate student/admin Static Assets Workers, CI, self-hosted Inter/Hind Siliguri, responsive Bangla brand UI |
 | Student onboarding | Explicit demo, real Supabase email/signup/recovery/Google adapters, setup-required production state, first-start choice, optional formative placement, <=3-step skippable/replayable tour |
 | Learning | All 96 units / six tracks; micro-lessons, authored reading, vocabulary, choices/cloze/detective, sentence tiles, matching, free writing self-review, scripted branches/continuations, formative checkpoints, external listening/speaking guidance |
 | Supplemental content | All 932 canonical sense records, 132 grammar cards including 36 extra cards, 96 scripted conversations, 480 authored activities, 12 longer readings; report and suspension handling for library items |
@@ -16,11 +16,11 @@
 | Release | Public-safe export, strict metadata scan, stale baseline rejection, new immutable artifact with old versions retained, four-batch deployed hash checks; owner-only deployment recording, no false publish toast |
 | AI | Disabled-by-default Gemma and independently configured Groq Llama HTTP adapters, bounded short conversation context and structured replies, input/output/time limits, atomic free-use budgets, transient circuits, controlled failover and authored no-AI continuation |
 | Privacy | No uploads/microphone, no public learner profiles, no frontend secret/admin payloads, optional bounded AI history, own export/history deletion, truthful verified-operator account-deletion request workflow |
-| Production artifacts | Both sites build; Worker compiles/dry-runs; browser demo flags cannot bypass production; public-only shell/content cache never caches API/auth responses; CSP/redirect/header files generated |
+| Production artifacts | Both sites build; Worker compiles/dry-runs; browser demo flags cannot bypass production; public-only shell/content cache never caches API/auth responses; CSP/header files generated; SPA routing in Worker config |
 
-## Executed checks
+## Original implementation checks
 
-The full `npm run qa` sequence completed with exit code 0 in this cloud workspace. Affected checks were rerun after the final fixes; the latest results are:
+The original build QA completed with exit code 0. These initial results are preserved below; the current deployment-audit evidence is recorded in the final section.
 
 - `content:export`, Python handoff audit and extended `test:content`: PASS. Validated all counts, unit/activity identity, schemas, authored keys, token permutations, public metadata and lazy unit sizes (largest normalized unit under 10 KB).
 - `lint` and strict `typecheck`: PASS.
@@ -45,9 +45,9 @@ After cleanup, `npm run qa` completed with exit code 0: 55 unit/API/database tes
 | Gate | Precise dependency / next action |
 | --- | --- |
 | Supabase Auth, PostgREST, live RLS and cross-device sync | Owner-approved Free project, apply reviewed migration, configure exact public URL/key and Auth redirects; test two real accounts and expiry/negative permissions |
-| Cloudflare Pages and Worker | Owner-approved accounts/projects, actual deployed origins/secrets, verified available subdomains and headers/routing; no deployment or DNS claim made |
+| Cloudflare three Workers and Actions | Owner-approved account/token/GitHub config, real origins and pipeline execution, verified headers/routing; no deployment or DNS claim made |
 | Eligible Gemma/Llama integration | Secure server keys, exact current supported model IDs, account-specific free eligibility/privacy/quotas; keep free switches false until confirmed; no billing enabled |
-| Current official provider docs | Initial requests were denied by restricted egress; required official doc/API domain additions are saved in the environment draft. Saved changes need environment review/save and publication; saving is not runtime enforcement |
+| Current official provider/account verification | Initial requests were denied; current audit could read public Google/Groq documentation. Account access, eligibility, quotas and live calls remain unverified. Saved network draft additions still require publication; saving is not runtime enforcement |
 | Real learner/semantic/legal verification | Bangla-speaking beginner sessions, independent bilingual/editorial review, teaching-band adequacy, source rights, privacy/minor/legal review and actual mobile/slow-network pilot |
 | Account operations | Owner UUID/bootstrap, verified support deletion/role changes, backup/restore, actual storage/egress/provider alerts and Free-plan safeguards |
 
@@ -59,19 +59,28 @@ Clean `npm ci` plus the saved installation checks were rerun successfully. Run `
 
 Reusable `install_script` and `start_skill` were saved in the cloud configuration draft, replacing the earlier content-only setup instructions. Official documentation/API domains were added to that draft while preserving package-manager presets. They have not been published or proven applied in a new task.
 
-The implementation and cleanup use branch `work`. The owner has authorized GitHub synchronization and a PR to `main`; publication state must be verified against the remote branch SHA and actual PR, separately from cloud activation. No production migration, deployment, DNS claim or paid configuration was performed. Review the implementation and test evidence before a separately authorized deployment.
+The initial implementation and cleanup used `work`. The latest owner instruction supersedes that workflow: routine work now uses synchronized main directly, without branches/PRs. Git history confirms the initial work was merged into main by commit `783c933` (PR #1). Publication and live activation still require independent verification. No production migration, deployment, DNS claim or paid configuration was performed. Review the implementation and test evidence before a separately authorized deployment.
 
-## GitHub synchronization — 2026-10-09
+## Historical GitHub synchronization — earlier 2026-10-09
 
 Repository: https://github.com/tanzilamd/EngJatra. Pushed the completed implementation (`7ab1755`) and documentation/prompt cleanup (`1ceef76`) through the connected Git transport to `origin/work`. `git ls-remote` verified the remote branch SHA exactly matched the local cleanup commit; `main` remains at `ed0b830`. No force-push or branch deletion was used. This status update is a separate follow-up documentation commit.
 
 PR creation is blocked by this environment's GitHub API access: `gh pr create` returned `Post "https://api.github.com/graphql": Forbidden`; repository API reads were also denied. `gh auth status` reports the injected `GH_TOKEN` as invalid. Successful Git transport is not proof of working API authentication. No PR success or remote CI pass is claimed.
 
-Open the [PR creation form](https://github.com/tanzilamd/EngJatra/compare/main...work?expand=1), or run from an environment with authorized GitHub API access. If the injected token is invalid, use a secure CLI login without exposing its value:
+This historical PR retry guidance is superseded: Git history now shows the work merged, and routine sessions use main directly. The previous CLI/API denial does not undo the verified Git push.
 
-```sh
-env -u GH_TOKEN gh auth login --hostname github.com --web
-env -u GH_TOKEN gh pr create --repo tanzilamd/EngJatra --base main --head work --fill
-```
+## Current environment/deployment audit — 2026-10-09
 
-Verify the resulting PR targets `main` and its head is the pushed `work` branch. Do not paste access tokens into chat or Git. Live deployment, provider credentials and independent educational/legal checks remain the separate gates above.
+Fetched origin/main and continued the accepted implementation on main, preserving its UI, brand, content and RLS. Added explicit student/admin Static Assets targets, matching API config/date, main-only serialized Actions, actual readiness/deploy/verify scripts, source/commit QA evidence, additive protected secrets, configured CSP, retained immutable content and bounded remote verification. Corrected blank API defaults, missing-allowlist failure handling, and an artifact scan that incorrectly treated public legacy anon JWTs as private tokens.
+
+Authoritative new docs: `docs/ENVIRONMENT_VARIABLES.md` (all actual values, phases/source/destination/status, OAuth/SMTP and environment boundaries) and `docs/DEPLOYMENT_SIMPLE_BN.md` (one-time owner checklist). Original current operational docs now use three Workers and direct-main workflow. No routine PR is needed. Historical synchronization above describes the prior task only.
+
+Final expanded `npm run qa` completed with exit code 0: **74 unit/API/database/deployment tests across six files**, **8 demo journey browser tests**, **4 fail-closed production browser tests**, **4 actual Wrangler Static Assets desktop/mobile browser tests**, and **1 release test** passed. This includes real local PostgreSQL migration/RLS execution with an auth shim, all six bands and 96 units, accessibility, content/key/metadata checks, lint, strict types, both production site builds, API compilation, artifact security scans and source-stability QA evidence. `npm run format:check`, `npm audit` (zero vulnerabilities), Actions `actionlint`, and `npm run deploy:check -- --offline` (three target dry runs) also passed. Documentation consistency checked all 26 Markdown files and is rerun after this status update.
+
+The configured CLI was also exercised with **fixture-only** public configuration and a private test sentinel: all three Wrangler targets compiled, no service was published, the sentinel was absent from console logs, and the temporary secret file was removed. Actual unconfigured `deploy:check` and `deploy:all` both rejected missing required inputs before remote mutation. A recognizable private-credential scan passed across 217 repository text files without printing values. `npm run smoke:live` correctly returned `NOT RUN` / exit 1 because the actual API origin and short-lived learner token are unavailable.
+
+Two audit-test defects were fixed and rechecked: a plain JSON reader rejected valid Wrangler JSONC trailing commas (now parsed as JSONC), and an overly specific verification-request-count assertion was replaced by checks for all 96 units and six libraries. Final checks have no unresolved local failures. These tests do not prove cloud deployment, real authentication or absence of every security defect.
+
+No Cloudflare token/account ID, Supabase key, AI keys or real app origins are ready in this Codex runtime; outbound identity manifest is empty. External dashboards/values are not accessible, not assumed blank. Named project health request was denied by the proxy. Public official Cloudflare configuration, Google Gemma API/pricing and Groq model docs were accessible; observed model IDs/pricing do not prove account eligibility or successful calls. Brevo guidance access was denied. Both free flags remain false.
+
+The environment draft preserves existing destinations/presets and adds api.cloudflare.com, api.github.com and the supplied Supabase project; the startup skill now reflects main and Worker automation. Saved with requires_publish=true; no policy enforcement or secret forwarding is claimed. GitHub API access/Actions runs, native build disconnection, migration/Auth/OAuth/SMTP configuration, actual live URLs and AI/real learner/legal tests remain owner/external gates. Local fixes are implemented; no live deployment or migration was performed.

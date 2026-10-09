@@ -43,7 +43,7 @@ Implement in **one continuous development assignment**, using milestone checklis
 - `AGENTS.md`: do not delete or dilute. Additional scoped `AGENTS.md` only where it adds meaningful child rules.
 
 ## Hosting and limits
-- Cloudflare Pages deploy from GitHub; candidate URL `engjatra.pages.dev` is NOT reserved. Separate student/admin Pages apps may use own `*.pages.dev` hosts. Explicit monorepo project root/build commands.
+- Cloudflare Static Assets student/admin Workers and a separate API Worker deploy from the sole main GitHub Actions workflow. Exact target configs are checked in; no Pages UI, reserved URL, routine PR or native competing trigger is needed. See `docs/DEPLOYMENT_SIMPLE_BN.md`.
 - Static assets free, nonstatic Functions/Workers requests count against Free quota. Do not route every static asset through Worker.
 - Supabase Free has quotas and may pause under low activity. Backup before destructive migrations. When near free limit degrade gracefully: no AI/cloud excess; preserve learning progress and maintain safe history retention/export choices.
 - External use must be confirmed after owner connects accounts and secrets. The owner requested ZERO forced spend: paid plans never silently enabled.
@@ -51,7 +51,7 @@ Implement in **one continuous development assignment**, using milestone checklis
 ## Credentials checklist (all later, no keys now)
 - GitHub repository access (via authorized Codex connector or UI), branch/PR permissions; no developer personal tokens in files.
 - Supabase project URL + **publishable/anon** key (public but still treat config carefully), SQL migrations, OAuth/email settings and allowed redirect URLs. Sensitive service-role key only if needed and stored server-side as a secret.
-- Cloudflare account and Pages projects (student and admin); Worker/Pages Functions configuration, secret bindings and env variables. Domain setup only after actual availability check.
+- Cloudflare Free account and three explicit Workers; GitHub Actions config/secrets map into browser builds and API bindings. Domain setup only after actual availability check.
 - Google AI Studio free eligible API credential + confirmed Gemma model id and project quota; do not switch to billed account without consent.
 - Free Llama provider name + specific confirmed model + credential + usage limit; independently test primary/fallback.
 - Authorized owner's Supabase user UUID for first admin role, provision manually with audited instructions.

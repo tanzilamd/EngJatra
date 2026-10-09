@@ -1,28 +1,38 @@
-name: QA
-on: [push, pull_request]
+name: QA and Production
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: engjatra-main-production
+  cancel-in-progress: false
 jobs:
-  checks:
+  qa:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    env:
+      CHROMIUM_PATH: ''
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
           cache: npm
-      - run: npm ci
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - run: npm run test:docs && npm run lint && npm run typecheck && npm run content:export && npm run test:content && npm test
-      - run: npm run test:e2e
-        env:
-          CHROMIUM_PATH: ''
-      - run: npm run build
-      - run: npm run test:production
-        env:
-          CHROMIUM_PATH: ''
-      - run: npm run test:release
+      - run: npm run qa && npm run format:check && npm audit
+      - run: npm run deploy:check -- --offline
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qa-proof
+          path: .wrangler/qa.local.json
+          include-hidden-files: true
+          retention-days: 7
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
@@ -30,3 +40,67 @@ jobs:
           path: |
             playwright-report/
             test-results/
+  deploy:
+    needs: qa
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      contents: read
+      actions: read
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+      VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
+      VITE_API_URL: ${{ vars.VITE_API_URL }}
+      CONTENT_URL: ${{ vars.CONTENT_URL }}
+      ALLOWED_ORIGINS: ${{ vars.ALLOWED_ORIGINS }}
+      GEMMA_MODEL: ${{ vars.GEMMA_MODEL }}
+      GEMMA_FREE_CONFIRMED: ${{ vars.GEMMA_FREE_CONFIRMED || 'false' }}
+      GEMMA_API_KEY: ${{ secrets.GEMMA_API_KEY }}
+      LLAMA_MODEL: ${{ vars.LLAMA_MODEL }}
+      LLAMA_FREE_CONFIRMED: ${{ vars.LLAMA_FREE_CONFIRMED || 'false' }}
+      LLAMA_API_KEY: ${{ secrets.LLAMA_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run deploy:check -- --configuration-only
+      - uses: actions/download-artifact@v4
+        with:
+          name: qa-proof
+          path: .wrangler
+      - name: Find previous verified static artifact
+        id: previous
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const {data} = await github.rest.actions.listArtifactsForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              name: 'production-student', per_page: 100
+            });
+            const previous = data.artifacts.find(a => !a.expired && a.workflow_run?.head_branch === 'main');
+            if (previous) core.setOutput('run_id', String(previous.workflow_run.id));
+      - uses: actions/download-artifact@v4
+        if: steps.previous.outputs.run_id != ''
+        with:
+          name: production-student
+          github-token: ${{ github.token }}
+          run-id: ${{ steps.previous.outputs.run_id }}
+          path: .wrangler/deployed-sites
+      - run: npm run deploy:all
+      - uses: actions/upload-artifact@v4
+        with:
+          name: production-student
+          path: apps/student-web/dist
+          retention-days: 90
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: deployment-receipt
+          path: .wrangler/deployment-receipt.local.json
+          retention-days: 90

@@ -11,6 +11,8 @@ Never report “fully correct”, “100% error-free”, “production verified�
 - `npm run test:docs` (local documentation links/specifications, executable npm commands, public environment names and retired prompt references)
 - `npm run test:e2e` (browser, student/admin flows)
 - `npm run build` (both deployable sites/server functions and assets)
+- `npm run test:deployment` (actual Wrangler Static Assets SPA/content/headers/production auth browser checks)
+- `npm run deploy:check -- --offline` (three explicit target dry runs; not external readiness)
 - `npm run qa` to combine all reliably; may use other commands if documented and reproducible.
 - RLS tests: local Supabase CLI/Docker if available; otherwise contract tests and explicitly blocked live RLS tests.
 
@@ -34,7 +36,7 @@ Never report “fully correct”, “100% error-free”, “production verified�
 | E15 | Sync failures | offline pending queue + conflict resolution, no phantom saved state |
 | E16 | Responsive UI | 320px phone, typical Android viewport, tablet, desktop, keyboard and screen readers, Bengali wrapping |
 | E17 | Quotas | Worker request budget, Supabase size/egress guardrails, per-user provider spend controls, local pressure simulations |
-| E18 | Build/deploy | Cloudflare Pages client build + admin build, Worker dev startup, documented deployment config |
+| E18 | Build/deploy | Worker Static Assets client build + admin build, Worker dev startup, documented deployment config |
 | E19 | Low bandwidth | initial payload and unit fetching sane on throttled connection; graceful font fallback |
 | E20 | Real external tests | live Supabase OAuth/email/RLS, Cloudflare deployed routing, Gemma and Llama response/rate; **BLOCKED until credentials** |
 

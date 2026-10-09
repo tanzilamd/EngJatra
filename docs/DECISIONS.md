@@ -1,6 +1,7 @@
 # EngJatra Architecture Decision Log
 
-## 2026-10-09 — Product/brand and technology planning decisions
+## 2026-10-09 — Historical product/brand and technology planning decisions
+The hosting and Git workflow proposed here are superseded by the environment/deployment decision below; current operations use three Workers and synchronized main.
 - Product = EngJatra; exact casing and finalized branding (primary blue #2563EB, navy, amber and teal; Inter and Hind Siliguri).
 - Brand promise = "Learn English. Enjoy the Journey."; all instructional UI Bengali-first.
 - Hosting = Cloudflare Pages Free; secure server-side Functions/Worker where needed, no paid automatic upgrade.
@@ -35,3 +36,11 @@ Compared both completed build prompts against every permanent specification befo
 The requirements remain organized by responsibility: product/UX in `PRODUCT_PRD.md` and `BRAND_DESIGN.md`; architecture and sync in `ARCHITECTURE_AND_DATA.md` with implemented details in `HANDOFF.md`; corpus coverage, sense semantics, answer variants and limitations in `LEARNING_CONTENT.md` and `CONTENT_GAPS.md`; free provider behavior in `AI_TUTOR.md`; security/privacy in `SECURITY_PRIVACY.md`; protected release/support workflows in `ADMIN_OPERATIONS.md` and `CREDENTIALS_AND_DEPLOYMENT.md`; acceptance evidence in `QA_ACCEPTANCE.md` and `STATUS.md`. No brand, privacy, hosting, learning or free-only requirement was relaxed.
 
 Future sessions maintain the accepted application rather than restart the initial build. Historical milestone/baseline documents are explicitly labelled, the Bangla startup guide uses permanent docs, and the older credential checklist now matches the actual `VITE_SUPABASE_ANON_KEY` binding. A standard-library documentation checker joins root QA and CI. Repository publication is authorized separately from production deployment.
+
+## 2026-10-09 — Main-only Worker deployment automation
+
+The owner explicitly supersedes the earlier feature-branch/PR and Pages-first operations: routine work commits/pushes synchronized main directly; no protection bypass or force-push. Preserve separate student/admin/API boundaries and Free constraints. Reuse the intended `engjatra` name for student Static Assets, `engjatra-admin` for admin and `engjatra-api` for API. Root default config is student, never API; explicit per-target config disables framework guessing.
+
+Choose one GitHub Actions main production trigger because the existing Workers Builds interface and generic monorepo deploy caused target/assets/date errors and cannot itself establish the full QA dependency. Disable competing native builds once. Repository configs include assets directory/SPA/date, API preserve-vars and no blank runtime defaults. Browser API origin automatically augments CSP; generated Pages catch-all rewrite is removed. Actual Wrangler asset servers are browser-tested.
+
+Do not require service-role, Google/SMTP runtime keys, Pages projects, personal GitHub tokens or paid services. Canonical public inputs feed browser build and API binding; provider keys are additive API-version secrets in protected temporary files. QA source/commit proof, Supabase/account preflight, strict uploads and remote tag/hash/security verification separate local success from actual publication. Deployments are sequential; partial failure is explicit. Retain prior verified artifacts and immutable versions; reject overwrite/downgrade or missing baseline rather than delete cached learner content. One-time dashboard/credential/legal gates are consolidated in the Bengali guide and exhaustive inventory.

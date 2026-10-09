@@ -19,8 +19,8 @@ npm run dev
 
 ## উৎপাদন পরিবেশ চালু করার আগে
 
-`docs/CREDENTIALS_AND_DEPLOYMENT.md` অনুসরণ করে Supabase/Auth/RLS, দুইটি Cloudflare Pages প্রকল্প, Worker ও আলাদা দুইটি AI provider সেটআপ ও পরীক্ষা করো। গোপন key শুধু সংশ্লিষ্ট dashboard-এর secret/environment settings-এ দেবে; GitHub, prompt, chat বা log-এ লিখবে না। প্রকৃত free eligibility যাচাইয়ের আগে AI switches বন্ধ রাখবে।
+`docs/DEPLOYMENT_SIMPLE_BN.md`-এর একবারের checklist এবং `docs/ENVIRONMENT_VARIABLES.md` অনুসরণ করে Supabase/Auth/RLS, তিনটি Cloudflare Worker ও প্রয়োজন হলে আলাদা দুইটি AI provider সেটআপ ও পরীক্ষা করো। গোপন key শুধু সংশ্লিষ্ট dashboard-এর secret/environment settings-এ দেবে; GitHub, prompt, chat বা log-এ লিখবে না। প্রকৃত free eligibility যাচাইয়ের আগে AI switches বন্ধ রাখবে।
 
-`engjatra.pages.dev` ঠিকানাটি প্রস্তাবিত, সংরক্ষিত নয়। GitHub-এ কোড প্রকাশ আর উৎপাদন deployment আলাদা কাজ। প্রকৃত deployment, auth, free limits, দ্বিভাষিক কনটেন্ট, আইনগত বিষয় এবং বাস্তব শিক্ষার্থীদের পরীক্ষা শেষে মালিকের অনুমোদনে public launch করবে।
+`engjatra.pages.dev` ঠিকানাটি প্রস্তাবিত, সংরক্ষিত নয়। নিয়মিত কাজ সরাসরি `main`-এ হবে; পরীক্ষা ও push-এর পর একমাত্র GitHub Actions workflow production deploy ও যাচাই করবে। Account সেটআপ, আইনগত অনুমোদন ও বাস্তব login পরীক্ষা আলাদা দায়িত্ব। প্রকৃত deployment, auth, free limits, দ্বিভাষিক কনটেন্ট, আইনগত বিষয় এবং বাস্তব শিক্ষার্থীদের পরীক্ষা শেষে মালিকের অনুমোদনে public launch করবে।
 
-স্থায়ী সিদ্ধান্ত: Bangla-first UI, ছয়টি teaching track, আলাদা সুরক্ষিত admin, Cloudflare/Supabase Free, যাচাইকৃত free Gemma → স্বাধীন free Llama fallback। কোনো স্বয়ংক্রিয় paid upgrade, voice/upload বা certified CEFR দাবির ব্যবস্থা নেই। ব্যক্তিগত editorial status শুধু সুরক্ষিত admin database-এ থাকবে।
+স্থায়ী সিদ্ধান্ত: Bangla-first UI, ছয়টি teaching track, আলাদা সুরক্ষিত admin, Cloudflare Workers Static Assets/Supabase Free, যাচাইকৃত free Gemma → স্বাধীন free Llama fallback। কোনো স্বয়ংক্রিয় paid upgrade, voice/upload বা certified CEFR দাবির ব্যবস্থা নেই। ব্যক্তিগত editorial status শুধু সুরক্ষিত admin database-এ থাকবে।

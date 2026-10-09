@@ -44,7 +44,7 @@ A truly welcoming, fun, mobile-first **Bangla-language** path to learn English f
 - Queue reports, trace unit/version, revise content and publish explicit versioned updates, rollback, instant suspend critically wrong activities, moderation/audit trail. Monitor AI quota/free tier/storage/egress where observable.
 
 ## Business/operational constraints
-Free-user app on Cloudflare Pages + serverless Functions/Worker and Supabase Free. Static JSON/CDN for authored content, Supabase for auth/progress/history/admin. Choose transparent limits rather than unexpected paid fallbacks or data loss. Candidate `engjatra.pages.dev` (availability must be checked). App must be maintainable for future Codex/human developers. No ads, public student social network, file uploads, browser-run LLM, voice features, PDF analysis or paid tier in v1.
+Free-user app on Cloudflare Workers Static Assets + a separate API Worker and Supabase Free. Static JSON/CDN for authored content, Supabase for auth/progress/history/admin. Choose transparent limits rather than unexpected paid fallbacks or data loss. Actual account Worker origins must be verified. App must be maintainable for future Codex/human developers. No ads, public student social network, file uploads, browser-run LLM, voice features, PDF analysis or paid tier in v1.
 
 ## Outcomes that can be verified
 - Beginner completes first Bangla-guided English sentence with no complex setup.

@@ -1,4 +1,6 @@
 # Copy to workers/api/.dev.vars for credential-backed local testing. Never commit values.
+ENVIRONMENT=local
+LOCAL_DEMO=false
 SUPABASE_URL=
 SUPABASE_ANON_KEY=
 ALLOWED_ORIGINS=http://localhost:5173,http://localhost:5174

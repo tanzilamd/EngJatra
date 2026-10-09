@@ -1,9 +1,9 @@
 # Architecture & Data Contracts — EngJatra v1
 
 ## Choices (free-first; confirm live plan terms)
-- `apps/student-web`: React + Vite + TypeScript + Tailwind static SPA, Cloudflare Pages, route-safe redirects; content on Cloudflare CDN.
-- `apps/admin-web`: independently deployed Cloudflare Pages project with separate shell and privileged server-side data routes. Using the same auth tenant is okay only when protected by real claims/memberships, not security by hostname.
-- API: smallest sensible Cloudflare Pages Functions or Worker(s), used for AI router, privileged admin writes, usage counters, content correction/publish workflow. **Keep static asset paths out of Worker invocations** to conserve free daily request allowance.
+- `apps/student-web`: React + Vite + TypeScript + Tailwind static SPA, Cloudflare Workers Static Assets, config-defined SPA routing; content on Cloudflare CDN.
+- `apps/admin-web`: independently deployed Static Assets Worker with separate shell and privileged server-side data routes. Using the same auth tenant is okay only when protected by real claims/memberships, not security by hostname.
+- API: smallest sensible separate Cloudflare API Worker, used for AI router, privileged admin writes, usage counters, content correction/publish workflow. **Keep static asset paths out of Worker invocations** to conserve free daily request allowance.
 - Supabase Auth + Postgres for mutable user records; RLS throughout. Use small indexed queries; do not store authored lessons or copied static JSON in Postgres unless mutable exception demands it.
 - Auth flows and server AI proxy must work with documented authenticated JWT verification. A frontend-only role check is never sufficient.
 - Type-safe API boundaries and unit/contract versioning. Store editor drafts privately; build immutable public JSON when publishing. No surprise new paid services/queue products.
@@ -19,7 +19,7 @@ content/{source,units-public,reference}/
 brand/{logo-primary.svg,logo-mark.svg,logo-wordmark.svg,favicon.svg}/
 scripts/    .github/workflows/    docs/
 ```
-Cloudflare Pages supports monorepo builds and separate Pages apps with explicit build dirs/roots. Actual build command and output folder must be tested and described for both applications. Admin and student deployment can be two Cloudflare Pages projects for same repo. Never make admin data accessible through student runtime.
+The current deployment uses three explicit Worker targets and one main-triggered GitHub Actions workflow. Configs, build outputs, readiness and retention are documented in `docs/CREDENTIALS_AND_DEPLOYMENT.md`; Pages is not required. Static assets are served without invoking API code. Never make admin data accessible through student runtime.
 
 ## Data model (implement migrations + policies, don't just draw ERD)
 | Table | Typical keys/fields | Security/behavior |
@@ -49,7 +49,7 @@ Consider atomic checkpoint RPC/transaction, conflict monotonic revision and idem
 - Do **not** copy everything under `content/` automatically into a public folder. Use explicit allowlist/transformation with an automated fail-closed scan for fields such as `content_status`, `publication_status`, `human_review`, `review_status`, `admin_notes`, `verified_at`, `reviewer`, secret/auth tokens. Existing authored files are already stripped for handoff but assume future edits can reintroduce forbidden fields.
 - Public low-stakes quiz answers can appear in static JSON; explain they are not tamper-proof. High-stakes test scoring belongs on server when such product is requested.
 - Version individual units with stable ID + release. On updated content, advance manifest after checks; progress mappings should preserve IDs or provide explicit redirect/migration if semantics changed.
-- A pending editor patch in Supabase is NOT the same as a published static asset. Must have explicit staging/published state, merge safety and deploy confirmation. Provide manual reviewed export/PR creation path if a safe automatic GitHub publishing integration is unavailable; no phantom success.
+- A pending editor patch in Supabase is NOT the same as a published static asset. Must have explicit staging/published state, merge safety and deploy confirmation. Provide a reviewed public export/main-commit path if a safe automatic GitHub publishing integration is unavailable; no phantom success.
 - **Emergency hide**: learner content fetch checks a minimal authenticated or public-safe blocklist overlay (no private reasons/review labels), with cache TTL and invalidation plan. Suspended item not shown while respecting free-tier request caps; design pragmatic release/process.
 - Avoid full index/whole corpus fetch on startup, excessive image/media payload, secrets or admin-only flags in source maps/API errors.
 
@@ -71,8 +71,8 @@ Consider atomic checkpoint RPC/transaction, conflict monotonic revision and idem
 Implement a **local mock adapter** and deterministic seeded data for demonstrating every student feature and admin UI without real auth; admin testing role is labelled LOCAL DEV and not usable in production. In production missing auth/server secret MUST produce setup-required fail-closed state, not a local-admin bypass. Real Supabase interfaces compile and contract tests run even when live integration test cannot.
 
 ## External sources used for operational guidance
-- Cloudflare React deployment: https://developers.cloudflare.com/pages/framework-guides/deploy-a-react-site/
-- Cloudflare monorepos: https://developers.cloudflare.com/pages/configuration/monorepos/
-- Pages Functions free pricing: https://developers.cloudflare.com/pages/functions/pricing/
+- Cloudflare Worker static assets: https://developers.cloudflare.com/workers/static-assets/
+- Worker asset configuration: https://developers.cloudflare.com/workers/wrangler/configuration/#assets
+- Workers pricing/free limits: https://developers.cloudflare.com/workers/platform/pricing/
 - Supabase RLS: https://supabase.com/docs/guides/database/postgres/row-level-security
 - Supabase free project pausing: https://supabase.com/docs/guides/platform/free-project-pausing

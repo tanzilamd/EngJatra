@@ -42,6 +42,24 @@ for file in files:
         if name not in public_config:
             errors.append(f'{file.relative_to(ROOT)}: undocumented public configuration {name}')
 
+# Guard the actual environment references against inventory drift, including
+# dynamic Worker/provider fields declared in the interface/example files.
+inventory = (ROOT / 'docs/ENVIRONMENT_VARIABLES.md').read_text()
+source_paths = [ROOT / 'scripts', ROOT / 'packages', ROOT / 'apps', ROOT / 'workers']
+variables = set()
+for directory in source_paths:
+    for source in directory.rglob('*.ts*'):
+        if any(part in ('node_modules', 'dist', 'public') for part in source.parts):
+            continue
+        code = source.read_text()
+        variables.update(re.findall(r'process\.env\.([A-Z][A-Z0-9_]+)', code))
+        variables.update(re.findall(r'import\.meta\.env\.(VITE_[A-Z0-9_]+)', code))
+for example in ['.env.example', '.dev.vars.example', '.deploy.env.example']:
+    variables.update(re.findall(r'^([A-Z][A-Z0-9_]+)=', (ROOT / example).read_text(), re.M))
+for variable in variables:
+    if f'`{variable}`' not in inventory:
+        errors.append(f'environment inventory missing actual variable {variable}')
+
 for name in ['AGENTS.md', 'README.md', 'CONTRIBUTING.md', 'docs/STATUS.md',
              'docs/HANDOFF.md', 'docs/CREDENTIALS_AND_DEPLOYMENT.md']:
     if not (ROOT / name).is_file():

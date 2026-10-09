@@ -1,0 +1,36 @@
+# EngJatra — একবার সেটআপ, এরপর স্বয়ংক্রিয় প্রকাশ
+
+বর্তমান নিয়ম: Codex `main`-এ কাজ করবে, পরীক্ষা চালাবে, commit ও push করবে। এরপর GitHub Actions তিনটি Cloudflare Worker তৈরি/আপডেট করবে এবং প্রকাশিত ফাইল পরীক্ষা করবে। আর নিয়মিত PR, terminal বা dashboard build command বদলাতে হবে না। এই ব্যবস্থা রিপোতে তৈরি আছে; আপনার account-এর অনুমতি ও key না পাওয়ায় সত্যিকারের deployment এখনো যাচাই হয়নি।
+
+## একবার যা করবেন
+
+1. **Free account ও অনুমতি।** GitHub-এ `tanzilamd/EngJatra`, Cloudflare Free, Supabase Free ব্যবহার করুন। GitHub Settings → Actions → General-এ Actions চালু রাখুন। Codex-এর অনুমোদিত Git সংযোগে `main`-এ push অনুমতি থাকতে হবে; কোনো branch protection এড়িয়ে যাবেন না। GitHub-এর `production` environment-এ প্রতি deployment-এ approval চাইলে স্বয়ংক্রিয় workflow থামবে—নিজের নীতি অনুযায়ী ঠিক করুন।
+2. **Cloudflare নাম ও ঠিকানা।** Workers & Pages-এ নিজের workers.dev subdomain দেখুন। তিনটি নাম হবে: শিক্ষার্থী `engjatra`, প্রশাসন `engjatra-admin`, API `engjatra-api`। থাকা `engjatra` পুনর্ব্যবহার করা যাবে; সেটিকে API হিসেবে deploy করবেন না। অনুমোদিত token থাকলে script অনুপস্থিত Worker তৈরি করবে। URL নিজের account থেকে নেবেন; কোনো উদাহরণ ঠিকানা ব্যবহার করবেন না। এই তিনটির Settings → Builds-এ native Git automatic deployment বন্ধ/বিচ্ছিন্ন করুন; একমাত্র production trigger হবে GitHub Actions। Pages-এর আলাদা পর্দা দরকার নেই।
+3. **GitHub-এ প্রকাশের তথ্য।** Settings → Secrets and variables → Actions → Variables-এ দিন: `CLOUDFLARE_ACCOUNT_ID`, `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_API_URL`, `CONTENT_URL`, `ALLOWED_ORIGINS`। Supabase URL: `https://ahxhhasraganuqspfqer.supabase.co`; key নিন Supabase Settings → API Keys থেকে **publishable/anon** হিসেবে। `VITE_API_URL` API-এর origin; `CONTENT_URL` শিক্ষার্থীর origin; `ALLOWED_ORIGINS` হবে শিক্ষার্থী ও অ্যাডমিনের origin কমা দিয়ে। কোনো URL-এ শেষের `/` বা অতিরিক্ত path দেবেন না। Cloudflare Profile → API Tokens থেকে নিজের account-এর Workers Scripts Edit ও প্রয়োজনীয় account read-সহ সীমিত token তৈরি করে GitHub **Secrets**-এ `CLOUDFLARE_API_TOKEN` দিন। এটি Worker বা browser-এ দেবেন না। সম্পূর্ণ তালিকা `docs/ENVIRONMENT_VARIABLES.md`-এ আছে।
+4. **Supabase database ও admin।** SQL Editor-এ আগে schema/migration history দেখুন, প্রয়োজনীয় backup নিন। `supabase/migrations/202610090001_initial.sql` আগে প্রয়োগ করা থাকলে আবার চালাবেন না; শুধু অনুপস্থিত migration প্রয়োগ করুন। RLS বন্ধ করবেন না। নিজের Auth account-এর সঠিক UUID যাচাই করে protected SQL-এ `admin_memberships`-এ `owner` role দিন এবং audit লিখুন। কেবল email নাম দেখে admin বানাবেন না। বিস্তারিত নিরাপদ ধাপ `docs/CREDENTIALS_AND_DEPLOYMENT.md`-এ আছে।
+5. **Supabase login ও email।** Authentication → URL Configuration-এ Site URL হবে শিক্ষার্থীর আসল origin। Redirect allowlist-এ শিক্ষার্থী ও অ্যাডমিনের root, এবং প্রত্যেকটির `/?recovery=1` URL যোগ করুন। Authentication-এর Email provider-এ confirmation/recovery policy ঠিক করুন। Brevo-তে নিজের sender/domain verify করে SMTP & API থেকে SMTP login ও **SMTP key/password** নিন। Supabase Authentication → Email → SMTP settings-এ host `smtp-relay.brevo.com`, port `587`, verified sender, login ও password দিন। এটি Vite, Worker, Codex বা GitHub-এ SMTP variable হিসেবে দেবেন না। পরীক্ষার email সত্যিকারের inbox-এ পৌঁছেছে কি না দেখুন।
+6. **Google login চাইলে।** Google Cloud Console-এর OAuth/Google Auth Platform-এ web client, consent/privacy তথ্য ও প্রয়োজন হলে test user তৈরি করুন। Authorized redirect URI: `https://ahxhhasraganuqspfqer.supabase.co/auth/v1/callback`। Client ID ও Client Secret শুধু Supabase Authentication → Providers → Google-এ দিন। অ্যাপ নিজে Supabase হয়ে login করে; Google secret browser-এ লাগে না। প্রকৃত student/admin URL Supabase allowlist-এ থাকতে হবে। বাস্তব sign-in পরীক্ষা ছাড়া Google login কাজ করছে ধরে নেবেন না।
+7. **AI পরে চালু করতে পারবেন।** শুরুতে `GEMMA_FREE_CONFIRMED=false`, `LLAMA_FREE_CONFIRMED=false` রাখুন; সাধারণ পাঠ চলবে। AI Studio ও Groq-এর বর্তমান model, account-এর free quota ও privacy শর্ত যাচাই করুন। GitHub Variables-এ যাচাইকৃত `GEMMA_MODEL`/`LLAMA_MODEL`; GitHub Secrets-এ `GEMMA_API_KEY`/`LLAMA_API_KEY` দিন। সংশ্লিষ্ট free flag কেবল প্রমাণিত হলে true করুন। Workflow API Worker-এ এগুলো পাঠাবে। কোনো paid billing বা paid fallback চালু করবেন না।
+8. **প্রথম প্রকাশ ও পরীক্ষা।** সব তথ্য দেওয়ার পর GitHub Actions → QA and Production → Run workflow, branch `main` দিয়ে একবার চালান; পরের `main` push নিজেই চালাবে। লগে QA, deployment ও verification আলাদা দেখাবে। তিনটি Cloudflare overview URL খুলে student/admin, পাঠ, reload, email/recovery, Google login (চালু থাকলে), দুই account-এর progress/অনুমতি এবং AI fallback পরীক্ষা করুন। স্বয়ংক্রিয় পরীক্ষা সব unit hash, header, CORS ও anonymous denial দেখে; আপনার ব্যক্তিগত login/SMTP/Google/AI ফল বানিয়ে দেখায় না। public launch-এর আগে দ্বিভাষিক, আইনগত ও বাস্তব শিক্ষার্থীর পরীক্ষা সম্পন্ন করুন।
+
+Codex-এ key সংরক্ষণ করলেই Cloudflare/Supabase/GitHub-এ যায় না। গোপন তথ্য শুধু নির্দিষ্ট dashboard-এর secret field-এ দিন; chat, Git বা log-এ নয়। Codex-এর network draft নতুন host যোগ করে saved থাকলেও কার্যকর হতে review/publish প্রয়োজন।
+
+## Build-এর ভুলগুলো কেন আর হওয়ার কথা নয়
+
+রিপোর root `wrangler.jsonc` শিক্ষার্থীর `apps/student-web/dist`-কে assets হিসেবে চেনে। অ্যাডমিনের আলাদা config `apps/admin-web/dist`; API-এর নিজস্ব entry point আছে। তিনটিতেই একই compatibility date এবং আলাদা নাম আছে। Script সবসময় নির্দিষ্ট config ব্যবহার করে; automatic framework guessing বন্ধ থাকে। SPA routing config দিয়েই কাজ করে, Pages-এর catch-all rewrite লাগে না। Blank runtime value দিয়ে আপনার binding মুছে দেওয়া হয় না।
+
+স্বাভাবিকভাবে dashboard-এর build/deploy command ব্যবহার করবেন না। পুরোনো Builds সংযোগ শনাক্ত করার প্রয়োজন হলে নিচের **reference** দেখুন; এগুলো বিকল্প নিয়মিত trigger নয়:
+
+| লক্ষ্য | Build path | Build command | Deploy command |
+| --- | --- | --- | --- |
+| শিক্ষার্থী `engjatra` | রিপোর root | `npm ci && npm run content:export && npx vite build --config apps/student-web/vite.config.ts` | `npx tsx scripts/wrangler.ts deploy --config wrangler.jsonc --autoconfig=false` |
+| অ্যাডমিন `engjatra-admin` | রিপোর root | `npm ci && npm run content:export && npx vite build --config apps/admin-web/vite.config.ts` | `npx tsx scripts/wrangler.ts deploy --config apps/admin-web/wrangler.jsonc --autoconfig=false` |
+| API `engjatra-api` | রিপোর root | `npm ci` | `npx tsx scripts/wrangler.ts deploy --config workers/api/wrangler.toml --autoconfig=false --keep-vars` |
+
+Production branch সবক্ষেত্রে `main`; preview deployment এই workflow-তে চালু নেই। পুরোনো dashboard preview command থেকে production Worker deploy করবেন না।
+
+## ব্যর্থ হলে ও আগের সংস্করণে ফিরতে
+
+GitHub Actions-এর failed ধাপ দেখুন। Missing variable/secret হলে সংশ্লিষ্ট GitHub field পূরণ করুন; ভুল Worker name হলে config ও selected target মিলিয়ে দেখুন; anonymous database check ব্যর্থ হলে project/key/migration পরীক্ষা করুন, RLS বন্ধ নয়। native build একই target deploy করলে সেটি বন্ধ করুন। account access বা quota সমস্যায় paid upgrade করবেন না।
+
+আংশিক deployment হলে script সফল বলবে না। Cloudflare-এর প্রতিটি Worker → Deployments-এ শেষ ভালো version-এ rollback করুন এবং তিনটি সাইট/API আবার পরীক্ষা করুন। API secret/schema rollback স্বয়ংক্রিয় নয়; নিজের operational record মেনে চলুন। এরপর `main`-এ সমস্যার code ঠিক বা নিরাপদে revert করে push দিন—আগের code আবার force-push করবেন না। Actions শেষ verified student artifact ধরে পুরোনো content version রাখে; artifact হারিয়ে গেলে আগের approved artifact ফিরিয়ে না দিয়ে content মুছে publish করবে না।

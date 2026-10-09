@@ -1,8 +1,24 @@
-import { mkdir, writeFile, readFile, cp } from "node:fs/promises";
+import { mkdir, writeFile, readFile, cp, rm } from "node:fs/promises";
 import { join } from "node:path";
 import { bands } from "../packages/learning/engine";
 import { Library, Manifest } from "../packages/contracts/content";
 import { readJson, normalizeUnit, sha, scan } from "./content-tools";
+import { loadEnv } from "vite";
+const apiOrigin =
+  process.env.VITE_API_URL ??
+  loadEnv("production", process.cwd(), "VITE_API_URL").VITE_API_URL;
+if (
+  apiOrigin &&
+  (new URL(apiOrigin).protocol !== "https:" ||
+    new URL(apiOrigin).origin !== apiOrigin)
+)
+  throw Error("VITE_API_URL must be an HTTPS origin without a path");
+const headers = (
+  await readFile("scripts/security-headers.txt", "utf8")
+).replace(
+  "https://*.workers.dev;",
+  `https://*.workers.dev${apiOrigin ? ` ${apiOrigin}` : ""};`,
+);
 const source = async (name: string) =>
   await readJson(`content/source/${name}.json`);
 const groups = (await source("level_groups")) as {
@@ -78,11 +94,8 @@ for (const app of ["student-web", "admin-web"]) {
   const dest = join("apps", app, "public");
   await mkdir(`${dest}/brand`, { recursive: true });
   await cp("brand", `${dest}/brand`, { recursive: true });
-  await writeFile(`${dest}/_redirects`, "/* /index.html 200\n");
-  await writeFile(
-    `${dest}/_headers`,
-    await readFile("scripts/security-headers.txt", "utf8"),
-  );
+  await rm(`${dest}/_redirects`, { force: true });
+  await writeFile(`${dest}/_headers`, headers);
 }
 console.log("Exported 96 validated units and six segmented libraries.");
 

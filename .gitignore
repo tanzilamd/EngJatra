@@ -18,3 +18,7 @@ test-results/
 
 apps/*/public/
 .wrangler/
+
+.deploy.env
+.deploy.env.*
+!.deploy.env.example
