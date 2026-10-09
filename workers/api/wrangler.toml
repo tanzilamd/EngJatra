@@ -3,6 +3,11 @@ main = "src/index.ts"
 compatibility_date = "2026-10-09"
 workers_dev = true
 keep_vars = true
+[observability]
+enabled = true
+head_sampling_rate = 0.1
+[observability.logs]
+invocation_logs = false
 [vars]
 ENVIRONMENT = "production"
 LOCAL_DEMO = "false"

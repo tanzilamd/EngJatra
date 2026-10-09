@@ -250,3 +250,38 @@ it("checkpoint stores only minimal attempts; writing outcome stays ungraded", as
     expect(rows.rows).toEqual([{ outcome: null }]);
   });
 });
+
+it("operator checksum bootstrap preserves learner data and denies anonymous/authenticated access", async () => {
+  const before = (
+    await db.query(
+      "select user_id,revision,state from public.learner_paths order by user_id",
+    )
+  ).rows;
+  await db.exec(
+    readFileSync(
+      "supabase/operations/migration_checksums_bootstrap.sql",
+      "utf8",
+    ),
+  );
+  await db.query(
+    "insert into engjatra_ops.migration_checksums(version,sha256) values($1,$2)",
+    ["202610090001", "a".repeat(64)],
+  );
+  for (const role of ["anon", "authenticated"]) {
+    await db.exec(`set role ${role}`);
+    try {
+      await expect(
+        db.query("select * from engjatra_ops.migration_checksums"),
+      ).rejects.toThrow();
+    } finally {
+      await db.exec("reset role");
+    }
+  }
+  expect(
+    (
+      await db.query(
+        "select user_id,revision,state from public.learner_paths order by user_id",
+      )
+    ).rows,
+  ).toEqual(before);
+});

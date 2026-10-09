@@ -8,6 +8,7 @@ import {
 } from "../../../packages/contracts/api";
 import { Unit, unitId, Manifest } from "../../../packages/contracts/content";
 import { routeTutor } from "./ai";
+import { logServerFailure } from "./observability";
 import {
   authenticate,
   authorize,
@@ -628,6 +629,7 @@ export async function handle(
     throw new HttpError(404, "NOT_FOUND");
   } catch (e) {
     if (e instanceof z.ZodError) return json({ error: "INVALID_REQUEST" }, 400);
+    logServerFailure(e, url.pathname);
     if (e instanceof HttpError)
       return json({ error: e.code, ...e.extra }, e.status);
     return json({ error: "SERVICE_UNAVAILABLE" }, 503);

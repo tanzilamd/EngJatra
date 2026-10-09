@@ -149,11 +149,23 @@ export async function cloudRequest(
   path: string,
   network: Network = fetch,
 ) {
-  const response = await get(
-    `https://api.cloudflare.com/client/v4/accounts/${config.account}${path}`,
-    network,
-    { headers: { Authorization: `Bearer ${config.token}` } },
-  );
+  let response: Response | undefined;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    response = await network(
+      `https://api.cloudflare.com/client/v4/accounts/${config.account}${path}`,
+      {
+        headers: { Authorization: `Bearer ${config.token}` },
+        redirect: "error",
+        signal: AbortSignal.timeout(15000),
+      },
+    );
+    if (![502, 503, 504].includes(response.status) || attempt === 2) break;
+    await new Promise<void>((done) => setTimeout(done, 500));
+  }
+  if (!response?.ok)
+    throw Error(
+      `Cloudflare read-only verification HTTP ${response?.status ?? "unknown"}; no deployment success is claimed`,
+    );
   const result = (await response.json()) as {
     success: boolean;
     result: unknown;
@@ -164,31 +176,43 @@ export async function cloudRequest(
     );
   return result.result;
 }
+export async function verifyWorkerVersion(
+  config: DeploymentConfig,
+  name: string,
+  sha: string,
+  network: Network = fetch,
+) {
+  const deployment = (await cloudRequest(
+    config,
+    `/workers/scripts/${name}/deployments`,
+    network,
+  )) as {
+    deployments?: { versions?: { version_id: string; percentage: number }[] }[];
+  };
+  const current = deployment?.deployments?.[0]?.versions;
+  if (
+    !current ||
+    current.length !== 1 ||
+    current[0].percentage !== 100 ||
+    !current[0].version_id
+  )
+    throw Error(`${name}: expected a single active production version`);
+  const version = (await cloudRequest(
+    config,
+    `/workers/scripts/${name}/versions/${current[0].version_id}`,
+    network,
+  )) as { annotations?: Record<string, string> };
+  if (version?.annotations?.["workers/tag"] !== sha)
+    throw Error(`${name}: active version is not tagged with this commit`);
+  return current[0].version_id;
+}
 export async function verifyVersions(
   config: DeploymentConfig,
   sha: string,
   network: Network = fetch,
 ) {
   const result: Record<string, string> = {};
-  for (const name of ["engjatra-api", "engjatra", "engjatra-admin"]) {
-    const deployment = (await cloudRequest(
-      config,
-      `/workers/scripts/${name}/deployments`,
-      network,
-    )) as {
-      deployments: { versions: { version_id: string; percentage: number }[] }[];
-    };
-    const current = deployment.deployments[0]?.versions;
-    if (!current || current.length !== 1 || current[0].percentage !== 100)
-      throw Error(`${name}: expected a single active production version`);
-    const version = (await cloudRequest(
-      config,
-      `/workers/scripts/${name}/versions/${current[0].version_id}`,
-      network,
-    )) as { annotations?: Record<string, string> };
-    if (version.annotations?.["workers/tag"] !== sha)
-      throw Error(`${name}: active version is not tagged with this commit`);
-    result[name] = current[0].version_id;
-  }
+  for (const name of ["engjatra-api", "engjatra", "engjatra-admin"])
+    result[name] = await verifyWorkerVersion(config, name, sha, network);
   return result;
 }

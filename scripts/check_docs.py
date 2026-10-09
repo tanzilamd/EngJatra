@@ -56,6 +56,13 @@ for directory in source_paths:
         variables.update(re.findall(r'import\.meta\.env\.(VITE_[A-Z0-9_]+)', code))
 for example in ['.env.example', '.dev.vars.example', '.deploy.env.example']:
     variables.update(re.findall(r'^([A-Z][A-Z0-9_]+)=', (ROOT / example).read_text(), re.M))
+# Include root QA configs and workflow expressions, not only application folders.
+for source in list(ROOT.glob('*.ts')) + list((ROOT / '.github/workflows').glob('*.yml')):
+    code = source.read_text()
+    variables.update(re.findall(r'process\.env\.([A-Z][A-Z0-9_]+)', code))
+    variables.update(re.findall(r'(?:secrets|vars|env)\.([A-Z][A-Z0-9_]+)', code))
+worker_types = (ROOT / 'workers/api/src/types.ts').read_text().split('export interface Env {', 1)[1].split('}', 1)[0]
+variables.update(re.findall(r'^\s+([A-Z][A-Z0-9_]+)\??:', worker_types, re.M))
 for variable in variables:
     if f'`{variable}`' not in inventory:
         errors.append(f'environment inventory missing actual variable {variable}')

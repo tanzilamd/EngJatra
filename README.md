@@ -54,3 +54,9 @@ Routine work uses `main`: fetch/sync, preserve unrelated changes, implement, run
 [Environment inventory](docs/ENVIRONMENT_VARIABLES.md) maps every value to its correct dashboard. [Simple Bangla setup](docs/DEPLOYMENT_SIMPLE_BN.md) is the consolidated owner checklist. `npm run deploy:check` validates readiness without publishing; `npm run deploy:check -- --offline` validates built local configs/assets/compilation without credentials. `npm run deploy:all` requires configuration, current QA, retained content baseline and main, then deploys and verifies. `npm run deploy:verify` is a read-only artifact/security check. Production secrets are uploaded additively and never sent to static sites. No build command applies Supabase migrations.
 
 The workflow and scripts are implemented; actual account linkage, secrets, free eligibility and live deployment remain unverified until accessible. Missing inputs fail visibly rather than pretend production success.
+
+## Autonomous maintenance
+
+[Maintenance and permissions](docs/AUTONOMOUS_MAINTENANCE.md) covers daily read-only production verification, sampled privacy-safe API diagnostics, deployment holds and checksum-based migration planning. `db:check` is part of QA; `db:plan`/`db:audit` never apply SQL. Monitoring uses archived verified releases and defers during active deployments.
+
+Cloudflare gateway failures use bounded read-only version reconciliation; `npm run deploy:recover` verifies configured artifacts without publishing. The complete autonomous access/configuration table is in `docs/ENVIRONMENT_VARIABLES.md`.

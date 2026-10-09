@@ -20,7 +20,7 @@
     "test:e2e": "playwright test",
     "build": "npm run content:export && vite build --config apps/student-web/vite.config.ts && vite build --config apps/admin-web/vite.config.ts && tsx scripts/wrangler.ts deploy --config workers/api/wrangler.toml --autoconfig=false --dry-run --outdir dist/worker && tsx scripts/scan-build.ts",
     "build:demo": "npm run content:export && vite build --config apps/student-web/vite.config.ts --mode demo && vite build --config apps/admin-web/vite.config.ts --mode demo",
-    "qa": "node --import tsx scripts/qa-proof.ts begin && npm run content:export && npm run test:docs && npm run lint && npm run typecheck && npm run test:content && npm test && npm run test:e2e && npm run build && npm run test:production && npm run test:deployment && npm run test:release && node --import tsx scripts/qa-proof.ts finish",
+    "qa": "node --import tsx scripts/qa-proof.ts begin && npm run content:export && npm run test:docs && npm run db:check && npm run lint && npm run typecheck && npm run test:content && npm test && npm run test:e2e && npm run build && npm run test:production && npm run test:deployment && npm run test:release && node --import tsx scripts/qa-proof.ts finish",
     "smoke:live": "node --use-env-proxy --import tsx scripts/smoke-live.ts",
     "release:export": "tsx scripts/release.ts",
     "format": "prettier --write apps packages workers scripts tests supabase/tests *.ts *.js *.json *.jsonc",
@@ -33,7 +33,14 @@
     "deploy:check": "node --use-env-proxy --import tsx scripts/deploy.ts check",
     "deploy:all": "node --use-env-proxy --import tsx scripts/deploy.ts all",
     "deploy:verify": "node --use-env-proxy --import tsx scripts/deploy.ts verify",
-    "test:deployment": "playwright test --config playwright.deployment.config.ts"
+    "test:deployment": "playwright test --config playwright.deployment.config.ts",
+    "monitor:select": "node --use-env-proxy --import tsx scripts/maintenance.ts select",
+    "monitor:check": "node --use-env-proxy --import tsx scripts/maintenance.ts check",
+    "maintenance:push-check": "node --use-env-proxy --import tsx scripts/maintenance.ts push-check",
+    "db:check": "tsx scripts/migrations.ts check",
+    "db:plan": "node --use-env-proxy --import tsx scripts/migrations.ts plan",
+    "db:audit": "node --use-env-proxy --import tsx scripts/migrations.ts audit",
+    "deploy:recover": "node --use-env-proxy --import tsx scripts/deploy.ts recover"
   },
   "dependencies": {
     "@fontsource/hind-siliguri": "^5.3.0",

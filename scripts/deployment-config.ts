@@ -213,6 +213,11 @@ export function apiConfiguration(config: DeploymentConfig) {
     compatibility_date: compatibilityDate,
     workers_dev: true,
     keep_vars: true,
+    observability: {
+      enabled: true,
+      head_sampling_rate: 0.1,
+      logs: { invocation_logs: false },
+    },
     vars: {
       ENVIRONMENT: "production",
       LOCAL_DEMO: "false",

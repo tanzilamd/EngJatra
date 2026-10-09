@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-10 — Autonomous maintenance preparation
+
+Added daily read-only production monitoring against archived verified artifacts, active-deployment publishing/probe guards, privacy-safe sampled API error diagnostics, migration checksums/read-only metadata audits and review-only SQL planning. Added least-privilege connection audit and durable maintenance instructions; tested PostgreSQL private checksum metadata without changing learner data. No live SQL, job cancellation/rerun, credential rotation, paid service or UI redesign.
+
 ## 2026-10-09 — Repository maintenance handoff
 
 Removed the two completed build prompts after reviewing and preserving their enduring guidance. Updated `AGENTS.md` for incremental maintenance, Git safety, operational continuity and evidence-based completion reports. Replaced the obsolete Bangla bootstrap guide, corrected the old public Supabase binding name, and labelled original build milestones and package QA as historical. Added local documentation consistency checks to root QA and CI. Application features, UI, teaching data and branding are unchanged.
@@ -17,3 +21,5 @@ Added content/schema/key and public artifact scans, local PostgreSQL RLS tests, 
 Added explicit student/admin Static Assets configs and kept API logically separate. Fixed missing assets directory, matching names/date, SPA handling, disabled autoconfiguration, and removed blank API binding defaults with preserve-vars. Added real readiness/deploy/verify commands, current-source QA proof, protected additive secrets, remote preflight and commit/artifact/security verification; retain previous immutable content through verified artifacts. Added main-only serialized QA/deploy Actions workflow, actual local Wrangler browser coverage, deployment configuration/security regressions and automatic custom API CSP.
 
 Added authoritative environment/external dashboard inventory and concise Bengali one-time setup guide; revised permanent docs for owner-authorized main-only workflow and Workers hosting. Supabase Auth/RLS, student/admin UI, learning source and branding remain intact. No credentials, production deployment, migration application, OAuth/SMTP/AI integration or free account eligibility are fabricated.
+
+- Added bounded read-only Cloudflare gateway retries and commit-tag acceptance reconciliation, safe failure diagnostics and a non-publishing recovery command. Consolidated all project/runtime variables, external credential destinations and least-privilege maintenance access into the authoritative environment inventory. Original live 504 cause remains unverified without request logs/account access.

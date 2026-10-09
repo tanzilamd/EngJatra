@@ -59,3 +59,11 @@ Read `README.md`, `docs/STATUS.md`, `docs/HANDOFF.md`, and `docs/DECISIONS.md` b
 
 ## No false completion
 "Code complete" != "externally integrated" != "production verified" != "educationally certified". Distinguish these in every completion report. Never request private keys pasted into GitHub chat/code/logs; use documented secret configuration.
+
+## Autonomous maintenance and deployment holds
+- Read `docs/AUTONOMOUS_MAINTENANCE.md` before service administration. Verify actual identity/binding readiness and API scope; repository admin metadata does not prove settings permissions. Never replace managed bootstrap auth or print credentials.
+- During an owner deployment/push hold, prepare/test locally. Do not push, cancel/rerun jobs, apply SQL, rotate bindings or start competing deployments. Run `npm run maintenance:push-check` immediately before an allowed push; inspect relevant native jobs when accessible. A read denial is not idle proof. Respect newer owner holds and preserve remote work.
+- Monitoring is read-only with separate concurrency. Verify archived successful production receipt/SHA, not newest main. Missing/deferred/unconfigured evidence is never healthy-production proof. Use redacted GitHub annotations/native failure notifications; no paid vendor or AI calls. Keep API logs coarse; preserve sampling/invocation policy in both configs and recheck Free terms before activation.
+- QA includes `npm run db:check`. SQL/hashes stay append-only. `db:plan` prepares review bundles and `db:audit` reads catalog/history/checksums; neither applies SQL. Reconcile unknown/untracked/changed history, never initial replay/fake hashes. Before writes verify live project/history/backups, authorized review and fresh/upgrade/negative RLS tests. Never expose the private checksum schema or management token.
+
+- For Cloudflare 502/503/504, distinguish timeout from rejection. Use bounded read-only reconciliation and `npm run deploy:recover`; never repeat uploads or revert learner data based on an uncertain response. Require final artifact/all-target checks. The consolidated setup/access table in `docs/ENVIRONMENT_VARIABLES.md` distinguishes CI readiness from actual runtime bindings and unverified dashboard state.

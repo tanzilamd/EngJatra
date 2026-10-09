@@ -9,6 +9,8 @@ export function redactLog(
     "SUPABASE_ANON_KEY",
     "VITE_SUPABASE_ANON_KEY",
     "GH_TOKEN",
+    "GITHUB_TOKEN",
+    "SUPABASE_ACCESS_TOKEN",
     "ENGJATRA_SMOKE_TOKEN",
   ]) {
     for (const value of env[name]?.split(/\r?\n/) ?? [])

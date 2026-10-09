@@ -18,6 +18,7 @@ import {
 } from "./deployment-verify";
 import { preserveContent } from "./deployment-artifacts";
 import { proofCurrent, commit } from "./qa-proof";
+import { publishWithRecovery } from "./deployment-recovery";
 import { redactLog } from "./redact-log";
 for (const file of [".env", ".deploy.env"])
   if (existsSync(file)) process.loadEnvFile(file);
@@ -128,7 +129,13 @@ async function main() {
     );
     return;
   }
-  if (mode === "verify") {
+  if (mode === "verify" || mode === "recover") {
+    if (mode === "recover") {
+      console.log(
+        "Read-only recovery: no upload, secret mutation, rollback or SQL execution",
+      );
+      await artifacts();
+    }
     await verifySupabase(config);
     const versions = await verifyVersions(config, commit());
     await verifySites(config);
@@ -143,7 +150,7 @@ async function main() {
     );
     return;
   }
-  if (mode !== "all") throw Error("Use check, all, or verify");
+  if (mode !== "all") throw Error("Use check, all, verify, or recover");
   const branch = execFileSync("git", ["branch", "--show-current"], {
     encoding: "utf8",
   }).trim();
@@ -221,28 +228,32 @@ async function main() {
   const staged = await stage(config);
   try {
     const version = commit();
-    await wrangler([
-      "deploy",
-      "--config",
-      staged.api,
-      "--autoconfig=false",
-      "--keep-vars",
-      "--strict",
-      "--tag",
-      version,
-      "--secrets-file",
-      staged.secrets,
-    ]);
-    for (const target of targets.filter((target) => target.service !== "api"))
-      await wrangler([
+    await publishWithRecovery(config, "engjatra-api", version, () =>
+      wrangler([
         "deploy",
         "--config",
-        target.config,
+        staged.api,
         "--autoconfig=false",
+        "--keep-vars",
         "--strict",
         "--tag",
         version,
-      ]);
+        "--secrets-file",
+        staged.secrets,
+      ]),
+    );
+    for (const target of targets.filter((target) => target.service !== "api"))
+      await publishWithRecovery(config, target.name, version, () =>
+        wrangler([
+          "deploy",
+          "--config",
+          target.config,
+          "--autoconfig=false",
+          "--strict",
+          "--tag",
+          version,
+        ]),
+      );
     const versions = await verifyVersions(config, version);
     await verifySites(config);
     await writeFile(
