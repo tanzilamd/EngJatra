@@ -1,0 +1,32 @@
+name: QA
+on: [push, pull_request]
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npx playwright install --with-deps chromium
+      - run: npm run lint && npm run typecheck && npm run content:export && npm run test:content && npm test
+      - run: npm run test:e2e
+        env:
+          CHROMIUM_PATH: ''
+      - run: npm run build
+      - run: npm run test:production
+        env:
+          CHROMIUM_PATH: ''
+      - run: npm run test:release
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: qa-evidence
+          path: |
+            playwright-report/
+            test-results/

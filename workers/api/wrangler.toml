@@ -1,0 +1,13 @@
+name = "engjatra-api"
+main = "src/index.ts"
+compatibility_date = "2026-10-09"
+[vars]
+ENVIRONMENT = "production"
+ALLOWED_ORIGINS = ""
+SUPABASE_URL = ""
+SUPABASE_ANON_KEY = ""
+CONTENT_URL = ""
+GEMMA_FREE_CONFIRMED = "false"
+LLAMA_FREE_CONFIRMED = "false"
+GEMMA_MODEL = ""
+LLAMA_MODEL = ""
