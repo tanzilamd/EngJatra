@@ -17,6 +17,10 @@ import {
 // identities are mutated/deleted; no existing learner or owner role is touched.
 await mkdir(".wrangler", { recursive: true });
 const reportPath = ".wrangler/live-auth.local.json";
+const mobile = process.argv.includes("--mobile");
+const learnerViewport = mobile
+  ? { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }
+  : {};
 if (!process.env.SUPABASE_ACCESS_TOKEN) {
   const report = {
     status: "NOT VERIFIED",
@@ -252,7 +256,7 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     checks.push(
       "real provider recovery token/password replacement and password relogin for disposable fixture; no recovery email delivery claim",
     );
-    const context = await browser.newContext();
+    const context = await browser.newContext(learnerViewport);
     const page = await context.newPage();
     phase = "learner login and first lesson";
     diagnosticPage = page;
@@ -296,7 +300,7 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     checks.push(
       "real password login, six tracks/96 links, lesson navigation and Worker/Supabase step-one persistence",
     );
-    const secondContext = await browser.newContext();
+    const secondContext = await browser.newContext(learnerViewport);
     const restored = await secondContext.newPage();
     phase = "fresh-context progress restore";
     diagnosticPage = restored;
@@ -506,6 +510,7 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
           "real two-turn contextual production conversation accepts the already-valid authored follow-up and renders bilingual coaching; no private/session text sent to provider",
         );
       } else {
+        phase = "authenticated regional denial and authored continuation";
         await expect(
           restored.getByText(messages.AI_REGION_UNAVAILABLE, { exact: true }),
         ).toBeVisible();
@@ -800,6 +805,9 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     const report = {
       status: process.exitCode ? "FAILED" : "VERIFIED",
       phase,
+      browser_mode: mobile
+        ? "390px touch Chromium emulation"
+        : "desktop Chromium",
       checks,
       created_fixtures: fixtures.length,
       deleted_fixtures: deleted,

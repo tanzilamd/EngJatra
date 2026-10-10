@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import { initialProgress } from "../../packages/contracts/api";
+import { validateProductionTutor } from "../../scripts/live-ai-result";
+import { initialProgress, messages } from "../../packages/contracts/api";
 async function start(
   page: import("@playwright/test").Page,
   request: import("@playwright/test").APIRequestContext,
@@ -490,4 +491,44 @@ test("switching saved threads and browser history never promotes the previous ch
   await expect(
     page.getByRole("log").getByText("Second saved practice.", { exact: true }),
   ).toBeVisible();
+});
+
+test("regional denial remains an exact accessible message with authored continuation and no fake inference", async ({
+  page,
+  request,
+}) => {
+  await start(page, request);
+  const unit = await (
+    await request.get("http://localhost:5173/content/3.0.13/P0/P0-01.json")
+  ).json();
+  const denied = {
+    error: "AI_REGION_UNAVAILABLE",
+    fallback_activity: unit.exercises[0].id,
+    country: "US",
+  };
+  await page.route("**/api/ai/tutor", (route) =>
+    route.fulfill({ json: denied }),
+  );
+  await page.getByRole("checkbox", { name: /আমার বয়স অন্তত ১৮ বছর/ }).check();
+  const input = page.getByLabel("তোমার ইংরেজি উত্তর");
+  await input.fill("I goes to the market.");
+  const received = page.waitForResponse(
+    (r) => r.url().endsWith("/api/ai/tutor") && r.request().method() === "POST",
+  );
+  await page.getByRole("button", { name: "উত্তর পাঠাই", exact: true }).click();
+  const result = validateProductionTutor(await (await received).json(), "BD");
+  expect(result).toMatchObject({
+    inference_verified: false,
+    regional_denial_verified: true,
+    country: "US",
+  });
+  await expect(
+    page.getByText(messages.AI_REGION_UNAVAILABLE, { exact: true }),
+  ).toBeVisible();
+  await expect(input).toHaveValue("I goes to the market.");
+  await expect(page.getByRole("log").locator("article")).toHaveCount(0);
+  await page
+    .getByRole("button", { name: "AI ছাড়া শেখা চালিয়ে যাই", exact: true })
+    .click();
+  await expect(page).toHaveURL(/\/learn$/);
 });

@@ -301,7 +301,7 @@ export function ChatPanel({
       )}
       {chat.error && (
         <Notice error>
-          {chat.error}
+          <span>{chat.error}</span>
           {onLearn && (
             <button className="small" onClick={onLearn}>
               AI ছাড়া শেখা চালিয়ে যাই
