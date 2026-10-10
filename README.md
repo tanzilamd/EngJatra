@@ -45,7 +45,7 @@ Public assets are generated into ignored `apps/*/public` and `apps/*/dist`; neve
 
 ## Current status and production
 
-See [STATUS](docs/STATUS.md) for exact evidence and remaining external gates, [HANDOFF](docs/HANDOFF.md) for architecture, and [CREDENTIALS_AND_DEPLOYMENT](docs/CREDENTIALS_AND_DEPLOYMENT.md) for operator activation. The [Student Website](https://engjatra.nuvomi.workers.dev), [Admin Panel](https://engjatra-admin.nuvomi.workers.dev) and [API health endpoint](https://engjatra-api.nuvomi.workers.dev/api/health) are public. Controlled live password-login/progress/RLS checks passed; current release and complete browser evidence are tracked in STATUS. Real email/Google delivery, account-specific free AI eligibility, legacy migration history and independent learner/editorial/legal verification remain separate gates. The app does not claim certification or unlimited free access.
+See [STATUS](docs/STATUS.md) for exact evidence and remaining external gates, [HANDOFF](docs/HANDOFF.md) for architecture, and [CREDENTIALS_AND_DEPLOYMENT](docs/CREDENTIALS_AND_DEPLOYMENT.md) for operator activation. The [Student Website](https://engjatra.nuvomi.workers.dev), [Admin Panel](https://engjatra-admin.nuvomi.workers.dev) and [API health endpoint](https://engjatra-api.nuvomi.workers.dev/api/health) are public. Controlled live password-login/progress/offline/admin/RLS and two actual contextual Google Gemma turns passed under the approved adult Bangladesh-only/free-processing scope. Published teaching 3.0.13 includes examples for all 932 canonical vocabulary senses, with all 96 units/answers and prior releases preserved. Current functional checkpoint and complete browser evidence are tracked in STATUS. Actual inbox delivery/Google consent, physical installation, legacy migration/restore provenance and independent learner/editorial/legal verification remain separate gates. The app does not claim certification or unlimited free access.
 
 ## Main and automatic production deployment
 
@@ -53,7 +53,7 @@ Routine work uses `main`: fetch/sync, preserve unrelated changes, implement, run
 
 [Environment inventory](docs/ENVIRONMENT_VARIABLES.md) maps every value to its correct dashboard. [Simple Bangla setup](docs/DEPLOYMENT_SIMPLE_BN.md) is the consolidated owner checklist. `npm run deploy:check` validates readiness without publishing; `npm run deploy:check -- --offline` validates built local configs/assets/compilation without credentials. `npm run deploy:all` requires configuration, current QA, retained content baseline and main, then deploys and verifies. `npm run deploy:verify` is a read-only artifact/security check. Production secrets are uploaded additively and never sent to static sites. No build command applies Supabase migrations.
 
-The workflow and scripts are implemented; actual account linkage, secrets, free eligibility and live deployment remain unverified until accessible. Missing inputs fail visibly rather than pretend production success.
+The configured pipeline, existing protected bindings and all three live targets are verified at the dated functional checkpoint in STATUS. Recheck actual access and active SHA after an environment restart or new release; Codex secrets are not automatically copied elsewhere. Missing inputs or unsafe publication state fail visibly rather than pretend production success.
 
 ## Autonomous maintenance
 
