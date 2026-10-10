@@ -32,23 +32,23 @@ The local mock service is intentionally ephemeral and distinct from a real Supab
 
 All mutation JSON is bounded and schema-validated. Authentication uses bearer sessions, allowed origins and no cookie-based admin authority.
 
-| Endpoint | Access / behavior |
-| --- | --- |
-| `/api/health` | Public availability marker, no credentials |
-| `/api/content/blocked` | Minimal public item ID list; actor columns are not granted publicly |
-| `/api/learning/snapshot` | Authenticated current revision and personal state |
-| `/api/learning/checkpoint` | Authenticated bounded revision/idempotency transaction; 409 includes own server snapshot |
-| `/api/reports` | Own report; ten per hour in DB; staff resolution is audited |
-| `/api/ai/tutor` | Own authenticated unit-scoped text, bounded free-only routing and authored fallback |
-| `/api/history` | Own paginated history; DELETE removes own optional chats |
-| `/api/history/:id` | Own bounded messages; cross-account filter + RLS |
-| `/api/account/export` | Own personal tables only; no editorial records |
-| `/api/admin/session`, `/overview`, `/drafts`, `/content` | DB role required |
-| `/api/admin/draft`, `/review`, `/report` | Explicit editor/reviewer role and revision validation |
-| `/api/admin/block`, `/release`, `/rollback` | Admin/owner only; audited |
-| `/api/admin/export` | Editor+; strict public-safe patch artifact, no notes/status |
-| `/api/admin/verify` | Admin/owner; four batches verify manifest plus 24 unit hashes each |
-| `/api/admin/support` | Admin/owner; minimal profile ID/alias only, no learner chat |
+| Endpoint                                                 | Access / behavior                                                                        |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `/api/health`                                            | Public availability marker, no credentials                                               |
+| `/api/content/blocked`                                   | Minimal public item ID list; actor columns are not granted publicly                      |
+| `/api/learning/snapshot`                                 | Authenticated current revision and personal state                                        |
+| `/api/learning/checkpoint`                               | Authenticated bounded revision/idempotency transaction; 409 includes own server snapshot |
+| `/api/reports`                                           | Own report; ten per hour in DB; staff resolution is audited                              |
+| `/api/ai/tutor`                                          | Own authenticated unit-scoped text, bounded free-only routing and authored fallback      |
+| `/api/history`                                           | Own paginated history; DELETE removes own optional chats                                 |
+| `/api/history/:id`                                       | Own bounded messages; cross-account filter + RLS                                         |
+| `/api/account/export`                                    | Own personal tables only; no editorial records                                           |
+| `/api/admin/session`, `/overview`, `/drafts`, `/content` | DB role required                                                                         |
+| `/api/admin/draft`, `/review`, `/report`                 | Explicit editor/reviewer role and revision validation                                    |
+| `/api/admin/block`, `/release`, `/rollback`              | Admin/owner only; audited                                                                |
+| `/api/admin/export`                                      | Editor+; strict public-safe patch artifact, no notes/status                              |
+| `/api/admin/verify`                                      | Admin/owner; four batches verify manifest plus 24 unit hashes each                       |
+| `/api/admin/support`                                     | Admin/owner; minimal profile ID/alias only, no learner chat                              |
 
 ## AI
 
@@ -75,8 +75,15 @@ QA fingerprints the tested commit/source. A deploy requires current proof (rerun
 The API fetches public teaching assets from the student Worker. Both checked-in and generated API Wrangler configurations require `global_fetch_strictly_public`; otherwise Cloudflare can route same-zone fetches away from the target Worker or reject them (documented error 1042). Readiness rejects a missing flag. This uses the existing public static origin, adds no secret/service, and preserves all staff/Auth/CORS checks. Protected preview must be tested live; a publicly reachable JSON URL alone does not prove Worker-to-Worker transport.
 
 ## Launch Auth and provider verification
+
 The public Auth view paints before the asynchronously initialized, single Supabase SDK client is ready; actions stay disabled with a connection status. Stored sessions and token callbacks remain behind the session loader. The SW precaches both root lazy imports (workspace and SDK) and registers after load/idle, with a bounded fallback. Never add another client/subscription or lose SDK caching on offline reload.
 
 Email/password confirmation is provider-enforced and checked in frontend/server defense in depth. Pending signup clears the password, offers resend with a 60-second **local request pace** (not a claimed provider reset), generic 429/failure feedback and email correction. Google uses Supabase's provider-confirmed email and needs no separate mail. Callback errors show safe expiry/reuse guidance; password recovery updates through the provider, then explicitly signs out locally and returns to login. `supabase/templates/` contains branded Bengali mail templates; `auth:audit -- --apply-templates` is a narrow operator configuration update, not proof of delivery.
 
 `ai:check` runs in the existing deployment job, reads configured Gemma model metadata with the existing masked Actions secret and archives only safe booleans/model/status. It never generates while eligibility is disabled and cannot read account billing/quota ownership from metadata. It creates no competing publisher. Current Google terms and free processing disclosures are in AI_TUTOR and SECURITY_PRIVACY.
+
+## Resume after launch hardening
+
+Code `6ba21340ec696e6f0283164dec08effc76eb9c8a` deployed successfully in Actions 38038409096. Independent live artifact/public-browser/controlled Auth tests passed; two fixture users were deleted. Startup performance and exact remaining external gates are in STATUS. Google-hosted Gemma remains disabled for the confirmed mixed-age audience; keep Google AI Studio, do not migrate.
+
+Teaching supplements now use append-only `content/releases/`, through the existing build/publisher/retained-artifact guard. Original 3.0.0 assets survive; 3.0.1 adds 36 translations, seven examples and two narrow caveat corrections with unchanged units/progress keys. Collection release is separate from pinned unfinished-lesson state. Review `tests/library-release.test.ts`, the collection browser regression and dynamic-baseline release test before future updates. No production SQL, publishing-state claim or privileged owner impersonation accompanies static source publication.

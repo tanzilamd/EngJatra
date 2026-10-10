@@ -6,11 +6,13 @@ import { Card, Notice } from "../../../packages/ui/components";
 export function Library({
   band,
   state,
+  release,
   save,
   onReport,
 }: {
   band: Band;
   state: Progress;
+  release: string;
   save: (p: Progress) => void;
   onReport: (id: string, unit?: string) => void;
 }) {
@@ -22,7 +24,7 @@ export function Library({
   const [answers, setAnswers] = useState<Record<string, number>>({});
   useEffect(() => {
     let live = true;
-    loadLibrary(band, state.release)
+    loadLibrary(band, release)
       .then((d) => {
         if (live) {
           setData(d);
@@ -36,7 +38,7 @@ export function Library({
     return () => {
       live = false;
     };
-  }, [band, state.release]);
+  }, [band, release]);
   if (error)
     return (
       <Notice error>

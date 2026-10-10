@@ -75,6 +75,33 @@ test("all six tracks, supplemental grammar, readings and mobile layout", async (
     .getByRole("button", { name: "ব্যাকরণ ও অনুশীলনের সংগ্রহ" })
     .click();
   await expect(page.getByText("স্তরের অতিরিক্ত ব্যাকরণ").first()).toBeVisible();
+  await expect(
+    page.getByText("রিনাই সমস্যাটির সমাধান করেছিল।", { exact: true }),
+  ).toBeVisible();
+  const pinned = await (
+    await request.get("http://localhost:8787/api/learning/snapshot", {
+      headers,
+    })
+  ).json();
+  expect(pinned.state.release).toBe(initialProgress.release);
+  const manifest = await (await request.get("/content/manifest.json")).json();
+  let reportedRelease: string | undefined;
+  await page.route("**/api/reports", async (route) => {
+    reportedRelease = route.request().postDataJSON().release;
+    await route.fulfill({ status: 200, json: { saved: true } });
+  });
+  await page
+    .getByRole("heading", { name: "Cleft sentences", exact: true })
+    .locator("..")
+    .getByRole("button", { name: "সমস্যা জানাই" })
+    .click();
+  await page
+    .getByLabel("কী সমস্যা পেয়েছ?")
+    .fill("উদাহরণটি আরও ব্যাখ্যা করা যায় কি?");
+  await page.getByRole("button", { name: "প্রতিবেদন জমা দিই" }).click();
+  await expect.poll(() => reportedRelease).toBe(manifest.version);
+  await page.keyboard.press("Escape");
+  await page.unroute("**/api/reports");
   await page.getByRole("button", { name: "দীর্ঘ পাঠ", exact: true }).click();
   await expect(
     page.getByRole("heading", { name: "Interpreting a Survey" }),
@@ -88,13 +115,14 @@ test("all six tracks, supplemental grammar, readings and mobile layout", async (
     path: `test-results/learn-${test.info().project.name}.png`,
     fullPage: true,
   });
-  const manifest = await (await request.get("/content/manifest.json")).json();
   for (const u of manifest.levels.flatMap(
     (l: { units: { id: string }[] }) => l.units,
   )) {
     expect(
       (
-        await request.get(`/content/3.0.0/${u.id.split("-")[0]}/${u.id}.json`)
+        await request.get(
+          `/content/${manifest.version}/${u.id.split("-")[0]}/${u.id}.json`,
+        )
       ).ok(),
     ).toBe(true);
   }

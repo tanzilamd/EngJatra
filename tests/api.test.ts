@@ -373,7 +373,11 @@ it("release verification uses bounded batches and rejects a tampered artifact", 
     const path = new URL(String(input)).pathname;
     return new Response(readFileSync(`apps/student-web/public${path}`));
   });
-  const body = { id: "3.0.0", manifest_sha256: sha(raw), batch: 0 };
+  const body = {
+    id: JSON.parse(raw).version,
+    manifest_sha256: sha(raw),
+    batch: 0,
+  };
   const verified = await handle(
     request("/admin/verify", body, "admin"),
     local,
@@ -385,6 +389,15 @@ it("release verification uses bounded batches and rejects a tampered artifact", 
     verified_batch: 0,
     requires_owner_record: true,
   });
+  expect(
+    (
+      await handle(
+        request("/admin/verify", { ...body, id: "2.0.0" }, "admin"),
+        local,
+        network,
+      )
+    ).status,
+  ).toBe(409);
   const bad = vi
     .fn()
     .mockResolvedValueOnce(new Response(raw))

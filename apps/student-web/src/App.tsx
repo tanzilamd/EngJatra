@@ -73,6 +73,7 @@ export default function App() {
   );
   const [report, setReport] = useState<string | null>(null);
   const [reportUnit, setReportUnit] = useState<string | undefined>();
+  const [reportRelease, setReportRelease] = useState<string | undefined>();
   const [tourStep, setTourStep] = useState(0);
   const [placement, setPlacement] = useState(false);
   const [placementAnswer, setPlacementAnswer] = useState<number | null>(null);
@@ -114,8 +115,13 @@ export default function App() {
   }, []);
   const close = useCallback(() => setDialog(null), []);
   const closeReport = useCallback(() => setReport(null), []);
-  function showReport(item: string, unit = state.unit_id) {
+  function showReport(
+    item: string,
+    unit = state.unit_id,
+    release = state.release,
+  ) {
     setReportUnit(unit);
+    setReportRelease(release);
     setReport(item);
   }
   function openLesson(id = state.unit_id, reset = false) {
@@ -491,11 +497,14 @@ export default function App() {
                 </Card>
                 {collection ? (
                   <Library
+                    release={manifest?.version ?? state.release}
                     key={band}
                     band={band}
                     state={state}
                     save={save}
-                    onReport={showReport}
+                    onReport={(id, unit) =>
+                      showReport(id, unit, manifest?.version ?? state.release)
+                    }
                   />
                 ) : (
                   <div className="unit-list">
@@ -652,7 +661,7 @@ export default function App() {
       </footer>
       {report && (
         <ReportDialog
-          state={state}
+          state={{ ...state, release: reportRelease ?? state.release }}
           item={report}
           contextUnit={reportUnit}
           onClose={closeReport}

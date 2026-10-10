@@ -5,7 +5,7 @@ import { sha, scan } from "./content-tools";
 const [input, version, output, baseline] = process.argv.slice(2);
 if (!input || !/^\d+\.\d+\.\d+$/.test(version ?? "") || !output)
   throw Error(
-    "Usage: npm run release:export -- changes.local.json 3.0.1 /tmp/engjatra-release",
+    "Usage: npm run release:export -- changes.local.json <new-version> /tmp/engjatra-release (version must be absent from the baseline)",
   );
 if (
   resolve(output).startsWith(resolve("content")) ||

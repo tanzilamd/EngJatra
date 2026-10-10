@@ -9,22 +9,28 @@ import {
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
-import { normalizeUnit, sha } from "../scripts/content-tools";
+import { sha } from "../scripts/content-tools";
 // The release artifact needs a current production build, so this check is run separately after build.
 it("release export creates a separate immutable version, preserves old assets, and rejects private/stale edits", () => {
   if (!existsSync("apps/student-web/dist/content/manifest.json"))
     throw Error("Run npm run build before release validation");
   const dir = mkdtempSync(join(tmpdir(), "engjatra-release-test-"));
   try {
-    const unit = normalizeUnit(
-      JSON.parse(readFileSync("content/units-public/P0/P0-01.json", "utf8")),
+    const source = "apps/student-web/dist/content";
+    const current = JSON.parse(readFileSync(`${source}/manifest.json`, "utf8"))
+      .version as string;
+    const parts = current.split(".").map(Number);
+    const next = `${parts[0]}.${parts[1]}.${parts[2] + 1}`;
+    const following = `${parts[0]}.${parts[1]}.${parts[2] + 2}`;
+    const unit = JSON.parse(
+      readFileSync(`${source}/${current}/P0/P0-01.json`, "utf8"),
     );
     unit.title_bn = "হ্যালো বলি — নতুন অনুশীলন";
     const input = join(dir, "changes.local.json");
     writeFileSync(
       input,
       JSON.stringify({
-        patches: [{ unit_id: unit.id, base_release: "3.0.0", unit }],
+        patches: [{ unit_id: unit.id, base_release: current, unit }],
       }),
     );
     const output = join(dir, "site");
@@ -34,7 +40,7 @@ it("release export creates a separate immutable version, preserves old assets, a
         "node_modules/tsx/dist/cli.mjs",
         "scripts/release.ts",
         input,
-        "3.0.1",
+        next,
         output,
       ],
       { encoding: "utf8" },
@@ -43,10 +49,10 @@ it("release export creates a separate immutable version, preserves old assets, a
     const manifest = JSON.parse(
       readFileSync(join(output, "content/manifest.json"), "utf8"),
     );
-    expect(manifest.version).toBe("3.0.1");
+    expect(manifest.version).toBe(next);
     expect(existsSync(join(output, "content/3.0.0/P0/P0-01.json"))).toBe(true);
     const patched = readFileSync(
-      join(output, "content/3.0.1/P0/P0-01.json"),
+      join(output, `content/${next}/P0/P0-01.json`),
       "utf8",
     );
     expect(JSON.parse(patched).title_bn).toBe(unit.title_bn);
@@ -54,7 +60,7 @@ it("release export creates a separate immutable version, preserves old assets, a
     writeFileSync(
       input,
       JSON.stringify({
-        patches: [{ unit_id: unit.id, base_release: "3.0.1", unit }],
+        patches: [{ unit_id: unit.id, base_release: next, unit }],
       }),
     );
     const second = join(dir, "second");
@@ -65,7 +71,7 @@ it("release export creates a separate immutable version, preserves old assets, a
           "node_modules/tsx/dist/cli.mjs",
           "scripts/release.ts",
           input,
-          "3.0.2",
+          following,
           second,
           output,
         ],
@@ -73,11 +79,13 @@ it("release export creates a separate immutable version, preserves old assets, a
       ).status,
     ).toBe(0);
     expect(existsSync(join(second, "content/3.0.0/P0/P0-01.json"))).toBe(true);
-    expect(existsSync(join(second, "content/3.0.1/P0/P0-01.json"))).toBe(true);
+    expect(existsSync(join(second, `content/${next}/P0/P0-01.json`))).toBe(
+      true,
+    );
     expect(
       JSON.parse(readFileSync(join(second, "content/manifest.json"), "utf8"))
         .version,
-    ).toBe("3.0.2");
+    ).toBe(following);
     writeFileSync(
       input,
       JSON.stringify({
@@ -89,7 +97,7 @@ it("release export creates a separate immutable version, preserves old assets, a
         "node_modules/tsx/dist/cli.mjs",
         "scripts/release.ts",
         input,
-        "3.0.2",
+        following,
         join(dir, "stale"),
       ]).status,
     ).not.toBe(0);
@@ -99,7 +107,7 @@ it("release export creates a separate immutable version, preserves old assets, a
         patches: [
           {
             unit_id: unit.id,
-            base_release: "3.0.0",
+            base_release: current,
             unit: { ...unit, admin_notes: "private" },
           },
         ],
@@ -110,7 +118,7 @@ it("release export creates a separate immutable version, preserves old assets, a
         "node_modules/tsx/dist/cli.mjs",
         "scripts/release.ts",
         input,
-        "3.0.2",
+        following,
         join(dir, "leak"),
       ]).status,
     ).not.toBe(0);

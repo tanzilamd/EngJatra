@@ -4,6 +4,7 @@ import { bands } from "../packages/learning/engine";
 import { Library, Manifest } from "../packages/contracts/content";
 import { readJson, normalizeUnit, sha, scan } from "./content-tools";
 import { loadEnv } from "vite";
+import { exportLibraryReleases } from "./library-supplements";
 const apiOrigin =
   process.env.VITE_API_URL ??
   loadEnv("production", process.cwd(), "VITE_API_URL").VITE_API_URL;
@@ -90,12 +91,22 @@ for (const band of bands) {
 }
 const manifest = Manifest.parse({ version, levels });
 await writeFile(`${base}/content/manifest.json`, JSON.stringify(manifest));
+const supplementaryVersions = await exportLibraryReleases(base);
 for (const app of ["student-web", "admin-web"]) {
   const dest = join("apps", app, "public");
   await mkdir(`${dest}/brand`, { recursive: true });
   await cp("brand", `${dest}/brand`, { recursive: true });
   await rm(`${dest}/_redirects`, { force: true });
-  await writeFile(`${dest}/_headers`, headers);
+  await writeFile(
+    `${dest}/_headers`,
+    headers +
+      supplementaryVersions
+        .map(
+          (v) =>
+            `\n/content/${v}/*\n  Cache-Control: public, max-age=31536000, immutable\n`,
+        )
+        .join(""),
+  );
 }
 console.log("Exported 96 validated units and six segmented libraries.");
 

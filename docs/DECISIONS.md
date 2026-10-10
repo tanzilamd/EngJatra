@@ -1,7 +1,9 @@
 # EngJatra Architecture Decision Log
 
 ## 2026-10-09 — Historical product/brand and technology planning decisions
+
 The hosting and Git workflow proposed here are superseded by the environment/deployment decision below; current operations use three Workers and synchronized main.
+
 - Product = EngJatra; exact casing and finalized branding (primary blue #2563EB, navy, amber and teal; Inter and Hind Siliguri).
 - Brand promise = "Learn English. Enjoy the Journey."; all instructional UI Bengali-first.
 - Hosting = Cloudflare Pages Free; secure server-side Functions/Worker where needed, no paid automatic upgrade.
@@ -13,8 +15,8 @@ The hosting and Git workflow proposed here are superseded by the environment/dep
 - No forced deployment before credentials and actual integration tests. Codex should code/test thoroughly in local mock mode first.
 
 ## Record new decisions below (for implementers)
-Use date, rationale, impacted modules, trade-offs, acceptance tests, rollback if necessary. Avoid duplicate conflicting documents.
 
+Use date, rationale, impacted modules, trade-offs, acceptance tests, rollback if necessary. Avoid duplicate conflicting documents.
 
 ## 2026-10-09 — Implementation decisions
 
@@ -54,8 +56,15 @@ The student build emits one versioned service worker and manifest/icons. Install
 Lazy entry/workspace/lesson/library modules and paginated vocabulary reduce initial payload without adding dependencies. Enforce 140 KiB initial JS and 10 KiB CSS gzip budgets; measure actual live cold-browser performance after release. Changes are reversible through the existing verified release mechanism; no migration or teaching-content release is required for this UI-only rollout. Acceptance includes light/dark screenshot and axe matrices, native dialog keyboard checks, mocked Auth failure/recovery regressions, actual production/Static Assets browser checks and separate live learner/reviewer verification.
 
 ## 2026-10-10 — Final confirmation, startup and provider eligibility
+
 Keep provider-enforced email confirmation with frontend/API defense in depth. Google identities use Supabase's verified confirmation without another email. Pace resends, preserve generic anti-enumeration feedback and provide explicit recovery-expiry escape to login. Brand mail through version-controlled templates and narrowly reviewed Auth configuration, never application SMTP keys. Real token lifecycle and inbox/Google consent are separate evidence.
 
 Load the single Supabase SDK after a public first render while disabling Auth until ready; retain the stored-session/callback loader and SDK shell precache. Register the single SW after load/idle so install traffic does not compete with first paint. First-render bundle savings are separate from total downloaded SDK bytes and measured LCP.
 
 Reuse the existing masked Actions Gemma key for metadata verification in the sole main pipeline, without inference/learner data. Official Gemma 4 pricing is free but Google API terms restrict age/audience/regions and unpaid prompt processing. Keep activation disabled until actual eligible account/audience is established; do not create a paid substitute or treat a model metadata response as inference success. Fix malformed provider response taxonomy and avoid quota consumption when all providers are disabled. No teaching release, data migration or existing account mutation accompanies this rollout.
+
+## 2026-10-10 — Mixed-age Google hold and additive teaching release
+
+The owner confirmed mixed ages and explicitly retained Google AI Studio; public Gemma generation stays disabled under current terms, independently of successful metadata authentication. Do not migrate or enable paid services.
+
+Add small, original teaching supplements through append-only versioned source release files. The exporter preserves baseline bytes and unit hashes, checks exact source sentences/senses and disallows duplicate/private/stale additions. Existing archived-artifact guards enforce already published immutability. Current library browsing follows the manifest without moving a learner’s pinned lesson. This finishes concrete translation/example gaps without bulk filler, new tables or a competing publisher; expert semantics/source-rights certification remains separate.

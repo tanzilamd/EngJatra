@@ -1,11 +1,13 @@
 # AGENTS.md — EngJatra (authoritative repository instructions)
 
 ## Mission and source of truth
+
 EngJatra is a **Bangla-first English learning platform**, from Pre-A1 to a **C1-oriented course track**, built for learners who may know zero English. It combines an excellent **non-AI learning engine** with a carefully constrained **text-only AI tutor**. The current application is the accepted fresh implementation. Maintain it; do not restart the project or import previously discarded prototypes, demo HTML, or application code. The original research content remains teaching data, not reusable application code.
 
 Read `README.md`, `docs/STATUS.md`, `docs/HANDOFF.md`, and `docs/DECISIONS.md` before work. Then read the relevant specifications: `docs/PRODUCT_PRD.md`, `docs/BRAND_DESIGN.md`, `docs/ARCHITECTURE_AND_DATA.md`, `docs/LEARNING_CONTENT.md`, `docs/AI_TUTOR.md`, `docs/SECURITY_PRIVACY.md`, `docs/ADMIN_OPERATIONS.md`, `docs/QA_ACCEPTANCE.md`, and `docs/IMPLEMENTATION_RUNBOOK.md`. This file sets enduring constraints; current implementation decisions and operational instructions refine the original proposed architecture. The original handoff QA baseline is historical evidence, not the current app status. Reconcile conflicts explicitly rather than silently dropping a requirement. Record durable decisions and migration notes in `docs/DECISIONS.md`.
 
 ## Non-negotiable product rules
+
 - Product name **EngJatra** exactly. No deployment URL is reserved or guaranteed; use actual verified Worker origins.
 - All student interface, labels, help, explanations and errors in natural readable **Bangla script**. English only where learning examples, practice answers or externally named items require it.
 - Brand: Inter for Latin, Hind Siliguri for Bangla, primary blue `#2563EB`, navy `#1E293B`, amber `#F59E0B`, teal success `#14B8A6`; follow `docs/BRAND_DESIGN.md`. No unrelated redesigns. Responsive, accessible, reduced motion, graceful slow network.
@@ -15,12 +17,13 @@ Read `README.md`, `docs/STATUS.md`, `docs/HANDOFF.md`, and `docs/DECISIONS.md` b
 - Research-based AI-authored content may be published after substantive editorial QA even without teacher review; **never pretend it is expert reviewed**. Specific item review/approval/verification statuses and notes are **ADMIN-ONLY**. They must be absent from any student JSON, browser bundle, DOM, API response, source map, or downloadable payload. If repo public, do not check in confidential editorial queues either.
 - User data (auth, progress, errors, history, reports) persisted in Supabase with RLS and cross-device sync. Static teaching data split into versioned JSON and served over Cloudflare CDN. Private admin records in protected DB. Low-quota, free-tier-only by design.
 - Admin is a **separate protected interface** with role-enforced APIs, report handling, editorial overrides, publish/rollback, cost/quota visibility and audit.
-- AI provider primary: confirmed eligible free Gemma endpoint; fallback: independently configured eligible free Llama provider. Verify *actual* IDs/caps using current official docs/account. Never enable billing or upgrade automatically. Unknown 429 subtype stays unknown. Provider keys are server secrets only.
+- AI provider primary: confirmed eligible free Gemma endpoint; fallback: independently configured eligible free Llama provider. Verify _actual_ IDs/caps using current official docs/account. Never enable billing or upgrade automatically. Unknown 429 subtype stays unknown. Provider keys are server secrets only.
 - Work autonomously through the authorized task, issue progress, and complete feasible milestones with iterative QA. Do not claim external deployment/auth/provider tests passed without actual evidence. Keep mock/local adapters and automated tests; document real blocked checks precisely.
 - Preserve all 96 units across six bands, 932 vocabulary senses, 132 grammar cards (including 36 band-scoped supplemental cards), 96 scripted conversations, 480 authored activities, and 12 extended readings. Keep incomplete content discoverable with honest alternatives and document gaps; do not invent unit mappings, teacher signoff, or placeholders. See `docs/LEARNING_CONTENT.md` and `docs/CONTENT_GAPS.md`.
 - Preserve authored valid answer variants. Free writing uses rubrics/self-review, never binary exact-string grading. Vocabulary senses are distinct from whole spellings and suggested teaching bands are not verified CEFR levels.
 
 ## Engineering guardrails
+
 - React + Vite + TypeScript + Tailwind; Cloudflare Workers Static Assets for separate student/admin hosting and a separate API Worker, Supabase Auth/Postgres for dynamic data; Node LTS and lockfile pinned once chosen. Favor simplicity over unneeded dependencies.
 - Preserve the agreed brand, current hosting architecture, learning model, privacy and free-only constraints unless the owner authorizes a change. Keep static content on the CDN rather than route every asset through a Worker. No browser LLM downloads, public student social features, or automatic paid expansion.
 - No secrets in Git, public JSON, client `VITE_*` env except **public** Supabase URL and publishable/anon key; never store Supabase service-role, AI keys, provider token, private JWT signing key, or arbitrary bearer tokens in frontend. `.env`, `.dev.vars`, credentials ignored.
@@ -32,6 +35,7 @@ Read `README.md`, `docs/STATUS.md`, `docs/HANDOFF.md`, and `docs/DECISIONS.md` b
 - Before committing/pushing or finishing, run lint, typecheck, content audits, unit/integration tests, RLS/security tests when DB available, browser E2E, accessible flows and production build. Fix defects and rerun. Disclose tests not run and why; NEVER report 100% bug-free.
 
 ## Current repository and executable checks
+
 - Use Node 24.19.0 (`.nvmrc`), Python 3.12+, npm and the single lockfile. Start with `npm ci`, then `npm run dev` for explicit local demo accounts. Student/admin/API use ports 5173/5174/8787. Restart processes in a new environment; do not assume old servers survived. See `README.md` for real-auth development and browser setup.
 - Maintain the separate apps in `apps/student-web` and `apps/admin-web`; shared contracts, learning rules, data adapters and UI live in `packages/`. Protected handlers are in `workers/api`; migrations and RLS tests are in `supabase/`. `docs/HANDOFF.md` describes the actual boundaries, retention and API.
 - Run `npm run qa`, `npm run format:check`, `npm audit`, and `npm run deploy:check -- --offline` before finishing. QA includes `test:docs`, content validation, lint/types, unit/API/sync/PostgreSQL tests, desktop/mobile E2E/accessibility, actual Wrangler Static Assets browser checks, production artifacts/security scans, production fail-closed tests and release export validation. Run affected checks again after fixes. `npm run test:db` targets the database suite separately.
@@ -39,6 +43,7 @@ Read `README.md`, `docs/STATUS.md`, `docs/HANDOFF.md`, and `docs/DECISIONS.md` b
 - Keep secrets, generated public/dist artifacts, test traces and private editorial queues out of Git. Keep source content and branding assets. Add public fields only through contracts/allowlists and leak checks. Use small composable modules and shared rules; avoid duplicated authorization/scoring or unnecessary dependencies.
 
 ## Everyday workflow for any future Codex/AI/human developer
+
 1. Read relevant docs and inspect the current repo before change; note scope and acceptance criteria.
 2. Preserve existing production UI and unrelated behavior unless explicitly authorized to change.
 3. Identify DB/RLS/security, privacy, data contract and content-version impacts before editing.
@@ -49,6 +54,7 @@ Read `README.md`, `docs/STATUS.md`, `docs/HANDOFF.md`, and `docs/DECISIONS.md` b
 8. Finish with a factual summary of changes, passed/failed/not-run tests, exact external blockers, and operator actions.
 
 ## Operational handoff and Git safety
+
 - Maintain `docs/STATUS.md`, `docs/DECISIONS.md`, `docs/CHANGELOG.md`, `docs/HANDOFF.md`, `docs/TROUBLESHOOTING.md`, and `docs/CREDENTIALS_AND_DEPLOYMENT.md` with actual behavior and reproducible instructions. If interrupted, save exact next actions and test outcomes so the next session resumes instead of restarting.
 - Credentials belong in secure dashboard/environment settings, never chat, source or logs. Do all credential-independent work first. Follow `docs/CREDENTIALS_AND_DEPLOYMENT.md` for exact bindings, manually verified owner bootstrap, migration backups, release/rollback and account deletion.
 - Distinguish private saved drafts, exported artifacts, awaiting-deploy releases and hash-verified deployments. Never claim publication or deletion before the operation actually completes. Retain old immutable content so in-progress learners can resume; preserve progress on rollback and quota exhaustion.
@@ -58,9 +64,11 @@ Read `README.md`, `docs/STATUS.md`, `docs/HANDOFF.md`, and `docs/DECISIONS.md` b
 - Completion reports include the changed features/docs, actual QA results, local reproduction, schema/Cloudflare status, content limitations, exact external gates and secure owner next actions, plus branch/commit/push/PR state. Do not conceal feasible unfinished implementation behind a credential gate.
 
 ## No false completion
+
 "Code complete" != "externally integrated" != "production verified" != "educationally certified". Distinguish these in every completion report. Never request private keys pasted into GitHub chat/code/logs; use documented secret configuration.
 
 ## Autonomous maintenance and deployment holds
+
 - Read `docs/AUTONOMOUS_MAINTENANCE.md` before service administration. Verify actual identity/binding readiness and API scope; repository admin metadata does not prove settings permissions. Never replace managed bootstrap auth or print credentials.
 - During an owner deployment/push hold, prepare/test locally. Do not push, cancel/rerun jobs, apply SQL, rotate bindings or start competing deployments. Run `npm run maintenance:push-check` immediately before an allowed push; inspect relevant native jobs when accessible. A read denial is not idle proof. Respect newer owner holds and preserve remote work.
 - Monitoring is read-only with separate concurrency. Verify archived successful production receipt/SHA, not newest main. Missing/deferred/unconfigured evidence is never healthy-production proof. Use redacted GitHub annotations/native failure notifications; no paid vendor or AI calls. Keep API logs coarse; preserve sampling/invocation policy in both configs and recheck Free terms before activation.
@@ -75,6 +83,7 @@ Read `README.md`, `docs/STATUS.md`, `docs/HANDOFF.md`, and `docs/DECISIONS.md` b
 - Controlled live Auth QA is operator-only: at most two new marked synthetic identities, in-memory privileged key, temporary reviewer only, no existing account/content/owner mutations, no browser traces/session artifacts, cleanup in finally and fail on cleanup errors. Its narrow Management SQL is not a migration or permanent owner bootstrap. Never treat administrative confirmation as proof of registration email. Honor the managed proxy/TLS; approved NSS write access or Actions is required when Chromium cannot open its certificate DB under sandbox restrictions.
 
 ## UI, themes and PWA maintenance
+
 Full release QA needs fresh task-owned local servers and fixtures. Use `CI=true npm run qa` with the test ports free; an old reused demo Worker can retain rate limits across repeated runs. Stop only this task's known local processes before restarting; never weaken production limits or invent extra demo identities to make tests pass. Do not edit tracked source during the proof-generating run.
 
 Follow the implemented `docs/BRAND_DESIGN.md` and PWA boundaries in `docs/HANDOFF.md`. Preserve the coherent light/dark/System design, external pre-render theme script, natural Bangla copy, one primary Auth action and native dialog accessibility. Student mobile navigation remains exactly three destinations. Audit every affected surface in both themes, narrow mobile and desktop; inspect real screenshots and run `npm run test:auth-ui`, e2e, production PWA and Wrangler checks inside full QA. Authentication mocks are explicit test-only fixtures and never proof of external OAuth/email delivery.
@@ -84,8 +93,15 @@ Keep the single `/sw.js` build plugin; never cache API/auth/account/cross-origin
 When testing Chromium 151 offline reload, verify both transport failure and the native online indicator. Supported CDP `Network.overrideNetworkState` may need reapplying after reload alongside context offline emulation. Never spoof navigator in page JavaScript or relax fail-closed suspension checks to make the test pass. Permanent owner bootstrap is separate from controlled QA: require the owner-nominated existing, confirmed and active Auth identity, a narrow transaction and an audit record; do not impersonate that real account.
 
 ## Authentication and AI launch gates
+
 Email/password signup requires Supabase Confirm Email (`mailer_autoconfirm=false`), not only a hidden UI. Unconfirmed identities are rejected by the session gate and API. Supabase-confirmed Google identities enter directly; never require a second application email or trust a client `email_verified` claim. Preserve paced resend, email correction, generic anti-enumeration responses, safe callback errors, recovery password replacement and return-to-login. The lazy Auth SDK is initialized once; render the public welcome page while connecting, disable Auth actions until ready, and keep existing-session/callback recovery behind the loading gate. Root lazy SDK/workspace chunks belong in public SW precache for offline reload.
 
 `npm run auth:audit` reads real provider configuration without printing credentials. `--apply-templates` changes only the checked-in confirmation/recovery templates and subjects, rereads them, and never changes SMTP passwords, OAuth secrets or user accounts. Controlled live Auth QA may additionally use provider-generated one-time signup/recovery tokens on the two **new** marked fixtures, exercise the full authored first lesson and saved-word review, and delete them. This verifies token behavior, not inbox delivery or real Google consent.
 
 `npm run ai:check` is a protected metadata-only GET using the existing Actions Gemma secret. No inference, raw provider errors, secret values or learner data in its report. Model authentication is separate from successful generation, quota/free account eligibility and provider terms. Current Google API terms prohibit clients directed toward or likely accessed by under-18s and restrict unpaid regional use; free prompts/outputs may be used to improve products and reviewed by people. Do not enable a broad learner audience through a free-confirmed flag alone, misrepresent a checkbox as legal approval, or activate billing. Preserve authored alternatives until an eligible audience/account is established. Disabled providers do not consume inference quota.
+
+## Confirmed audience and immutable library supplements
+
+The owner confirmed a mixed-age audience, including under-18 learners, and explicitly retained Google AI Studio as Gemma provider. Keep its integration, server-only keys and metadata checks ready; do not migrate providers or publicly activate generation while current terms prohibit this audience. Do not repeatedly ask for the already configured key or treat a free flag as terms approval. Continue independent product work.
+
+`content/releases/` contains append-only, strict, public teaching supplements. `content:export` regenerates the original 3.0.0 bytes, copies the previous release to each increasing version, anchors additions/corrections to exact existing text/senses, and updates only the current manifest. Never edit a published release file; add a new version. All prior unit/library bytes must survive the existing archived-baseline deployment guard. The collection uses the current manifest independently of a learner’s pinned unfinished lesson; saving words must not alter that lesson’s release. Run supplement invariants, content audits, browser collection checks and release retention tests before publication. Original source and answer keys remain intact; automated checks do not certify teaching or source rights.

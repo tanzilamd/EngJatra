@@ -1,0 +1,328 @@
+{
+  "base_release": "3.0.0",
+  "version": "3.0.1",
+  "patches": [
+    {
+      "kind": "grammar_translation",
+      "level": "P0",
+      "id": "P0-G01",
+      "expected": "I study English.",
+      "value": "আমি ইংরেজি পড়ি।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "P0",
+      "id": "P0-G02",
+      "expected": "My name is Rima.",
+      "value": "আমার নাম রিমা।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "P0",
+      "id": "P0-G03",
+      "expected": "I am ready.",
+      "value": "আমি প্রস্তুত।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "P0",
+      "id": "P0-G04",
+      "expected": "Yes, I am.",
+      "value": "হ্যাঁ। (সংক্ষিপ্ত উত্তরটির পূর্ণ অর্থ আগের প্রশ্নের ওপর নির্ভর করে।)"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "P0",
+      "id": "P0-G05",
+      "expected": "This is my bag.",
+      "value": "এটি আমার ব্যাগ।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "P0",
+      "id": "P0-G06",
+      "expected": "This is her book.",
+      "value": "এটি তার বই।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "A1",
+      "id": "A1-G01",
+      "expected": "She doesn't play chess.",
+      "value": "সে দাবা খেলে না।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "A1",
+      "id": "A1-G02",
+      "expected": "Does he work here?",
+      "value": "সে কি এখানে কাজ করে?"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "A1",
+      "id": "A1-G03",
+      "expected": "There are two books on the desk.",
+      "value": "ডেস্কের ওপর দুটি বই আছে।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "A1",
+      "id": "A1-G04",
+      "expected": "She has an umbrella.",
+      "value": "তার একটি ছাতা আছে।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "A1",
+      "id": "A1-G05",
+      "expected": "I have two notebooks.",
+      "value": "আমার দুটি খাতা আছে।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "A1",
+      "id": "A1-G06",
+      "expected": "We meet on Friday.",
+      "value": "আমরা শুক্রবার দেখা করি।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "A2",
+      "id": "A2-G01",
+      "expected": "We visited the museum yesterday.",
+      "value": "আমরা গতকাল জাদুঘরে গিয়েছিলাম।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "A2",
+      "id": "A2-G02",
+      "expected": "Did you see the film?",
+      "value": "তুমি কি সিনেমাটি দেখেছিলে?"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "A2",
+      "id": "A2-G03",
+      "expected": "I am going to study tonight.",
+      "value": "আমি আজ রাতে পড়ব বলে ঠিক করেছি।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "A2",
+      "id": "A2-G04",
+      "expected": "How many apples do you need?",
+      "value": "তোমার কতগুলো আপেল দরকার?"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "A2",
+      "id": "A2-G05",
+      "expected": "This road is wider than that road.",
+      "value": "এই রাস্তাটি ওই রাস্তার চেয়ে চওড়া।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "A2",
+      "id": "A2-G06",
+      "expected": "Could you help me, please?",
+      "value": "দয়া করে আমাকে একটু সাহায্য করবে?"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "B1",
+      "id": "B1-G01",
+      "expected": "I have visited Sylhet.",
+      "value": "আমি সিলেটে গিয়েছি।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "B1",
+      "id": "B1-G02",
+      "expected": "I have lived here for three years.",
+      "value": "আমি তিন বছর ধরে এখানে থাকি।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "B1",
+      "id": "B1-G03",
+      "expected": "I was reading when the phone rang.",
+      "value": "ফোন বেজে ওঠার সময় আমি পড়ছিলাম।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "B1",
+      "id": "B1-G04",
+      "expected": "If it rains, we will stay home.",
+      "value": "বৃষ্টি হলে আমরা বাড়িতে থাকব।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "B1",
+      "id": "B1-G05",
+      "expected": "The woman who called is my teacher.",
+      "value": "যে নারী ফোন করেছিলেন, তিনি আমার শিক্ষক।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "B1",
+      "id": "B1-G06",
+      "expected": "You should drink enough water.",
+      "value": "তোমার পর্যাপ্ত পানি পান করা উচিত।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "B2",
+      "id": "B2-G01",
+      "expected": "If I had more time, I would read more.",
+      "value": "আমার হাতে আরও সময় থাকলে আমি আরও পড়তাম।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "B2",
+      "id": "B2-G02",
+      "expected": "If I had left earlier, I would have arrived on time.",
+      "value": "আমি আরও আগে বের হলে সময়মতো পৌঁছাতাম।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "B2",
+      "id": "B2-G03",
+      "expected": "The report was checked yesterday.",
+      "value": "প্রতিবেদনটি গতকাল যাচাই করা হয়েছিল।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "B2",
+      "id": "B2-G04",
+      "expected": "She said that she was busy.",
+      "value": "সে বলেছিল যে সে ব্যস্ত ছিল।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "B2",
+      "id": "B2-G05",
+      "expected": "My brother, who lives in Rajshahi, is a doctor.",
+      "value": "আমার ভাই একজন ডাক্তার; সে রাজশাহীতে থাকে।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "B2",
+      "id": "B2-G06",
+      "expected": "Although it rained, we went out.",
+      "value": "বৃষ্টি হলেও আমরা বাইরে গিয়েছিলাম।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "C1",
+      "id": "C1-G01",
+      "expected": "The results appear to support the claim.",
+      "value": "ফলাফলগুলো দাবিটির পক্ষে যাচ্ছে বলে মনে হচ্ছে।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "C1",
+      "id": "C1-G02",
+      "expected": "Rarely have I seen such a clear explanation.",
+      "value": "এত স্পষ্ট ব্যাখ্যা আমি খুব কমই দেখেছি।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "C1",
+      "id": "C1-G03",
+      "expected": "It was Rina who solved the problem.",
+      "value": "রিনাই সমস্যাটির সমাধান করেছিল।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "C1",
+      "id": "C1-G04",
+      "expected": "Admittedly, it is costly; nevertheless, it may help.",
+      "value": "মানছি, এতে খরচ বেশি; তবু এটি কাজে আসতে পারে।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "C1",
+      "id": "C1-G05",
+      "expected": "Had I known, I would have called.",
+      "value": "আগে জানলে আমি ফোন করতাম।"
+    },
+    {
+      "kind": "grammar_translation",
+      "level": "C1",
+      "id": "C1-G06",
+      "expected": "The team made a decision after careful review.",
+      "value": "সতর্কভাবে পর্যালোচনা করার পর দলটি একটি সিদ্ধান্ত নিয়েছিল।"
+    },
+    {
+      "kind": "grammar_caveat",
+      "level": "P0",
+      "id": "P0-G06",
+      "expected": "his/her/they কখন ব্যবহার হবে তা ব্যক্তি ও প্রসঙ্গের ওপর নির্ভর করে।",
+      "value": "his, her বা their—কোনটি বসবে তা ব্যক্তি, সম্পর্ক ও প্রসঙ্গের ওপর নির্ভর করে।"
+    },
+    {
+      "kind": "grammar_caveat",
+      "level": "B2",
+      "id": "B2-G04",
+      "expected": "বর্তনাম সত্য বা চলমান পরিস্থিতিতে backshift সবসময় বাধ্যতামূলক নয়।",
+      "value": "বর্তমান সত্য বা চলমান পরিস্থিতিতে backshift সবসময় বাধ্যতামূলক নয়।"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0249",
+      "expected": "fine",
+      "expected_bn": "ভালো",
+      "value": "I am fine, thank you."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0260",
+      "expected": "friend",
+      "expected_bn": "বন্ধু",
+      "value": "Rima is my friend."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0269",
+      "expected": "goodbye",
+      "expected_bn": "বিদায়",
+      "value": "Goodbye, Rima. See you tomorrow."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0379",
+      "expected": "morning",
+      "expected_bn": "সকাল",
+      "value": "I study in the morning."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0451",
+      "expected": "please",
+      "expected_bn": "দয়া করে",
+      "value": "Please sit here."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0627",
+      "expected": "thanks",
+      "expected_bn": "ধন্যবাদ",
+      "value": "Thanks for your help."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0712",
+      "expected": "yes",
+      "expected_bn": "হ্যাঁ",
+      "value": "Yes, I can help."
+    }
+  ]
+}
