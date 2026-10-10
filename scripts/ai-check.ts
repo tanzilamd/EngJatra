@@ -7,7 +7,10 @@ import type { Env } from "../workers/api/src/types";
 import { correctsSyntheticSentence } from "./qa-tutor-correction";
 import { z } from "zod";
 import { TutorReply } from "../packages/contracts/api";
-import { containsPrivateInput } from "../workers/api/src/ai-policy";
+import {
+  asksForPersonalData,
+  containsPrivateInput,
+} from "../workers/api/src/ai-policy";
 
 // Only the two fixed authored synthetic cases. This provides reviewable safe
 // evidence through Checks API when signed log/artifact transport is unavailable.
@@ -32,7 +35,7 @@ export function syntheticPreflightNotice(report: unknown) {
         reply.short_explanation_bn,
         reply.suggested_revision_en ?? "",
         reply.next_question_en,
-      ].some(containsPrivateInput),
+      ].some((text) => containsPrivateInput(text) || asksForPersonalData(text)),
     )
   )
     return undefined;

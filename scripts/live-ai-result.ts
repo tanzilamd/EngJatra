@@ -1,7 +1,48 @@
 import { z } from "zod";
 import { TutorReply, messages } from "../packages/contracts/api";
-import { googleCountries } from "../workers/api/src/ai-policy";
+import {
+  asksForPersonalData,
+  containsPrivateInput,
+  googleCountries,
+} from "../workers/api/src/ai-policy";
 import { correctsSyntheticSentence } from "./qa-tutor-correction";
+
+function productionReply(data: unknown) {
+  const parsed = z.object({ reply: TutorReply }).strict().safeParse(data);
+  if (parsed.success) {
+    const reply = parsed.data.reply;
+    if (
+      [
+        reply.assistant_reply_en,
+        reply.short_explanation_bn,
+        reply.suggested_revision_en ?? "",
+        reply.next_question_en,
+      ].some((text) => containsPrivateInput(text) || asksForPersonalData(text))
+    )
+      throw Error("Production tutor failed the personal-data output safeguard");
+    return reply;
+  }
+  const code =
+    typeof data === "object" &&
+    data !== null &&
+    "error" in data &&
+    typeof data.error === "string" &&
+    Object.hasOwn(messages, data.error)
+      ? data.error
+      : "INVALID_TUTOR_RESPONSE";
+  throw Error(
+    `Production tutor did not verify inference or regional denial: ${code}`,
+  );
+}
+
+// The second fixed authored sentence is already valid; don't certify a tutor
+// that invents a definite grammar error or changes the source lesson.
+export function validateProductionFollowup(data: unknown) {
+  const reply = productionReply(data);
+  if (reply.source_unit_id !== "P0-01" || reply.feedback_type === "clear_error")
+    throw Error("Production tutor did not accept the valid authored follow-up");
+  return reply;
+}
 
 // Classify real production evidence without bypassing regional policy or
 // relabeling denial as successful inference. No raw replies in the report.
@@ -25,22 +66,7 @@ export function validateProductionTutor(data: unknown, countries: string) {
       country: denied.data.country,
     };
   }
-  const successful = z.object({ reply: TutorReply }).strict().safeParse(data);
-  if (!successful.success) {
-    const code =
-      typeof data === "object" &&
-      data !== null &&
-      "error" in data &&
-      typeof data.error === "string" &&
-      Object.hasOwn(messages, data.error)
-        ? data.error
-        : "INVALID_TUTOR_RESPONSE";
-    // Only known public error codes, never raw response values/untrusted keys.
-    throw Error(
-      `Production tutor did not verify inference or regional denial: ${code}`,
-    );
-  }
-  const reply = successful.data.reply;
+  const reply = productionReply(data);
   if (reply.source_unit_id !== "P0-01" || !correctsSyntheticSentence(reply))
     throw Error(
       "Real production AI did not return a valid bilingual correction",

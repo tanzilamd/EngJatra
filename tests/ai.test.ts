@@ -17,7 +17,7 @@ const reply = {
   short_explanation_bn: "ভালো শুরু।",
   feedback_type: "none",
   suggested_revision_en: null,
-  next_question_en: "What is your name?",
+  next_question_en: "Are you ready to practise?",
   learning_tags: ["writing"],
   source_unit_id: "P0-01",
 };

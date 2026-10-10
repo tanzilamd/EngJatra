@@ -7,7 +7,10 @@ import { liveBrowserOptions } from "./live-browser-options";
 import { reviewerFixtureQuery } from "./live-auth-fixture";
 import { completeFirstLessonActivities } from "./qa-first-lesson";
 import { messages } from "../packages/contracts/api";
-import { validateProductionTutor } from "./live-ai-result";
+import {
+  validateProductionTutor,
+  validateProductionFollowup,
+} from "./live-ai-result";
 
 // Credentials remain in process memory. Only newly created disposable QA
 // identities are mutated/deleted; no existing learner or owner role is touched.
@@ -60,6 +63,7 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
   let deleted = 0;
   let phase = "preflight";
   let aiVerified = false;
+  let aiTurnsVerified = 0;
   let aiRegionDenied = false;
   let aiCountry: string | undefined;
   let diagnosticPage: Page | undefined;
@@ -404,7 +408,42 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
         checks.push(
           "real authenticated production inference: schema-validated English/Bengali correction rendered through the tutor; synthetic practice text only",
         );
+        aiTurnsVerified = 1;
+        phase = "permitted authenticated contextual AI follow-up";
+        await restored.getByLabel("তোমার ইংরেজি উত্তর").fill("I buy fruit.");
+        const continued = restored.waitForResponse(
+          (r) =>
+            r.url() === `${config.api}/api/ai/tutor` &&
+            r.request().method() === "POST",
+        );
+        await restored
+          .getByRole("button", { name: "উত্তর পাঠাই", exact: true })
+          .click();
+        const second = await continued;
+        if (!second.ok()) throw Error("Production AI follow-up request failed");
+        const sent = second.request().postDataJSON();
+        if (
+          !Array.isArray(sent.context) ||
+          sent.context.length > 6 ||
+          !sent.context.some(
+            (turn: { role: string; text: string }) =>
+              turn.role === "user" && turn.text === "I goes to the market.",
+          )
+        )
+          throw Error(
+            "Production tutor did not send bounded previous-turn context",
+          );
+        const followed = validateProductionFollowup(await second.json());
+        await expect(
+          restored
+            .getByText(followed.short_explanation_bn, { exact: true })
+            .last(),
+        ).toBeVisible();
+        aiTurnsVerified = 2;
         aiVerified = true;
+        checks.push(
+          "real two-turn contextual production conversation accepts the already-valid authored follow-up and renders bilingual coaching; no private/session text sent to provider",
+        );
       } else {
         await expect(
           restored.getByText(messages.AI_REGION_UNAVAILABLE, { exact: true }),
@@ -689,6 +728,7 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
       ai: {
         enabled: process.env.GEMMA_FREE_CONFIRMED === "true",
         inference_verified: aiVerified,
+        production_turns_verified: aiTurnsVerified,
         regional_denial_verified: aiRegionDenied,
         observed_country: aiCountry,
       },

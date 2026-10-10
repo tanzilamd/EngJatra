@@ -3,6 +3,7 @@ import {
   googleCountries,
   googleCountryAllowed,
   containsPrivateInput,
+  asksForPersonalData,
 } from "../workers/api/src/ai-policy";
 import { parseReply } from "../workers/api/src/ai";
 import { TutorInput } from "../packages/contracts/api";
@@ -22,6 +23,29 @@ it("unknown, paid-only and missing regions fail closed; only reviewed selected c
   expect(googleCountryAllowed("BD,US", "BD")).toBe(true);
   expect(googleCountryAllowed("BD,US", "IN")).toBe(false);
   expect(googleCountryAllowed("BD,US")).toBe(false);
+});
+it("recognizable personal-detail requests are rejected without blocking fictional practice", () => {
+  for (const text of [
+    "What is your name?",
+    "What's your full name?",
+    "Tell me your email address.",
+    "Could you share your phone number?",
+    "How old are you?",
+    "Where do you live?",
+    "When were you born?",
+    "তোমার নাম কী?",
+    "আপনার ঠিকানা বলুন।",
+    "তুমি কোথায় থাকো?",
+  ])
+    expect(asksForPersonalData(text)).toBe(true);
+  for (const text of [
+    "What is the character's name?",
+    "Can you invent a name for this character?",
+    "Where does the fictional teacher live?",
+    "How do we say hello?",
+    "What fruit do you like?",
+  ])
+    expect(asksForPersonalData(text)).toBe(false);
 });
 it("recognizable contact details and credentials in current or previous messages are rejected", () => {
   for (const text of [
@@ -56,6 +80,10 @@ it("consent defaults false and reply rejects empty/transliterated Bengali or pri
     { short_explanation_bn: "bhalo" },
     { assistant_reply_en: "learner@example.com" },
     { next_question_en: "???" },
+    { next_question_en: "What is your name?" },
+    { short_explanation_bn: "তোমার নাম কী?" },
+    { assistant_reply_en: "Tell me your address." },
+    { suggested_revision_en: "How old are you?" },
   ])
     expect(() =>
       parseReply(JSON.stringify({ ...reply, ...change }), "P0-01"),

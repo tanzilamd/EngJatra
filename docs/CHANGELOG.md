@@ -79,3 +79,9 @@ Add 134 short original, sense-anchored examples in append-only source steps 3.0.
 ## Worker-native tutor transport and safe publication convergence
 
 Reproduce and fix workerd rejecting redirect:error: use manual and reject 3xx without forwarding provider credentials. Add real-runtime bundled-adapter regression and safe, known-code Auth diagnostics. Bound same-URL HTML/manifest revalidation after accepted uploads and recheck active versions before receipts. Add safe Checks notices for the two fixed validated synthetic samples when signed log hosts are inaccessible. Preserve privacy, region/consent gates, rate limits, content immutability and the sole publisher.
+
+## 2026-10-10 — Production Gemma, Pre-A1 release and contextual/privacy regression
+
+Verified commit 7abf46f in successful Actions 38066864609, all three exact live artifacts, two actual permitted contextual production tutor turns and controlled Auth/progress/admin/RLS with two fixture deletions. Published teaching 3.0.3 completes all 154 Pre-A1 vocabulary examples, retains prior versions/96 unchanged units, and has exact protected hash metadata with one audit and no role/learner/migration-history changes. Keep operator metadata distinct from owner login/teacher review. Fresh lab means are 1.966s desktop / 1.952s mobile, CLS below 0.014; no field INP claim.
+
+A real fixed synthetic greeting asked for a personal name. Add conservative output-only personal-request rejection, explicit fictional/non-personal prompt guidance and natural sentence-qualified Bengali coaching. Extend actual live QA to a bounded-context second valid turn, with strict no-fabricated-inference and known-error diagnostics. Preserve the sole publisher and all free/region/quota/security guards. Final source requires its own QA and deployment; higher-band editorial depth and human/provenance reviews remain openly measured.

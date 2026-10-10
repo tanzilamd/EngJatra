@@ -237,6 +237,18 @@ it("validated synthetic samples are opt-in and never include the key or provider
       ],
     }),
   ).toBeUndefined();
+  expect(
+    syntheticPreflightNotice({
+      ...report,
+      synthetic_samples: [
+        {
+          case: "greeting",
+          reply: { ...reply, next_question_en: "What is your name?" },
+        },
+        { case: "correction", reply },
+      ],
+    }),
+  ).toBeUndefined();
   const escaped = syntheticPreflightNotice({
     ...report,
     synthetic_samples: [

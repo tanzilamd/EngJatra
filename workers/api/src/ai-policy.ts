@@ -82,3 +82,21 @@ export function containsPrivateInput(text: string) {
       !/^\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\d|3[01])$/.test(number),
   );
 }
+
+// Conservative output-only guard for recognizable requests for real personal
+// details. Fictional third-person practice remains allowed. This is a bounded
+// heuristic, not complete detection of personal information or anonymization.
+export function asksForPersonalData(text: string) {
+  const normalized = text.normalize("NFKC").replace(/[’‘]/g, "'");
+  return (
+    /\b(?:what(?:\s+is|'s|\s+are)|tell\s+me|share|give\s+me|provide|enter)\s+(?:me\s+)?your\s+(?:real\s+|full\s+|first\s+|last\s+|email\s+|home\s+|phone\s+|mobile\s+)?(?:name|address|number|email|age|birthday|date\s+of\s+birth|location|password|api\s+key)\b/i.test(
+      normalized,
+    ) ||
+    /\b(?:how\s+old\s+are\s+you|where\s+(?:do\s+you\s+live|are\s+you\s+from)|when\s+(?:is\s+your\s+birthday|were\s+you\s+born))\b/i.test(
+      normalized,
+    ) ||
+    /(?:তোমার|আপনার)\s+(?:(?:আসল|পুরো|পূর্ণ|প্রথম|শেষ|বাড়ির|বাসার|ফোন|মোবাইল)\s+)?(?:নাম|ঠিকানা|নম্বর|ইমেইল|বয়স|জন্মদিন|জন্মতারিখ|পাসওয়ার্ড)\s+(?:কী|কি|কত|কবে|বলো|বলুন|দাও|দিন|লেখো|লিখুন)|(?:তুমি|আপনি)\s+কোথা(?:য়|য়)\s+(?:থাকো|থাকেন|বাস\s+করো|বাস\s+করেন)/u.test(
+      normalized,
+    )
+  );
+}
