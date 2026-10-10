@@ -1,0 +1,726 @@
+{
+  "base_release": "3.0.11",
+  "version": "3.0.12",
+  "patches": [
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0008",
+      "expected": "acknowledge",
+      "expected_bn": "স্বীকার করা",
+      "value": "The author should acknowledge the limits of the available evidence."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0021",
+      "expected": "albeit",
+      "expected_bn": "যদিও",
+      "value": "The revised plan is workable, albeit less convenient than the original."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0026",
+      "expected": "ambiguity",
+      "expected_bn": "দ্ব্যর্থতা",
+      "value": "The ambiguity in the phrase allows two different interpretations."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0027",
+      "expected": "ambiguous",
+      "expected_bn": "দ্ব্যর্থক",
+      "value": "The instruction is ambiguous because it does not identify which file to send."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0030",
+      "expected": "apparently",
+      "expected_bn": "দৃশ্যত",
+      "value": "Apparently, the meeting has moved, but we still need confirmation."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0031",
+      "expected": "appear",
+      "expected_bn": "মনে হওয়া",
+      "value": "The figures appear to support the proposal, though the sample is small."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0038",
+      "expected": "approximate",
+      "expected_bn": "আনুমানিক",
+      "value": "The report gives an approximate cost rather than a fixed price."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0040",
+      "expected": "arguably",
+      "expected_bn": "যুক্তি অনুযায়ী",
+      "value": "The shorter route is arguably preferable when safety and cost are considered together."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0046",
+      "expected": "articulate",
+      "expected_bn": "স্পষ্টভাবে প্রকাশ করা",
+      "value": "She can articulate her objection without dismissing the other group's concerns."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0049",
+      "expected": "assert",
+      "expected_bn": "দৃঢ়ভাবে দাবি করা",
+      "value": "The writer cannot assert that the change caused the result without further evidence."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0051",
+      "expected": "assertive",
+      "expected_bn": "দৃঢ় ও আত্মবিশ্বাসী",
+      "value": "An assertive response can state a clear boundary while remaining courteous."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0056",
+      "expected": "attribute",
+      "expected_bn": "উৎস উল্লেখ করা",
+      "value": "Attribute the quotation to its original author."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0057",
+      "expected": "attribution",
+      "expected_bn": "উৎসস্বীকৃতি",
+      "value": "The paraphrase still requires attribution to the source of the idea."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0058",
+      "expected": "audience",
+      "expected_bn": "পাঠক",
+      "value": "The writer assumes an audience familiar with the earlier debate."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0060",
+      "expected": "audience",
+      "expected_bn": "শ্রোতা বা পাঠক",
+      "value": "The presenter adapted the technical explanation for a general audience."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0104",
+      "expected": "cautiously",
+      "expected_bn": "সতর্কভাবে",
+      "value": "We should cautiously interpret the preliminary results."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0105",
+      "expected": "certainty",
+      "expected_bn": "নিশ্চয়তা",
+      "value": "The evidence does not justify the level of certainty in the conclusion."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0116",
+      "expected": "citation",
+      "expected_bn": "উৎস-উল্লেখ",
+      "value": "A citation allows readers to locate the source behind a claim."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0120",
+      "expected": "clarity",
+      "expected_bn": "স্পষ্টতা",
+      "value": "Removing an unnecessary reference improved the paragraph's clarity."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0130",
+      "expected": "compelling",
+      "expected_bn": "জোরালোভাবে বিশ্বাসযোগ্য",
+      "value": "The argument is compelling because it addresses the strongest counterexample."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0132",
+      "expected": "concede",
+      "expected_bn": "মেনে নেওয়া",
+      "value": "I concede that the alternative is cheaper, but its risks remain unclear."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0134",
+      "expected": "concise",
+      "expected_bn": "সংক্ষিপ্ত অথচ স্পষ্ট",
+      "value": "A concise summary retains the essential argument without repeating every example."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0137",
+      "expected": "conclusive",
+      "expected_bn": "চূড়ান্ত সিদ্ধান্তসূচক",
+      "value": "These initial observations are suggestive rather than conclusive."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0141",
+      "expected": "connotation",
+      "expected_bn": "অনুষঙ্গী অর্থ",
+      "value": "The word economical often carries a more positive connotation than cheap."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0144",
+      "expected": "consideration",
+      "expected_bn": "বিবেচনার বিষয়",
+      "value": "The effect on smaller communities is an important consideration."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0146",
+      "expected": "constraint",
+      "expected_bn": "সীমাবদ্ধতা",
+      "value": "Limited funding is a constraint on the proposed expansion."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0152",
+      "expected": "convention",
+      "expected_bn": "প্রচলিত রীতি",
+      "value": "Naming the source of a quotation is a convention of academic writing."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0153",
+      "expected": "convincing",
+      "expected_bn": "বিশ্বাসযোগ্য",
+      "value": "The explanation becomes more convincing when it accounts for the conflicting evidence."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0157",
+      "expected": "correspondence",
+      "expected_bn": "পত্রযোগাযোগ",
+      "value": "The correspondence records how the two teams reached an agreement."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0158",
+      "expected": "cost",
+      "expected_bn": "খরচ",
+      "value": "The estimate includes the cost of training as well as equipment."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0162",
+      "expected": "counterargument",
+      "expected_bn": "পাল্টা যুক্তি",
+      "value": "A strong counterargument challenges the reasoning, not the writer's character."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0168",
+      "expected": "credible",
+      "expected_bn": "বিশ্বাসযোগ্য",
+      "value": "The account is credible because independent records support its central details."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0169",
+      "expected": "criteria",
+      "expected_bn": "মানদণ্ডগুলো",
+      "value": "The review criteria must be stated before the proposals are compared."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0170",
+      "expected": "criterion",
+      "expected_bn": "মানদণ্ড",
+      "value": "Cost is one criterion, but it should not determine the decision alone."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0181",
+      "expected": "decrease",
+      "expected_bn": "হ্রাস",
+      "value": "The table records a decrease in bookings during the final week."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0182",
+      "expected": "deferential",
+      "expected_bn": "অতিরিক্ত শ্রদ্ধাশীল",
+      "value": "His overly deferential tone made a simple request sound hesitant."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0193",
+      "expected": "diplomatic",
+      "expected_bn": "কৌশলী ও ভদ্র",
+      "value": "A diplomatic reply can recognise the concern without accepting an unsupported claim."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0198",
+      "expected": "discrepancy",
+      "expected_bn": "অমিল",
+      "value": "The discrepancy between the two totals needs an explanation."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0200",
+      "expected": "distinction",
+      "expected_bn": "পার্থক্য",
+      "value": "The distinction between association and causation is central to the argument."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0213",
+      "expected": "elaborate",
+      "expected_bn": "বিস্তারিত ব্যাখ্যা করা",
+      "value": "Could you elaborate on how the revised schedule would reduce delays?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0221",
+      "expected": "evaluate",
+      "expected_bn": "মূল্যায়ন",
+      "value": "Evaluate the conclusion in light of the method used to obtain the evidence."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0233",
+      "expected": "explicit",
+      "expected_bn": "স্পষ্ট",
+      "value": "The agreement makes the responsibilities of each team explicit."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0256",
+      "expected": "formality",
+      "expected_bn": "আনুষ্ঠানিকতা",
+      "value": "The level of formality should suit the relationship between writer and recipient."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0281",
+      "expected": "hedge",
+      "expected_bn": "সতর্কভাবে দাবি করা",
+      "value": "A writer can hedge a claim by saying that the change may help."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0303",
+      "expected": "implication",
+      "expected_bn": "সম্ভাব্য তাৎপর্য",
+      "value": "One implication of the proposal is that smaller teams may need extra support."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0304",
+      "expected": "implicit",
+      "expected_bn": "অন্তর্নিহিত",
+      "value": "The criticism is implicit in the contrast between the two descriptions."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0305",
+      "expected": "imply",
+      "expected_bn": "ইঙ্গিত করা",
+      "value": "The figures imply a change in demand, but they do not explain its cause."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0310",
+      "expected": "increase",
+      "expected_bn": "বৃদ্ধি",
+      "value": "The report describes an increase in requests without claiming to explain it."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0318",
+      "expected": "integrity",
+      "expected_bn": "সততা",
+      "value": "Acknowledging the source demonstrates intellectual integrity."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0319",
+      "expected": "intellectual",
+      "expected_bn": "বুদ্ধিবৃত্তিক",
+      "value": "The discussion invites intellectual curiosity rather than a single unquestioned answer."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0321",
+      "expected": "interpret",
+      "expected_bn": "ব্যাখ্যা",
+      "value": "Readers may interpret the silence as hesitation rather than agreement."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0332",
+      "expected": "justify",
+      "expected_bn": "যুক্তি দেওয়া",
+      "value": "The team must justify why the exception is necessary."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0375",
+      "expected": "mitigate",
+      "expected_bn": "প্রভাব কমানো",
+      "value": "Extra training could mitigate the disruption caused by the transition."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0398",
+      "expected": "nonetheless",
+      "expected_bn": "তবুও",
+      "value": "The evidence is incomplete; nonetheless, it raises a question worth investigating."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0404",
+      "expected": "nuance",
+      "expected_bn": "সূক্ষ্ম অর্থভেদ",
+      "value": "The translation preserves the nuance between a suggestion and a firm demand."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0405",
+      "expected": "nuanced",
+      "expected_bn": "সূক্ষ্ম পার্থক্যপূর্ণ",
+      "value": "A nuanced account recognises both the benefits and the limits of the policy."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0417",
+      "expected": "originality",
+      "expected_bn": "মৌলিকতা",
+      "value": "Originality lies in the comparison, even though the evidence comes from published sources."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0424",
+      "expected": "overstatement",
+      "expected_bn": "অতিরঞ্জন",
+      "value": "Calling the service completely reliable would be an overstatement."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0428",
+      "expected": "paraphrase",
+      "expected_bn": "নিজের ভাষায় বলা",
+      "value": "Paraphrase the argument in your own words while retaining its qualifications."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0431",
+      "expected": "participant",
+      "expected_bn": "অংশগ্রহণকারী",
+      "value": "Each participant was free to disagree with the proposed timetable."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0436",
+      "expected": "perception",
+      "expected_bn": "উপলব্ধি",
+      "value": "The opening sentence shapes the reader's perception of the disagreement."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0440",
+      "expected": "persuade",
+      "expected_bn": "বোঝানো বা রাজি করানো",
+      "value": "To persuade a sceptical reader, address the strongest objection directly."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0442",
+      "expected": "persuasive",
+      "expected_bn": "প্রভাবশালী",
+      "value": "The conclusion is persuasive because it weighs the competing explanations."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0445",
+      "expected": "plagiarism",
+      "expected_bn": "চৌর্যবৃত্তি",
+      "value": "Presenting another writer's words as your own is plagiarism."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0448",
+      "expected": "plausible",
+      "expected_bn": "বিশ্বাসযোগ্য মনে হয় এমন",
+      "value": "The explanation is plausible, but it has not yet been tested."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0460",
+      "expected": "precise",
+      "expected_bn": "সুনির্দিষ্ট",
+      "value": "A precise description identifies which group and time period the claim concerns."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0464",
+      "expected": "presumably",
+      "expected_bn": "সম্ভবত",
+      "value": "Presumably, the extra session is intended to resolve the remaining questions."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0467",
+      "expected": "prioritize",
+      "expected_bn": "অগ্রাধিকার দেওয়া",
+      "value": "Prioritize the most serious risks before considering minor conveniences."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0474",
+      "expected": "professional",
+      "expected_bn": "পেশাগত",
+      "value": "Professional correspondence should state the request clearly and respectfully."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0475",
+      "expected": "proportion",
+      "expected_bn": "অনুপাত",
+      "value": "The chart shows the proportion of responses in each category."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0479",
+      "expected": "qualification",
+      "expected_bn": "শর্তযুক্ত ব্যাখ্যা",
+      "value": "The qualification 'in this sample' narrows the scope of the conclusion."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0480",
+      "expected": "qualified",
+      "expected_bn": "শর্তযুক্ত",
+      "value": "The report makes a qualified claim, limiting it to the surveyed area."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0482",
+      "expected": "quantify",
+      "expected_bn": "সংখ্যায় প্রকাশ",
+      "value": "The team tried to quantify the delay in minutes rather than calling it long."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0484",
+      "expected": "quotation",
+      "expected_bn": "উদ্ধৃতি",
+      "value": "The quotation preserves the speaker's original wording."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0493",
+      "expected": "rebut",
+      "expected_bn": "যুক্তি খণ্ডন করা",
+      "value": "The second paragraph attempts to rebut the claim with a documented counterexample."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0494",
+      "expected": "rebuttal",
+      "expected_bn": "পাল্টা জবাব",
+      "value": "Her rebuttal identifies an assumption that the original argument did not defend."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0500",
+      "expected": "reference",
+      "expected_bn": "তথ্যসূত্র",
+      "value": "The reference includes enough information to locate the original article."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0503",
+      "expected": "register",
+      "expected_bn": "ভাষার রীতি",
+      "value": "The formal register suits the report's institutional audience."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0508",
+      "expected": "relevant",
+      "expected_bn": "প্রাসঙ্গিক",
+      "value": "Include only evidence that is relevant to the central question."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0523",
+      "expected": "reservation",
+      "expected_bn": "সংশয় বা আপত্তি",
+      "value": "She expressed a reservation about the reliability of the figures."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0542",
+      "expected": "robust",
+      "expected_bn": "দৃঢ় বা নির্ভরযোগ্য",
+      "value": "A robust conclusion should survive reasonable changes to the starting assumptions."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0554",
+      "expected": "seem",
+      "expected_bn": "মনে হওয়া",
+      "value": "The recommendations seem reasonable, although their cost remains uncertain."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0582",
+      "expected": "specify",
+      "expected_bn": "সুনির্দিষ্ট করা",
+      "value": "Specify which tasks must be completed before the next phase begins."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0592",
+      "expected": "strength",
+      "expected_bn": "শক্তি",
+      "value": "The argument's main strength is its careful treatment of alternative explanations."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0597",
+      "expected": "substantial",
+      "expected_bn": "উল্লেখযোগ্য",
+      "value": "A substantial revision is needed because the conclusion no longer matches the evidence."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0598",
+      "expected": "substantiate",
+      "expected_bn": "প্রমাণ দিয়ে সমর্থন করা",
+      "value": "Substantiate the claim by citing records that readers can check."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0599",
+      "expected": "subtext",
+      "expected_bn": "অন্তর্নিহিত বার্তা",
+      "value": "The polite dialogue has a subtext of disagreement about responsibility."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0600",
+      "expected": "subtle",
+      "expected_bn": "সূক্ষ্ম",
+      "value": "A subtle change in wording makes the request less forceful."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0614",
+      "expected": "synthesis",
+      "expected_bn": "সমন্বিত উপস্থাপন",
+      "value": "The final section offers a synthesis of the two competing perspectives."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0617",
+      "expected": "tailor",
+      "expected_bn": "উপযোগী করে সাজানো",
+      "value": "Tailor the explanation to readers who have not seen the original report."
+    }
+  ]
+}

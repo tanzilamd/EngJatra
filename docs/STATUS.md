@@ -1,6 +1,17 @@
 # EngJatra development status — 2026-10-10
 
-## Verified production milestone — 2026-10-10
+## Current vocabulary-completion milestone — resume here
+
+- [x] Privacy/contextual coaching commit `8e8856afb2482a7323dcc0a3108f5ab0e2e2e657` passed [Actions 38068748514](https://github.com/tanzilamd/EngJatra/actions/runs/38068748514): exact-source 140-test/39-browser/one-release QA, actual two-case Google preflight, all three deployments, public browsers and controlled Auth/security QA. Independent active-version/artifact/security verification matched all targets. Actual samples use friendly Bengali, sentence-qualified grammar and non-identifying practice questions. Allowed-country two-turn inference was previously verified at 7abf46f; verify the final published prompt/content journey again, never infer it from an overseas denial.
+- [x] Author the remaining **720 original sense-specific examples**, completing all 932 canonical vocabulary senses in candidate `3.0.13`. Exact A1/A2/B1/B2/C1 additions: 152/145/141/133/149. Ten append-only source steps `3.0.4`–`3.0.13` stay within the existing 100-patch bound; the first oversized drafts correctly failed export and were split before publication, without weakening the schema or rewriting any published file.
+- [x] Individually review examples for the supplied senses, natural sentence use and band scaffolding: time availability vs price, booking vs a book, money change vs general change, object transfer, argument qualifications vs credentials, reservations vs bookings, correlation vs causation and quoted grammar forms. This is substantive original authoring, not independent teacher/source-rights certification.
+- [x] Exported candidate coverage is zero missing examples in P0/A1/A2/B1/B2/C1 (154/163/159/153/144/159 records). All 142 unit/API/PostgreSQL tests and structural/content audits passed, including exact old meanings/examples/IDs and every unit/answer byte across all ten source steps.
+- [x] Fresh unchanged-source full local QA passed 142 unit/API/PostgreSQL tests, 41 browser checks and one retained-release test; new A1/C1 desktop/mobile light/dark sense-example screenshots were inspected and axe passed. Lint/types/content/docs/migrations/build/security scans passed, with format and zero-vulnerability audit. This subsequent status-only edit is checked separately; the committed source still requires fresh complete CI proof before publication.
+- [ ] Fetch/check idle production activity, commit/push the reviewed teaching batch through the sole publisher; verify real final manifest/assets/stable versions/core browsers and permitted contextual tutor, then append only its truthful protected publication metadata/audit.
+
+Existing accounts/owner/RLS/progress and releases through 3.0.3 remain intact. The candidate is **not yet published**; 3.0.3 is the verified current teaching manifest. Optional extended quests/deeper reading and independent bilingual/source-rights/privacy review remain honest curriculum work; actual inbox/Google consent/owner login, physical installation, field measurements and legacy migration/restore evidence remain external verification boundaries. Do not label the former vocabulary gap credential-blocked or silently drop the final live checks. No new credentials are needed for normal publication.
+
+## Earlier verified production milestone — 2026-10-10
 
 This checkpoint supersedes the historical candidates and mixed-age/disabled-AI notes below. The existing redesign, Auth, themes, PWA, six tracks and 96 stable units are preserved; do not rebuild or repeat verified work.
 

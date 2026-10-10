@@ -1,0 +1,350 @@
+{
+  "base_release": "3.0.10",
+  "version": "3.0.11",
+  "patches": [
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0645",
+      "expected": "tone",
+      "expected_bn": "ভঙ্গি",
+      "value": "The tone is firm but respectful."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0648",
+      "expected": "topic",
+      "expected_bn": "বিষয়",
+      "value": "The topic is suitable for a short group discussion."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0653",
+      "expected": "transition",
+      "expected_bn": "সংযোগ",
+      "value": "A clear transition connects the example to the next argument."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0669",
+      "expected": "unlikely",
+      "expected_bn": "কম সম্ভাব্য",
+      "value": "It is unlikely that everyone will prefer the same option."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0708",
+      "expected": "worth",
+      "expected_bn": "সার্থক বা মূল্য রয়েছে এমন (প্রসঙ্গভেদে)",
+      "value": "Reading the full report is worth the effort."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0846",
+      "expected": "trade-off",
+      "expected_bn": "এক সুবিধার বিনিময়ে অন্য ছাড়",
+      "value": "The trade-off is a lower price in exchange for less flexibility."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0847",
+      "expected": "flexibility",
+      "expected_bn": "নমনীয়তা",
+      "value": "Extra time gives the team more flexibility when problems arise."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0848",
+      "expected": "weigh",
+      "expected_bn": "বিবেচনা করা",
+      "value": "We must weigh the benefits against the likely costs."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0849",
+      "expected": "representative",
+      "expected_bn": "প্রতিনিধিত্বমূলক",
+      "value": "The team checked whether the sample was representative of the whole group."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0850",
+      "expected": "bias",
+      "expected_bn": "পক্ষপাত",
+      "value": "Selecting only positive comments may introduce bias."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0851",
+      "expected": "trend",
+      "expected_bn": "প্রবণতা",
+      "value": "The chart shows a trend toward earlier bookings."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0852",
+      "expected": "reliability",
+      "expected_bn": "নির্ভরযোগ্যতা",
+      "value": "Missing records reduce the reliability of the comparison."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0853",
+      "expected": "disagree",
+      "expected_bn": "ভিন্নমত হওয়া",
+      "value": "We can disagree about the plan while respecting each other's reasons."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0854",
+      "expected": "respectfully",
+      "expected_bn": "শ্রদ্ধার সঙ্গে",
+      "value": "She respectfully questioned the assumption behind the proposal."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0855",
+      "expected": "constructive",
+      "expected_bn": "গঠনমূলক",
+      "value": "Constructive feedback explains what could improve and why."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0856",
+      "expected": "dialogue",
+      "expected_bn": "সংলাপ",
+      "value": "The dialogue reveals a disagreement without stating it directly."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0857",
+      "expected": "summarise",
+      "expected_bn": "সারাংশ করা",
+      "value": "Summarise the main argument before offering your own response."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0858",
+      "expected": "central",
+      "expected_bn": "মূল",
+      "value": "The central question is whether both groups benefit."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0859",
+      "expected": "qualify",
+      "expected_bn": "শর্তযুক্ত করা",
+      "value": "Qualify the claim by stating that it applies only to the surveyed group."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0860",
+      "expected": "neutral",
+      "expected_bn": "নিরপেক্ষ",
+      "value": "The summary uses neutral language rather than praising either option."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0861",
+      "expected": "accurate",
+      "expected_bn": "সঠিক",
+      "value": "An accurate summary preserves the writer's meaning."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0862",
+      "expected": "negotiate",
+      "expected_bn": "আলোচনা করে সমাধান করা",
+      "value": "We can negotiate a new deadline that suits both teams."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0863",
+      "expected": "extend",
+      "expected_bn": "বাড়ানো",
+      "value": "The committee agreed to extend the review period by one week."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0864",
+      "expected": "deadline",
+      "expected_bn": "সময়সীমা",
+      "value": "The deadline leaves enough time for a final check."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0865",
+      "expected": "flexible",
+      "expected_bn": "নমনীয়",
+      "value": "A flexible schedule allows us to respond to unexpected delays."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0866",
+      "expected": "terms",
+      "expected_bn": "শর্তাবলি",
+      "value": "Read the terms before accepting the agreement."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0867",
+      "expected": "reasonable",
+      "expected_bn": "যুক্তিসংগত",
+      "value": "A reasonable request explains the need and allows time to respond."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0868",
+      "expected": "regret",
+      "expected_bn": "আক্ষেপ",
+      "value": "She expressed regret for the delay and offered a new date."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0869",
+      "expected": "consequence",
+      "expected_bn": "ফল",
+      "value": "One consequence of the change is a longer walk to the station."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0870",
+      "expected": "miss",
+      "expected_bn": "মিস করা",
+      "value": "We may miss the deadline if the review starts late."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0871",
+      "expected": "earlier",
+      "expected_bn": "আগে",
+      "value": "The earlier version included a different conclusion."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0872",
+      "expected": "reflect",
+      "expected_bn": "বিবেচনা করা",
+      "value": "Take time to reflect on the feedback before revising the essay."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0873",
+      "expected": "article",
+      "expected_bn": "প্রবন্ধ",
+      "value": "The article weighs the advantages of two transport plans."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0874",
+      "expected": "contrast",
+      "expected_bn": "পার্থক্য দেখানো",
+      "value": "Contrast the writers' recommendations, not just their opening sentences."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0875",
+      "expected": "similarity",
+      "expected_bn": "সাদৃশ্য",
+      "value": "A similarity between the proposals is their focus on safety."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0876",
+      "expected": "emphasis",
+      "expected_bn": "গুরুত্ব দেওয়া",
+      "value": "The report places emphasis on long-term costs."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0877",
+      "expected": "persuasion",
+      "expected_bn": "প্ররোচনামূলক বক্তব্য",
+      "value": "The speech uses persuasion by connecting its proposal to the audience's concerns."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0878",
+      "expected": "audience",
+      "expected_bn": "পাঠকশ্রেণি",
+      "value": "The article is written for an audience unfamiliar with the subject."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0879",
+      "expected": "recommendation",
+      "expected_bn": "সুপারিশ",
+      "value": "The recommendation follows from the comparison of costs and benefits."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0880",
+      "expected": "feasibility",
+      "expected_bn": "বাস্তবায়নযোগ্যতা",
+      "value": "The team will examine the feasibility of running an evening service."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0881",
+      "expected": "accessibility",
+      "expected_bn": "সহজপ্রাপ্যতা",
+      "value": "A bus route can improve accessibility by connecting the village to the clinic."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0882",
+      "expected": "criteria",
+      "expected_bn": "মানদণ্ড",
+      "value": "The criteria include cost, safety and ease of use."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0883",
+      "expected": "evaluate",
+      "expected_bn": "মূল্যায়ন করা",
+      "value": "Evaluate each option against the same set of criteria."
+    }
+  ]
+}

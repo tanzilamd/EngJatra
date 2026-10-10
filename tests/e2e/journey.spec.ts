@@ -128,6 +128,52 @@ test("all six tracks, supplemental grammar, readings and mobile layout", async (
     ).toBe(true);
   }
 });
+test("beginner and advanced vocabulary examples retain their exact senses and wrap in both themes", async ({
+  page,
+}, info) => {
+  await start(page);
+  await page
+    .getByRole("navigation")
+    .getByRole("button", { name: "শেখা", exact: true })
+    .click();
+  for (const [band, word, example] of [
+    ["A1", "change", "Here is your change: two coins."],
+    [
+      "C1",
+      "qualification",
+      "The qualification 'in this sample' narrows the scope of the conclusion.",
+    ],
+  ]) {
+    await page.getByRole("button", { name: band, exact: true }).click();
+    await page
+      .getByRole("button", { name: "ব্যাকরণ ও অনুশীলনের সংগ্রহ" })
+      .click();
+    await page.getByRole("button", { name: "শব্দ", exact: true }).click();
+    await page.getByLabel("খুঁজে দেখি").fill(word);
+    await expect(page.getByText(example, { exact: true })).toBeVisible();
+    await expect(page.getByText(/শব্দার্থের আলাদা উদাহরণ এখন নেই/)).toHaveCount(
+      0,
+    );
+    for (const theme of ["light", "dark"] as const) {
+      await page.emulateMedia({ colorScheme: theme });
+      await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
+      expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+      ).toBe(true);
+      await page.screenshot({
+        path: `test-results/vocabulary-complete-${band}-${theme}-${info.project.name}.png`,
+        fullPage: true,
+      });
+    }
+    await page
+      .getByRole("button", { name: "পাঠের তালিকা দেখি", exact: true })
+      .click();
+  }
+});
+
 test("offline checkpoint remains pending and syncs after connection returns", async ({
   page,
   context,

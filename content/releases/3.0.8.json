@@ -1,0 +1,726 @@
+{
+  "base_release": "3.0.7",
+  "version": "3.0.8",
+  "patches": [
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0001",
+      "expected": "abroad",
+      "expected_bn": "বিদেশে",
+      "value": "She hopes to study abroad next year."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0003",
+      "expected": "accomplish",
+      "expected_bn": "অর্জন করা",
+      "value": "We can accomplish more if we divide the work."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0006",
+      "expected": "accurate",
+      "expected_bn": "নির্ভুল",
+      "value": "Check the map to make sure the directions are accurate."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0007",
+      "expected": "achievement",
+      "expected_bn": "অর্জন",
+      "value": "Finishing her first story in English was an achievement."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0013",
+      "expected": "advice",
+      "expected_bn": "পরামর্শ",
+      "value": "The teacher gave us advice on organising a paragraph."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0014",
+      "expected": "affect",
+      "expected_bn": "প্রভাব ফেলা",
+      "value": "Heavy traffic can affect the arrival time."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0022",
+      "expected": "already",
+      "expected_bn": "ইতিমধ্যে",
+      "value": "We have already sent the invitation."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0024",
+      "expected": "although",
+      "expected_bn": "যদিও",
+      "value": "Although it was raining, we continued our journey."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0034",
+      "expected": "appreciate",
+      "expected_bn": "কৃতজ্ঞ থাকা",
+      "value": "I appreciate your help with the report."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0041",
+      "expected": "argue",
+      "expected_bn": "যুক্তি দেওয়া",
+      "value": "Some students argue that longer breaks help them focus."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0045",
+      "expected": "article",
+      "expected_bn": "নিবন্ধ",
+      "value": "The article compares two ways of saving water."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0047",
+      "expected": "as a result",
+      "expected_bn": "ফলস্বরূপ",
+      "value": "The road was closed; as a result, we arrived late."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0055",
+      "expected": "attach",
+      "expected_bn": "সংযুক্ত করা",
+      "value": "Please attach the schedule to your email."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0064",
+      "expected": "avoid",
+      "expected_bn": "এড়িয়ে চলা",
+      "value": "Leave early to avoid the busiest traffic."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0065",
+      "expected": "backup",
+      "expected_bn": "বিকল্প ব্যবস্থা",
+      "value": "We need a backup plan in case it rains."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0067",
+      "expected": "balance",
+      "expected_bn": "ভারসাম্য",
+      "value": "A good routine creates a balance between work and rest."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0088",
+      "expected": "break",
+      "expected_bn": "বিরতি",
+      "value": "Let's take a short break before the next task."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0103",
+      "expected": "cause",
+      "expected_bn": "কারণ",
+      "value": "The cause of the delay was a broken signal."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0107",
+      "expected": "challenge",
+      "expected_bn": "চ্যালেঞ্জ",
+      "value": "Writing a clear summary can be a challenge."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0118",
+      "expected": "claim",
+      "expected_bn": "দাবি",
+      "value": "The writer's claim needs stronger evidence."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0119",
+      "expected": "clarify",
+      "expected_bn": "স্পষ্ট করা",
+      "value": "Could you clarify which date you prefer?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0135",
+      "expected": "conclude",
+      "expected_bn": "উপসংহারে আসা",
+      "value": "From these results, we can conclude that the second route is faster."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0138",
+      "expected": "condition",
+      "expected_bn": "শর্ত",
+      "value": "You may borrow the book on condition that you return it on time."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0140",
+      "expected": "confirm",
+      "expected_bn": "যাচাই করা",
+      "value": "Please check the receipt to confirm the amount paid."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0142",
+      "expected": "consequence",
+      "expected_bn": "পরিণতি",
+      "value": "Missing the deadline may have a serious consequence."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0143",
+      "expected": "consider",
+      "expected_bn": "বিবেচনা করা",
+      "value": "We should consider both options before deciding."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0147",
+      "expected": "context",
+      "expected_bn": "প্রসঙ্গ",
+      "value": "The meaning of this word depends on the context."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0148",
+      "expected": "continue",
+      "expected_bn": "চালিয়ে যাওয়া",
+      "value": "We can continue the discussion after lunch."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0163",
+      "expected": "counterclaim",
+      "expected_bn": "বিপরীত দাবি",
+      "value": "The essay presents a counterclaim before explaining the writer's view."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0178",
+      "expected": "deadline",
+      "expected_bn": "শেষ সময়",
+      "value": "The deadline for the report is Friday."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0179",
+      "expected": "debate",
+      "expected_bn": "বিতর্ক",
+      "value": "The class held a debate about public transport."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0185",
+      "expected": "depend",
+      "expected_bn": "নির্ভর করা",
+      "value": "The travel time will depend on the traffic."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0189",
+      "expected": "detail",
+      "expected_bn": "বিস্তারিত তথ্য",
+      "value": "One important detail is missing from the invitation."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0199",
+      "expected": "discussion",
+      "expected_bn": "আলোচনা",
+      "value": "The discussion helped us understand both views."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0209",
+      "expected": "due to",
+      "expected_bn": "কারণে",
+      "value": "The match was cancelled due to heavy rain."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0211",
+      "expected": "effect",
+      "expected_bn": "ফলাফল",
+      "value": "The new timetable had a positive effect on attendance."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0217",
+      "expected": "enclosure",
+      "expected_bn": "সংযুক্ত নথি",
+      "value": "The letter refers to the timetable as an enclosure."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0223",
+      "expected": "event",
+      "expected_bn": "ঘটনা",
+      "value": "The storm was an unexpected event."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0224",
+      "expected": "ever",
+      "expected_bn": "কখনো",
+      "value": "Have you ever travelled by boat?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0226",
+      "expected": "evidence",
+      "expected_bn": "প্রমাণ",
+      "value": "The writer uses survey results as evidence."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0231",
+      "expected": "experience",
+      "expected_bn": "অভিজ্ঞতা",
+      "value": "The trip was a useful learning experience."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0235",
+      "expected": "fact",
+      "expected_bn": "তথ্য",
+      "value": "The opening paragraph states a fact, not an opinion."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0236",
+      "expected": "factor",
+      "expected_bn": "কারণ বা প্রভাবক",
+      "value": "Cost is one factor in our decision."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0237",
+      "expected": "fail",
+      "expected_bn": "ব্যর্থ হওয়া",
+      "value": "Without a clear plan, the project may fail."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0239",
+      "expected": "fairness",
+      "expected_bn": "ন্যায্যতা",
+      "value": "The class discussed fairness in sharing group tasks."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0254",
+      "expected": "for",
+      "expected_bn": "ধরে (সময়সীমা)",
+      "value": "She has worked here for three years."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0255",
+      "expected": "formal",
+      "expected_bn": "আনুষ্ঠানিক",
+      "value": "Use a formal style when writing to a new business contact."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0273",
+      "expected": "greeting",
+      "expected_bn": "সম্বোধন",
+      "value": "Dear Sir is a formal greeting in a letter."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0274",
+      "expected": "habit",
+      "expected_bn": "অভ্যাস",
+      "value": "Checking the date before sending an email is a useful habit."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0275",
+      "expected": "happen",
+      "expected_bn": "ঘটা",
+      "value": "What will happen if the bus is late?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0278",
+      "expected": "headline",
+      "expected_bn": "শিরোনাম",
+      "value": "The headline gives the main idea of the news story."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0279",
+      "expected": "healthy",
+      "expected_bn": "স্বাস্থ্যকর",
+      "value": "Regular exercise is part of a healthy routine."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0294",
+      "expected": "however",
+      "expected_bn": "তবে",
+      "value": "The room is small; however, it has plenty of light."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0302",
+      "expected": "impact",
+      "expected_bn": "প্রভাব",
+      "value": "The new road had an impact on local traffic."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0307",
+      "expected": "improve",
+      "expected_bn": "উন্নত করা",
+      "value": "Reading regularly can improve your vocabulary."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0313",
+      "expected": "indoor",
+      "expected_bn": "ঘরের ভেতর",
+      "value": "The rain forced us to choose an indoor activity."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0317",
+      "expected": "instead",
+      "expected_bn": "পরিবর্তে",
+      "value": "The train was cancelled, so we took a bus instead."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0324",
+      "expected": "interrupt",
+      "expected_bn": "ব্যাহত করা",
+      "value": "A phone call can interrupt your study session."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0325",
+      "expected": "introduction",
+      "expected_bn": "ভূমিকা",
+      "value": "The introduction explains the purpose of the report."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0342",
+      "expected": "lead to",
+      "expected_bn": "ঘটিয়ে তোলা",
+      "value": "A small misunderstanding can lead to a larger problem."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0357",
+      "expected": "manage",
+      "expected_bn": "সামাল দেওয়া",
+      "value": "We can manage the extra work by sharing the tasks."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0362",
+      "expected": "meanwhile",
+      "expected_bn": "এদিকে",
+      "value": "She prepared the slides; meanwhile, he checked the figures."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0366",
+      "expected": "memory",
+      "expected_bn": "স্মৃতি",
+      "value": "The photo brought back a happy memory."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0374",
+      "expected": "misleading",
+      "expected_bn": "বিভ্রান্তিকর",
+      "value": "The headline is misleading because it leaves out an important detail."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0390",
+      "expected": "never",
+      "expected_bn": "কখনো না",
+      "value": "I have never visited that museum."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0401",
+      "expected": "notice",
+      "expected_bn": "লক্ষ করা",
+      "value": "Did you notice the change in the meeting time?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0411",
+      "expected": "opinion",
+      "expected_bn": "মত",
+      "value": "In my opinion, the second ending fits the story better."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0413",
+      "expected": "opportunity",
+      "expected_bn": "সুযোগ",
+      "value": "The course gives us an opportunity to practise writing."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0415",
+      "expected": "option",
+      "expected_bn": "বিকল্প",
+      "value": "Taking an earlier bus is another option."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0418",
+      "expected": "otherwise",
+      "expected_bn": "নাহলে",
+      "value": "Save the file now; otherwise, you may lose your work."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0421",
+      "expected": "outdoor",
+      "expected_bn": "বাইরে",
+      "value": "We need an outdoor space for the sports event."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0441",
+      "expected": "persuade",
+      "expected_bn": "রাজি করানো",
+      "value": "She used clear reasons to persuade the group to change the plan."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0455",
+      "expected": "possible",
+      "expected_bn": "সম্ভাব্য",
+      "value": "It is possible to finish today if we start now."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0458",
+      "expected": "power",
+      "expected_bn": "বিদ্যুৎ",
+      "value": "The lights went out when the power failed."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0459",
+      "expected": "practical",
+      "expected_bn": "বাস্তবসম্মত",
+      "value": "We need a practical solution that everyone can use."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0465",
+      "expected": "prevent",
+      "expected_bn": "প্রতিরোধ করা",
+      "value": "Checking the address can prevent a delivery mistake."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0477",
+      "expected": "publish",
+      "expected_bn": "প্রকাশ করা",
+      "value": "The school will publish the schedule tomorrow."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0478",
+      "expected": "purpose",
+      "expected_bn": "উদ্দেশ্য",
+      "value": "The purpose of the email is to confirm the appointment."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0485",
+      "expected": "quote",
+      "expected_bn": "উদ্ধৃত করা",
+      "value": "Quote the speaker's exact words when reporting the interview."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0486",
+      "expected": "rain",
+      "expected_bn": "বৃষ্টি",
+      "value": "Heavy rain delayed the buses."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0490",
+      "expected": "realize",
+      "expected_bn": "বুঝতে পারা",
+      "value": "I did not realize the meeting had moved to another room."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0492",
+      "expected": "reasoning",
+      "expected_bn": "যুক্তির ধারা",
+      "value": "Explain your reasoning so readers can follow your conclusion."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0496",
+      "expected": "recently",
+      "expected_bn": "সম্প্রতি",
+      "value": "The library has recently changed its opening hours."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0497",
+      "expected": "recipient",
+      "expected_bn": "প্রাপক",
+      "value": "Check that the recipient is correct before sending the message."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0498",
+      "expected": "recommend",
+      "expected_bn": "সুপারিশ করা",
+      "value": "I recommend taking the train for this journey."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0502",
+      "expected": "regards",
+      "expected_bn": "শুভেচ্ছা",
+      "value": "She closed the email with Kind regards."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0509",
+      "expected": "reliable",
+      "expected_bn": "নির্ভরযোগ্য",
+      "value": "We need a reliable source for the figures."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0514",
+      "expected": "reply",
+      "expected_bn": "উত্তর",
+      "value": "His reply confirmed the new meeting time."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0519",
+      "expected": "require",
+      "expected_bn": "প্রয়োজন হওয়া",
+      "value": "This task will require careful reading."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B1",
+      "id": "VOC-0526",
+      "expected": "resource",
+      "expected_bn": "উপকরণ",
+      "value": "This dictionary is a useful resource for checking spelling."
+    }
+  ]
+}

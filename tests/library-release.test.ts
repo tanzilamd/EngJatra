@@ -21,6 +21,74 @@ const base = (band: string) =>
   );
 
 describe("immutable teaching supplements", () => {
+  it("completes all 932 vocabulary senses through bounded append-only examples while preserving every existing meaning and example", () => {
+    let added = 0,
+      senses = 0;
+    for (const band of bands) {
+      const original = Library.parse(
+        JSON.parse(
+          readFileSync(
+            `apps/student-web/public/content/3.0.3/${band}/library.json`,
+            "utf8",
+          ),
+        ),
+      );
+      let next = structuredClone(original);
+      for (let revision = 4; revision <= 13; revision++) {
+        const version = `3.0.${revision}`;
+        const supplement = ContentRelease.parse(
+          JSON.parse(readFileSync(`content/releases/${version}.json`, "utf8")),
+        );
+        expect(supplement.patches.length).toBeLessThanOrEqual(100);
+        expect(
+          supplement.patches.every((p) => p.kind === "vocabulary_example"),
+        ).toBe(true);
+        added += supplement.patches.filter((p) => p.level === band).length;
+        next = applyLibrarySupplements(next, supplement, band);
+        expect(
+          Library.parse(
+            JSON.parse(
+              readFileSync(
+                `apps/student-web/public/content/${version}/${band}/library.json`,
+                "utf8",
+              ),
+            ),
+          ),
+        ).toEqual(next);
+      }
+      senses += next.vocabulary.length;
+      for (const [i, word] of next.vocabulary.entries()) {
+        expect(word.english_example).toBeTruthy();
+        expect({
+          ...word,
+          english_example: original.vocabulary[i].english_example,
+        }).toEqual(original.vocabulary[i]);
+        if (original.vocabulary[i].english_example)
+          expect(word.english_example).toBe(
+            original.vocabulary[i].english_example,
+          );
+      }
+      expect({ ...next, vocabulary: original.vocabulary }).toEqual(original);
+    }
+    expect(added).toBe(720);
+    expect(senses).toBe(932);
+  });
+
+  it("retains all 96 unit and answer bytes in every vocabulary-only source step", () => {
+    for (let revision = 4; revision <= 13; revision++)
+      for (const band of bands)
+        for (let position = 1; position <= 16; position++) {
+          const file = `${band}/${band}-${String(position).padStart(2, "0")}.json`;
+          expect(
+            readFileSync(
+              `apps/student-web/public/content/3.0.${revision}/${file}`,
+            ),
+          ).toEqual(
+            readFileSync(`apps/student-web/public/content/3.0.3/${file}`),
+          );
+        }
+  });
+
   it("completes every Pre-A1 sense example through additive releases without overwriting published teaching", () => {
     let before = Library.parse(
       JSON.parse(

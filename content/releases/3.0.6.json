@@ -1,0 +1,726 @@
+{
+  "base_release": "3.0.5",
+  "version": "3.0.6",
+  "patches": [
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0015",
+      "expected": "after",
+      "expected_bn": "পরে",
+      "value": "We will meet after lunch."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0018",
+      "expected": "ago",
+      "expected_bn": "আগে",
+      "value": "I bought this bag two days ago."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0019",
+      "expected": "agree",
+      "expected_bn": "একমত",
+      "value": "I agree that we need more time."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0033",
+      "expected": "appointment",
+      "expected_bn": "অ্যাপয়েন্টমেন্ট",
+      "value": "I have a doctor's appointment tomorrow."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0043",
+      "expected": "arrange",
+      "expected_bn": "ব্যবস্থা করা",
+      "value": "Can we arrange a meeting for Friday?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0044",
+      "expected": "arrive",
+      "expected_bn": "পৌঁছানো",
+      "value": "The train will arrive at noon."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0054",
+      "expected": "ate",
+      "expected_bn": "খেয়েছিল",
+      "value": "She ate rice for lunch yesterday."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0070",
+      "expected": "battery",
+      "expected_bn": "ব্যাটারি",
+      "value": "The phone battery is almost empty."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0073",
+      "expected": "believe",
+      "expected_bn": "বিশ্বাস করা",
+      "value": "I believe this is the right bus."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0076",
+      "expected": "better",
+      "expected_bn": "আরও ভালো",
+      "value": "This chair is better for my back."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0078",
+      "expected": "bigger",
+      "expected_bn": "আরও বড়",
+      "value": "We need a bigger room for the meeting."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0081",
+      "expected": "book",
+      "expected_bn": "সংরক্ষণ করা",
+      "value": "I'd like to book a room for two nights."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0082",
+      "expected": "boring",
+      "expected_bn": "একঘেয়ে",
+      "value": "The film was long and boring."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0083",
+      "expected": "borrow",
+      "expected_bn": "ধার নেওয়া",
+      "value": "Can I borrow your pen for a minute?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0084",
+      "expected": "both",
+      "expected_bn": "উভয়",
+      "value": "Both buses stop at the station."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0085",
+      "expected": "bought",
+      "expected_bn": "কিনেছিল",
+      "value": "She bought a new jacket yesterday."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0090",
+      "expected": "broken",
+      "expected_bn": "নষ্ট",
+      "value": "The printer is broken, so we cannot use it."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0092",
+      "expected": "bus",
+      "expected_bn": "বাস",
+      "value": "We take the bus to work."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0099",
+      "expected": "cancel",
+      "expected_bn": "বাতিল করা",
+      "value": "Please cancel my reservation."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0101",
+      "expected": "carry",
+      "expected_bn": "বহন করা",
+      "value": "Can you carry this bag upstairs?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0109",
+      "expected": "charge",
+      "expected_bn": "চার্জ করা",
+      "value": "I need to charge my phone."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0111",
+      "expected": "cheaper",
+      "expected_bn": "আরও সস্তা",
+      "value": "This ticket is cheaper than the other one."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0112",
+      "expected": "check",
+      "expected_bn": "যাচাই করা",
+      "value": "Please check the date before you book."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0115",
+      "expected": "choice",
+      "expected_bn": "পছন্দ",
+      "value": "The blue shirt is my first choice."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0123",
+      "expected": "close",
+      "expected_bn": "বন্ধ করা",
+      "value": "Please close the door quietly."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0129",
+      "expected": "compare",
+      "expected_bn": "তুলনা করা",
+      "value": "Let's compare the prices of these two bags."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0139",
+      "expected": "confirm",
+      "expected_bn": "নিশ্চিত করা",
+      "value": "Can you confirm the time of our meeting?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0173",
+      "expected": "damage",
+      "expected_bn": "ক্ষতি",
+      "value": "The rain caused damage to the roof."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0180",
+      "expected": "decide",
+      "expected_bn": "সিদ্ধান্ত নেওয়া",
+      "value": "We must decide which route to take."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0183",
+      "expected": "delay",
+      "expected_bn": "বিলম্ব",
+      "value": "There is a short delay because of traffic."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0188",
+      "expected": "destination",
+      "expected_bn": "গন্তব্য",
+      "value": "Our final destination is Dhaka."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0191",
+      "expected": "different",
+      "expected_bn": "ভিন্ন",
+      "value": "These two bags have different colors."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0197",
+      "expected": "disagree",
+      "expected_bn": "ভিন্নমত",
+      "value": "I disagree with that plan because it costs too much."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0204",
+      "expected": "door",
+      "expected_bn": "দরজা",
+      "value": "The door opens into the garden."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0205",
+      "expected": "drank",
+      "expected_bn": "পান করেছিল",
+      "value": "He drank a glass of water after the walk."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0208",
+      "expected": "driver",
+      "expected_bn": "চালক",
+      "value": "The driver stopped the bus at the station."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0220",
+      "expected": "error",
+      "expected_bn": "ত্রুটি",
+      "value": "There is an error in the ticket number."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0227",
+      "expected": "example",
+      "expected_bn": "উদাহরণ",
+      "value": "Can you give an example of this rule?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0229",
+      "expected": "expect",
+      "expected_bn": "প্রত্যাশা করা",
+      "value": "We expect the bus to arrive soon."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0232",
+      "expected": "explain",
+      "expected_bn": "ব্যাখ্যা করা",
+      "value": "Could you explain the problem again?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0241",
+      "expected": "faster",
+      "expected_bn": "আরও দ্রুত",
+      "value": "The train is faster than the bus."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0243",
+      "expected": "favor",
+      "expected_bn": "উপকার",
+      "value": "Could you do me a favor and carry this bag?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0246",
+      "expected": "feel",
+      "expected_bn": "অনুভব করা",
+      "value": "I feel tired after the long journey."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0247",
+      "expected": "finally",
+      "expected_bn": "অবশেষে",
+      "value": "After a long wait, the bus finally arrived."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0258",
+      "expected": "free",
+      "expected_bn": "ফাঁকা",
+      "value": "Are you free after lunch?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0263",
+      "expected": "future",
+      "expected_bn": "ভবিষ্যৎ",
+      "value": "I want to travel more in the future."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0266",
+      "expected": "goal",
+      "expected_bn": "লক্ষ্য",
+      "value": "My goal is to read a short English book."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0280",
+      "expected": "heavier",
+      "expected_bn": "আরও ভারী",
+      "value": "This box is heavier than that bag."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0289",
+      "expected": "holiday",
+      "expected_bn": "ছুটি",
+      "value": "We stayed at home during the holiday."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0291",
+      "expected": "hope",
+      "expected_bn": "আশা",
+      "value": "I hope the weather is good tomorrow."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0306",
+      "expected": "important",
+      "expected_bn": "গুরুত্বপূর্ণ",
+      "value": "It is important to keep your ticket."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0320",
+      "expected": "interesting",
+      "expected_bn": "আকর্ষণীয়",
+      "value": "The guide told us an interesting story."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0326",
+      "expected": "invite",
+      "expected_bn": "আমন্ত্রণ",
+      "value": "We invite our neighbours to the event."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0328",
+      "expected": "issue",
+      "expected_bn": "সমস্যা",
+      "value": "The main issue is the broken screen."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0330",
+      "expected": "join",
+      "expected_bn": "যোগ দেওয়া",
+      "value": "Would you like to join our study group?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0331",
+      "expected": "journey",
+      "expected_bn": "যাত্রা",
+      "value": "The journey took three hours."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0336",
+      "expected": "kindly",
+      "expected_bn": "দয়া করে",
+      "value": "Kindly confirm the appointment."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0338",
+      "expected": "last",
+      "expected_bn": "গত",
+      "value": "I visited the library last week."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0345",
+      "expected": "lend",
+      "expected_bn": "ধার দেওয়া",
+      "value": "Can you lend me a pen?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0347",
+      "expected": "lighter",
+      "expected_bn": "আরও হালকা",
+      "value": "This small bag is lighter than my suitcase."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0352",
+      "expected": "location",
+      "expected_bn": "অবস্থান",
+      "value": "The map shows the location of the station."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0356",
+      "expected": "made",
+      "expected_bn": "তৈরি করেছিল",
+      "value": "She made soup for dinner yesterday."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0359",
+      "expected": "may",
+      "expected_bn": "পারা (অনুমতি)",
+      "value": "May I open the window?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0365",
+      "expected": "meeting",
+      "expected_bn": "সাক্ষাৎ বা সভা",
+      "value": "The meeting starts at ten."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0369",
+      "expected": "met",
+      "expected_bn": "দেখা করেছিল",
+      "value": "She met the teacher after class yesterday."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0371",
+      "expected": "might",
+      "expected_bn": "হতে পারে",
+      "value": "It might rain this evening."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0389",
+      "expected": "network",
+      "expected_bn": "নেটওয়ার্ক",
+      "value": "The phone cannot connect to the network."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0392",
+      "expected": "next",
+      "expected_bn": "পরবর্তী",
+      "value": "Our next lesson is on Tuesday."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0412",
+      "expected": "opinion",
+      "expected_bn": "মতামত",
+      "value": "In my opinion, the train is more comfortable."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0432",
+      "expected": "pass",
+      "expected_bn": "এগিয়ে দেওয়া",
+      "value": "Please pass the salt."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0433",
+      "expected": "passenger",
+      "expected_bn": "যাত্রী",
+      "value": "Each passenger needs a ticket."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0437",
+      "expected": "permission",
+      "expected_bn": "অনুমতি",
+      "value": "You need permission to use this room."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0446",
+      "expected": "plan",
+      "expected_bn": "পরিকল্পনা",
+      "value": "Our plan is to leave early."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0447",
+      "expected": "platform",
+      "expected_bn": "প্ল্যাটফর্ম",
+      "value": "The train leaves from platform two."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0450",
+      "expected": "played",
+      "expected_bn": "খেলেছিলাম",
+      "value": "I played football with my friends yesterday."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0456",
+      "expected": "postpone",
+      "expected_bn": "পিছিয়ে দেওয়া",
+      "value": "We need to postpone the trip until Friday."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0463",
+      "expected": "prepare",
+      "expected_bn": "প্রস্তুত করা",
+      "value": "Please prepare your questions before the meeting."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0491",
+      "expected": "reason",
+      "expected_bn": "কারণ",
+      "value": "What is the reason for the delay?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0511",
+      "expected": "remind",
+      "expected_bn": "মনে করিয়ে দেওয়া",
+      "value": "Please remind me to bring the tickets."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0512",
+      "expected": "repair",
+      "expected_bn": "মেরামত",
+      "value": "Can the shop repair this broken lamp?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0513",
+      "expected": "replace",
+      "expected_bn": "বদলানো",
+      "value": "We need to replace the old battery."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0518",
+      "expected": "request",
+      "expected_bn": "অনুরোধ",
+      "value": "My request is for a room beside the window."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0521",
+      "expected": "reschedule",
+      "expected_bn": "নতুন সময় নির্ধারণ করা",
+      "value": "Could we reschedule the appointment for Monday?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0522",
+      "expected": "reservation",
+      "expected_bn": "আগাম সংরক্ষণ",
+      "value": "I have a reservation for two people."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0524",
+      "expected": "reset",
+      "expected_bn": "পুনরায় চালু করা",
+      "value": "Reset the game to start again."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0533",
+      "expected": "returned",
+      "expected_bn": "ফিরে এসেছিল",
+      "value": "She returned home before dinner yesterday."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0544",
+      "expected": "route",
+      "expected_bn": "যাত্রাপথ",
+      "value": "This route goes through the town centre."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0549",
+      "expected": "saw",
+      "expected_bn": "দেখেছিলাম",
+      "value": "I saw a blue bird in the garden."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0553",
+      "expected": "screen",
+      "expected_bn": "পর্দা",
+      "value": "The phone screen is cracked."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A2",
+      "id": "VOC-0562",
+      "expected": "shorter",
+      "expected_bn": "আরও খাটো বা ছোট",
+      "value": "This journey is shorter than the last one."
+    }
+  ]
+}

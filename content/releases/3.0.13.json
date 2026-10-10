@@ -1,0 +1,478 @@
+{
+  "base_release": "3.0.12",
+  "version": "3.0.13",
+  "patches": [
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0623",
+      "expected": "tentative",
+      "expected_bn": "অনিশ্চিত",
+      "value": "The timetable is tentative until both teams confirm their availability."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0650",
+      "expected": "trade-off",
+      "expected_bn": "বিনিময়মূলক সমঝোতা",
+      "value": "The trade-off involves accepting a slower process in exchange for closer review."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0651",
+      "expected": "tradeoff",
+      "expected_bn": "একটি সুবিধার বিনিময়ে অন্য সুবিধা ছাড়তে হওয়া",
+      "value": "The report describes a tradeoff between lower cost and greater flexibility."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0661",
+      "expected": "uncertainty",
+      "expected_bn": "অনিশ্চয়তা",
+      "value": "The conclusion should reflect the uncertainty in the underlying estimates."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0663",
+      "expected": "underlying",
+      "expected_bn": "অন্তর্নিহিত",
+      "value": "The underlying assumption is that demand will remain stable."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0664",
+      "expected": "undermine",
+      "expected_bn": "দুর্বল করা",
+      "value": "Contradictory figures can undermine confidence in the report."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0666",
+      "expected": "understatement",
+      "expected_bn": "সংযত প্রকাশ",
+      "value": "Calling the major delay a small inconvenience is an understatement."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0673",
+      "expected": "vague",
+      "expected_bn": "অস্পষ্ট",
+      "value": "The promise is vague because it gives neither a date nor a clear action."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0676",
+      "expected": "viability",
+      "expected_bn": "টেকসই হওয়ার সম্ভাবনা",
+      "value": "The plan's viability depends on whether the service can be maintained over time."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0689",
+      "expected": "weakness",
+      "expected_bn": "দুর্বলতা",
+      "value": "The main weakness is the absence of evidence from the second group."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0884",
+      "expected": "hedging",
+      "expected_bn": "সতর্ক ভাষায় দাবি করা",
+      "value": "Hedging can distinguish a tentative interpretation from an established finding."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0885",
+      "expected": "hypothesis",
+      "expected_bn": "অনুমান",
+      "value": "The hypothesis offers an explanation that can be checked against new observations."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0886",
+      "expected": "plausible",
+      "expected_bn": "সম্ভাব্য",
+      "value": "A later train is a plausible alternative if the meeting time can change."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0887",
+      "expected": "robust",
+      "expected_bn": "দৃঢ়",
+      "value": "The revised argument is more robust because it addresses the original objection."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0888",
+      "expected": "preliminary",
+      "expected_bn": "প্রাথমিক",
+      "value": "The preliminary report identifies questions for a larger study."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0889",
+      "expected": "correlation",
+      "expected_bn": "সহসম্পর্ক",
+      "value": "The observed correlation alone does not show which factor caused the change."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0890",
+      "expected": "implication",
+      "expected_bn": "ইঙ্গিত",
+      "value": "The implication of the final sentence is that the speaker remains unconvinced."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0891",
+      "expected": "endorse",
+      "expected_bn": "সমর্থন করা",
+      "value": "The committee may endorse the proposal after the outstanding questions are resolved."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0892",
+      "expected": "ambitious",
+      "expected_bn": "উচ্চাভিলাষী",
+      "value": "The plan is ambitious because it attempts to change several services at once."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0893",
+      "expected": "nuance",
+      "expected_bn": "অর্থের সূক্ষ্ম পার্থক্য",
+      "value": "The nuance between possible and probable matters when reporting uncertainty."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0894",
+      "expected": "emphasis",
+      "expected_bn": "জোর",
+      "value": "The emphasis falls on the reason for the decision, not just the outcome."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0895",
+      "expected": "cleft",
+      "expected_bn": "দ্বিখণ্ডিত জোরসূচক বাক্য",
+      "value": "The cleft sentence 'It was Sara who checked the figures' emphasizes Sara."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0896",
+      "expected": "highlight",
+      "expected_bn": "বিশেষভাবে তুলে ধরা",
+      "value": "The summary should highlight the risks that affect the recommendation."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0897",
+      "expected": "focus",
+      "expected_bn": "মনোযোগের কেন্দ্র",
+      "value": "The focus of the discussion shifts from immediate cost to long-term viability."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0898",
+      "expected": "essential",
+      "expected_bn": "অত্যাবশ্যক",
+      "value": "Independent verification is essential when the two accounts conflict."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0899",
+      "expected": "rhetorical",
+      "expected_bn": "অলংকারধর্মী",
+      "value": "The rhetorical question invites readers to reconsider an assumption."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0900",
+      "expected": "structure",
+      "expected_bn": "গঠন",
+      "value": "The structure moves from evidence to interpretation and then to recommendation."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0901",
+      "expected": "inversion",
+      "expected_bn": "উল্টোক্রম",
+      "value": "In 'Rarely do they arrive late', inversion places 'do' before the subject."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0902",
+      "expected": "rarely",
+      "expected_bn": "খুব কমই",
+      "value": "Rarely do the two reports agree on every detail."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0903",
+      "expected": "auxiliary",
+      "expected_bn": "সহায়ক ক্রিয়া",
+      "value": "In 'Rarely do they arrive late', 'do' is the auxiliary."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0904",
+      "expected": "encounter",
+      "expected_bn": "সম্মুখীন হওয়া",
+      "value": "Readers may encounter unfamiliar terminology in the methodology section."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0905",
+      "expected": "exceptional",
+      "expected_bn": "ব্যতিক্রমী",
+      "value": "An exceptional case does not establish what normally happens."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0906",
+      "expected": "syntax",
+      "expected_bn": "বাক্যগঠন",
+      "value": "Changing the syntax can shift the emphasis without changing the basic event."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0907",
+      "expected": "conditional",
+      "expected_bn": "শর্তসূচক বাক্য",
+      "value": "In the conditional 'If it rains, we will stay inside', the first clause gives the condition."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0908",
+      "expected": "inverted",
+      "expected_bn": "উল্টোক্রমে সাজানো",
+      "value": "The inverted sentence 'Had we known earlier, we would have called' omits 'if'."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0909",
+      "expected": "assistance",
+      "expected_bn": "সহায়তা",
+      "value": "The coordinator requested assistance with the final review."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0910",
+      "expected": "coordinator",
+      "expected_bn": "সমন্বয়কারী",
+      "value": "The coordinator keeps the two teams informed of changes to the timetable."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0911",
+      "expected": "contingency",
+      "expected_bn": "সম্ভাব্য পরিস্থিতি",
+      "value": "The plan includes a contingency for a delay in delivery."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0912",
+      "expected": "notify",
+      "expected_bn": "অবহিত করা",
+      "value": "Notify both teams before changing an agreed deadline."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0913",
+      "expected": "causation",
+      "expected_bn": "কার্যকারণ সম্পর্ক",
+      "value": "To establish causation, the analysis must do more than show that two changes occurred together."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0914",
+      "expected": "promising",
+      "expected_bn": "আশাব্যঞ্জক",
+      "value": "The early results are promising, but a larger study is still needed."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0915",
+      "expected": "methodology",
+      "expected_bn": "গবেষণাপদ্ধতি",
+      "value": "The methodology explains how participants were selected and responses compared."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0916",
+      "expected": "validity",
+      "expected_bn": "বৈধতা",
+      "value": "The team questioned the validity of a conclusion that ignored one group."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0917",
+      "expected": "generalisability",
+      "expected_bn": "সাধারণীকরণযোগ্যতা",
+      "value": "A small, narrowly selected sample may limit the study's generalisability."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0918",
+      "expected": "sample size",
+      "expected_bn": "নমুনার আকার",
+      "value": "The report states the sample size so readers know how many people were surveyed."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0919",
+      "expected": "caveat",
+      "expected_bn": "সতর্কীকরণ",
+      "value": "The caveat warns that the findings may not apply outside the surveyed area."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0920",
+      "expected": "reservation",
+      "expected_bn": "আপত্তি বা সংশয়",
+      "value": "Our main reservation is whether the deadline allows independent review."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0921",
+      "expected": "diplomatic",
+      "expected_bn": "কূটনৈতিকভাবে সতর্ক",
+      "value": "Her diplomatic wording leaves room for disagreement without weakening the request."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0922",
+      "expected": "acknowledge",
+      "expected_bn": "স্বীকৃতি দেওয়া",
+      "value": "The summary should acknowledge each team's contribution to the final proposal."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0923",
+      "expected": "concession",
+      "expected_bn": "আংশিক স্বীকারোক্তি",
+      "value": "The concession accepts part of the objection while preserving the central argument."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0924",
+      "expected": "objection",
+      "expected_bn": "আপত্তি",
+      "value": "The objection concerns the proposed method rather than the project's goal."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0925",
+      "expected": "nuanced",
+      "expected_bn": "সূক্ষ্মার্থপূর্ণ",
+      "value": "A nuanced reply explains which parts of the suggestion are useful and which need revision."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0926",
+      "expected": "timeline",
+      "expected_bn": "সময়সূচি",
+      "value": "The timeline separates preparation, testing and final implementation."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0927",
+      "expected": "counterproposal",
+      "expected_bn": "বিকল্প প্রস্তাব",
+      "value": "The counterproposal keeps the goal but suggests a less disruptive method."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0928",
+      "expected": "executive summary",
+      "expected_bn": "নির্বাহী সারাংশ",
+      "value": "The executive summary presents the decision, main reasons and remaining risks."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0929",
+      "expected": "phased",
+      "expected_bn": "ধাপে ধাপে",
+      "value": "A phased approach allows feedback from the first stage to inform later stages."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0930",
+      "expected": "rollout",
+      "expected_bn": "ধাপে চালু করা",
+      "value": "The rollout begins with a small group before expanding to the remaining participants."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0931",
+      "expected": "disruption",
+      "expected_bn": "ব্যাঘাত",
+      "value": "The team scheduled the change to minimise disruption to normal work."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "C1",
+      "id": "VOC-0932",
+      "expected": "implementation",
+      "expected_bn": "বাস্তবায়ন",
+      "value": "Implementation should follow only after the responsibilities and review process are clear."
+    }
+  ]
+}

@@ -1,0 +1,502 @@
+{
+  "base_release": "3.0.4",
+  "version": "3.0.5",
+  "patches": [
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0584",
+      "expected": "sport",
+      "expected_bn": "খেলাধুলা",
+      "value": "Football is a popular sport."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0586",
+      "expected": "start",
+      "expected_bn": "শুরু করা",
+      "value": "Let's start the lesson now."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0590",
+      "expected": "straight",
+      "expected_bn": "সোজা",
+      "value": "Go straight, then turn left."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0591",
+      "expected": "street",
+      "expected_bn": "রাস্তা",
+      "value": "The street is quiet in the morning."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0594",
+      "expected": "study",
+      "expected_bn": "পড়া",
+      "value": "I study English after work."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0602",
+      "expected": "sugar",
+      "expected_bn": "চিনি",
+      "value": "I don't put sugar in my tea."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0605",
+      "expected": "Sunday",
+      "expected_bn": "রবিবার",
+      "value": "We have no class on Sunday."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0613",
+      "expected": "swim",
+      "expected_bn": "সাঁতার কাটা",
+      "value": "Can you swim across the pool?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0626",
+      "expected": "thankful",
+      "expected_bn": "কৃতজ্ঞ",
+      "value": "I am thankful for your help."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0639",
+      "expected": "Thursday",
+      "expected_bn": "বৃহস্পতিবার",
+      "value": "The meeting is on Thursday."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0644",
+      "expected": "tomorrow",
+      "expected_bn": "আগামীকাল",
+      "value": "We have a test tomorrow."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0646",
+      "expected": "tonight",
+      "expected_bn": "আজ রাতে",
+      "value": "I will read this book tonight."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0656",
+      "expected": "Tuesday",
+      "expected_bn": "মঙ্গলবার",
+      "value": "The shop closes early on Tuesday."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0662",
+      "expected": "uncle",
+      "expected_bn": "মামা, চাচা, খালু বা ফুফা (প্রসঙ্গভেদে)",
+      "value": "My uncle is my mother's brother."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0672",
+      "expected": "usually",
+      "expected_bn": "সাধারণত",
+      "value": "I usually have breakfast at seven."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0674",
+      "expected": "vegetable",
+      "expected_bn": "সবজি",
+      "value": "A carrot is a vegetable."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0682",
+      "expected": "wait",
+      "expected_bn": "অপেক্ষা করা",
+      "value": "Please wait here for the bus."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0683",
+      "expected": "wake",
+      "expected_bn": "জাগা",
+      "value": "I wake up at seven every morning."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0684",
+      "expected": "walk",
+      "expected_bn": "হাঁটা",
+      "value": "We walk to the library."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0686",
+      "expected": "watch",
+      "expected_bn": "দেখা",
+      "value": "We watch a film after dinner."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0687",
+      "expected": "water",
+      "expected_bn": "পানি",
+      "value": "Drink some water after your walk."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0690",
+      "expected": "Wednesday",
+      "expected_bn": "বুধবার",
+      "value": "Our next lesson is on Wednesday."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0691",
+      "expected": "week",
+      "expected_bn": "সপ্তাহ",
+      "value": "There are seven days in a week."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0705",
+      "expected": "work",
+      "expected_bn": "কাজ করা",
+      "value": "I work in a small shop."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0716",
+      "expected": "young",
+      "expected_bn": "তরুণ বা ছোট",
+      "value": "The young teacher helps the class."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0746",
+      "expected": "room",
+      "expected_bn": "কক্ষ",
+      "value": "The room has two windows."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0747",
+      "expected": "floor",
+      "expected_bn": "মেঝে",
+      "value": "Please put the bag on the floor."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0748",
+      "expected": "lamp",
+      "expected_bn": "বাতি",
+      "value": "The lamp is beside my bed."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0749",
+      "expected": "bed",
+      "expected_bn": "বিছানা",
+      "value": "I read in bed before I sleep."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0750",
+      "expected": "mirror",
+      "expected_bn": "আয়না",
+      "value": "There is a mirror above the sink."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0751",
+      "expected": "ceiling",
+      "expected_bn": "সিলিং",
+      "value": "A lamp hangs from the ceiling."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0752",
+      "expected": "wear",
+      "expected_bn": "পরা",
+      "value": "I wear a jacket in cold weather."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0753",
+      "expected": "shirt",
+      "expected_bn": "শার্ট",
+      "value": "This blue shirt is clean."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0754",
+      "expected": "trousers",
+      "expected_bn": "প্যান্ট",
+      "value": "These trousers are too long."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0755",
+      "expected": "skirt",
+      "expected_bn": "স্কার্ট",
+      "value": "She wears a green skirt."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0756",
+      "expected": "shoes",
+      "expected_bn": "জুতা",
+      "value": "Please leave your shoes by the door."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0757",
+      "expected": "jacket",
+      "expected_bn": "জ্যাকেট",
+      "value": "Take a jacket; it is cold outside."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0758",
+      "expected": "comfortable",
+      "expected_bn": "আরামদায়ক",
+      "value": "These shoes are comfortable for walking."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0759",
+      "expected": "currently",
+      "expected_bn": "বর্তমানে",
+      "value": "The library is currently closed."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0760",
+      "expected": "drawing",
+      "expected_bn": "আঁকছে",
+      "value": "She is drawing a flower."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0761",
+      "expected": "waiting",
+      "expected_bn": "অপেক্ষা করছে",
+      "value": "We are waiting for the bus."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0762",
+      "expected": "running",
+      "expected_bn": "দৌড়াচ্ছে",
+      "value": "The children are running in the park."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0763",
+      "expected": "cooking",
+      "expected_bn": "রান্না করছে",
+      "value": "He is cooking dinner."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0764",
+      "expected": "studying",
+      "expected_bn": "পড়ছে",
+      "value": "They are studying English together."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0765",
+      "expected": "working",
+      "expected_bn": "কাজ করছে",
+      "value": "She is working in the garden."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0766",
+      "expected": "cannot",
+      "expected_bn": "পারে না",
+      "value": "I cannot open this heavy door."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0767",
+      "expected": "sing",
+      "expected_bn": "গাওয়া",
+      "value": "Can you sing this song?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0768",
+      "expected": "ride",
+      "expected_bn": "চড়া",
+      "value": "I can ride a bicycle."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0769",
+      "expected": "drive",
+      "expected_bn": "চালানো",
+      "value": "She can drive a car."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0770",
+      "expected": "ability",
+      "expected_bn": "সক্ষমতা",
+      "value": "Swimming is a useful ability."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0771",
+      "expected": "when",
+      "expected_bn": "কখন",
+      "value": "When does the lesson start?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0772",
+      "expected": "why",
+      "expected_bn": "কেন",
+      "value": "Why is the shop closed today?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0773",
+      "expected": "how",
+      "expected_bn": "কীভাবে",
+      "value": "How do we get to the library?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0774",
+      "expected": "library",
+      "expected_bn": "গ্রন্থাগার",
+      "value": "You can borrow books from the library."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0775",
+      "expected": "some",
+      "expected_bn": "কিছু",
+      "value": "I need some water."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0776",
+      "expected": "any",
+      "expected_bn": "কোনো",
+      "value": "Do you have any questions?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0777",
+      "expected": "much",
+      "expected_bn": "বেশি পরিমাণ",
+      "value": "There is not much milk left."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0778",
+      "expected": "many",
+      "expected_bn": "অনেকগুলো",
+      "value": "There are many books on the shelf."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0779",
+      "expected": "little",
+      "expected_bn": "অল্প",
+      "value": "We have little time before class."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0780",
+      "expected": "few",
+      "expected_bn": "অল্প কয়েকটি",
+      "value": "There are few buses at night."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0781",
+      "expected": "bottle",
+      "expected_bn": "বোতল",
+      "value": "This bottle holds one litre of water."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "A1",
+      "id": "VOC-0782",
+      "expected": "receive",
+      "expected_bn": "পাওয়া",
+      "value": "I receive a letter from my friend."
+    }
+  ]
+}

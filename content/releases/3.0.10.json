@@ -1,0 +1,726 @@
+{
+  "base_release": "3.0.9",
+  "version": "3.0.10",
+  "patches": [
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0002",
+      "expected": "acceptable",
+      "expected_bn": "গ্রহণযোগ্য",
+      "value": "A short delay is acceptable if everyone is informed in advance."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0004",
+      "expected": "account",
+      "expected_bn": "বিবরণ",
+      "value": "The witness gave a detailed account of the incident."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0005",
+      "expected": "accountability",
+      "expected_bn": "জবাবদিহি",
+      "value": "Clear records improve accountability by showing who made each decision."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0009",
+      "expected": "adapt",
+      "expected_bn": "মানিয়ে নেওয়া",
+      "value": "We had to adapt our plan when the room became unavailable."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0012",
+      "expected": "advantage",
+      "expected_bn": "সুবিধা",
+      "value": "One advantage of the new route is the shorter journey."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0020",
+      "expected": "agreement",
+      "expected_bn": "সম্মতি",
+      "value": "We cannot proceed without the group's agreement."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0023",
+      "expected": "alternative",
+      "expected_bn": "বিকল্প",
+      "value": "The report considers an alternative to building another road."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0032",
+      "expected": "application",
+      "expected_bn": "আবেদন",
+      "value": "Her application includes a letter and a sample of her work."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0035",
+      "expected": "appropriate",
+      "expected_bn": "উপযুক্ত",
+      "value": "Choose language that is appropriate for the audience."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0036",
+      "expected": "approval",
+      "expected_bn": "অনুমোদন",
+      "value": "The plan needs approval before work begins."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0037",
+      "expected": "approved",
+      "expected_bn": "অনুমোদিত",
+      "value": "They followed the approved schedule."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0042",
+      "expected": "argument",
+      "expected_bn": "যুক্তি",
+      "value": "The argument is stronger when each point has supporting evidence."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0050",
+      "expected": "assertion",
+      "expected_bn": "দৃঢ় দাবি",
+      "value": "The assertion that the service never fails requires evidence."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0052",
+      "expected": "assess",
+      "expected_bn": "মূল্যায়ন করা",
+      "value": "We must assess the risks before changing the procedure."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0053",
+      "expected": "assume",
+      "expected_bn": "ধরে নেওয়া",
+      "value": "Do not assume that a larger sample is always representative."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0059",
+      "expected": "audience",
+      "expected_bn": "পাঠক বা শ্রোতা",
+      "value": "The speaker adjusted her explanation for a non-specialist audience."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0074",
+      "expected": "benefit",
+      "expected_bn": "সুবিধা",
+      "value": "A clear timetable offers a benefit to both staff and passengers."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0126",
+      "expected": "coherent",
+      "expected_bn": "সুসংলগ্ন",
+      "value": "The revised essay presents a coherent sequence of ideas."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0128",
+      "expected": "compare",
+      "expected_bn": "তুলনা",
+      "value": "Compare the two proposals using the same criteria."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0131",
+      "expected": "compromise",
+      "expected_bn": "সমঝোতা",
+      "value": "We reached a compromise that gave both groups access to the room."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0133",
+      "expected": "concession",
+      "expected_bn": "ছাড়",
+      "value": "As a concession, the team agreed to extend the deadline."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0136",
+      "expected": "conclusion",
+      "expected_bn": "উপসংহার",
+      "value": "The conclusion follows from the evidence in the report."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0145",
+      "expected": "consistent",
+      "expected_bn": "সামঞ্জস্যপূর্ণ",
+      "value": "The figures should be consistent across all sections."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0149",
+      "expected": "contradict",
+      "expected_bn": "বিরোধিতা করা",
+      "value": "The newer records contradict the claim that attendance stayed unchanged."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0150",
+      "expected": "contrast",
+      "expected_bn": "পার্থক্য",
+      "value": "There is a clear contrast between the two writers' views."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0151",
+      "expected": "contribute",
+      "expected_bn": "অবদান রাখা",
+      "value": "Each group member can contribute a different perspective."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0156",
+      "expected": "correlation",
+      "expected_bn": "পারস্পরিক সম্পর্ক",
+      "value": "Correlation between two variables does not by itself establish causation."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0164",
+      "expected": "counterpoint",
+      "expected_bn": "পাল্টা যুক্তি",
+      "value": "The second paragraph offers a counterpoint to the opening argument."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0166",
+      "expected": "courteous",
+      "expected_bn": "বিনীত",
+      "value": "Her courteous reply acknowledged the request before declining it."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0167",
+      "expected": "credibility",
+      "expected_bn": "বিশ্বাসযোগ্যতা",
+      "value": "Naming reliable sources improves the report's credibility."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0175",
+      "expected": "data",
+      "expected_bn": "উপাত্ত",
+      "value": "The data include responses from both groups."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0187",
+      "expected": "despite",
+      "expected_bn": "সত্ত্বেও",
+      "value": "Despite the extra cost, the team preferred the safer option."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0190",
+      "expected": "details",
+      "expected_bn": "বিস্তারিত",
+      "value": "The appendix contains details of the survey method."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0194",
+      "expected": "direct",
+      "expected_bn": "সরাসরি",
+      "value": "A direct request states clearly what the writer needs."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0195",
+      "expected": "disadvantage",
+      "expected_bn": "অসুবিধা",
+      "value": "The main disadvantage is the longer waiting time."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0202",
+      "expected": "document",
+      "expected_bn": "নথি",
+      "value": "Keep the original document so that the figures can be checked."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0206",
+      "expected": "drawback",
+      "expected_bn": "অসুবিধা",
+      "value": "One drawback of the plan is its dependence on good weather."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0234",
+      "expected": "expression",
+      "expected_bn": "প্রকাশভঙ্গি",
+      "value": "The expression sounds more formal in a business letter."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0238",
+      "expected": "fair",
+      "expected_bn": "ন্যায্য",
+      "value": "A fair procedure gives each applicant the same opportunity."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0245",
+      "expected": "feasible",
+      "expected_bn": "বাস্তবায়নযোগ্য",
+      "value": "The proposal is feasible within the available budget."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0248",
+      "expected": "finding",
+      "expected_bn": "গবেষণার ফল",
+      "value": "The main finding was that responses differed between the two groups."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0296",
+      "expected": "hypothesis",
+      "expected_bn": "অনুমানভিত্তিক ব্যাখ্যা",
+      "value": "The researchers tested the hypothesis using a second sample."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0297",
+      "expected": "hypothetical",
+      "expected_bn": "কাল্পনিক",
+      "value": "Consider a hypothetical town with only one bus route."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0301",
+      "expected": "imagine",
+      "expected_bn": "কল্পনা",
+      "value": "Imagine how the plan would work without extra staff."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0311",
+      "expected": "indicate",
+      "expected_bn": "ইঙ্গিত করা",
+      "value": "The figures indicate a rise, but they do not explain its cause."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0312",
+      "expected": "indirect",
+      "expected_bn": "পরোক্ষ",
+      "value": "An indirect request may sound softer than a command."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0314",
+      "expected": "inference",
+      "expected_bn": "অনুমানভিত্তিক সিদ্ধান্ত",
+      "value": "Her inference depends on evidence from the final paragraph."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0315",
+      "expected": "informal",
+      "expected_bn": "অনানুষ্ঠানিক",
+      "value": "An informal message may be suitable for a close colleague."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0322",
+      "expected": "interpret",
+      "expected_bn": "ব্যাখ্যা করা",
+      "value": "Readers may interpret the same phrase in different ways."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0323",
+      "expected": "interpretation",
+      "expected_bn": "ব্যাখ্যা",
+      "value": "This interpretation fits the character's earlier actions."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0333",
+      "expected": "justify",
+      "expected_bn": "যৌক্তিকতা দেখানো",
+      "value": "The team must justify the extra cost with clear benefits."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0350",
+      "expected": "limitation",
+      "expected_bn": "সীমাবদ্ধতা",
+      "value": "A small sample is one limitation of the study."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0353",
+      "expected": "logical",
+      "expected_bn": "যৌক্তিক",
+      "value": "The conclusion is logical if both starting assumptions are true."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0370",
+      "expected": "method",
+      "expected_bn": "পদ্ধতি",
+      "value": "The report explains the method used to collect responses."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0376",
+      "expected": "modify",
+      "expected_bn": "সংশোধন করা",
+      "value": "We can modify the schedule without changing the final deadline."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0383",
+      "expected": "mutual",
+      "expected_bn": "পারস্পরিক",
+      "value": "The agreement is based on mutual respect."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0388",
+      "expected": "negotiate",
+      "expected_bn": "আলোচনা করে সমঝোতা",
+      "value": "The two groups will negotiate a shared schedule."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0391",
+      "expected": "nevertheless",
+      "expected_bn": "তবুও",
+      "value": "The route is longer; nevertheless, it may be safer at night."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0402",
+      "expected": "notify",
+      "expected_bn": "জানানো",
+      "value": "Please notify the participants if the meeting time changes."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0408",
+      "expected": "on the other hand",
+      "expected_bn": "অন্যদিকে",
+      "value": "The bus is cheaper; on the other hand, the train is faster."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0420",
+      "expected": "outcome",
+      "expected_bn": "ফলাফল",
+      "value": "The outcome depended on how the team divided the work."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0423",
+      "expected": "overall",
+      "expected_bn": "সামগ্রিকভাবে",
+      "value": "Overall, the benefits appear to outweigh the extra cost."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0427",
+      "expected": "paragraph",
+      "expected_bn": "অনুচ্ছেদ",
+      "value": "Each paragraph develops one main point."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0439",
+      "expected": "perspective",
+      "expected_bn": "দৃষ্টিভঙ্গি",
+      "value": "The article examines the issue from a passenger's perspective."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0454",
+      "expected": "polite",
+      "expected_bn": "ভদ্র",
+      "value": "A polite reminder can be clear without sounding demanding."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0457",
+      "expected": "potential",
+      "expected_bn": "সম্ভাবনা",
+      "value": "The unused room has potential as a small reading space."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0462",
+      "expected": "premise",
+      "expected_bn": "যুক্তির ভিত্তি",
+      "value": "The argument rests on the premise that demand will remain steady."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0468",
+      "expected": "priority",
+      "expected_bn": "অগ্রাধিকার",
+      "value": "Safety is the first priority when choosing a route."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0469",
+      "expected": "probability",
+      "expected_bn": "সম্ভাব্যতা",
+      "value": "The weather forecast gives a high probability of rain."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0471",
+      "expected": "procedure",
+      "expected_bn": "কার্যপদ্ধতি",
+      "value": "Follow the same procedure when checking each application."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0473",
+      "expected": "process",
+      "expected_bn": "প্রক্রিয়া",
+      "value": "The review process includes feedback from both groups."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0499",
+      "expected": "reconcile",
+      "expected_bn": "মিলিয়ে দেখা",
+      "value": "We need to reconcile the conflicting figures before publishing the report."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0501",
+      "expected": "refute",
+      "expected_bn": "খণ্ডন করা",
+      "value": "One verified counterexample can refute a claim that something always happens."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0505",
+      "expected": "regularly",
+      "expected_bn": "নিয়মিত",
+      "value": "The team regularly reviews the timetable."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0506",
+      "expected": "rejected",
+      "expected_bn": "প্রত্যাখ্যাত",
+      "value": "The rejected proposal exceeded the available budget."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0510",
+      "expected": "reliable",
+      "expected_bn": "বিশ্বাসযোগ্য",
+      "value": "A reliable account can be checked against independent records."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0517",
+      "expected": "reportedly",
+      "expected_bn": "খবর অনুযায়ী",
+      "value": "The bridge will reportedly reopen next week, but we have not confirmed the date."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0520",
+      "expected": "requirement",
+      "expected_bn": "শর্ত বা প্রয়োজনীয়তা",
+      "value": "The main requirement is a completed application form."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0525",
+      "expected": "resolve",
+      "expected_bn": "মীমাংসা করা",
+      "value": "A calm discussion helped resolve the disagreement."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0536",
+      "expected": "revise",
+      "expected_bn": "সংশোধন করা",
+      "value": "Revise the conclusion after checking the new evidence."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0547",
+      "expected": "sample",
+      "expected_bn": "নমুনা",
+      "value": "The sample contains responses from several neighbourhoods."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0550",
+      "expected": "scenario",
+      "expected_bn": "পরিস্থিতির উদাহরণ",
+      "value": "This scenario shows how a delay could affect both teams."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0557",
+      "expected": "sequence",
+      "expected_bn": "ক্রম",
+      "value": "The instructions describe the sequence of steps."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0564",
+      "expected": "significant",
+      "expected_bn": "তাৎপর্যপূর্ণ",
+      "value": "The new route made a significant difference to travel time."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0585",
+      "expected": "stakeholder",
+      "expected_bn": "সংশ্লিষ্ট পক্ষ",
+      "value": "Each stakeholder should have a chance to comment on the plan."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0596",
+      "expected": "submit",
+      "expected_bn": "জমা দেওয়া",
+      "value": "Please submit the report before the agreed deadline."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0607",
+      "expected": "supporting",
+      "expected_bn": "সমর্থনকারী",
+      "value": "Add a supporting example after the main claim."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0608",
+      "expected": "suppose",
+      "expected_bn": "ধরে নেওয়া",
+      "value": "Suppose the first option becomes unavailable; what could we do instead?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0615",
+      "expected": "system",
+      "expected_bn": "ব্যবস্থা",
+      "value": "The new booking system reduces the need for paper forms."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "B2",
+      "id": "VOC-0634",
+      "expected": "thesis",
+      "expected_bn": "মূল বক্তব্য",
+      "value": "The thesis of the essay appears in its opening paragraph."
+    }
+  ]
+}
