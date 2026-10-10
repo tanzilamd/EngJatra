@@ -4,7 +4,7 @@ import { bands } from "../packages/learning/engine";
 import { Library, Manifest } from "../packages/contracts/content";
 import { readJson, normalizeUnit, sha, scan } from "./content-tools";
 import { loadEnv } from "vite";
-import { exportLibraryReleases } from "./library-supplements";
+import { exportContentReleases } from "./content-releases";
 const apiOrigin =
   process.env.VITE_API_URL ??
   loadEnv("production", process.cwd(), "VITE_API_URL").VITE_API_URL;
@@ -91,7 +91,7 @@ for (const band of bands) {
 }
 const manifest = Manifest.parse({ version, levels });
 await writeFile(`${base}/content/manifest.json`, JSON.stringify(manifest));
-const supplementaryVersions = await exportLibraryReleases(base);
+const supplementaryVersions = await exportContentReleases(base);
 for (const app of ["student-web", "admin-web"]) {
   const dest = join("apps", app, "public");
   await mkdir(`${dest}/brand`, { recursive: true });

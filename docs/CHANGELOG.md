@@ -49,3 +49,9 @@ Fixed 320px admin Auth header wrapping and corrected the live CSS/theme check to
 Verified launch-hardening release 6ba2134 in successful Actions 38038409096 plus independent deployed versions/artifacts, public browsers and real disposable Auth/progress/admin/RLS checks. Existing Google key/model metadata authenticated; confirmed mixed ages require Google-hosted Gemma to remain disabled, with the provider preserved. Serial cold-browser measurements improved mean desktop/mobile LCP from 2.418/2.338s to 1.980/1.950s; these are two-sample lab results, not field guarantees.
 
 Add append-only 3.0.1 teaching supplements: 36 Bengali grammar-example translations, seven exact-sense beginner examples and two narrow caveat corrections. Preserve original source/3.0.0, all unit bytes/IDs/answers and learner progress. Collections show current libraries without changing an unfinished lesson’s pinned release. Add data/immutability/meaning-anchor regressions and adapt release validation to current manifest versions.
+
+## 2026-10-10 — Verified teaching release and durable unit authoring
+
+Published and independently verified code 759f858/content 3.0.1 in Actions 38040248069, including real Auth/progress/admin/RLS cleanup and original-byte retention. Added truthful protected publication/audit metadata after hash verification; no learner/owner account or migration/history changes. Final cold LCP means 1.932s desktop/1.962s mobile, compared with pre-hardening 2.418/2.338s.
+
+Add safe unit-source preparation to the append-only release chain, protecting exact hashes, activity/saved-word IDs, previous bytes and private/stale/duplicate/overwrite boundaries. Correct permanent publishing instructions so future reviewed drafts use the sole existing pipeline without rewriting original source. No served teaching data changed in this tooling follow-up.

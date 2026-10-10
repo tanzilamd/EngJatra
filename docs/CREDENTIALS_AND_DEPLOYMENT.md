@@ -6,11 +6,11 @@ Start with the concise Bengali checklist in `docs/DEPLOYMENT_SIMPLE_BN.md`. `doc
 
 ## One-time setup and source-controlled targets
 
-| Service | Name | Config | Artifact / authority |
-| --- | --- | --- | --- |
-| Student | `engjatra` | root `wrangler.jsonc` | `apps/student-web/dist`, public assets only |
-| Admin | `engjatra-admin` | `apps/admin-web/wrangler.jsonc` | `apps/admin-web/dist`, no private runtime data |
-| API | `engjatra-api` | `workers/api/wrangler.toml`; validated ignored deployment config | `workers/api/src/index.ts`, Auth/RLS/staff authorization |
+| Service | Name             | Config                                                           | Artifact / authority                                     |
+| ------- | ---------------- | ---------------------------------------------------------------- | -------------------------------------------------------- |
+| Student | `engjatra`       | root `wrangler.jsonc`                                            | `apps/student-web/dist`, public assets only              |
+| Admin   | `engjatra-admin` | `apps/admin-web/wrangler.jsonc`                                  | `apps/admin-web/dist`, no private runtime data           |
+| API     | `engjatra-api`   | `workers/api/wrangler.toml`; validated ignored deployment config | `workers/api/src/index.ts`, Auth/RLS/staff authorization |
 
 All compatibility dates are `2026-10-09`. Student/admin set an explicit assets directory and SPA handling, without a script or worker-first routing. Generated Pages catch-all `_redirects` is removed; it is not needed by Worker SPA routing. `_headers` remains for CSP/frame denial and immutable content caching. Exact custom API origin is added to CSP at build time. No microphone/camera permission or public source maps.
 
@@ -55,9 +55,9 @@ Keys only reach the API Worker. True flags require model/key consistency; neithe
 
 ## Versioned content, corrections and rollback
 
-Actions saves the verified student artifact for 90 days and downloads the latest available verified one before subsequent deploys. The build retains **all** prior immutable content directories from that artifact and keeps a newer already-published content manifest when rebuilding the unchanged original source version. An existing immutable version cannot change bytes; bump the exporter content version for reviewed source changes. An expired/lost baseline or mismatched remote content blocks deployment; restore an approved archive rather than delete versions. Free artifact/asset quotas are finite; the owner must retain/export the latest baseline and watch storage.
+Actions saves the verified student artifact for 90 days and downloads the latest available verified one before subsequent deploys. The build retains **all** prior immutable content directories from that artifact and keeps a newer already-published content manifest when rebuilding the unchanged original source version. An existing immutable version cannot change bytes; append a new source release version for reviewed changes; never change the original exporter baseline. An expired/lost baseline or mismatched remote content blocks deployment; restore an approved archive rather than delete versions. Free artifact/asset quotas are finite; the owner must retain/export the latest baseline and watch storage.
 
-Private editor/reviewer drafts remain in Supabase. The public-safe export and `npm run release:export` are review tools, not a competing production trigger. Validate the exported patch and learner preview, apply the reviewed changes to canonical public source/unit data, increment the immutable release version in `scripts/export-content.ts`, run QA, commit/push main. Actions publishes the reviewed source and retained assets. Do not commit private notes/statuses. After actual deployed hash verification an authorized owner records the matching `content_releases` outcome/audit through protected SQL; ordinary browser RPC cannot mark deployment. Repository deployments do not silently promote editorial drafts or invent teacher approval.
+Private editor/reviewer drafts remain in Supabase. Validate the protected public-safe export and learner preview, then use `npm run release:prepare -- changes.local.json <new-version> content/releases/<new-version>.json <verified-site-baseline>` to create a reviewed append-only source release. The baseline is the archived deployed student site or a byte-verified current build, not an assumed latest source version. Preparation anchors exact unit hashes, preserves activity/saved-word identities, rejects stale/private/duplicate edits and never overwrites a file or publishes. Do not edit the original 3.0.0 source/export version or an already published release. Run QA, commit/push main; the sole Actions pipeline builds the source release and retains previous immutable bytes. `release:export` remains a separate review artifact command, not a competing publisher. Library supplements use the same strict release chain. After actual deployed hash verification an authorized owner/operator records the matching `content_releases` outcome/audit through protected SQL; ordinary browser RPC cannot mark deployment. Repository deployments do not silently promote editorial drafts or invent teacher approval.
 
 Rollback: Cloudflare Worker → Deployments → select the last known good version for each affected target, verify site/API/content/CORS again, then fix or safely revert source on main and push. This is incident recovery, not a second automatic trigger. Never force-push history. Code rollback does not undo SQL, rotate secrets back safely, or delete progress. Preserve old immutable directories, use backups for DB incidents, and reconcile release records after verified recovery.
 

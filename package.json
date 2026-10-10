@@ -23,6 +23,7 @@
     "qa": "node --import tsx scripts/qa-proof.ts begin && npm run content:export && npm run test:docs && npm run db:check && npm run lint && npm run typecheck && npm run test:content && npm test && npm run test:e2e && npm run test:auth-ui && npm run build && npm run test:production && npm run test:deployment && npm run test:release && node --import tsx scripts/qa-proof.ts finish",
     "smoke:live": "node --use-env-proxy --import tsx scripts/smoke-live.ts",
     "release:export": "tsx scripts/release.ts",
+    "release:prepare": "tsx scripts/prepare-release.ts",
     "format": "prettier --write apps packages workers scripts tests supabase/tests *.ts *.js *.json *.jsonc",
     "format:check": "prettier --check apps packages workers scripts tests supabase/tests *.ts *.js *.json *.jsonc",
     "dev:live": "npm run content:export && concurrently -k \"vite --config apps/student-web/vite.config.ts\" \"vite --config apps/admin-web/vite.config.ts\" \"npm:dev:worker:live\"",

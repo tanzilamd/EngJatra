@@ -4,10 +4,10 @@ import { Library } from "../packages/contracts/content";
 import { bands } from "../packages/learning/engine";
 import {
   applyLibrarySupplements,
-  LibraryRelease,
-} from "../scripts/library-supplements";
+  ContentRelease,
+} from "../scripts/content-releases";
 
-const release = LibraryRelease.parse(
+const release = ContentRelease.parse(
   JSON.parse(readFileSync("content/releases/3.0.1.json", "utf8")),
 );
 const base = (band: string) =>
