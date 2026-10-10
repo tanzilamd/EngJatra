@@ -4,6 +4,7 @@ import { normalizeUnit } from "./content-tools";
 import { callProvider, ProviderError } from "../workers/api/src/ai";
 import { googleCountries } from "../workers/api/src/ai-policy";
 import type { Env } from "../workers/api/src/types";
+import { correctsSyntheticSentence } from "./qa-tutor-correction";
 
 // Credential validation only: never generate content while the deployment's
 // account/free/audience eligibility gate is disabled. No key or raw error output.
@@ -63,6 +64,7 @@ export async function checkGemma(
 export async function checkInference(
   env: NodeJS.ProcessEnv,
   network: typeof fetch = fetch,
+  options: { includeSyntheticSamples?: boolean } = {},
 ) {
   const metadata = await checkGemma(env, network);
   if (!metadata.enabled) return metadata;
@@ -88,7 +90,9 @@ export async function checkInference(
     LLAMA_FREE_CONFIRMED: "false",
     LLAMA_MODEL: "",
   };
+  let attempted = 0;
   try {
+    attempted++;
     const greeting = await callProvider(
       "gemma",
       provider,
@@ -96,6 +100,7 @@ export async function checkInference(
       "Hello. I am learning English.",
       network,
     );
+    attempted++;
     const corrected = await callProvider(
       "gemma",
       provider,
@@ -113,23 +118,29 @@ export async function checkInference(
         },
       ],
     );
-    if (
-      corrected.feedback_type === "none" ||
-      !corrected.suggested_revision_en ||
-      /\bI goes\b/i.test(corrected.suggested_revision_en)
-    )
+    if (!correctsSyntheticSentence(corrected))
       return {
         ...metadata,
         status: "BLOCKED",
         enabled: false,
         inference_tested: true,
+        synthetic_calls_attempted: attempted,
         reason: "Synthetic subject-verb correction was not valid",
       };
     return {
       ...metadata,
       status: "INFERENCE VERIFIED",
       inference_tested: true,
+      synthetic_calls_attempted: attempted,
       synthetic_calls: 2,
+      ...(options.includeSyntheticSamples
+        ? {
+            synthetic_samples: [
+              { case: "greeting", reply: greeting },
+              { case: "correction", reply: corrected },
+            ],
+          }
+        : {}),
       checks: [
         "bounded English replies and questions",
         "nonempty Bengali-script explanations",
@@ -144,6 +155,7 @@ export async function checkInference(
       status: "BLOCKED",
       enabled: false,
       inference_tested: true,
+      synthetic_calls_attempted: attempted,
       reason:
         error instanceof ProviderError
           ? error.code
@@ -158,7 +170,9 @@ if (
   import.meta.url === pathToFileURL(process.argv[1]).href
 ) {
   await mkdir(".wrangler", { recursive: true });
-  const report = await checkInference(process.env).catch(() => ({
+  const report = await checkInference(process.env, fetch, {
+    includeSyntheticSamples: process.argv.includes("--synthetic-samples"),
+  }).catch(() => ({
     status: "BLOCKED",
     enabled: false,
     reason:

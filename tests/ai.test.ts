@@ -176,6 +176,31 @@ it("bounded conversation context is carried as untrusted prompt data", async () 
   const sent = JSON.parse(request.mock.calls[0][1].body);
   expect(sent.contents[0].parts[0].text).toContain("What is your name?");
   expect(sent.contents[0].parts[0].text).toContain("untrusted data");
+  expect(sent.contents[0].parts[0].text).toContain(
+    '"learning_tags":["vocabulary"]',
+  );
+  expect(sent.contents[0].parts[0].text).toContain("JSON ARRAY");
+});
+it("schema diagnostics expose only known contract field names, never rejected values or keys", () => {
+  try {
+    parseReply(
+      JSON.stringify({
+        ...reply,
+        learning_tags: "private rejected text",
+        private_unknown_key: true,
+      }),
+      unit.id,
+    );
+    expect.fail("Invalid schema must be rejected");
+  } catch (error) {
+    expect(error).toMatchObject({
+      code: "AI_INVALID_RESPONSE",
+      diagnostic: { stage: "schema", fields: ["learning_tags", "unknown"] },
+    });
+    expect(JSON.stringify(error)).not.toMatch(
+      /private rejected text|private_unknown_key/,
+    );
+  }
 });
 it("reviewed Gemma 4 requests minimal reasoning and never returns thought parts as tutor text", async () => {
   const request = vi.fn().mockImplementation(

@@ -6,7 +6,8 @@ import { redactLog } from "./redact-log";
 import { liveBrowserOptions } from "./live-browser-options";
 import { reviewerFixtureQuery } from "./live-auth-fixture";
 import { completeFirstLessonActivities } from "./qa-first-lesson";
-import { TutorReply } from "../packages/contracts/api";
+import { messages } from "../packages/contracts/api";
+import { validateProductionTutor } from "./live-ai-result";
 
 // Credentials remain in process memory. Only newly created disposable QA
 // identities are mutated/deleted; no existing learner or owner role is touched.
@@ -59,6 +60,8 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
   let deleted = 0;
   let phase = "preflight";
   let aiVerified = false;
+  let aiRegionDenied = false;
+  let aiCountry: string | undefined;
   let diagnosticPage: Page | undefined;
   async function supabase(
     path: string,
@@ -388,25 +391,30 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
         .click();
       const response = await received;
       if (!response.ok()) throw Error("Production AI request failed");
-      const data = await response.json();
-      const reply = TutorReply.parse(data.reply);
-      if (
-        data.local_demo ||
-        reply.source_unit_id !== "P0-01" ||
-        reply.feedback_type === "none" ||
-        !reply.suggested_revision_en ||
-        /\bI goes\b/i.test(reply.suggested_revision_en)
-      )
-        throw Error(
-          "Real production AI did not return a valid bilingual correction",
-        );
-      await expect(
-        restored.getByText(reply.short_explanation_bn, { exact: true }),
-      ).toBeVisible();
-      checks.push(
-        "real authenticated production inference: schema-validated English/Bengali correction rendered through the tutor; synthetic practice text only",
+      const result = validateProductionTutor(
+        await response.json(),
+        process.env.GEMMA_ALLOWED_COUNTRIES ?? "",
       );
-      aiVerified = true;
+      if (result.inference_verified) {
+        await expect(
+          restored.getByText(result.reply.short_explanation_bn, {
+            exact: true,
+          }),
+        ).toBeVisible();
+        checks.push(
+          "real authenticated production inference: schema-validated English/Bengali correction rendered through the tutor; synthetic practice text only",
+        );
+        aiVerified = true;
+      } else {
+        await expect(
+          restored.getByText(messages.AI_REGION_UNAVAILABLE, { exact: true }),
+        ).toBeVisible();
+        aiRegionDenied = true;
+        aiCountry = result.country;
+        checks.push(
+          "real authenticated production regional denial and authored continuation; allowed-country inference remains NOT VERIFIED",
+        );
+      }
     }
     // Authored practice remains available independently of eligible inference.
     await restored.getByRole("button", { name: "এখন পাঠ শেষ করি" }).click();
@@ -678,12 +686,22 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
       checks,
       created_fixtures: fixtures.length,
       deleted_fixtures: deleted,
+      ai: {
+        enabled: process.env.GEMMA_FREE_CONFIRMED === "true",
+        inference_verified: aiVerified,
+        regional_denial_verified: aiRegionDenied,
+        observed_country: aiCountry,
+      },
       not_tested: [
         "real registration/resend/recovery email delivery (provider tokens separately verified)",
         "Google OAuth",
         ...(aiVerified
           ? []
-          : ["AI providers: eligibility/activation gate remains disabled"]),
+          : [
+              aiRegionDenied
+                ? "AI inference from an allowed Bangladesh production browser; this real runner was correctly denied by the country policy"
+                : "AI providers: eligibility/activation gate remains disabled",
+            ]),
         "real owner login or production content publishing mutations",
       ],
     };

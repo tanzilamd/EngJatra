@@ -109,3 +109,153 @@ it("absent credentials, forbidden metadata and incompatible models remain unveri
   );
   expect((await checkGemma(env, network)).status).toBe("BLOCKED");
 });
+it("failed synthetic schema check records attempted count and safe field diagnosis without retrying or leaking output", async () => {
+  const network = vi
+    .fn()
+    .mockResolvedValueOnce(
+      new Response(
+        JSON.stringify({
+          name: "models/gemma-test-it",
+          supportedGenerationMethods: ["generateContent"],
+        }),
+      ),
+    )
+    .mockResolvedValueOnce(
+      new Response(
+        JSON.stringify({
+          candidates: [
+            {
+              content: {
+                parts: [
+                  {
+                    text: JSON.stringify({
+                      assistant_reply_en: "Hello!",
+                      short_explanation_bn: "ভালো শুরু।",
+                      feedback_type: "none",
+                      suggested_revision_en: null,
+                      next_question_en: "How are you?",
+                      source_unit_id: "P0-01",
+                      learning_tags: "private malformed provider value",
+                    }),
+                  },
+                ],
+              },
+            },
+          ],
+        }),
+      ),
+    );
+  const report = await checkInference(
+    {
+      GEMMA_API_KEY: "private-test-key",
+      GEMMA_MODEL: "gemma-test-it",
+      GEMMA_FREE_CONFIRMED: "true",
+      GEMMA_ALLOWED_COUNTRIES: "BD",
+    },
+    network,
+  );
+  expect(report).toMatchObject({
+    status: "BLOCKED",
+    enabled: false,
+    synthetic_calls_attempted: 1,
+    diagnostic: { stage: "schema", fields: ["learning_tags"] },
+  });
+  expect(network).toHaveBeenCalledTimes(2);
+  expect(JSON.stringify(report)).not.toMatch(
+    /private-test-key|private malformed provider value/,
+  );
+});
+
+it("validated synthetic samples are opt-in and never include the key or provider envelope", async () => {
+  const reply = {
+    assistant_reply_en: "Good start!",
+    short_explanation_bn: "I-এর পরে go বসে।",
+    feedback_type: "clear_error",
+    suggested_revision_en: "I go to the market.",
+    next_question_en: "What do you buy?",
+    learning_tags: ["grammar"],
+    source_unit_id: "P0-01",
+  };
+  const network = vi.fn().mockImplementation(
+    async (_url, init) =>
+      new Response(
+        JSON.stringify(
+          init?.method === "POST"
+            ? {
+                candidates: [
+                  { content: { parts: [{ text: JSON.stringify(reply) }] } },
+                ],
+              }
+            : {
+                name: "models/gemma-test-it",
+                supportedGenerationMethods: ["generateContent"],
+              },
+        ),
+      ),
+  );
+  const env = {
+    GEMMA_API_KEY: "private-test-key",
+    GEMMA_MODEL: "gemma-test-it",
+    GEMMA_FREE_CONFIRMED: "true",
+    GEMMA_ALLOWED_COUNTRIES: "BD",
+  };
+  expect(await checkInference(env, network)).not.toHaveProperty(
+    "synthetic_samples",
+  );
+  const report = await checkInference(env, network, {
+    includeSyntheticSamples: true,
+  });
+  expect(report).toHaveProperty("synthetic_samples", [
+    { case: "greeting", reply },
+    { case: "correction", reply },
+  ]);
+  expect(JSON.stringify(report)).not.toMatch(
+    /private-test-key|candidates|parts/,
+  );
+});
+
+it("prepublication rejects a schema-valid unrelated correction without retrying or archiving it", async () => {
+  const reply = {
+    assistant_reply_en: "Good start!",
+    short_explanation_bn: "বাক্যটি আবার দেখি।",
+    feedback_type: "clear_error",
+    suggested_revision_en: "Hello!",
+    next_question_en: "How are you?",
+    learning_tags: ["grammar"],
+    source_unit_id: "P0-01",
+  };
+  const network = vi.fn().mockImplementation(
+    async (_url, init) =>
+      new Response(
+        JSON.stringify(
+          init?.method === "POST"
+            ? {
+                candidates: [
+                  { content: { parts: [{ text: JSON.stringify(reply) }] } },
+                ],
+              }
+            : {
+                name: "models/gemma-test-it",
+                supportedGenerationMethods: ["generateContent"],
+              },
+        ),
+      ),
+  );
+  const report = await checkInference(
+    {
+      GEMMA_API_KEY: "private-test-key",
+      GEMMA_MODEL: "gemma-test-it",
+      GEMMA_FREE_CONFIRMED: "true",
+      GEMMA_ALLOWED_COUNTRIES: "BD",
+    },
+    network,
+    { includeSyntheticSamples: true },
+  );
+  expect(report).toMatchObject({
+    status: "BLOCKED",
+    enabled: false,
+    synthetic_calls_attempted: 2,
+  });
+  expect(report).not.toHaveProperty("synthetic_samples");
+  expect(network).toHaveBeenCalledTimes(3);
+});

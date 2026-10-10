@@ -367,9 +367,12 @@ it("enabled AI rejects missing consent, private context and unavailable trusted 
       }),
     });
     Object.assign(req, { cf: { country } });
-    expect(await (await handle(req, env, network)).json()).toMatchObject({
+    const body = await (await handle(req, env, network)).json();
+    expect(body).toMatchObject({
       error,
     });
+    if (error === "AI_REGION_UNAVAILABLE")
+      expect(body.country).toBe(country ?? "unknown");
   }
   expect(
     network.mock.calls.some(

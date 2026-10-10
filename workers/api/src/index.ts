@@ -282,6 +282,7 @@ export async function handle(
         return json({
           error: "AI_REGION_UNAVAILABLE",
           fallback_activity: fallback,
+          country: /^[A-Z]{2}$/.test(country ?? "") ? country : "unknown",
         });
       const budget = identity.demo
         ? demoBudget(identity.id)
