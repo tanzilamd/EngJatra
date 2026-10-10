@@ -1,0 +1,358 @@
+{
+  "base_release": "3.0.2",
+  "version": "3.0.3",
+  "patches": [
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0658",
+      "expected": "twenty",
+      "expected_bn": "বিশ",
+      "value": "Our class has twenty students."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0660",
+      "expected": "two",
+      "expected_bn": "দুই",
+      "value": "I have two books."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0665",
+      "expected": "understand",
+      "expected_bn": "বোঝা",
+      "value": "I understand this sentence."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0670",
+      "expected": "us",
+      "expected_bn": "আমাদেরকে",
+      "value": "Our teacher helps us."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0677",
+      "expected": "village",
+      "expected_bn": "গ্রাম",
+      "value": "I live in a village."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0685",
+      "expected": "wall",
+      "expected_bn": "দেয়াল",
+      "value": "The wall is white."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0688",
+      "expected": "we",
+      "expected_bn": "আমরা",
+      "value": "We are learning English."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0693",
+      "expected": "welcome",
+      "expected_bn": "স্বাগতম",
+      "value": "Welcome to our class!"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0694",
+      "expected": "well",
+      "expected_bn": "সুস্থ",
+      "value": "I feel well today."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0696",
+      "expected": "what",
+      "expected_bn": "কী",
+      "value": "What is this?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0698",
+      "expected": "where",
+      "expected_bn": "কোথায়",
+      "value": "Where is my bag?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0701",
+      "expected": "who",
+      "expected_bn": "কে",
+      "value": "Who is your teacher?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0710",
+      "expected": "wrong",
+      "expected_bn": "ভুল",
+      "value": "This answer is wrong."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0711",
+      "expected": "year",
+      "expected_bn": "বছর",
+      "value": "We learn new words every year."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0715",
+      "expected": "you",
+      "expected_bn": "তুমি বা আপনি",
+      "value": "Are you ready?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0717",
+      "expected": "your",
+      "expected_bn": "তোমার বা আপনার",
+      "value": "Is this your pencil?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0718",
+      "expected": "red",
+      "expected_bn": "লাল",
+      "value": "I have a red bag."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0719",
+      "expected": "blue",
+      "expected_bn": "নীল",
+      "value": "The pen is blue."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0720",
+      "expected": "green",
+      "expected_bn": "সবুজ",
+      "value": "This chair is green."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0721",
+      "expected": "yellow",
+      "expected_bn": "হলুদ",
+      "value": "This is a yellow pencil."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0722",
+      "expected": "black",
+      "expected_bn": "কালো",
+      "value": "My bag is black."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0723",
+      "expected": "white",
+      "expected_bn": "সাদা",
+      "value": "The paper is white."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0724",
+      "expected": "colour",
+      "expected_bn": "রং",
+      "value": "What colour is your bag?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0725",
+      "expected": "purple",
+      "expected_bn": "বেগুনি",
+      "value": "I have a purple pen."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0726",
+      "expected": "have",
+      "expected_bn": "আছে",
+      "value": "I have a book."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0727",
+      "expected": "desk",
+      "expected_bn": "ডেস্ক",
+      "value": "The pen is on the desk."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0728",
+      "expected": "backpack",
+      "expected_bn": "পিঠের ব্যাগ",
+      "value": "My books are in my backpack."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0729",
+      "expected": "mango",
+      "expected_bn": "আম",
+      "value": "I have a mango."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0730",
+      "expected": "banana",
+      "expected_bn": "কলা",
+      "value": "This banana is yellow."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0731",
+      "expected": "apple",
+      "expected_bn": "আপেল",
+      "value": "I eat an apple every day."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0732",
+      "expected": "orange",
+      "expected_bn": "কমলা",
+      "value": "I have an orange."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0733",
+      "expected": "live",
+      "expected_bn": "বাস করা",
+      "value": "I live in Bangladesh."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0734",
+      "expected": "far",
+      "expected_bn": "দূরে",
+      "value": "The market is far from my home."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0735",
+      "expected": "write",
+      "expected_bn": "লেখা",
+      "value": "Please write your answer."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0736",
+      "expected": "eat",
+      "expected_bn": "খাওয়া",
+      "value": "I eat a banana every day."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0737",
+      "expected": "drink",
+      "expected_bn": "পান করা",
+      "value": "I drink water."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0738",
+      "expected": "sit",
+      "expected_bn": "বসা",
+      "value": "Please sit on this chair."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0739",
+      "expected": "stand",
+      "expected_bn": "দাঁড়ানো",
+      "value": "Please stand near the desk."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0740",
+      "expected": "give",
+      "expected_bn": "দেওয়া",
+      "value": "Please give me a pen."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0741",
+      "expected": "take",
+      "expected_bn": "নেওয়া",
+      "value": "Please take this book."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0742",
+      "expected": "listen",
+      "expected_bn": "শোনা",
+      "value": "Please listen to the teacher."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0743",
+      "expected": "repeat",
+      "expected_bn": "পুনরাবৃত্তি করা",
+      "value": "Please repeat this word."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0744",
+      "expected": "together",
+      "expected_bn": "একসঙ্গে",
+      "value": "We learn English together."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0745",
+      "expected": "introduce",
+      "expected_bn": "পরিচয় করানো",
+      "value": "Let me introduce my friend."
+    }
+  ]
+}

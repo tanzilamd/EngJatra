@@ -700,7 +700,9 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
           : [
               aiRegionDenied
                 ? "AI inference from an allowed Bangladesh production browser; this real runner was correctly denied by the country policy"
-                : "AI providers: eligibility/activation gate remains disabled",
+                : process.env.GEMMA_FREE_CONFIRMED === "true"
+                  ? "Enabled production AI did not verify inference or regional denial; diagnose the failed tutor check"
+                  : "AI providers: eligibility/activation gate remains disabled",
             ]),
         "real owner login or production content publishing mutations",
       ],

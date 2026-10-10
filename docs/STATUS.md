@@ -1,5 +1,28 @@
 # EngJatra development status — 2026-10-10
 
+## Production runtime repair and content release — resume here
+
+- [x] Main commit `3c207033fe5d06abb52cd7cf3350350307146d7d`, Actions 38064742414: all 133 tests/full browsers passed; **two actual Gemma inference cases passed** the stricter bilingual/known-correction preflight. All three Worker versions were accepted, but immediate HTML mismatch failed the deployment job/overall run; no successful receipt was fabricated and no duplicate upload occurred. Read-only recovery correctly did not blindly retry.
+- [x] Independently rebuild exactly 3c20703 and verify all 239 student/24 admin public files, stable matching active versions, SPA/headers/CORS/Supabase/anonymous negatives; HTML later exactly matched without republishing. Public production light/dark/mobile/desktop browser/axe/Auth/PWA checks passed. Google BD-only policy and encrypted key are actually installed, Llama/demo disabled.
+- [x] Controlled real Auth/progress/offline checks reached the tutor and correctly failed `AI_NETWORK_FAILURE`; two fixtures were deleted on each attempt. **Production inference remains unverified/broken at this checkpoint**, not disabled or successful. Reproduce the cause in actual workerd: native Request rejects `redirect:"error"` before transport despite generic Request docs. Fix to manual mode and reject 3xx, never follow key headers. Add a bundled-adapter real-runtime regression using existing Wrangler tooling, with no actual provider credentials/inference.
+- [x] Add bounded same-URL revalidation for mutable HTML/manifest (five reads, 2/4/8/16-second backoff); persistent mismatch still fails, headers/hashes remain mandatory, and active versions are rechecked before a success receipt. No repeated publishing, cache-bust workaround, wrong-content success or weaker authorization.
+- [x] Complete all 154 Pre-A1 sense examples via 134 short originals in append-only steps 3.0.2/3.0.3. Full local content-candidate QA passed 135 unit/API/PostgreSQL tests, 39 browsers and one retained-release test before the final runtime/recovery changes. All 138 final affected tests (20 files), lint/types passed, including actual workerd transport/redirect, safe diagnosis and retention tests.
+- [x] Final unchanged-source full local QA passed 138 unit/API/PostgreSQL tests across 20 files, 39 browser checks and one retained-release test. Lint/types/docs/content/migrations/build/scans passed; format, zero-vulnerability audit, workflow syntax and three dry runs are separately checked.
+- [ ] Push the final repair/source directly to main after activity guard; the committed source requires its own full CI proof.
+- [ ] Inspect the actual bilingual synthetic samples through safe Checks annotations (signed Actions blob downloads are denied); verify successful pipeline plus all deployed artifacts/browsers/Auth/region behavior, and a real permitted production correction without spoofing country.
+- [ ] After exact live hash verification, append truthful protected content-publication metadata/audit for 3.0.3 through the existing authorized operator connection, without an owner JWT, role mutation or fake migration history.
+
+The previous 3c release is accepted and public but not an overall successful deployment or verified tutor. Content candidate is not yet published. 720 higher-band examples and deeper reading/quests remain real editorial work; inbox/Google consent/device/independent review and historical DB/restore evidence remain separate.
+
+## Independent Pre-A1 content completion candidate
+
+- [x] Author 134 short, exact-sense vocabulary examples; candidate source steps 3.0.2/3.0.3 complete all 154 Pre-A1 senses. Preserve published 3.0.1, all unit/answer/saved-word IDs and older bytes.
+- [x] Add complete-library/unchanged-unit/higher-band retention regressions. The first run correctly found the source-authoring test's stale hard-coded next version; update that isolated test to derive the current baseline/future versions, without weakening production baseline checks.
+- [x] Full content-candidate QA and final runtime/recovery QA passed; source stayed unchanged during each proof-generating run.
+- [ ] Wait for ongoing 3c20703 AI release to finish, then reconcile main, push the verified supplement through the sole publisher, and verify actual content bytes plus protected release-history metadata. No content publication is claimed from preparation.
+
+720 higher-band sense examples, optional quest extensions/deeper reading and independent editorial/source-rights validation remain real editorial work; these are not missing-credential excuses.
+
 ## Current Bangladesh-only release candidate — 2026-10-10
 
 - [x] Owner confirmed operator 18+, Bangladesh account, Bangladesh-only public AI, and accepted unpaid input/output processing for improvement and possible human review. No new key or account permission is needed for the existing publisher.

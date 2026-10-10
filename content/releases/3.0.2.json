@@ -1,0 +1,726 @@
+{
+  "base_release": "3.0.1",
+  "version": "3.0.2",
+  "patches": [
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0010",
+      "expected": "address",
+      "expected_bn": "ঠিকানা",
+      "value": "The form asks for your address."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0017",
+      "expected": "age",
+      "expected_bn": "বয়স",
+      "value": "Her age is twenty."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0025",
+      "expected": "am",
+      "expected_bn": "হই বা আছি",
+      "value": "I am ready."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0028",
+      "expected": "angry",
+      "expected_bn": "রাগান্বিত",
+      "value": "He is angry today."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0029",
+      "expected": "answer",
+      "expected_bn": "উত্তর",
+      "value": "Please write your answer."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0066",
+      "expected": "bag",
+      "expected_bn": "ব্যাগ",
+      "value": "My book is in my bag."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0086",
+      "expected": "boy",
+      "expected_bn": "ছেলে",
+      "value": "The boy has a red pen."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0093",
+      "expected": "busy",
+      "expected_bn": "ব্যস্ত",
+      "value": "I am busy today."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0095",
+      "expected": "bye",
+      "expected_bn": "বিদায়",
+      "value": "Bye! See you tomorrow."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0096",
+      "expected": "call",
+      "expected_bn": "ডাকা",
+      "value": "Please call the teacher into the room."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0097",
+      "expected": "calm",
+      "expected_bn": "শান্ত",
+      "value": "She is calm now."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0098",
+      "expected": "can",
+      "expected_bn": "পারা",
+      "value": "I can read this word."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0100",
+      "expected": "cannot",
+      "expected_bn": "পারতে না",
+      "value": "I cannot find my pen."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0106",
+      "expected": "chair",
+      "expected_bn": "চেয়ার",
+      "value": "This chair is blue."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0117",
+      "expected": "city",
+      "expected_bn": "শহর",
+      "value": "Dhaka is a city."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0121",
+      "expected": "class",
+      "expected_bn": "শ্রেণি",
+      "value": "Our class starts today."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0155",
+      "expected": "correct",
+      "expected_bn": "সঠিক",
+      "value": "Your answer is correct."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0165",
+      "expected": "country",
+      "expected_bn": "দেশ",
+      "value": "Bangladesh is my country."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0177",
+      "expected": "day",
+      "expected_bn": "দিন",
+      "value": "Have a nice day!"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0186",
+      "expected": "desk",
+      "expected_bn": "পড়ার টেবিল",
+      "value": "My book is on my desk."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0201",
+      "expected": "do",
+      "expected_bn": "করা",
+      "value": "I do my homework at home."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0203",
+      "expected": "does",
+      "expected_bn": "করে",
+      "value": "She does her homework at home."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0212",
+      "expected": "eight",
+      "expected_bn": "আট",
+      "value": "There are eight chairs."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0215",
+      "expected": "eleven",
+      "expected_bn": "এগারো",
+      "value": "The book has eleven pages."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0219",
+      "expected": "eraser",
+      "expected_bn": "রাবার",
+      "value": "I have a pencil and an eraser."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0228",
+      "expected": "excuse me",
+      "expected_bn": "মাফ করবেন",
+      "value": "Excuse me, is this your bag?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0252",
+      "expected": "first name",
+      "expected_bn": "নামের প্রথম অংশ",
+      "value": "Please write your first name."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0253",
+      "expected": "five",
+      "expected_bn": "পাঁচ",
+      "value": "I have five pencils."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0257",
+      "expected": "four",
+      "expected_bn": "চার",
+      "value": "There are four chairs."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0261",
+      "expected": "from",
+      "expected_bn": "থেকে",
+      "value": "I am from Bangladesh."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0265",
+      "expected": "girl",
+      "expected_bn": "মেয়ে",
+      "value": "The girl has a green bag."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0268",
+      "expected": "good",
+      "expected_bn": "ভালো",
+      "value": "This is a good book."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0272",
+      "expected": "great",
+      "expected_bn": "দারুণ",
+      "value": "That is a great idea!"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0276",
+      "expected": "happy",
+      "expected_bn": "খুশি",
+      "value": "I am happy today."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0277",
+      "expected": "he",
+      "expected_bn": "সে পুরুষ",
+      "value": "He is my friend."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0284",
+      "expected": "her",
+      "expected_bn": "তাকে (নারী)",
+      "value": "I can see her."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0285",
+      "expected": "here",
+      "expected_bn": "এখানে",
+      "value": "Please sit here."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0286",
+      "expected": "hi",
+      "expected_bn": "হাই",
+      "value": "Hi! How are you?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0287",
+      "expected": "him",
+      "expected_bn": "তাকে (পুরুষ)",
+      "value": "Please give the pen to him."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0290",
+      "expected": "home",
+      "expected_bn": "বাড়ি",
+      "value": "I am at home."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0295",
+      "expected": "hungry",
+      "expected_bn": "ক্ষুধার্ত",
+      "value": "I am hungry now."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0298",
+      "expected": "I",
+      "expected_bn": "আমি",
+      "value": "I am learning English."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0300",
+      "expected": "ill",
+      "expected_bn": "অসুস্থ",
+      "value": "She is ill today."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0309",
+      "expected": "incorrect",
+      "expected_bn": "ভুল",
+      "value": "This answer is incorrect."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0327",
+      "expected": "is",
+      "expected_bn": "হয় বা আছে",
+      "value": "This is my book."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0329",
+      "expected": "it",
+      "expected_bn": "এটি",
+      "value": "It is a red bag."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0334",
+      "expected": "key",
+      "expected_bn": "চাবি",
+      "value": "I cannot find my key."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0339",
+      "expected": "last name",
+      "expected_bn": "পদবি বা পারিবারিক নাম",
+      "value": "The form asks for a last name."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0360",
+      "expected": "maybe",
+      "expected_bn": "হয়তো",
+      "value": "Maybe we can meet today."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0361",
+      "expected": "me",
+      "expected_bn": "আমাকে",
+      "value": "Please help me."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0364",
+      "expected": "meet",
+      "expected_bn": "দেখা হওয়া",
+      "value": "Nice to meet you."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0386",
+      "expected": "near",
+      "expected_bn": "কাছে",
+      "value": "My home is near the school."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0394",
+      "expected": "nice",
+      "expected_bn": "ভালো",
+      "value": "It is nice to see you."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0395",
+      "expected": "night",
+      "expected_bn": "রাত",
+      "value": "I read at night."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0396",
+      "expected": "nine",
+      "expected_bn": "নয়",
+      "value": "I have nine pencils."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0406",
+      "expected": "okay",
+      "expected_bn": "ঠিক আছে",
+      "value": "That is okay."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0409",
+      "expected": "one",
+      "expected_bn": "এক",
+      "value": "I have one book."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0419",
+      "expected": "our",
+      "expected_bn": "আমাদের",
+      "value": "This is our classroom."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0425",
+      "expected": "page",
+      "expected_bn": "পৃষ্ঠা",
+      "value": "Please read this page."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0426",
+      "expected": "paper",
+      "expected_bn": "কাগজ",
+      "value": "Please write on this paper."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0434",
+      "expected": "pen",
+      "expected_bn": "কলম",
+      "value": "This pen is black."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0435",
+      "expected": "pencil",
+      "expected_bn": "পেনসিল",
+      "value": "Please use a pencil."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0438",
+      "expected": "person",
+      "expected_bn": "ব্যক্তি",
+      "value": "One person is in the room."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0443",
+      "expected": "phone",
+      "expected_bn": "ফোন",
+      "value": "My phone is in my bag."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0444",
+      "expected": "place",
+      "expected_bn": "স্থান",
+      "value": "This is a quiet place."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0483",
+      "expected": "question",
+      "expected_bn": "প্রশ্ন",
+      "value": "I have a question."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0539",
+      "expected": "right",
+      "expected_bn": "সঠিক",
+      "value": "Your answer is right."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0541",
+      "expected": "road",
+      "expected_bn": "সড়ক",
+      "value": "The school is near this road."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0543",
+      "expected": "room",
+      "expected_bn": "ঘর",
+      "value": "This room has two chairs."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0546",
+      "expected": "sad",
+      "expected_bn": "দুঃখিত",
+      "value": "She feels sad today."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0558",
+      "expected": "seven",
+      "expected_bn": "সাত",
+      "value": "There are seven days in a week."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0569",
+      "expected": "six",
+      "expected_bn": "ছয়",
+      "value": "There are six books on the desk."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0579",
+      "expected": "sorry",
+      "expected_bn": "দুঃখিত",
+      "value": "I am sorry I am late."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0583",
+      "expected": "spell",
+      "expected_bn": "বানান করা",
+      "value": "Can you spell this word?"
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0588",
+      "expected": "stay",
+      "expected_bn": "থাকা",
+      "value": "I stay at home at night."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0593",
+      "expected": "student",
+      "expected_bn": "শিক্ষার্থী",
+      "value": "I am an English student."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0609",
+      "expected": "sure",
+      "expected_bn": "নিশ্চিত",
+      "value": "I am sure this is my bag."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0616",
+      "expected": "table",
+      "expected_bn": "টেবিল",
+      "value": "The apples are on the table."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0620",
+      "expected": "teacher",
+      "expected_bn": "শিক্ষক",
+      "value": "Our teacher helps us."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0622",
+      "expected": "ten",
+      "expected_bn": "দশ",
+      "value": "I have ten pens."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0625",
+      "expected": "thank",
+      "expected_bn": "ধন্যবাদ",
+      "value": "Thank you for your help."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0628",
+      "expected": "that",
+      "expected_bn": "ওটি",
+      "value": "That is your chair."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0629",
+      "expected": "their",
+      "expected_bn": "তাদের",
+      "value": "This is their classroom."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0630",
+      "expected": "them",
+      "expected_bn": "তাদেরকে",
+      "value": "I can help them."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0632",
+      "expected": "there",
+      "expected_bn": "ওখানে",
+      "value": "Your bag is there."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0635",
+      "expected": "they",
+      "expected_bn": "তারা",
+      "value": "They are my friends."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0638",
+      "expected": "three",
+      "expected_bn": "তিন",
+      "value": "There are three apples."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0642",
+      "expected": "tired",
+      "expected_bn": "ক্লান্ত",
+      "value": "I am tired today."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0643",
+      "expected": "today",
+      "expected_bn": "আজ",
+      "value": "We have a class today."
+    },
+    {
+      "kind": "vocabulary_example",
+      "level": "P0",
+      "id": "VOC-0649",
+      "expected": "town",
+      "expected_bn": "ছোট শহর",
+      "value": "My town has a small market."
+    }
+  ]
+}

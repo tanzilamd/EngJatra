@@ -71,3 +71,11 @@ Synthetic probe at commit `952bfa346797a3baf8f111837c9997af8a182abd`, Actions 38
 ## 2026-10-10 — Approved Bangladesh-only guarded activation
 
 The operator approved Bangladesh-only public AI and Google's unpaid processing after attesting 18+ and a Bangladesh-based account. This supersedes earlier pending scope/privacy notes. Pin the documented free Gemma 4 model and BD-only eligibility policy in the existing CI publisher; reuse the existing Actions key without additional token or billing. Clarify strict JSON output and allowlist diagnostics after the first real synthetic schema rejection. Require two validated synthetic bilingual cases before any Worker upload. Actual regional denial outside Bangladesh remains security evidence, never successful production inference; allowed-country denial/provider/schema failures must fail. One actual signed-in adult Bangladesh browser is still required for permitted production journey verification. Content/data/history/security and the single publisher remain intact.
+
+## Pre-A1 vocabulary completion candidate
+
+Add 134 short original, sense-anchored examples in append-only source steps 3.0.2 and 3.0.3; all 154 Pre-A1 vocabulary records now have examples in the candidate. Preserve prior releases and every unit/answer/progress identity. Add full-library/retained-byte regressions and make the isolated future-release authoring test derive its current baseline. Actual publication remains gated by QA, retention and live verification; higher-band depth and independent teacher review remain separate.
+
+## Worker-native tutor transport and safe publication convergence
+
+Reproduce and fix workerd rejecting redirect:error: use manual and reject 3xx without forwarding provider credentials. Add real-runtime bundled-adapter regression and safe, known-code Auth diagnostics. Bound same-URL HTML/manifest revalidation after accepted uploads and recheck active versions before receipts. Add safe Checks notices for the two fixed validated synthetic samples when signed log hosts are inaccessible. Preserve privacy, region/consent gates, rate limits, content immutability and the sole publisher.

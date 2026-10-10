@@ -17,6 +17,8 @@ import {
   verifySites,
   verifyVersions,
   digest,
+  matchingPublicText,
+  type Network,
 } from "../scripts/deployment-verify";
 import { preserveContent } from "../scripts/deployment-artifacts";
 import { bands } from "../packages/learning/engine";
@@ -31,6 +33,59 @@ const input: Settings = {
   CLOUDFLARE_API_TOKEN: "fixture-only-token",
 };
 const config = settings(input);
+it("accepted static publication only succeeds after exact same-URL revalidation, with bounded read-only backoff", async () => {
+  const network = vi
+    .fn()
+    .mockResolvedValueOnce(new Response("previous shell"))
+    .mockResolvedValueOnce(new Response("previous shell"))
+    .mockResolvedValueOnce(
+      new Response("current shell", { headers: { "X-Frame-Options": "DENY" } }),
+    );
+  const wait = vi.fn(async () => {});
+  const result = await matchingPublicText(
+    "https://example.test/learn",
+    "current shell",
+    network,
+    wait,
+  );
+  expect(result.headers.get("X-Frame-Options")).toBe("DENY");
+  expect(network).toHaveBeenCalledTimes(3);
+  expect(
+    network.mock.calls.every(
+      ([url, init]) =>
+        url === "https://example.test/learn" &&
+        init.cache === "no-cache" &&
+        init.redirect === "error",
+    ),
+  ).toBe(true);
+  expect(wait.mock.calls).toEqual([[2000], [4000]]);
+});
+it("persistent static mismatch fails after five reads without uploads, and forbidden responses are never accepted", async () => {
+  const network = vi.fn<Network>(async () => new Response("previous artifact"));
+  const wait = vi.fn(async () => {});
+  await expect(
+    matchingPublicText(
+      "https://example.test/content/manifest.json",
+      "current manifest",
+      network,
+      wait,
+    ),
+  ).rejects.toThrow("differs after bounded");
+  expect(network).toHaveBeenCalledTimes(5);
+  expect(wait.mock.calls).toEqual([[2000], [4000], [8000], [16000]]);
+  expect(
+    network.mock.calls.every(
+      ([, init]) => !init?.method || init.method === "GET",
+    ),
+  ).toBe(true);
+  network
+    .mockClear()
+    .mockImplementation(async () => new Response("forbidden", { status: 403 }));
+  await expect(
+    matchingPublicText("https://example.test/", "current shell", network, wait),
+  ).rejects.toThrow("HTTP 403");
+  expect(network).toHaveBeenCalledTimes(1);
+});
 it("reports all absent mandatory configuration without revealing supplied credentials", () => {
   expect(() => settings({})).toThrow(
     /VITE_SUPABASE_URL[\s\S]*CLOUDFLARE_API_TOKEN/,
@@ -293,10 +348,12 @@ it("site verification checks hashes for both SPA shells, all 96 units, libraries
         config,
         vi
           .fn()
-          .mockResolvedValue(
-            new Response("stale", { headers: { "X-Frame-Options": "DENY" } }),
+          .mockImplementation(
+            async () =>
+              new Response("stale", { headers: { "X-Frame-Options": "DENY" } }),
           ),
         root,
+        async () => {},
       ),
     ).rejects.toThrow(/differs/);
   } finally {

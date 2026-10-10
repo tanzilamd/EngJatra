@@ -21,6 +21,92 @@ const base = (band: string) =>
   );
 
 describe("immutable teaching supplements", () => {
+  it("completes every Pre-A1 sense example through additive releases without overwriting published teaching", () => {
+    let before = Library.parse(
+      JSON.parse(
+        readFileSync(
+          "apps/student-web/public/content/3.0.1/P0/library.json",
+          "utf8",
+        ),
+      ),
+    );
+    const original = structuredClone(before);
+    let added = 0;
+    for (const version of ["3.0.2", "3.0.3"]) {
+      const next = ContentRelease.parse(
+        JSON.parse(readFileSync(`content/releases/${version}.json`, "utf8")),
+      );
+      expect(
+        next.patches.every(
+          (p) => p.kind === "vocabulary_example" && p.level === "P0",
+        ),
+      ).toBe(true);
+      added += next.patches.length;
+      before = applyLibrarySupplements(before, next, "P0");
+      expect(
+        Library.parse(
+          JSON.parse(
+            readFileSync(
+              `apps/student-web/public/content/${version}/P0/library.json`,
+              "utf8",
+            ),
+          ),
+        ),
+      ).toEqual(before);
+    }
+    expect(added).toBe(134);
+    expect(before.vocabulary).toHaveLength(154);
+    for (const [i, word] of before.vocabulary.entries()) {
+      expect(word.english_example).toBeTruthy();
+      expect({
+        ...word,
+        english_example: original.vocabulary[i].english_example,
+      }).toEqual(original.vocabulary[i]);
+      if (original.vocabulary[i].english_example)
+        expect(word.english_example).toBe(
+          original.vocabulary[i].english_example,
+        );
+    }
+    expect({ ...before, vocabulary: original.vocabulary }).toEqual(original);
+    expect(
+      before.vocabulary.find((v) => v.id === "VOC-0284")?.english_example,
+    ).toBe("I can see her.");
+    expect(
+      before.vocabulary.find((v) => v.id === "VOC-0096")?.english_example,
+    ).toBe("Please call the teacher into the room.");
+    expect(
+      new Set(
+        before.vocabulary
+          .filter((v) => v.en === "desk")
+          .map((v) => v.english_example),
+      ).size,
+    ).toBe(2);
+  });
+
+  it("retains all 96 unit bytes and untouched higher-band libraries across the new source chain", () => {
+    for (const version of ["3.0.2", "3.0.3"])
+      for (const band of bands) {
+        for (let i = 1; i <= 16; i++) {
+          const file = `${band}/${band}-${String(i).padStart(2, "0")}.json`;
+          expect(
+            readFileSync(`apps/student-web/public/content/${version}/${file}`),
+          ).toEqual(
+            readFileSync(`apps/student-web/public/content/3.0.1/${file}`),
+          );
+        }
+        if (band !== "P0")
+          expect(
+            readFileSync(
+              `apps/student-web/public/content/${version}/${band}/library.json`,
+            ),
+          ).toEqual(
+            readFileSync(
+              `apps/student-web/public/content/3.0.1/${band}/library.json`,
+            ),
+          );
+      }
+  });
+
   it("adds all 36 translations and seven sense-anchored examples without changing units, IDs, bands or answers", () => {
     let missingTranslations = 0,
       addedExamples = 0;

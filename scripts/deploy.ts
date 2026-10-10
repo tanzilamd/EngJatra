@@ -145,6 +145,11 @@ async function main() {
     await verifySupabase(config);
     const versions = await verifyVersions(config, commit());
     await verifySites(config);
+    const after = await verifyVersions(config, commit());
+    if (Object.entries(versions).some(([name, id]) => after[name] !== id))
+      throw Error(
+        "Active Worker versions changed during verification; no stable release proof",
+      );
     console.log(
       JSON.stringify({
         verified: true,
@@ -237,8 +242,13 @@ async function main() {
   if (Object.values(before).every((active) => active?.commit === version)) {
     // Read-only reconciliation of a previously accepted current release.
     // A mismatch fails closed; never upload again merely because a probe failed.
-    await verifySites(config);
     const versions = await verifyVersions(config, version);
+    await verifySites(config);
+    const after = await verifyVersions(config, version);
+    if (Object.entries(versions).some(([name, id]) => after[name] !== id))
+      throw Error(
+        "Active Worker versions changed during publication verification; no success receipt",
+      );
     await writeFile(
       ".wrangler/deployment-receipt.local.json",
       JSON.stringify({
@@ -308,6 +318,11 @@ async function main() {
       { mode: 0o600 },
     );
     await verifySites(config);
+    const after = await verifyVersions(config, version);
+    if (Object.entries(versions).some(([name, id]) => after[name] !== id))
+      throw Error(
+        "Active Worker versions changed during publication verification; no success receipt",
+      );
     await writeFile(
       ".wrangler/deployment-receipt.local.json",
       JSON.stringify({

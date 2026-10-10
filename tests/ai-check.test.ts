@@ -1,5 +1,9 @@
 import { it, expect, vi } from "vitest";
-import { checkGemma, checkInference } from "../scripts/ai-check";
+import {
+  checkGemma,
+  checkInference,
+  syntheticPreflightNotice,
+} from "../scripts/ai-check";
 it("metadata check uses only a bounded protected GET, even with a configured disabled key", async () => {
   const network = vi.fn().mockResolvedValue(
     new Response(
@@ -212,6 +216,39 @@ it("validated synthetic samples are opt-in and never include the key or provider
   expect(JSON.stringify(report)).not.toMatch(
     /private-test-key|candidates|parts/,
   );
+  const notice = syntheticPreflightNotice({
+    ...report,
+    private_key: "private-test-key",
+  });
+  expect(notice).toContain("::notice title=EngJatra synthetic AI preflight::");
+  expect(notice).not.toContain("private-test-key");
+  expect(
+    syntheticPreflightNotice({ ...report, synthetic_samples: undefined }),
+  ).toBeUndefined();
+  expect(
+    syntheticPreflightNotice({
+      ...report,
+      synthetic_samples: [
+        {
+          case: "greeting",
+          reply: { ...reply, next_question_en: "Contact private@example.test" },
+        },
+        { case: "correction", reply },
+      ],
+    }),
+  ).toBeUndefined();
+  const escaped = syntheticPreflightNotice({
+    ...report,
+    synthetic_samples: [
+      {
+        case: "greeting",
+        reply: { ...reply, assistant_reply_en: "Hello %0A::error!" },
+      },
+      { case: "correction", reply },
+    ],
+  });
+  expect(escaped).toContain("%250A::error");
+  expect(escaped?.split("\n")).toHaveLength(1);
 });
 
 it("prepublication rejects a schema-valid unrelated correction without retrying or archiving it", async () => {

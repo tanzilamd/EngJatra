@@ -140,7 +140,7 @@ describe("free only provider router", () => {
       /^https:\/\/generativelanguage.googleapis.com/,
     );
     expect(JSON.stringify(result)).not.toContain(env.GEMMA_API_KEY);
-    expect(request.mock.calls[0][1].redirect).toBe("error");
+    expect(request.mock.calls[0][1].redirect).toBe("manual");
   });
   it("circuits avoid repeating failing provider calls", async () => {
     const request = vi

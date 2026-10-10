@@ -147,7 +147,9 @@ export async function callProvider(
   try {
     const r = await request(url, {
       method: "POST",
-      redirect: "error",
+      // workerd rejects redirect:"error" despite the standard Request type.
+      // Manual mode returns 3xx to !ok below without forwarding key headers.
+      redirect: "manual",
       headers,
       signal: AbortSignal.timeout(10000),
       body: JSON.stringify(

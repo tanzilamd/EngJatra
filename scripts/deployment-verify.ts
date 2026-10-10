@@ -5,6 +5,7 @@ import type { DeploymentConfig } from "./deployment-config";
 export type Network = typeof fetch;
 export const digest = (text: string) =>
   createHash("sha256").update(text).digest("hex");
+const pause = (ms: number) => new Promise<void>((done) => setTimeout(done, ms));
 async function get(
   url: string,
   network: Network,
@@ -33,6 +34,27 @@ async function get(
       `Verification HTTP ${response?.status ?? "unknown"}: ${new URL(url).origin}${new URL(url).pathname}`,
     );
   return response;
+}
+
+// Mutable public URLs can briefly serve the previous artifact after an accepted
+// upload. Revalidate the same URL with bounded reads, never republish or accept
+// the stale body. Persistent mismatch remains a hard release failure.
+export async function matchingPublicText(
+  url: string,
+  expected: string,
+  network: Network = fetch,
+  wait: (ms: number) => Promise<void> = pause,
+) {
+  const backoff = [2000, 4000, 8000, 16000];
+  for (let attempt = 0; attempt <= backoff.length; attempt++) {
+    const response = await get(url, network, { cache: "no-cache" }, true);
+    if (digest(await response.text()) === digest(expected)) return response;
+    if (attempt < backoff.length) await wait(backoff[attempt]);
+  }
+  const target = new URL(url);
+  throw Error(
+    `Published artifact differs after bounded revalidation: ${target.origin}${target.pathname}`,
+  );
 }
 export async function verifySupabase(
   config: DeploymentConfig,
@@ -64,6 +86,7 @@ export async function verifySites(
   config: DeploymentConfig,
   network: Network = fetch,
   root = ".",
+  wait: (ms: number) => Promise<void> = pause,
 ) {
   for (const [service, base] of [
     ["student", config.student],
@@ -74,11 +97,12 @@ export async function verifySites(
       "utf8",
     );
     for (const path of ["/", "/learn"]) {
-      const response = await get(`${base}${path}`, network, undefined, true);
-      if (digest(await response.text()) !== digest(expected))
-        throw Error(
-          `${service}: deployed HTML differs from validated artifact or SPA refresh failed`,
-        );
+      const response = await matchingPublicText(
+        `${base}${path}`,
+        expected,
+        network,
+        wait,
+      );
       if (
         response.headers.get("X-Frame-Options") !== "DENY" ||
         !response.headers
@@ -92,9 +116,12 @@ export async function verifySites(
     `${root}/apps/student-web/dist/content/manifest.json`,
     "utf8",
   );
-  const remote = await get(`${config.student}/content/manifest.json`, network);
-  if (digest(await remote.text()) !== digest(raw))
-    throw Error("Published content manifest differs from validated build");
+  await matchingPublicText(
+    `${config.student}/content/manifest.json`,
+    raw,
+    network,
+    wait,
+  );
   const manifest = Manifest.parse(JSON.parse(raw));
   const units = manifest.levels.flatMap((level) =>
     level.units.map((unit) => ({ ...unit, band: level.id })),

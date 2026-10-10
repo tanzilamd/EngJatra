@@ -64,12 +64,18 @@ it("rejects stale hashes, changed identities, removed activities/words and priva
 it("prepares approved drafts for the sole source publisher, retains old bytes and rejects stale/duplicate/overwrite attempts", async () => {
   const root = await mkdtemp(join(tmpdir(), "engjatra-source-release-"));
   try {
+    const baseline = JSON.parse(
+      await readFile("apps/student-web/public/content/manifest.json", "utf8"),
+    ).version as string;
+    const [major, minor, revision] = baseline.split(".").map(Number);
+    const version = `${major}.${minor}.${revision + 1}`;
+    const following = `${major}.${minor}.${revision + 2}`;
     const input = `${root}/changes.local.json`,
-      output = `${root}/3.0.2.json`;
+      output = `${root}/${version}.json`;
     await writeFile(
       input,
       JSON.stringify({
-        patches: [{ unit_id: "P0-01", base_release: "3.0.1", unit: edited() }],
+        patches: [{ unit_id: "P0-01", base_release: baseline, unit: edited() }],
       }),
     );
     const prepare = () =>
@@ -79,7 +85,7 @@ it("prepares approved drafts for the sole source publisher, retains old bytes an
           "node_modules/tsx/dist/cli.mjs",
           "scripts/prepare-release.ts",
           input,
-          "3.0.2",
+          version,
           output,
           "apps/student-web/public",
         ],
@@ -97,27 +103,29 @@ it("prepares approved drafts for the sole source publisher, retains old bytes an
     });
     const release = JSON.parse(await readFile(output, "utf8"));
     const manifest = await applyContentRelease(root, release);
-    expect(manifest.version).toBe("3.0.2");
+    expect(manifest.version).toBe(version);
     expect(manifest.levels[0].units[0].sha256).toBe(
-      sha(await readFile(`${root}/content/3.0.2/P0/P0-01.json`, "utf8")),
+      sha(await readFile(`${root}/content/${version}/P0/P0-01.json`, "utf8")),
     );
-    expect(await readFile(`${root}/content/3.0.1/P0/P0-01.json`, "utf8")).toBe(
-      original,
-    );
+    expect(
+      await readFile(`${root}/content/${baseline}/P0/P0-01.json`, "utf8"),
+    ).toBe(original);
     expect(await readFile(`${root}/content/3.0.0/P0/P0-01.json`, "utf8")).toBe(
       original,
     );
     expect(
-      await readFile(`${root}/content/3.0.2/P0/library.json`, "utf8"),
-    ).toBe(await readFile(`${root}/content/3.0.1/P0/library.json`, "utf8"));
+      await readFile(`${root}/content/${version}/P0/library.json`, "utf8"),
+    ).toBe(
+      await readFile(`${root}/content/${baseline}/P0/library.json`, "utf8"),
+    );
     await expect(
-      applyContentRelease(root, { ...release, version: "3.0.3" }),
+      applyContentRelease(root, { ...release, version: following }),
     ).rejects.toThrow("baseline");
     await expect(
       applyContentRelease(root, {
         ...release,
-        base_release: "3.0.2",
-        version: "3.0.3",
+        base_release: version,
+        version: following,
         patches: [
           { ...patch(), expected_sha256: manifest.levels[0].units[0].sha256 },
           { ...patch(), expected_sha256: manifest.levels[0].units[0].sha256 },
