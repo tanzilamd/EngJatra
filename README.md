@@ -45,7 +45,7 @@ Public assets are generated into ignored `apps/*/public` and `apps/*/dist`; neve
 
 ## Current status and production
 
-See [STATUS](docs/STATUS.md) for exact evidence and remaining external gates, [HANDOFF](docs/HANDOFF.md) for architecture, and [CREDENTIALS_AND_DEPLOYMENT](docs/CREDENTIALS_AND_DEPLOYMENT.md) for operator activation. Real Supabase auth/RLS, deployed Cloudflare routing, exact account-specific free Gemma/Llama eligibility, independent bilingual editorial review and real learner testing remain external verification gates. The app does not claim certification or unlimited free access. No live hosting URL has been verified.
+See [STATUS](docs/STATUS.md) for exact evidence and remaining external gates, [HANDOFF](docs/HANDOFF.md) for architecture, and [CREDENTIALS_AND_DEPLOYMENT](docs/CREDENTIALS_AND_DEPLOYMENT.md) for operator activation. The [Student Website](https://engjatra.nuvomi.workers.dev), [Admin Panel](https://engjatra-admin.nuvomi.workers.dev) and [API health endpoint](https://engjatra-api.nuvomi.workers.dev/api/health) are public. Controlled live password-login/progress/RLS checks passed; current release and complete browser evidence are tracked in STATUS. Real email/Google delivery, account-specific free AI eligibility, legacy migration history and independent learner/editorial/legal verification remain separate gates. The app does not claim certification or unlimited free access.
 
 ## Main and automatic production deployment
 

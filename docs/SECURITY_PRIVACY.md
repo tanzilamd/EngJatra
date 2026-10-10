@@ -5,7 +5,7 @@ Public free web app attracts credential stuffing, automated API quota exhaustion
 
 ## Data security
 - Supabase RLS and grants across all exposed user tables, explicit `auth.uid() IS NOT NULL` checks; users only own rows; test negative read/write. No RLS bypass via `service_role` in client or unauthenticated Worker calls.
-- Role membership private/protected, bootstrap owner manually. Prefer JWT verified server side AND database-backed role checks; avoid trusting `role` sent by client. No user ability to edit their own admin membership.
+- Role membership private/protected; bootstrap only an explicitly owner-nominated, verified existing Auth UUID through protected operator SQL with an audit record. Prefer JWT verified server side AND database-backed role checks; avoid trusting `role` sent by client. No user ability to edit their own admin membership.
 - Auth redirect allowlist, safe password reset and OAuth config, verify expiry, predictable 401/403 and recovery UX. Do not assume OAuth enabled without dashboard setup.
 - No arbitrary file upload in v1. Sanitize/render learning text safely, no unsafe HTML, validate report body and structured model output, size limits on all endpoints.
 - Minimize personal data, private profiles (no public social layer), keep meaningful progress. Clear consent/disclosure of third-party AI message processing. Distinguish optional chat-history deletion from permanent learning progress. Provide account export/delete path or operator support process; draft privacy/terms pages subject to legal review before launch, especially where minors may enroll.

@@ -388,10 +388,10 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
       }
     }
     console.error(
-      redactLog((error as Error).message, {
-        ...process.env,
-        QA_ADMIN_KEY: privileged,
-      }),
+      redactLog((error as Error).message, process.env, [
+        privileged,
+        ...fixtures.flatMap((fixture) => [fixture.password, fixture.token]),
+      ]),
     );
     process.exitCode = 1;
   } finally {
@@ -423,7 +423,7 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
         "real registration email delivery/confirmation",
         "Google OAuth",
         "AI providers",
-        "verified owner bootstrap or content publishing mutations",
+        "real owner login or production content publishing mutations",
       ],
     };
     await writeFile(reportPath, JSON.stringify(report, null, 2));

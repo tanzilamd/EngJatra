@@ -331,6 +331,13 @@ it("Wrangler console output redacts known credentials and recognizable remote ke
   ).toBe("binding: [redacted]");
   const key = ["gsk", "a".repeat(24)].join("_");
   expect(redactLog(`remote: ${key}`, {})).toBe("remote: [redacted]");
+  expect(
+    redactLog(
+      'locator.fill("disposable-password-canary"); HTTP 503 opaque-admin-canary',
+      {},
+      ["disposable-password-canary", "opaque-admin-canary", ""],
+    ),
+  ).toBe('locator.fill("[redacted]"); HTTP 503 [redacted]');
 });
 
 it("QA proof detects edits during checks and rejects stale source/commit evidence", async () => {
