@@ -10,7 +10,7 @@ A truly welcoming, fun, mobile-first **Bangla-language** path to learn English f
 - Bengali instructional guidance is always available. It decreases contextually as written ability increases but never vanishes with no opt-back.
 
 ## Student experience
-**Main navigation (and only primary destinations):** হোম, শেখা, অগ্রগতি. Profile/settings/help/report via secondary accessible controls. Prominent `শেখা চালিয়ে যাও` button.
+**Main navigation (current owner-authorized primary destinations):** হোম, শেখা, AI টিউটর, অগ্রগতি. Profile/settings/help/report via secondary accessible controls. Prominent `শেখা চালিয়ে যাও` button.
 
 **User journey**
 1. Welcome and Google/email sign-in. Offer guest **local demo only in development**, not impersonated production account.
@@ -33,6 +33,8 @@ A truly welcoming, fun, mobile-first **Bangla-language** path to learn English f
 - Level checkpoint: motivational **formative practice** only. Listening/speaking not graded. C1 track completion ≠ C1 certificate.
 
 ## AI tutor
+- Dedicated `/tutor` destination for guided free conversation and verified lesson-context practice, shared with lesson-embedded tutoring. Six selectable teaching bands, structured English/Bengali feedback, bounded context, working starters and accessible mobile composer. Four compact navigation destinations supersede the original three-item constraint.
+- Optional own-user conversation management with explicit existing history opt-in; memory by default, temporary tab recovery only after opt-in, cloud-save status truthful, confirmed deletion. Reviewed append-only database upgrades must preserve current records/RLS and historical provenance gates.
 - Text only; short supportive English at learner's target level, brief Bangla correction where necessary, one question at a time, adaptive hints, alternate valid answers accepted.
 - Verified configured free Gemma model primary; separate free Llama provider fallback. Unknown/free-changing quota -> fail safe.
 - All errors handled specifically when evidence supports it: RPM/TPM/daily quota/per-user fair use/timeout/network/expired session/misconfiguration. Never fabricate reset times or imply unlimited free API.

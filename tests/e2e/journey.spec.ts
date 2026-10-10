@@ -31,7 +31,7 @@ test("beginner finishes a real lesson, writes freely, sees AI fallback, resumes 
   await start(page);
   await expect(
     page.getByRole("navigation", { name: "মূল পথ" }).getByRole("button"),
-  ).toHaveCount(3);
+  ).toHaveCount(4);
   const access = await new AxeBuilder({ page }).analyze();
   expect(access.violations).toEqual([]);
   await page.getByRole("button", { name: "শেখা চালিয়ে যাও" }).click();
@@ -55,6 +55,10 @@ test("beginner finishes a real lesson, writes freely, sees AI fallback, resumes 
     page.getByText("এই ডেমো সেশনে সংরক্ষিত", { exact: true }),
   ).toBeVisible();
   await page.reload();
+  await page
+    .getByRole("navigation", { name: "মূল পথ" })
+    .getByRole("button", { name: "হোম", exact: true })
+    .click();
   await page.getByRole("button", { name: "শেখা চালিয়ে যাও" }).click();
   await expect(page.getByRole("heading", { name: "নাম জানাই" })).toBeVisible();
   await expect(page.locator("body")).not.toContainText("review_status");

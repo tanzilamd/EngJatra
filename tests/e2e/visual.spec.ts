@@ -119,6 +119,10 @@ test("visual audit of all learning and admin surfaces in both themes", async ({
       ] as const) {
         await checkpoint(step);
         await page.reload();
+        await page
+          .getByRole("navigation", { name: "মূল পথ" })
+          .getByRole("button", { name: "হোম", exact: true })
+          .click();
         await page.getByRole("button", { name: "শেখা চালিয়ে যাও" }).click();
         await expect(
           page.getByRole("heading", { name: "হ্যালো বলি" }),

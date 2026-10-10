@@ -6,7 +6,9 @@ import {
   Snapshot,
   TutorReply,
 } from "../../../packages/contracts/api";
+import { ChatHeader, ChatThread } from "../../../packages/contracts/tutor";
 import { Unit, unitId, Manifest } from "../../../packages/contracts/content";
+import { tutorRequest } from "./tutor-request";
 import { enabled, routeTutor } from "./ai";
 import { containsPrivateInput, googleCountryAllowed } from "./ai-policy";
 import { logServerFailure } from "./observability";
@@ -227,6 +229,26 @@ export async function handle(
     }
     if (url.pathname === "/api/ai/tutor" && request.method === "POST") {
       const p = TutorInput.parse(await body(request));
+      // A continued persisted thread determines its own verified context.
+      if (p.conversation_id) {
+        const thread = ChatThread.parse(
+          await rpc("tutor_thread", { p_id: p.conversation_id }),
+        );
+        if (
+          thread.unit_id !== p.unit_id ||
+          thread.release !== p.release ||
+          thread.mode !== p.mode
+        )
+          throw new HttpError(409, "CONFLICT");
+        if (thread.messages.length >= 50) throw new HttpError(409, "CHAT_FULL");
+        p.context = thread.messages.slice(-6).map((m) => ({
+          role: m.role,
+          text: (m.reply
+            ? `${m.reply.assistant_reply_en} ${m.reply.next_question_en}`
+            : m.content
+          ).slice(0, 1000),
+        }));
+      }
       const response = await content(
         env,
         `${p.release}/${p.unit_id.split("-")[0]}/${p.unit_id}.json`,
@@ -284,31 +306,69 @@ export async function handle(
           fallback_activity: fallback,
           country: /^[A-Z]{2}$/.test(country ?? "") ? country : "unknown",
         });
-      const budget = identity.demo
-        ? demoBudget(identity.id)
-        : await rpc<boolean>("consume_ai", {});
-      if (!budget)
-        return json({
-          error: "AI_USER_FAIR_USE",
-          fallback_activity: fallback,
-        });
-      if (identity.demo)
-        return json({
-          error: "AI_PROVIDER_UNCONFIGURED",
-          fallback_activity: unit.exercises.find((a) => !blocks.includes(a.id))
-            ?.id,
-          local_demo: true,
-        });
-      const result = await routeTutor(
-        providerEnv,
-        unit,
-        p.text,
-        network,
-        Date.now(),
-        p.context,
+      const result = await tutorRequest(
+        identity.id,
+        p.request_id,
+        await hash(
+          JSON.stringify({
+            ...p,
+            context: p.conversation_id ? undefined : p.context,
+          }),
+        ),
+        async () => {
+          const budget = identity.demo
+            ? demoBudget(identity.id)
+            : await rpc<boolean>("consume_ai", {});
+          if (!budget)
+            return { error: "AI_USER_FAIR_USE", fallback_activity: fallback };
+          if (identity.demo)
+            return {
+              error: "AI_PROVIDER_UNCONFIGURED",
+              fallback_activity: fallback,
+              local_demo: true,
+            };
+          return routeTutor(
+            providerEnv,
+            unit,
+            p.text,
+            network,
+            Date.now(),
+            p.context,
+            p.mode,
+          );
+        },
       );
-      if (result.reply) {
+      if ("reply" in result && result.reply) {
         TutorReply.parse(result.reply);
+        if (p.request_id) {
+          let id: string | null = null;
+          let history_status: "saved" | "disabled" | "unavailable" | "full" =
+            "unavailable";
+          try {
+            const snapshot = Snapshot.parse(await rpc("read_snapshot", {}));
+            if (!snapshot.state.keep_history) history_status = "disabled";
+            else {
+              id = await rpc<string | null>("tutor_save_turn", {
+                p_id: p.conversation_id ?? null,
+                p_key: p.request_id,
+                p_unit: unit.id,
+                p_release: p.release,
+                p_mode: p.mode,
+                p_user: p.text,
+                p_reply: result.reply,
+              });
+              history_status = id ? "saved" : "full";
+            }
+          } catch {
+            history_status = "unavailable";
+          }
+          return json({
+            reply: result.reply,
+            conversation_id: id,
+            history_status,
+          });
+        }
+        // Preserve old lesson clients during a rolling deployment.
         await rpc("save_chat", {
           p_unit: unit.id,
           p_user: p.text,
@@ -351,6 +411,56 @@ export async function handle(
         );
       }
       return json(data);
+    }
+    if (url.pathname === "/api/chat/history" && request.method === "GET") {
+      const page = Number(url.searchParams.get("page") ?? 0);
+      if (!Number.isInteger(page) || page < 0 || page > 9)
+        throw new HttpError(400, "INVALID_REQUEST");
+      if (identity.demo) return json({ available: true, threads: [] });
+      try {
+        const rows = await rpc("tutor_threads", { p_page: page });
+        return json({
+          available: true,
+          threads: z.array(ChatHeader).max(10).parse(rows),
+        });
+      } catch {
+        return json({ available: false, threads: [] });
+      }
+    }
+    if (/^\/api\/chat\/history\/[a-f0-9-]{36}$/.test(url.pathname)) {
+      const id = z.string().uuid().parse(url.pathname.split("/").at(-1));
+      if (identity.demo) {
+        const rows = demoState.history.get(identity.id) ?? [];
+        const row = rows.find((h) => h.id === id);
+        if (!row) throw new HttpError(403, "FORBIDDEN");
+        if (request.method === "DELETE") {
+          demoState.history.set(
+            identity.id,
+            rows.filter((h) => h.id !== id),
+          );
+          return json({ ok: true });
+        }
+        if (request.method === "GET")
+          return json(
+            ChatThread.parse({
+              ...row,
+              mode: "lesson",
+              release: "3.0.0",
+              title: "আগের অনুশীলন",
+              messages: row.messages.map((m) => ({
+                ...m,
+                id: crypto.randomUUID(),
+                reply: null,
+              })),
+            }),
+          );
+      }
+      if (request.method === "GET")
+        return json(ChatThread.parse(await rpc("tutor_thread", { p_id: id })));
+      if (request.method === "DELETE") {
+        await rpc("tutor_delete", { p_id: id });
+        return json({ ok: true });
+      }
     }
     if (url.pathname === "/api/history" && request.method === "DELETE") {
       if (identity.demo) demoState.history.delete(identity.id);

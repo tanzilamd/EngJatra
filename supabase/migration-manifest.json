@@ -5,6 +5,11 @@
       "version": "202610090001",
       "name": "202610090001_initial.sql",
       "sha256": "682cefb0e918d8b68dc9b511505f97d784f7e02df95d0b8e181845182cce576c"
+    },
+    {
+      "version": "202610100001",
+      "name": "202610100001_tutor_threads.sql",
+      "sha256": "cebd76730e7a2ed3f16d40d1d90fbab63023d7b0806cf223587448821efb63b9"
     }
   ]
 }

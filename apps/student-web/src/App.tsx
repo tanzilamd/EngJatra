@@ -16,6 +16,7 @@ import {
   BookOpen,
   Settings,
   LogOut,
+  Sparkles,
 } from "lucide-react";
 import {
   demo,
@@ -50,7 +51,18 @@ const Review = lazy(() =>
 const SavedWords = lazy(() =>
   import("./SavedWords").then((m) => ({ default: m.SavedWords })),
 );
-type View = "home" | "learn" | "progress" | "lesson" | "review";
+const TutorWorkspace = lazy(() =>
+  import("./tutor/Workspace").then((m) => ({ default: m.TutorWorkspace })),
+);
+type View = "home" | "learn" | "progress" | "lesson" | "review" | "tutor";
+function routeView(): View {
+  const path = location.pathname.slice(1);
+  return ["home", "learn", "progress", "lesson", "review", "tutor"].includes(
+    path,
+  )
+    ? (path as View)
+    : "home";
+}
 export default function App() {
   const now = useClock();
   const session = useSession();
@@ -63,7 +75,26 @@ export default function App() {
     state: initialProgress,
   });
   const [status, setStatus] = useState<SyncStatus>("loading");
-  const [view, setView] = useState<View>("home");
+  const [view, updateView] = useState<View>(routeView);
+  const [routeSearch, setRouteSearch] = useState(location.search);
+  function setView(next: View, search = "") {
+    window.history.pushState(
+      null,
+      "",
+      `${next === "home" ? "/" : `/${next}`}${search}`,
+    );
+    updateView(next);
+    setRouteSearch(search);
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }
+  useEffect(() => {
+    const change = () => {
+      updateView(routeView());
+      setRouteSearch(location.search);
+    };
+    window.addEventListener("popstate", change);
+    return () => window.removeEventListener("popstate", change);
+  }, []);
   const [manifest, setManifest] = useState<ManifestData | null>(null);
   const [contentError, setContentError] = useState(false);
   const [band, setBand] = useState<Band>("P0");
@@ -139,6 +170,14 @@ export default function App() {
     if (demo) {
       localStorage.removeItem("engjatra.demo.started");
     } else await supabase?.auth.signOut();
+    window.dispatchEvent(new Event("engjatra:logout"));
+    try {
+      for (const key of Object.keys(sessionStorage))
+        if (key.startsWith("engjatra.chat.tab."))
+          sessionStorage.removeItem(key);
+    } catch {
+      /* no transcript logs */
+    }
     setUser(null);
     setSnapshot({ revision: 0, state: initialProgress });
     setView("home");
@@ -306,6 +345,7 @@ export default function App() {
           {[
             ["home", "হোম", Home],
             ["learn", "শেখা", Map],
+            ["tutor", "AI টিউটর", Sparkles],
             ["progress", "অগ্রগতি", ChartNoAxesCombined],
           ].map(([id, label, Icon]) => {
             const I = Icon as typeof Home;
@@ -340,7 +380,7 @@ export default function App() {
         <main id="main" className="content stack">
           <PwaExperience
             engaged={state.onboarded && state.tour}
-            allowUpdate={view !== "lesson"}
+            allowUpdate={view !== "lesson" && view !== "tutor"}
           />
           <Suspense fallback={<Loading />}>
             <div className="row between">
@@ -542,8 +582,44 @@ export default function App() {
                 key={`${state.unit_id}:${state.release}`}
                 state={state}
                 save={save}
+                user={user}
+                onTutor={() =>
+                  setView(
+                    "tutor",
+                    `?unit=${state.unit_id}&release=${state.release}`,
+                  )
+                }
                 onBack={() => setView("learn")}
                 onReport={showReport}
+              />
+            )}
+            {view === "tutor" && manifest && (
+              <TutorWorkspace
+                user={user}
+                manifest={manifest}
+                currentUnit={state.unit_id}
+                currentRelease={state.release}
+                keepHistory={state.keep_history}
+                onHistoryPreference={(value) =>
+                  save({ ...state, keep_history: value })
+                }
+                onReport={showReport}
+                onLearn={() => setView("learn")}
+                requested={{
+                  chat:
+                    new URLSearchParams(routeSearch).get("chat") ?? undefined,
+                  unit:
+                    new URLSearchParams(routeSearch).get("unit") ?? undefined,
+                  release:
+                    new URLSearchParams(routeSearch).get("release") ??
+                    undefined,
+                }}
+                onSelect={(id) => setView("tutor", `?chat=${id}`)}
+                onLink={(id) => {
+                  const search = `?chat=${id}`;
+                  window.history.replaceState(null, "", `/tutor${search}`);
+                  setRouteSearch(search);
+                }}
               />
             )}
             {view === "review" && (
@@ -708,8 +784,15 @@ export default function App() {
               </button>
               <button
                 onClick={async () => {
+                  if (
+                    !window.confirm(
+                      "সব AI আলাপ মুছে ফেলবে? শেখার অগ্রগতি থাকবে।",
+                    )
+                  )
+                    return;
                   try {
                     await api("/history", {}, "DELETE");
+                    window.dispatchEvent(new Event("engjatra:logout"));
                     setNotice(
                       "লেখার ইতিহাস মুছে দেওয়া হয়েছে। শেখার অগ্রগতি থাকবে।",
                     );

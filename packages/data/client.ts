@@ -131,13 +131,20 @@ export async function tutor(
   text: string,
   context: TutorContext = [],
   ai_consent = false,
+  options: {
+    mode?: "conversation" | "lesson";
+    conversation_id?: string;
+    request_id?: string;
+  } = {},
 ) {
   return api<{
     reply?: TutorData;
     error?: string;
     fallback_activity?: string;
     local_demo?: boolean;
-  }>("/ai/tutor", { unit_id, release, text, context, ai_consent });
+    conversation_id?: string | null;
+    history_status?: "saved" | "disabled" | "unavailable" | "full";
+  }>("/ai/tutor", { unit_id, release, text, context, ai_consent, ...options });
 }
 export const emptySnapshot = () => ({
   revision: 0,

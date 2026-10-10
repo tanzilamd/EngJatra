@@ -8,7 +8,16 @@ import {
 import { correctsSyntheticSentence } from "./qa-tutor-correction";
 
 function productionReply(data: unknown) {
-  const parsed = z.object({ reply: TutorReply }).strict().safeParse(data);
+  const parsed = z
+    .object({
+      reply: TutorReply,
+      conversation_id: z.string().uuid().nullable().optional(),
+      history_status: z
+        .enum(["saved", "disabled", "unavailable", "full"])
+        .optional(),
+    })
+    .strict()
+    .safeParse(data);
   if (parsed.success) {
     const reply = parsed.data.reply;
     if (
@@ -76,4 +85,13 @@ export function validateProductionTutor(data: unknown, countries: string) {
     regional_denial_verified: false as const,
     reply,
   };
+}
+
+export function validateProductionPractice(data: unknown) {
+  const reply = productionReply(data);
+  if (reply.source_unit_id !== "P0-01")
+    throw Error(
+      "Production free practice returned the wrong verified band anchor",
+    );
+  return reply;
 }

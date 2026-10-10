@@ -1,21 +1,25 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import type { Progress } from "../../../packages/contracts/api";
 import type { UnitData } from "../../../packages/contracts/content";
 import { loadUnit } from "../../../packages/data/client";
 import { bn, Card, Notice } from "../../../packages/ui/components";
 import { nextUnit } from "../../../packages/learning/engine";
 import { Activity } from "./Activity";
-import { Tutor } from "./Tutor";
+const Tutor = lazy(() => import("./Tutor").then((m) => ({ default: m.Tutor })));
 export function Lesson({
   state,
   save,
   onBack,
   onReport,
+  user,
+  onTutor,
 }: {
   state: Progress;
   save: (s: Progress) => void;
   onBack: () => void;
   onReport: (id: string) => void;
+  user: string;
+  onTutor: () => void;
 }) {
   const [unit, setUnit] = useState<UnitData | null>(null);
   const [error, setError] = useState(false);
@@ -110,6 +114,11 @@ export function Lesson({
         <button className="quiet" onClick={onBack}>
           ← শেখার পথে
         </button>
+        {step !== 4 + unit.exercises.length && (
+          <button className="small" onClick={onTutor}>
+            এই পাঠ নিয়ে AI অনুশীলন
+          </button>
+        )}
         <span className="tag">
           {unit.level === "P0" ? "Pre-A1" : unit.level} · {bn(step + 1)}/
           {bn(steps)}
@@ -243,7 +252,16 @@ export function Lesson({
           </>
         )}
         {step === 4 + unit.exercises.length && (
-          <Tutor unit={unit} release={state.release} onReport={onReport} />
+          <Suspense fallback={<p role="status">টিউটর খুলছি…</p>}>
+            <Tutor
+              unit={unit}
+              release={state.release}
+              onReport={onReport}
+              user={user}
+              keepHistory={state.keep_history}
+              onOpen={onTutor}
+            />
+          </Suspense>
         )}
         {step === 5 + unit.exercises.length && (
           <>

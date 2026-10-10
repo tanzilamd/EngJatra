@@ -12,6 +12,9 @@ export const TutorInput = z
     text: z.string().trim().min(1).max(1500),
     context: z.array(ContextTurn).max(6).default([]),
     ai_consent: z.boolean().default(false),
+    mode: z.enum(["conversation", "lesson"]).default("lesson"),
+    conversation_id: z.string().uuid().optional(),
+    request_id: z.string().uuid().optional(),
   })
   .strict();
 export const TutorReply = z

@@ -29,7 +29,7 @@ Individual commands: `npm run lint`, `npm run typecheck`, `npm test`, `npm run t
 
 | Path | Purpose |
 | --- | --- |
-| `apps/student-web` | Bangla learner app; exactly Home / Learn / Progress as primary destinations |
+| `apps/student-web` | Bangla learner app; Home / Learn / AI Tutor / Progress as primary destinations |
 | `apps/admin-web` | Separate role-protected editorial and operational interface |
 | `packages/contracts` | Validated public content, personal state and API contracts |
 | `packages/learning` | Scoring, progression, retrieval schedule, conflict merge |

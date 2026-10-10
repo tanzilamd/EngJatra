@@ -161,3 +161,7 @@ The live Auth runner uses actual Cloudflare country metadata. If outside Banglad
 ## Actual activation checkpoint (3c20703)
 
 Source-policy values and the encrypted Gemma key are installed; both synthetic inference cases passed. Public artifact checks independently matched accepted 3c20703 after transient stale HTML, but the overall Actions run failed and live tutor inference failed with AI_NETWORK_FAILURE. The actual workerd Request redirect-mode defect is reproduced and repaired in the candidate; do not describe this checkpoint as a working tutor or disabled flag. No additional key, country expansion, paid service or owner token is required for the repair. Signed logs currently redirect to a blocked productionresultssa5.blob.core.windows.net host; safe fixed-case Checks annotations avoid requiring another owner network-policy action for readiness inspection.
+
+## Standalone tutor configuration
+
+The dedicated `/tutor` reuses every existing Auth/API/Gemma/region/free/quota binding. **No new environment variable, provider key, service-role credential or paid service is required.** Optional grouped cloud conversations require the reviewed additive existing-table migration, gated by trustworthy historical migration/checksum and backup evidence; runtime capability checks are truthful and do not substitute for applying it. Existing Codex/Supabase access is sufficient for safe review after that evidence exists. Source-owned adult Bangladesh scope, server-only Google key and unpaid-processing acknowledgement stay unchanged.

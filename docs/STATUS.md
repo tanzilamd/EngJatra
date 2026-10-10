@@ -1,6 +1,24 @@
 # EngJatra development status — 2026-10-10
 
-## Verified release and requirement audit — 2026-10-10
+## Standalone tutor delivery — active milestone
+
+This owner-authorized product change supersedes the earlier three-navigation limit. Baseline main `7b07f13` was fetched and preserved.
+
+- [x] Add four primary destinations and dedicated `/tutor` routing with history/back/forward, lesson links and selected in-memory chat.
+- [x] Shared lazy chat UI/provider client for embedded and standalone modes, six bands, verified lesson facts, structured bilingual feedback, working starters, multiline composer, retry retention, duplicate locks and private memory store.
+- [x] Desktop history/mobile native drawer, new/switch/title/local delete/confirmed clear; opt-in account-scoped tab recovery, logout purge, no default transcript persistence.
+- [x] Prepare additive existing-table migration, own-user RPCs and fresh/legacy-upgrade/RLS/opt-out/idempotent-save/order/limits/delete tests. **Not applied in production.**
+- [x] Targeted Chromium: ten functional/visual checks passed, both themes at 320/375/390/430/768/1024/1440; initial ordering and route assumptions fixed. Screenshots inspected; external provider results remain separate.
+- [x] First full unchanged-source QA passed: 151 unit/API/PostgreSQL tests, 49 browser checks and one retained-release test; lint/types/docs/content/checksums/build/secret/PWA/accessibility gates passed, zero dependency vulnerabilities.
+- [x] Screenshot/code review identifies final drawer duplicate-title/action and older selected-chat refresh fixes; add meaningful selected-chat regression and clarify saving describes the current response, not opt-out earlier messages.
+- [x] Post-polish lint/types/format and all 153 unit/API/PostgreSQL tests passed; ten targeted desktop/mobile tutor checks passed again. Older selection survives navigation/refresh, in-flight drafts survive opted-in cache recovery without consent/tokens, and the history drawer has one title/primary new-chat action.
+- [x] Final unchanged-source full QA passed: 153 unit/API/PostgreSQL tests (24 files), 49 browser checks and one retained-release test. Formatting, zero-vulnerability audit and all three explicit offline deployment dry runs passed separately. Critical student entry remains 80,386 gzip bytes; Workspace/ChatPanel are deferred (~3.77/5.14KB gzip).
+- [ ] Commit/push the reviewed source, monitor its fresh sole-pipeline QA/deployment and verify real dedicated lesson/free production inference. No candidate deployment is claimed yet.
+- [ ] Cloud grouped history and individual cloud deletion: blocked by fresh live `db:audit` confirming all existing tables but no trustworthy initial migration/checksum provenance. No initial replay, fake ledger or unapproved migration. UI/API must honestly show capability unavailable while real inference and temporary chats work.
+
+Next action: commit/push the verified source after the idle-state guard, monitor the sole publisher and verify dedicated permitted real lesson/free chat. Existing teaching 3.0.13, user records, owner and deployment pipeline are unchanged.
+
+## Previous verified release and requirement audit — 2026-10-10
 
 **Verified functional checkpoint:** `24d8768ee2b93f985e8903661e4ac95d45ab66c9`, successful [Actions 38070251321](https://github.com/tanzilamd/EngJatra/actions/runs/38070251321). This supersedes all historical candidates, missing-example counts, disabled-AI and mixed-age notes below. The following maintenance-only documentation commit preserves the same application and teaching bytes; verify its own pipeline/active SHA before treating it as deployed. Do not restart implemented work.
 

@@ -10,6 +10,7 @@ import { messages } from "../packages/contracts/api";
 import {
   validateProductionTutor,
   validateProductionFollowup,
+  validateProductionPractice,
 } from "./live-ai-result";
 
 // Credentials remain in process memory. Only newly created disposable QA
@@ -306,6 +307,12 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     ).toBeVisible();
     phase = "online progress reload";
     await restored.reload();
+    // Route refresh retains the lesson/review; return home explicitly when
+    // exercising resume-from-home rather than assume all reloads reset it.
+    await restored
+      .getByRole("navigation", { name: "মূল পথ" })
+      .getByRole("button", { name: "হোম", exact: true })
+      .click();
     await restored.getByRole("button", { name: "শেখা চালিয়ে যাও" }).click();
     await expect(
       restored.getByRole("heading", { name: "শব্দের সঙ্গে বন্ধুত্ব" }),
@@ -341,7 +348,7 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     await expect
       .poll(() => restored.evaluate(() => navigator.onLine))
       .toBe(false);
-    await restored.getByRole("button", { name: "শেখা চালিয়ে যাও" }).click();
+    // /lesson refresh restores its saved step directly, including offline.
     await expect(
       restored.getByRole("heading", { name: "শব্দের সঙ্গে বন্ধুত্ব" }),
     ).toBeVisible();
@@ -378,7 +385,13 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     if (process.env.GEMMA_FREE_CONFIRMED === "true") {
       // Only after the same pipeline's explicit eligibility and synthetic
       // pre-publication inference gate; no account/session text is submitted.
-      phase = "permitted authenticated production AI";
+      phase = "permitted authenticated standalone lesson AI";
+      await restored
+        .getByRole("button", { name: "এই পাঠ নিয়ে AI অনুশীলন", exact: true })
+        .click();
+      await expect(
+        restored.getByRole("heading", { name: "AI টিউটর", exact: true }),
+      ).toBeVisible();
       await restored
         .getByRole("checkbox", { name: /আমার বয়স অন্তত ১৮ বছর/ })
         .check();
@@ -440,6 +453,41 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
             .last(),
         ).toBeVisible();
         aiTurnsVerified = 2;
+        phase = "permitted authenticated standalone free conversation";
+        await restored
+          .getByRole("button", { name: "কথোপকথন", exact: true })
+          .click();
+        await restored
+          .getByLabel("তোমার ইংরেজি উত্তর")
+          .fill(
+            "Please teach one useful English word for a fictional shop visit.",
+          );
+        const freeResponse = restored.waitForResponse(
+          (r) =>
+            r.url() === `${config.api}/api/ai/tutor` &&
+            r.request().method() === "POST",
+        );
+        await restored
+          .getByRole("button", { name: "উত্তর পাঠাই", exact: true })
+          .click();
+        const free = await freeResponse;
+        if (!free.ok() || free.request().postDataJSON().mode !== "conversation")
+          throw Error("Production free conversation failed");
+        const practiced = validateProductionPractice(await free.json());
+        await expect(
+          restored.getByText(practiced.short_explanation_bn, { exact: true }),
+        ).toBeVisible();
+        aiTurnsVerified = 3;
+        for (const theme of ["light", "dark"] as const) {
+          await restored.emulateMedia({ colorScheme: theme });
+          await restored.screenshot({
+            path: `.wrangler/standalone-live-${theme}.png`,
+            fullPage: true,
+          });
+        }
+        checks.push(
+          "real standalone lesson-linked two-turn correction and free conversation practice passed; opt-out cloud history stayed disabled",
+        );
         aiVerified = true;
         checks.push(
           "real two-turn contextual production conversation accepts the already-valid authored follow-up and renders bilingual coaching; no private/session text sent to provider",
@@ -456,6 +504,13 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
       }
     }
     // Authored practice remains available independently of eligible inference.
+    await restored
+      .getByRole("navigation", { name: "মূল পথ" })
+      .getByRole("button", { name: "হোম", exact: true })
+      .click();
+    await restored
+      .getByRole("button", { name: "শেখা চালিয়ে যাও", exact: true })
+      .click();
     await restored.getByRole("button", { name: "এখন পাঠ শেষ করি" }).click();
     await restored
       .getByRole("button", { name: "পাঠ শেষ করে পথে ফিরি" })
@@ -502,6 +557,12 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     )
       throw Error("Real saved-vocabulary review scheduling did not persist");
     await restored.reload();
+    // Route refresh retains the lesson/review; return home explicitly when
+    // exercising resume-from-home rather than assume all reloads reset it.
+    await restored
+      .getByRole("navigation", { name: "মূল পথ" })
+      .getByRole("button", { name: "হোম", exact: true })
+      .click();
     await restored.getByRole("button", { name: "শেখা চালিয়ে যাও" }).click();
     await expect(
       restored.getByRole("heading", { name: "নাম জানাই" }),

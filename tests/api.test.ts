@@ -572,3 +572,15 @@ it("public Supabase REST uses API key auth without misusing a publishable key as
   expect(network.mock.calls[0][1].headers.apikey).toBe("public-test-fixture");
   expect(network.mock.calls[0][1].headers.Authorization).toBeUndefined();
 });
+
+it("new history is own-user only, rejects invalid pages and never forwards demo lookups to a live backend", async () => {
+  const network = vi.fn();
+  const unknown = "11111111-1111-4111-8111-111111111111";
+  expect(
+    (await handle(request(`/chat/history/${unknown}`), local, network)).status,
+  ).toBe(403);
+  expect(
+    (await handle(request("/chat/history?page=10"), local, network)).status,
+  ).toBe(400);
+  expect(network).not.toHaveBeenCalled();
+});

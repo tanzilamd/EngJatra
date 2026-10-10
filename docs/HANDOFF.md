@@ -1,6 +1,16 @@
 # Maintainer handoff
 
-## Verified release and requirement audit — 2026-10-10
+## Current continuation: standalone AI Tutor
+
+Read the active checklist at the top of STATUS before the historical checkpoints below. The new owner request authorizes Home/Learn/AI Tutor/Progress and `/tutor`; selected conversations survive navigation, with `?chat=` and verified `?unit=&release=` links. Shared lazy `src/tutor/ChatPanel.tsx` and its account-scoped memory store replace duplicate embedded logic. Conversation mode uses a real band anchor; lesson mode sends verified facts through the same guarded Worker.
+
+Default messages/drafts are memory-only. Explicit existing history preference enables bounded temporary `sessionStorage` recovery per account, never public caches/localStorage; consent is not restored across refresh. Logout purges caches. Cloud headers/messages are bounded and own-user only. The prepared `202610100001_tutor_threads.sql` adds metadata/structured reply/ordering to the existing tables plus protected RPCs, retaining old rows/RLS and the original 100-history cap. Full threads cap 50 messages; last six turns reach the provider. No new service, credentials or paid usage.
+
+**Genuine production gate:** fresh catalog audit still finds the existing schema without trustworthy initial migration/checksum provenance; backups/restore evidence also remains uncertified. Do not apply the migration, replay initial SQL or adopt guessed hashes. Until reviewed reconciliation, `/api/chat/history` reports `available:false`, generated replies disclose unavailable cloud saving, temporary sessions still work, and old stored exchanges remain accessible through Progress's existing history. Grouped cross-device history/individual cloud deletion are prepared/tested, **not live**. Existing clear-all RPC remains authorized and leaves progress unchanged.
+
+Final unchanged-source QA passed 153 unit/API/PostgreSQL tests, 49 browser checks and one retained-release test; new both-theme 320–1440px screenshots were inspected. Formatting, zero-vulnerability audit and three explicit dry runs passed separately. Next commit/push through the sole main pipeline and use real controlled Auth fixtures to verify dedicated lesson and free mode without fabricated inference/location overrides. Capture exact release evidence in STATUS; no content publication metadata or owner bootstrap is needed for this UI/API change.
+
+## Previous verified release and requirement audit — 2026-10-10
 
 **Verified functional checkpoint:** `24d8768ee2b93f985e8903661e4ac95d45ab66c9`, successful [Actions 38070251321](https://github.com/tanzilamd/EngJatra/actions/runs/38070251321). This supersedes all historical candidates, missing-example counts, disabled-AI and mixed-age notes below. The following maintenance-only documentation commit preserves the same application and teaching bytes; verify its own pipeline/active SHA before treating it as deployed. Do not restart implemented work.
 
