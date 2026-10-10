@@ -1,3 +1,4 @@
+import { completeFirstLessonActivities } from "../../scripts/qa-first-lesson";
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { initialProgress } from "../../packages/contracts/api";
@@ -39,45 +40,7 @@ test("beginner finishes a real lesson, writes freely, sees AI fallback, resumes 
   await page.getByRole("button", { name: "পরে অনুশীলন করব" }).first().click();
   await page.getByRole("button", { name: "পরের ধাপে যাই" }).click();
   await page.getByRole("button", { name: "পরের ধাপে যাই" }).click();
-  for (const choice of ["I am fine, thank you.", "am", "I am fine."]) {
-    await page.getByRole("button", { name: choice, exact: true }).click();
-    await page.getByRole("button", { name: "উত্তর যাচাই করি" }).click();
-    await expect(page.getByText("সঠিক হয়েছে!", { exact: true })).toBeVisible();
-    await page.getByRole("button", { name: "পরের ধাপে যাই" }).click();
-  }
-  for (const token of ["Hello,", "I", "am", "Rina."])
-    await page
-      .locator(".row")
-      .getByRole("button", { name: token, exact: true })
-      .click();
-  await page.getByRole("button", { name: "উত্তর যাচাই করি" }).click();
-  await page.getByRole("button", { name: "পরের ধাপে যাই" }).click();
-  await page.getByLabel("তোমার লেখা", { exact: true }).fill("Hi, I am Sami.");
-  await page.getByText("উদাহরণ ও নিজের লেখা যাচাই", { exact: true }).click();
-  for (const checkbox of await page.getByRole("checkbox").all())
-    await checkbox.check();
-  await page.getByRole("button", { name: "নিজের লেখা যাচাই করেছি" }).click();
-  await page.getByRole("button", { name: "পরের ধাপে যাই" }).click();
-  for (const [en, bn] of [
-    ["hello", "হ্যালো"],
-    ["goodbye", "বিদায়"],
-    ["morning", "সকাল"],
-    ["fine", "ভালো"],
-  ])
-    await page
-      .getByRole("combobox", { name: en, exact: true })
-      .selectOption(bn);
-  await page.getByRole("button", { name: "উত্তর যাচাই করি" }).click();
-  await page.getByRole("button", { name: "পরের ধাপে যাই" }).click();
-  await page
-    .getByRole("button", { name: "হ্যালো, আমি রিনা।", exact: true })
-    .click();
-  await page.getByRole("button", { name: "উত্তর যাচাই করি" }).click();
-  await page.getByRole("button", { name: "পরের ধাপে যাই" }).click();
-  await page
-    .getByRole("button", { name: "I am fine, thank you.", exact: true })
-    .click();
-  await page.getByRole("button", { name: "পরের ধাপে যাই" }).click();
+  await completeFirstLessonActivities(page);
   await page.getByLabel("তোমার ইংরেজি উত্তর").fill("Hello");
   await page.getByRole("button", { name: "উত্তর পাঠাই" }).click();
   await expect(

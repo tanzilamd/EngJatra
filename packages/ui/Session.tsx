@@ -6,7 +6,7 @@ import {
   type ReactNode,
 } from "react";
 import type { User } from "@supabase/supabase-js";
-import { demo, supabase } from "../data/auth";
+import { configured, demo, initializeSupabase } from "../data/auth";
 import { Auth, PasswordRecovery } from "./Auth";
 import { Loading } from "./components";
 const SessionContext = createContext<{
@@ -14,39 +14,63 @@ const SessionContext = createContext<{
   loading: boolean;
   recovery: boolean;
   finishRecovery: () => void;
+  expected: boolean;
+  failed: boolean;
 }>({
   user: null,
   loading: true,
   recovery: false,
   finishRecovery: () => undefined,
+  expected: false,
+  failed: false,
 });
 export function SessionProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(!!supabase);
+  const [loading, setLoading] = useState(configured && !demo);
   const [recovery, setRecovery] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const [expected] = useState(() => {
+    try {
+      const project = new URL(import.meta.env.VITE_SUPABASE_URL).hostname.split(
+        ".",
+      )[0];
+      return (
+        !!localStorage.getItem(`sb-${project}-auth-token`) ||
+        /access_token=|[?&]code=/.test(location.hash + location.search)
+      );
+    } catch {
+      return false;
+    }
+  });
   useEffect(() => {
-    if (!supabase) return;
     let alive = true;
-    const { data } = supabase.auth.onAuthStateChange((event, session) => {
-      if (!alive) return;
-      setUser(session?.user ?? null);
-      setLoading(false);
-      if (event === "PASSWORD_RECOVERY") setRecovery(true);
-    });
-    supabase.auth
-      .getSession()
-      .then((result) => {
+    let unsubscribe: (() => void) | undefined;
+    void initializeSupabase()
+      .then(async (client) => {
+        if (!alive || !client) return;
+        const { data } = client.auth.onAuthStateChange((event, session) => {
+          if (!alive) return;
+          setUser(session?.user.email_confirmed_at ? session.user : null);
+          setLoading(false);
+          if (event === "PASSWORD_RECOVERY") setRecovery(true);
+        });
+        unsubscribe = () => data.subscription.unsubscribe();
+        const result = await client.auth.getSession();
         if (alive) {
-          setUser(result.data.session?.user ?? null);
+          const candidate = result.data.session?.user;
+          setUser(candidate?.email_confirmed_at ? candidate : null);
           setLoading(false);
         }
       })
       .catch(() => {
-        if (alive) setLoading(false);
+        if (alive) {
+          setLoading(false);
+          setFailed(true);
+        }
       });
     return () => {
       alive = false;
-      data.subscription.unsubscribe();
+      unsubscribe?.();
     };
   }, []);
   return (
@@ -55,6 +79,8 @@ export function SessionProvider({ children }: { children: ReactNode }) {
         user,
         loading,
         recovery,
+        expected,
+        failed,
         finishRecovery: () => {
           setRecovery(false);
           window.history.replaceState(null, "", "/");
@@ -85,7 +111,7 @@ export function ApplicationGate({
   );
   if (session.recovery)
     return <PasswordRecovery admin={admin} onDone={session.finishRecovery} />;
-  if (session.loading)
+  if (session.loading && session.expected)
     return (
       <main className="onboard">
         <Loading label="অ্যাকাউন্ট খুলছি…" />
@@ -95,6 +121,8 @@ export function ApplicationGate({
     return (
       <Auth
         admin={admin}
+        ready={!session.loading}
+        connectionFailed={session.failed}
         extras={signedOutExtras}
         onDemo={() => {
           if (!demo) return;

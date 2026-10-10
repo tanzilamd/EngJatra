@@ -21,6 +21,7 @@ export function Tutor({
   const [choice, setChoice] = useState<number | null>(null);
   async function send(e: React.FormEvent) {
     e.preventDefault();
+    if (busy || !text.trim()) return;
     setBusy(true);
     setError("");
     try {
@@ -60,8 +61,10 @@ export function Tutor({
     <div className="stack">
       <h2>লিখে কথা বলি</h2>
       <p className="small muted">
-        AI-এর পরামর্শ ভুল হতে পারে। ব্যক্তিগত তথ্য পাঠিও না। তোমার লেখা সেবা
-        প্রদানকারী প্রক্রিয়া করে।
+        AI-এর পরামর্শ ভুল হতে পারে। ব্যক্তিগত তথ্য পাঠিও না। বিনা মূল্যের Google
+        সেবায় পাঠানো লেখা পণ্য উন্নয়ন ও মানুষের পর্যালোচনায় ব্যবহার হতে পারে। এই
+        AI সেবার জন্য বয়স অন্তত ১৮ বছর এবং সেবাদাতার অন্য শর্ত পূরণ হওয়া দরকার।
+        AI ছাড়াও নিচের গল্পের অনুশীলন করা যায়।
       </p>
       <div
         className="chat-thread"

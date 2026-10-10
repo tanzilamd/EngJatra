@@ -46,7 +46,9 @@
     "test:live:browser": "node --use-env-proxy --import tsx scripts/live-browser.ts",
     "test:live:auth": "node --use-env-proxy --import tsx scripts/live-auth.ts",
     "test:auth-ui": "playwright test --config playwright.auth.config.ts",
-    "test:performance": "node --use-env-proxy --import tsx scripts/performance.ts"
+    "test:performance": "node --use-env-proxy --import tsx scripts/performance.ts",
+    "ai:check": "node --use-env-proxy --import tsx scripts/ai-check.ts",
+    "auth:audit": "node --use-env-proxy --import tsx scripts/auth-config.ts"
   },
   "dependencies": {
     "@fontsource/hind-siliguri": "^5.3.0",

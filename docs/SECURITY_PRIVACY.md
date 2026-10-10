@@ -40,3 +40,8 @@ Without actual Supabase/Cloudflare accounts, integration/published security test
 - Supabase RLS: https://supabase.com/docs/guides/database/postgres/row-level-security
 - Cloudflare Worker secrets: https://developers.cloudflare.com/workers/configuration/secrets/
 - Cloudflare Functions pricing: https://developers.cloudflare.com/pages/functions/pricing/
+
+## Current launch privacy boundary
+Google API terms (https://ai.google.dev/gemini-api/terms, read 2026-10-10) restrict API clients likely accessed by under-18s and unpaid use in EEA/Switzerland/UK. Free prompt/output processing includes product improvement and possible human review. The UI now discloses this explicitly; keys and learner messages remain server-side and out of monitoring/artifacts. AI stays disabled pending eligible audience/account review; no superficial age checkbox substitutes for provider or legal approval. A general-audience public learning site must receive appropriate child/teen/privacy/source-rights review before unrestricted launch. No legal compliance is certified.
+
+Auth mail confirmation is independently provider-enforced; Worker verifies the provider-returned confirmed email as well as Auth UUID before role queries. Google confirmation comes from Supabase after actual OAuth. Signup/recovery test tokens are minted only for new marked disposable fixtures, held in memory, consumed once and cleaned up; these are not registration mail or Google evidence. Branded templates preserve `{{ .ConfirmationURL }}` and no scripts/external trackers.

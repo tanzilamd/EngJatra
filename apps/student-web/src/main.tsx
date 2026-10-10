@@ -29,8 +29,20 @@ if (
   import.meta.env.MODE !== "demo" &&
   "serviceWorker" in navigator
 ) {
-  navigator.serviceWorker
-    .register("/sw.js")
-    .then(() => window.dispatchEvent(new Event("engjatra-worker-ready")))
-    .catch(() => undefined);
+  // Do not compete with the first rendered Auth page/fonts for slow-network
+  // bandwidth. Still install promptly; idle has a bounded fallback and browsers
+  // without requestIdleCallback wait only for their load event.
+  const register = () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(() => window.dispatchEvent(new Event("engjatra-worker-ready")))
+      .catch(() => undefined);
+  };
+  const afterLoad = () => {
+    if ("requestIdleCallback" in window)
+      window.requestIdleCallback(register, { timeout: 5000 });
+    else setTimeout(register, 0);
+  };
+  if (document.readyState === "complete") afterLoad();
+  else window.addEventListener("load", afterLoad, { once: true });
 }

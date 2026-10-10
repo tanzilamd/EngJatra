@@ -35,3 +35,10 @@ Added authoritative environment/external dashboard inventory and concise Bengali
 ## 2026-10-10 — Verified production follow-up
 
 Fixed 320px admin Auth header wrapping and corrected the live CSS/theme check to inspect the primary Auth action. Report throttling/session failures retain text and display truthful Bengali errors, with retry regression coverage. Both-app Auth matrices cover six responsive widths in both themes. Controlled production QA now checks authenticated offline reload, pending checkpoint and reconnect persistence plus protected reviewer content reads. API Wrangler configurations require public same-zone fetch routing; a negative readiness test prevents losing the compatibility flag. Owner-authorized permanent bootstrap is audited separately from disposable QA. Recorded cold live performance and continuing external verification gates in STATUS.
+
+## 2026-10-10 — Final launch hardening
+- Complete email confirmation UI: paced resend, anti-enumeration feedback, email correction, safe expired/reused links and defense-in-depth unconfirmed session/API denial; provider-confirmed Google sessions need no second email. Recovery returns to login.
+- Version-controlled Bengali confirmation/recovery mail templates with protected audit/narrow apply command.
+- Delay the single Auth SDK until the public first render; keep actions disabled until ready, preserve existing-session/callback loading, precache SDK for offline reload and schedule SW installation after load/idle.
+- Fix malformed AI-envelope classification and prevent disabled providers consuming inference quota. Protected main Actions metadata check reuses the existing Gemma secret without inference/learner data; record current under-18/regional/free-processing eligibility gates.
+- Share authored first-lesson QA and expand real disposable-account checks to signup/recovery tokens, full lesson completion, saved vocabulary and revision scheduling. No real learner/content/owner mutations or teaching-version changes.

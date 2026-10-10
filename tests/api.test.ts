@@ -202,7 +202,10 @@ it("remote auth uses the verified user and DB role, ignoring claimed admin heade
     .fn()
     .mockResolvedValueOnce(
       new Response(
-        JSON.stringify({ id: "11111111-1111-1111-1111-111111111111" }),
+        JSON.stringify({
+          id: "11111111-1111-1111-1111-111111111111",
+          email_confirmed_at: "2026-10-10T00:00:00Z",
+        }),
       ),
     )
     .mockResolvedValueOnce(new Response("[]"));
@@ -223,6 +226,88 @@ it("remote auth uses the verified user and DB role, ignoring claimed admin heade
   );
   expect(identity.role).toBe("learner");
   expect(fetcher).toHaveBeenCalledTimes(2);
+});
+it("unconfirmed remote users cannot enter protected APIs, while provider-confirmed Google users can", async () => {
+  const env = {
+    ...local,
+    SUPABASE_URL: "https://test.supabase.co",
+    SUPABASE_ANON_KEY: "public-fixture",
+  };
+  const req = new Request("https://api.example/api/learning/snapshot", {
+    headers: { Authorization: "Bearer test-token" },
+  });
+  const unconfirmed = vi.fn().mockResolvedValueOnce(
+    new Response(
+      JSON.stringify({
+        id: "11111111-1111-1111-1111-111111111111",
+        app_metadata: { provider: "email" },
+      }),
+    ),
+  );
+  await expect(authenticate(req, env, unconfirmed)).rejects.toMatchObject({
+    status: 401,
+  });
+  expect(unconfirmed).toHaveBeenCalledTimes(1);
+  const google = vi
+    .fn()
+    .mockResolvedValueOnce(
+      new Response(
+        JSON.stringify({
+          id: "11111111-1111-1111-1111-111111111111",
+          email_confirmed_at: "2026-10-10T00:00:00Z",
+          app_metadata: { provider: "google" },
+        }),
+      ),
+    )
+    .mockResolvedValueOnce(new Response("[]"));
+  expect((await authenticate(req, env, google)).role).toBe("learner");
+});
+it("disabled production AI does not consume learner or global inference quota", async () => {
+  const { readFileSync } = await import("node:fs");
+  const network = vi.fn().mockImplementation(async (input) => {
+    const path = new URL(String(input)).pathname;
+    if (path === "/auth/v1/user")
+      return new Response(
+        JSON.stringify({
+          id: "11111111-1111-1111-1111-111111111111",
+          email_confirmed_at: "2026-10-10T00:00:00Z",
+        }),
+      );
+    if (path.endsWith("P0-01.json"))
+      return new Response(
+        readFileSync("apps/student-web/public/content/3.0.0/P0/P0-01.json"),
+      );
+    return new Response("[]");
+  });
+  const response = await handle(
+    new Request("https://api.example/api/ai/tutor", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer test-token",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        unit_id: "P0-01",
+        release: "3.0.0",
+        text: "Hello",
+      }),
+    }),
+    {
+      ...local,
+      ENVIRONMENT: "production",
+      LOCAL_DEMO: undefined,
+      SUPABASE_URL: "https://test.supabase.co",
+      SUPABASE_ANON_KEY: "public-fixture",
+      CONTENT_URL: "https://student.example",
+    },
+    network,
+  );
+  expect(await response.json()).toMatchObject({
+    error: "AI_PROVIDER_UNCONFIGURED",
+  });
+  expect(
+    network.mock.calls.some(([url]) => String(url).includes("consume_ai")),
+  ).toBe(false);
 });
 
 it("reviewer can evaluate a draft without changing its public patch", async () => {

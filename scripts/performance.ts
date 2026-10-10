@@ -4,7 +4,12 @@ import { dirname } from "node:path";
 import { liveBrowserOptions } from "./live-browser-options";
 declare global {
   interface Window {
-    engjatraLab: { lcp: number; cls: number; interaction: number | null };
+    engjatraLab: {
+      lcp: number;
+      cls: number;
+      interaction: number | null;
+      lcpElement: string;
+    };
   }
 }
 // Lab samples, not field Core Web Vitals. No accounts, third-party analytics or secrets.
@@ -37,11 +42,19 @@ try {
             lcp: 0,
             cls: 0,
             interaction: null as number | null,
+            lcpElement: "",
           };
           Object.assign(window, { engjatraLab: metrics });
           new PerformanceObserver((list) => {
-            for (const entry of list.getEntries())
+            for (const entry of list.getEntries()) {
               metrics.lcp = entry.startTime;
+              const element = (
+                entry as PerformanceEntry & { element?: Element }
+              ).element;
+              metrics.lcpElement = element
+                ? `${element.tagName.toLowerCase()}.${element.className}`
+                : "";
+            }
           }).observe({ type: "largest-contentful-paint", buffered: true });
           new PerformanceObserver((list) => {
             for (const entry of list.getEntries()) {
@@ -94,6 +107,16 @@ try {
                 sum + (entry as PerformanceResourceTiming).encodedBodySize,
               0,
             ),
+          resourceTimings: performance
+            .getEntriesByType("resource")
+            .filter((entry) =>
+              /\.(woff2|css|js)$/.test(new URL(entry.name).pathname),
+            )
+            .map((entry) => ({
+              file: new URL(entry.name).pathname.split("/").pop(),
+              start: Math.round(entry.startTime),
+              end: Math.round(entry.startTime + entry.duration),
+            })),
         }));
         results.push({ width, run, ...measurement });
       } finally {

@@ -95,14 +95,19 @@ export async function callProvider(
       ),
     });
     if (!r.ok) throw classify(r.status);
-    const data = (await r.json()) as {
+    const data = (await r.json().catch(() => {
+      throw new ProviderError("AI_INVALID_RESPONSE", true);
+    })) as {
       candidates?: { content: { parts: { text: string }[] } }[];
       choices?: { message: { content: string } }[];
     };
+    const parts = data?.candidates?.[0]?.content?.parts;
     const raw = gemma
-      ? data.candidates?.[0]?.content.parts.map((p) => p.text).join("")
-      : data.choices?.[0]?.message.content;
-    if (!raw || raw.length > 8000)
+      ? Array.isArray(parts) && parts.every((p) => typeof p?.text === "string")
+        ? parts.map((p) => p.text).join("")
+        : undefined
+      : data?.choices?.[0]?.message?.content;
+    if (typeof raw !== "string" || !raw || raw.length > 8000)
       throw new ProviderError("AI_INVALID_RESPONSE", true);
     return parseReply(raw, unit.id);
   } catch (e) {

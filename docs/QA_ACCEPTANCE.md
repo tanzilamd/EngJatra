@@ -52,3 +52,8 @@ Never report “fully correct”, “100% error-free”, “production verified�
 
 ## Completion reporting
 `DONE` = implemented with automated test pass. `INTEGRATION VERIFIED` = actual live connected test successful. `BLOCKED` = cannot run without keys/account/service/teacher/real user (state exact reason). `KNOWN ISSUE` = failure not yet corrected. Final report includes test logs/dates, commands, unresolved issues and operational next steps. Major security/auth/content correctness failures block public release.
+
+## Final launch additions
+Regression QA covers confirmation resend pacing/provider 429/email correction, safe expired/reused callbacks, return-to-login recovery, unconfirmed-session denial and provider-confirmed Google session routing. Explicit mocks are not actual Google consent. Delayed-SDK first-paint QA must show a rendered public heading and disabled actions before initializing the single client; offline production reload must include its new lazy chunk.
+
+Protected live QA additionally verifies an unconfirmed disposable password identity is denied, provider-issued signup token single use, provider recovery/password replacement, the seven authored P0-01 activities, unique completion, saved vocabulary, revision schedule and next-unit restore. It sends no mail to uncontrolled inboxes and never edits real accounts. AI metadata GET verifies only authentication/model compatibility. Delivery, real Google consent, real inference/free eligibility and physical-device installation remain separate release gates.

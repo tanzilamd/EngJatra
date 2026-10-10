@@ -5,6 +5,7 @@ import { settings } from "./deployment-config";
 import { redactLog } from "./redact-log";
 import { liveBrowserOptions } from "./live-browser-options";
 import { reviewerFixtureQuery } from "./live-auth-fixture";
+import { completeFirstLessonActivities } from "./qa-first-lesson";
 
 // Credentials remain in process memory. Only newly created disposable QA
 // identities are mutated/deleted; no existing learner or owner role is touched.
@@ -123,13 +124,77 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
         {
           email,
           password,
-          email_confirm: true,
+          email_confirm: i !== 0,
           user_metadata: { engjatra_test_fixture: true },
         },
         undefined,
         true,
       );
       fixtures.push({ id: created.id, email, password, token: "" });
+      if (i === 0) {
+        const rejected = await fetch(
+          `${config.supabase}/auth/v1/token?grant_type=password`,
+          {
+            method: "POST",
+            headers: {
+              apikey: config.publicKey,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+            signal: AbortSignal.timeout(15000),
+          },
+        );
+        const denied = (await rejected.json()) as {
+          error_code?: string;
+          access_token?: string;
+        };
+        if (
+          rejected.status !== 400 ||
+          denied.error_code !== "email_not_confirmed" ||
+          denied.access_token
+        )
+          throw Error(
+            "Unconfirmed password identity was not denied by Supabase",
+          );
+        // Provider-issued signup token tests confirmation and single use, not
+        // SMTP/inbox delivery. Never send test mail to an uncontrolled inbox.
+        const link = await supabase(
+          "/auth/v1/admin/generate_link",
+          "POST",
+          { type: "signup", email, password },
+          undefined,
+          true,
+        );
+        if (
+          link.id !== created.id ||
+          link.verification_type !== "signup" ||
+          !link.hashed_token
+        )
+          throw Error(
+            "Confirmation token must belong only to the new QA fixture",
+          );
+        await supabase("/auth/v1/verify", "POST", {
+          type: "signup",
+          token_hash: link.hashed_token,
+        });
+        const reused = await fetch(`${config.supabase}/auth/v1/verify`, {
+          method: "POST",
+          headers: {
+            apikey: config.publicKey,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            type: "signup",
+            token_hash: link.hashed_token,
+          }),
+          signal: AbortSignal.timeout(15000),
+        });
+        if (reused.ok)
+          throw Error("A used confirmation token was accepted again");
+        checks.push(
+          "real Supabase denies unconfirmed password login, accepts provider-issued signup token once; no delivery claim",
+        );
+      }
       const session = await supabase(
         "/auth/v1/token?grant_type=password",
         "POST",
@@ -139,6 +204,44 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
         throw Error("Actual QA password sign-in yielded no session");
       fixtures[i].token = session.access_token;
     }
+    // Recovery token issuance/consumption and password replacement are confined
+    // to a new fixture; no real user's password or email is touched.
+    const recoveryLink = await supabase(
+      "/auth/v1/admin/generate_link",
+      "POST",
+      { type: "recovery", email: fixtures[0].email },
+      undefined,
+      true,
+    );
+    if (
+      recoveryLink.id !== fixtures[0].id ||
+      recoveryLink.verification_type !== "recovery" ||
+      !recoveryLink.hashed_token
+    )
+      throw Error("Recovery token must belong only to the new QA fixture");
+    const recoverySession = await supabase("/auth/v1/verify", "POST", {
+      type: "recovery",
+      token_hash: recoveryLink.hashed_token,
+    });
+    if (!recoverySession.access_token)
+      throw Error("Recovery token produced no session");
+    fixtures[0].token = recoverySession.access_token;
+    fixtures[0].password = randomBytes(32).toString("base64url");
+    await supabase(
+      "/auth/v1/user",
+      "PUT",
+      { password: fixtures[0].password },
+      fixtures[0].token,
+    );
+    const relogin = await supabase(
+      "/auth/v1/token?grant_type=password",
+      "POST",
+      { email: fixtures[0].email, password: fixtures[0].password },
+    );
+    fixtures[0].token = relogin.access_token;
+    checks.push(
+      "real provider recovery token/password replacement and password relogin for disposable fixture; no recovery email delivery claim",
+    );
     const context = await browser.newContext();
     const page = await context.newPage();
     phase = "learner login and first lesson";
@@ -170,6 +273,7 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     await expect(
       page.getByRole("heading", { name: "শব্দের সঙ্গে বন্ধুত্ব" }),
     ).toBeVisible();
+    await page.getByRole("button", { name: "পরে অনুশীলন করব" }).first().click();
     await expect(page.getByText("সংরক্ষিত হয়েছে", { exact: true })).toBeVisible(
       { timeout: 30000 },
     );
@@ -259,6 +363,83 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     checks.push(
       "real authenticated cached lesson survives offline reload; pending checkpoint reconnects and persists through the production Worker/Supabase",
     );
+    phase = "authored first-lesson completion and saved vocabulary";
+    await restored.getByRole("button", { name: "পরের ধাপে যাই" }).click();
+    await completeFirstLessonActivities(restored);
+    // Do not call an unverified provider. Authored practice completes the lesson.
+    await restored.getByRole("button", { name: "এখন পাঠ শেষ করি" }).click();
+    await restored
+      .getByRole("button", { name: "পাঠ শেষ করে পথে ফিরি" })
+      .click();
+    await expect(
+      restored.getByText("সংরক্ষিত হয়েছে", { exact: true }),
+    ).toBeVisible({ timeout: 30000 });
+    const completed = await (
+      await api("/learning/snapshot", fixtures[0].token)
+    ).json();
+    if (
+      completed.state?.completed?.filter((id: string) => id === "P0-01")
+        .length !== 1 ||
+      completed.state.unit_id !== "P0-02" ||
+      completed.state.words.length !== 1 ||
+      completed.state.attempts.length !== 7
+    )
+      throw Error(
+        "Real first-lesson completion/saved word/attempt records do not match authored browser practice",
+      );
+    await restored
+      .getByRole("navigation", { name: "মূল পথ" })
+      .getByRole("button", { name: "অগ্রগতি", exact: true })
+      .click();
+    await restored
+      .getByRole("button", { name: "মনে করে শব্দ অনুশীলন করি" })
+      .click();
+    await restored
+      .getByLabel("তোমার মনে পড়া অর্থ")
+      .fill(completed.state.words[0].bn);
+    await restored.getByRole("button", { name: "অর্থ দেখাও" }).click();
+    await restored
+      .getByRole("button", { name: "অর্থটি মনে করতে পেরেছি" })
+      .click();
+    await expect(
+      restored.getByText("সংরক্ষিত হয়েছে", { exact: true }),
+    ).toBeVisible({ timeout: 30000 });
+    const reviewed = await (
+      await api("/learning/snapshot", fixtures[0].token)
+    ).json();
+    if (
+      reviewed.state.words[0].stage !== 1 ||
+      Date.parse(reviewed.state.words[0].due_at) <= Date.now()
+    )
+      throw Error("Real saved-vocabulary review scheduling did not persist");
+    await restored.reload();
+    await restored.getByRole("button", { name: "শেখা চালিয়ে যাও" }).click();
+    await expect(
+      restored.getByRole("heading", { name: "নাম জানাই" }),
+    ).toBeVisible();
+    checks.push(
+      "real authored seven-activity lesson completion, unique completion record, saved word/revision schedule and next-unit restore; no provider inference",
+    );
+    phase = "real logout/relogin and retained progress";
+    await restored.getByRole("button", { name: "সেটিংস", exact: true }).click();
+    await restored.getByRole("button", { name: "বের হই", exact: true }).click();
+    await expect(
+      restored.getByRole("heading", { name: "আবার স্বাগতম" }),
+    ).toBeVisible();
+    await login(restored, config.student, fixtures[0]);
+    await restored.getByRole("button", { name: "শেখা চালিয়ে যাও" }).click();
+    await expect(
+      restored.getByRole("heading", { name: "নাম জানাই" }),
+    ).toBeVisible();
+    const loggedInAgain = await supabase(
+      "/auth/v1/token?grant_type=password",
+      "POST",
+      { email: fixtures[0].email, password: fixtures[0].password },
+    );
+    fixtures[0].token = loggedInAgain.access_token;
+    checks.push(
+      "real browser logout/password relogin preserves completed lesson, next-unit resume and saved-word revision state",
+    );
     const other = await api("/learning/snapshot", fixtures[1].token);
     const otherState = await other.json();
     if (!other.ok || otherState.state?.step !== 0)
@@ -271,6 +452,42 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     );
     if (!Array.isArray(rows) || rows.length)
       throw Error("Cross-user live RLS read was not empty");
+    phase = "direct cross-user RLS write";
+    await expect(
+      restored.getByText("সংরক্ষিত হয়েছে", { exact: true }),
+    ).toBeVisible({ timeout: 30000 });
+    const protectedSnapshot = await (
+      await api("/learning/snapshot", fixtures[0].token)
+    ).json();
+    const crossWrite = await fetch(
+      `${config.supabase}/rest/v1/learner_paths?user_id=eq.${fixtures[0].id}`,
+      {
+        method: "PATCH",
+        headers: {
+          apikey: config.publicKey,
+          Authorization: `Bearer ${fixtures[1].token}`,
+          "Content-Type": "application/json",
+          Prefer: "return=representation",
+        },
+        body: JSON.stringify({ state: { onboarded: false } }),
+        signal: AbortSignal.timeout(15000),
+      },
+    );
+    if (
+      crossWrite.status !== 403 &&
+      !(crossWrite.ok && JSON.stringify(await crossWrite.json()) === "[]")
+    )
+      throw Error("Cross-user RLS update was not denied/empty");
+    const unchanged = await (
+      await api("/learning/snapshot", fixtures[0].token)
+    ).json();
+    if (JSON.stringify(unchanged) !== JSON.stringify(protectedSnapshot))
+      throw Error(
+        "Cross-user update altered the other disposable learner state",
+      );
+    checks.push(
+      "direct live RLS cross-user write denied/empty and original fixture snapshot unchanged",
+    );
     if ((await api("/admin/overview", fixtures[0].token)).status !== 403)
       throw Error("Learner access to admin operation was not denied");
     checks.push(
@@ -420,7 +637,7 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
       created_fixtures: fixtures.length,
       deleted_fixtures: deleted,
       not_tested: [
-        "real registration email delivery/confirmation",
+        "real registration/resend/recovery email delivery (provider tokens separately verified)",
         "Google OAuth",
         "AI providers",
         "real owner login or production content publishing mutations",

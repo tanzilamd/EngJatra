@@ -62,8 +62,13 @@ export async function authenticate(
     signal: AbortSignal.timeout(10000),
   });
   if (!response.ok) throw new HttpError(401, "USER_SESSION_EXPIRED");
-  const user = (await response.json()) as { id?: string };
-  if (!user.id || !/^[-a-f0-9]{36}$/.test(user.id))
+  const user = (await response.json()) as {
+    id?: string;
+    email_confirmed_at?: string;
+  };
+  // Google identities are confirmed by Supabase after provider verification;
+  // no separate EngJatra mail confirmation is required for OAuth.
+  if (!user.id || !/^[-a-f0-9]{36}$/.test(user.id) || !user.email_confirmed_at)
     throw new HttpError(401, "USER_SESSION_EXPIRED");
   const identity: Identity = {
     id: user.id,

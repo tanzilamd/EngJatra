@@ -49,9 +49,13 @@ export function pwaBuild(): Plugin {
         "/icons/apple-touch-icon.png",
         "/brand/logo-mark.svg",
         ...entry.map((item) => `/${item.fileName}`),
-        ...Object.keys(bundle)
-          .filter((name) => /^assets\/App-.*\.js$/.test(name))
-          .map((name) => `/${name}`),
+        // Root lazy imports include the workspace and delayed Auth SDK. Both
+        // must survive offline reload even if downloaded before SW activation.
+        ...entry.flatMap((item) =>
+          item.type === "chunk"
+            ? item.dynamicImports.map((name) => `/${name}`)
+            : [],
+        ),
         ...css.map((name) => `/${name}`),
         ...Object.keys(bundle)
           .filter((name) => name.endsWith(".woff2"))

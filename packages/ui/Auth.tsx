@@ -1,4 +1,4 @@
-import { useId, useState, type ReactNode } from "react";
+import { useEffect, useId, useState, type ReactNode } from "react";
 import {
   ArrowRight,
   BookOpen,
@@ -164,10 +164,14 @@ export function Auth({
   onDemo,
   admin = false,
   extras,
+  ready = true,
+  connectionFailed = false,
 }: {
   extras?: ReactNode;
   onDemo: () => void;
   admin?: boolean;
+  ready?: boolean;
+  connectionFailed?: boolean;
 }) {
   const [mode, setMode] = useState<"signin" | "signup" | "reset">(() =>
     new URLSearchParams(location.search).get("recovery") === "1"
@@ -179,15 +183,31 @@ export function Auth({
   const [errors, setErrors] = useState<{ email?: string; password?: string }>(
     {},
   );
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(() => {
+    const callback = new URLSearchParams(location.hash.slice(1));
+    return callback.has("error") ||
+      new URLSearchParams(location.search).has("error")
+      ? "লিংকটি ব্যবহার করা যাচ্ছে না। মেয়াদ শেষ হলে বা আগে ব্যবহার করে থাকলে নতুন লিংক নাও।"
+      : "";
+  });
   const [busy, setBusy] = useState(false);
   const [sent, setSent] = useState(false);
+  const [resendAt, setResendAt] = useState(0);
+  const [resendReady, setResendReady] = useState(true);
+  const [resendNote, setResendNote] = useState("");
+  useEffect(() => {
+    const wait = resendAt - Date.now();
+    if (wait <= 0) return;
+    const timer = setTimeout(() => setResendReady(true), wait);
+    return () => clearTimeout(timer);
+  }, [resendAt]);
   function switchMode(next: typeof mode) {
     setMode(next);
     setErrors({});
     setMessage("");
     setSent(false);
     setPassword("");
+    setResendNote("");
   }
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -229,9 +249,58 @@ export function Auth({
             ? "লগইন হয়নি। ইমেইল ও পাসওয়ার্ড মিলিয়ে আবার চেষ্টা করো। ইমেইল নিশ্চিত করা না থাকলে আগে ইনবক্স দেখো।"
             : "অনুরোধটি পাঠানো যায়নি। একটু পরে আবার চেষ্টা করো।",
         );
-      else if (mode !== "signin") setSent(true);
+      else if (mode !== "signin") {
+        // Confirmation is provider-enforced. An unexpectedly issued signup
+        // session must never silently enter the learner workspace.
+        if (
+          mode === "signup" &&
+          "data" in result &&
+          result.data &&
+          "session" in result.data &&
+          result.data.session
+        ) {
+          await supabase.auth.signOut({ scope: "local" });
+          setMessage(
+            "ইমেইল নিশ্চিত করার ব্যবস্থা এখন প্রস্তুত নয়। পরে আবার চেষ্টা করো।",
+          );
+        } else {
+          setSent(true);
+          setPassword("");
+          setResendReady(false);
+          setResendAt(Date.now() + 60000);
+        }
+      }
     } catch {
       setMessage("সংযোগে সমস্যা হচ্ছে। ইন্টারনেট দেখে আবার চেষ্টা করো।");
+    } finally {
+      setBusy(false);
+    }
+  }
+  async function resend() {
+    if (!supabase || busy || !resendReady) return;
+    setBusy(true);
+    setMessage("");
+    setResendNote("");
+    setResendReady(false);
+    setResendAt(Date.now() + 60000);
+    try {
+      const result = await supabase.auth.resend({
+        type: "signup",
+        email: email.trim(),
+        options: { emailRedirectTo: location.origin },
+      });
+      if (result.error)
+        setMessage(
+          result.error.status === 429
+            ? "অল্প সময়ে কয়েকবার অনুরোধ করা হয়েছে। একটু পরে আবার চেষ্টা করো।"
+            : "অনুরোধটি পাঠানো যায়নি। পরে আবার চেষ্টা করো।",
+        );
+      else
+        setResendNote(
+          "এই ঠিকানায় নিশ্চিত করার অপেক্ষায় থাকা অ্যাকাউন্ট থাকলে নতুন লিংক পাবে।",
+        );
+    } catch {
+      setMessage("সংযোগে সমস্যা হচ্ছে। আবার চেষ্টা করো।");
     } finally {
       setBusy(false);
     }
@@ -292,22 +361,54 @@ export function Auth({
             <ArrowRight size={18} />
           </button>
         </>
-      ) : !configured ? (
-        <Notice>অ্যাকাউন্ট সংযোগ এখনো প্রস্তুত হয়নি। পরে আবার এসো।</Notice>
+      ) : !configured || connectionFailed ? (
+        <div className="stack">
+          <Notice>অ্যাকাউন্ট সংযোগ এখনো প্রস্তুত হয়নি। পরে আবার এসো।</Notice>
+          {connectionFailed && (
+            <button onClick={() => location.reload()}>আবার চেষ্টা করি</button>
+          )}
+        </div>
       ) : sent ? (
         <div className="stack">
           <div className="mail-state">
             <Mail size={30} />
             <p>
               {mode === "signup"
-                ? "অ্যাকাউন্ট নিশ্চিত করার ইমেইল পেলে তার লিংক খুলে নাও।"
+                ? "অ্যাকাউন্ট নিশ্চিত করার ইমেইল পেলে তার লিংক খুলে নাও। নিশ্চিত করার পরই শেখা শুরু করতে পারবে।"
                 : "এই ইমেইলে অ্যাকাউন্ট থাকলে পাসওয়ার্ড বদলানোর লিংক পাবে।"}
             </p>
             <strong className="wrap" lang="en">
               {email.trim()}
             </strong>
           </div>
-          <button className="primary" onClick={() => switchMode("signin")}>
+          {message && <Notice error>{message}</Notice>}
+          {resendNote && <Notice>{resendNote}</Notice>}
+          {mode === "signup" && (
+            <>
+              <button
+                className="primary"
+                disabled={busy || !resendReady}
+                onClick={() => void resend()}
+              >
+                {busy ? "অনুরোধ পাঠাচ্ছি…" : "নিশ্চিত করার লিংক আবার চাই"}
+              </button>
+              {!resendReady && (
+                <p className="small muted">
+                  পরের অনুরোধের আগে একটু অপেক্ষা করো।
+                </p>
+              )}
+              <button
+                className="text-button"
+                onClick={() => switchMode("signup")}
+              >
+                ইমেইল ঠিকানা বদলাই
+              </button>
+            </>
+          )}
+          <button
+            className={mode === "signup" ? "text-button" : "primary"}
+            onClick={() => switchMode("signin")}
+          >
             লগইনে ফিরে যাই
           </button>
         </div>
@@ -318,7 +419,7 @@ export function Auth({
               <button
                 type="button"
                 className="google-button"
-                disabled={busy}
+                disabled={busy || !ready}
                 onClick={() => void google()}
               >
                 <span className="google-mark" lang="en" aria-hidden="true">
@@ -372,7 +473,12 @@ export function Auth({
               </button>
             )}
             {message && <Notice error>{message}</Notice>}
-            <button className="primary auth-submit" disabled={busy}>
+            {!ready && (
+              <p className="small muted" role="status">
+                অ্যাকাউন্টের সংযোগ প্রস্তুত হচ্ছে…
+              </p>
+            )}
+            <button className="primary auth-submit" disabled={busy || !ready}>
               {busy ? (
                 <>
                   <LoaderCircle className="spin" size={18} />
@@ -438,6 +544,16 @@ export function PasswordRecovery({
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(false);
+  async function leaveRecovery() {
+    if (!supabase || busy) return;
+    setBusy(true);
+    const result = await supabase.auth
+      .signOut({ scope: "local" })
+      .catch(() => ({ error: true }));
+    setBusy(false);
+    if (result.error) setError("লগআউট হয়নি। আবার চেষ্টা করো।");
+    else onDone();
+  }
   return (
     <AuthLayout admin={admin}>
       <h1>{done ? "নতুন পাসওয়ার্ড সংরক্ষিত" : "নতুন পাসওয়ার্ড দাও"}</h1>
@@ -447,8 +563,12 @@ export function PasswordRecovery({
           : "আগেরটির চেয়ে আলাদা, অন্তত ৮টি অক্ষরের পাসওয়ার্ড বেছে নাও।"}
       </p>
       {done ? (
-        <button className="primary auth-submit" onClick={onDone}>
-          এগিয়ে যাই
+        <button
+          className="primary auth-submit"
+          disabled={busy}
+          onClick={() => void leaveRecovery()}
+        >
+          লগইনে ফিরে যাই
           <ArrowRight size={18} />
         </button>
       ) : (
@@ -488,8 +608,19 @@ export function PasswordRecovery({
           <button className="primary auth-submit" disabled={busy}>
             {busy ? "সংরক্ষণ হচ্ছে…" : "পাসওয়ার্ড সংরক্ষণ করো"}
           </button>
+          {error && (
+            <button
+              type="button"
+              className="text-button"
+              disabled={busy}
+              onClick={() => void leaveRecovery()}
+            >
+              লগইনে ফিরে নতুন লিংক চাই
+            </button>
+          )}
         </form>
       )}
+      {done && error && <Notice error>{error}</Notice>}
     </AuthLayout>
   );
 }

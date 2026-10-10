@@ -7,7 +7,7 @@ import {
   TutorReply,
 } from "../../../packages/contracts/api";
 import { Unit, unitId, Manifest } from "../../../packages/contracts/content";
-import { routeTutor } from "./ai";
+import { enabled, routeTutor } from "./ai";
 import { logServerFailure } from "./observability";
 import {
   authenticate,
@@ -247,6 +247,12 @@ export async function handle(
           ).map((b) => b.item_id);
       if (blocks.includes(unit.id))
         throw new HttpError(409, "CONTENT_UNAVAILABLE");
+      if (!identity.demo && !enabled(env, "gemma") && !enabled(env, "llama"))
+        return json({
+          error: "AI_PROVIDER_UNCONFIGURED",
+          fallback_activity: unit.exercises.find((a) => !blocks.includes(a.id))
+            ?.id,
+        });
       const budget = identity.demo
         ? demoBudget(identity.id)
         : await rpc<boolean>("consume_ai", {});

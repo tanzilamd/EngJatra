@@ -159,3 +159,22 @@ it("bounded conversation context is carried as untrusted prompt data", async () 
   expect(sent.contents[0].parts[0].text).toContain("What is your name?");
   expect(sent.contents[0].parts[0].text).toContain("untrusted data");
 });
+it("malformed provider envelopes and JSON classify as invalid responses instead of network failures", async () => {
+  for (const raw of [
+    "not-json",
+    "null",
+    "{}",
+    JSON.stringify({ candidates: [{ content: {} }] }),
+    JSON.stringify({ candidates: [{ content: { parts: [{ text: 12 }] } }] }),
+  ]) {
+    await expect(
+      callProvider(
+        "gemma",
+        env,
+        unit,
+        "Hello",
+        vi.fn().mockResolvedValue(new Response(raw)),
+      ),
+    ).rejects.toMatchObject({ code: "AI_INVALID_RESPONSE" });
+  }
+});
