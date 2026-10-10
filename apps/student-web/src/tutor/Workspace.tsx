@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Sparkles, Plus, History, Trash2, BookOpen } from "lucide-react";
 import type {
   ManifestData,
@@ -55,6 +55,7 @@ export function TutorWorkspace({
   const [deleting, setDeleting] = useState(false);
   const [page, setPage] = useState(0);
   const [loadingChat, setLoadingChat] = useState(false);
+  const linkedChat = useRef<{ id: string; cloudId: string } | null>(null);
   const chat = state.chats.find((c) => c.id === state.selected);
   const unitKey = chat ? `${chat.unit_id}:${chat.release}` : "";
   const unit = loaded.key === unitKey ? loaded.unit : undefined;
@@ -227,8 +228,19 @@ export function TutorWorkspace({
     onSelect(state.chats.find((c) => c.id === id)?.cloudId ?? id);
   }
   useEffect(() => {
-    if (chat?.cloudId && requested.chat !== chat.cloudId) onLink(chat.cloudId);
-  }, [chat?.cloudId, requested.chat, onLink]);
+    if (!chat?.cloudId || store.state.selected !== chat.id) return;
+    // Promote only this chat's own route, never a different thread being
+    // restored asynchronously. A newly saved continuation can change its ID.
+    const ownLink =
+      !requested.chat ||
+      requested.chat === chat.id ||
+      requested.chat === chat.cloudId ||
+      (linkedChat.current?.id === chat.id &&
+        linkedChat.current.cloudId === requested.chat);
+    if (!ownLink) return;
+    if (requested.chat !== chat.cloudId) onLink(chat.cloudId);
+    linkedChat.current = { id: chat.id, cloudId: chat.cloudId };
+  }, [store, chat?.id, chat?.cloudId, requested.chat, onLink]);
   async function remove() {
     if (!confirm) return;
     setDeleting(true);
@@ -259,7 +271,9 @@ export function TutorWorkspace({
   const entries = [
     ...state.chats.map((c) => ({ ...c, local: true })),
     ...history
-      .filter((h) => !state.chats.some((c) => c.cloudId === h.id))
+      .filter(
+        (h) => !state.chats.some((c) => c.cloudId === h.id || c.id === h.id),
+      )
       .map((h) => ({ ...h, local: false })),
   ];
   const historyPanel = (

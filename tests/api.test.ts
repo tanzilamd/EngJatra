@@ -584,3 +584,102 @@ it("new history is own-user only, rejects invalid pages and never forwards demo 
   ).toBe(400);
   expect(network).not.toHaveBeenCalled();
 });
+
+it.each([
+  [false, true, "disabled", 0],
+  [true, false, "disabled", 0],
+  [true, true, "saved", 1],
+  [true, "unavailable", "unavailable", 0],
+] as const)(
+  "chat saving requires request opt-in %s and authoritative preference %s, retaining valid replies on failure",
+  async (optIn, stored, status, saves) => {
+    const { readFileSync } = await import("node:fs");
+    const reply = {
+      assistant_reply_en: "Fruit is a useful English word.",
+      short_explanation_bn: "fruit মানে ফল।",
+      feedback_type: "none",
+      suggested_revision_en: null,
+      next_question_en: "What does the fictional shopper buy?",
+      learning_tags: ["vocabulary"],
+      source_unit_id: "P0-01",
+    };
+    const id = "77777777-7777-4777-8777-777777777777";
+    const network = vi.fn().mockImplementation(async (input) => {
+      const url = new URL(String(input));
+      if (url.pathname === "/auth/v1/user")
+        return Response.json({
+          id: "11111111-1111-1111-1111-111111111111",
+          email_confirmed_at: "2026-10-10T00:00:00Z",
+        });
+      if (url.pathname.endsWith("P0-01.json"))
+        return new Response(
+          readFileSync("apps/student-web/public/content/3.0.0/P0/P0-01.json"),
+        );
+      if (url.pathname.endsWith("consume_ai")) return Response.json(true);
+      if (url.pathname.endsWith("read_snapshot")) {
+        if (stored === "unavailable")
+          return Response.json({ message: "unavailable" }, { status: 503 });
+        return Response.json({
+          revision: 0,
+          state: { ...initialProgress, keep_history: stored },
+        });
+      }
+      if (url.pathname.endsWith("tutor_save_turn")) return Response.json(id);
+      if (url.hostname === "generativelanguage.googleapis.com")
+        return Response.json({
+          candidates: [
+            { content: { parts: [{ text: JSON.stringify(reply) }] } },
+          ],
+        });
+      return Response.json([]);
+    });
+    const req = new Request("https://api.example/api/ai/tutor", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer test-token",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        unit_id: "P0-01",
+        release: "3.0.0",
+        text: "Teach me a word.",
+        ai_consent: true,
+        request_id: crypto.randomUUID(),
+        history_opt_in: optIn,
+      }),
+    });
+    Object.assign(req, { cf: { country: "BD" } }); // Explicit unit fixture, never a production country override.
+    const result = await handle(
+      req,
+      {
+        ...local,
+        ENVIRONMENT: "production",
+        LOCAL_DEMO: undefined,
+        SUPABASE_URL: "https://test.supabase.co",
+        SUPABASE_ANON_KEY: "public-fixture",
+        CONTENT_URL: "https://student.example",
+        GEMMA_FREE_CONFIRMED: "true",
+        GEMMA_MODEL: "gemma-test",
+        GEMMA_API_KEY: "private-fixture",
+        GEMMA_ALLOWED_COUNTRIES: "BD",
+      },
+      network,
+    );
+    expect(await result.json()).toEqual({
+      reply,
+      history_status: status,
+      conversation_id: saves ? id : null,
+    });
+    expect(
+      network.mock.calls.filter(([url]) =>
+        String(url).includes("tutor_save_turn"),
+      ),
+    ).toHaveLength(saves);
+    if (!optIn)
+      expect(
+        network.mock.calls.some(([url]) =>
+          String(url).includes("read_snapshot"),
+        ),
+      ).toBe(false);
+  },
+);

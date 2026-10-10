@@ -28,9 +28,11 @@ it("rejects invalid modes, overlong context and forged provider responses in inp
     ai_consent: true,
   };
   expect(TutorInput.parse(base).mode).toBe("lesson");
+  expect(TutorInput.parse(base).history_opt_in).toBe(false);
   for (const value of [
     { ...base, mode: "general" },
     { ...base, reply: "fake" },
+    { ...base, history_opt_in: "true" },
     { ...base, context: Array(7).fill({ role: "user", text: "Hello" }) },
     { ...base, conversation_id: "another-user" },
   ])

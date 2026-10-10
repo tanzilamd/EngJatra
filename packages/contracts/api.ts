@@ -15,6 +15,7 @@ export const TutorInput = z
     mode: z.enum(["conversation", "lesson"]).default("lesson"),
     conversation_id: z.string().uuid().optional(),
     request_id: z.string().uuid().optional(),
+    history_opt_in: z.boolean().default(false),
   })
   .strict();
 export const TutorReply = z

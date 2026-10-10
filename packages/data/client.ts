@@ -135,6 +135,7 @@ export async function tutor(
     mode?: "conversation" | "lesson";
     conversation_id?: string;
     request_id?: string;
+    history_opt_in?: boolean;
   } = {},
 ) {
   return api<{

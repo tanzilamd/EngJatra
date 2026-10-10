@@ -344,24 +344,28 @@ export async function handle(
           let id: string | null = null;
           let history_status: "saved" | "disabled" | "unavailable" | "full" =
             "unavailable";
-          try {
-            const snapshot = Snapshot.parse(await rpc("read_snapshot", {}));
-            if (!snapshot.state.keep_history) history_status = "disabled";
-            else {
-              id = await rpc<string | null>("tutor_save_turn", {
-                p_id: p.conversation_id ?? null,
-                p_key: p.request_id,
-                p_unit: unit.id,
-                p_release: p.release,
-                p_mode: p.mode,
-                p_user: p.text,
-                p_reply: result.reply,
-              });
-              history_status = id ? "saved" : "full";
+          if (!p.history_opt_in) history_status = "disabled";
+          else
+            try {
+              const snapshot = Snapshot.parse(await rpc("read_snapshot", {}));
+              // Both this request and the authoritative preference must opt in.
+              // A recent browser opt-out wins even before its checkpoint syncs.
+              if (!snapshot.state.keep_history) history_status = "disabled";
+              else {
+                id = await rpc<string | null>("tutor_save_turn", {
+                  p_id: p.conversation_id ?? null,
+                  p_key: p.request_id,
+                  p_unit: unit.id,
+                  p_release: p.release,
+                  p_mode: p.mode,
+                  p_user: p.text,
+                  p_reply: result.reply,
+                });
+                history_status = id ? "saved" : "full";
+              }
+            } catch {
+              history_status = "unavailable";
             }
-          } catch {
-            history_status = "unavailable";
-          }
           return json({
             reply: result.reply,
             conversation_id: id,

@@ -13,6 +13,8 @@ const one = {
   messages: [],
   draft: "An unsent practice sentence.",
   busy: true,
+  contextDetached: true,
+  cloudId: "22222222-2222-4222-8222-222222222222",
 };
 it("opted-in session recovery preserves older selection and in-flight draft without credentials or inferred consent", () => {
   const raw = encodeTutorSession(one.id, [
@@ -24,6 +26,8 @@ it("opted-in session recovery preserves older selection and in-flight draft with
   expect(recovered.chats[0]).toMatchObject({
     draft: one.draft,
     interrupted: true,
+    contextDetached: true,
+    cloudId: one.cloudId,
   });
   expect(raw).not.toContain("consent");
   expect(raw).not.toContain("never-retain-this-fixture");

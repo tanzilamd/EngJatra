@@ -3,6 +3,7 @@ import { ChatThread, type ChatThreadData } from "../contracts/tutor";
 const CachedChat = ChatThread.extend({
   draft: z.string().max(1500),
   cloudId: z.string().uuid().optional(),
+  contextDetached: z.boolean().optional(),
   interrupted: z.boolean().optional(),
 });
 export function encodeTutorSession(
@@ -10,6 +11,7 @@ export function encodeTutorSession(
   chats: (ChatThreadData & {
     draft: string;
     cloudId?: string;
+    contextDetached?: boolean;
     busy: boolean;
   })[],
 ) {
@@ -26,6 +28,7 @@ export function encodeTutorSession(
         messages,
         draft,
         cloudId,
+        contextDetached,
         busy,
       }) => ({
         id,
@@ -37,6 +40,7 @@ export function encodeTutorSession(
         messages,
         draft,
         cloudId,
+        contextDetached,
         interrupted: busy,
       }),
     ),

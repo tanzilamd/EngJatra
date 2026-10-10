@@ -408,11 +408,16 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
         .click();
       const response = await received;
       if (!response.ok()) throw Error("Production AI request failed");
+      const receivedData = await response.json();
       const result = validateProductionTutor(
-        await response.json(),
+        receivedData,
         process.env.GEMMA_ALLOWED_COUNTRIES ?? "",
       );
       if (result.inference_verified) {
+        if (receivedData.history_status !== "disabled")
+          throw Error(
+            "Opt-out production tutor unexpectedly enabled history saving",
+          );
         await expect(
           restored.getByText(result.reply.short_explanation_bn, {
             exact: true,
@@ -446,7 +451,10 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
           throw Error(
             "Production tutor did not send bounded previous-turn context",
           );
-        const followed = validateProductionFollowup(await second.json());
+        const followedData = await second.json();
+        if (followedData.history_status !== "disabled")
+          throw Error("Opt-out follow-up unexpectedly enabled history saving");
+        const followed = validateProductionFollowup(followedData);
         await expect(
           restored
             .getByText(followed.short_explanation_bn, { exact: true })
@@ -473,7 +481,12 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
         const free = await freeResponse;
         if (!free.ok() || free.request().postDataJSON().mode !== "conversation")
           throw Error("Production free conversation failed");
-        const practiced = validateProductionPractice(await free.json());
+        const practicedData = await free.json();
+        if (practicedData.history_status !== "disabled")
+          throw Error(
+            "Opt-out free conversation unexpectedly enabled history saving",
+          );
+        const practiced = validateProductionPractice(practicedData);
         await expect(
           restored.getByText(practiced.short_explanation_bn, { exact: true }),
         ).toBeVisible();
@@ -721,6 +734,10 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     await unauthorizedContext.close();
   } catch (error) {
     console.error(`Controlled live QA phase: ${phase}`);
+    if (process.env.GITHUB_ACTIONS === "true")
+      console.error(
+        `::error title=EngJatra controlled live QA::Failed phase: ${phase}. No private account, transcript or token data in this annotation.`,
+      );
     if (diagnosticPage) {
       try {
         console.error(

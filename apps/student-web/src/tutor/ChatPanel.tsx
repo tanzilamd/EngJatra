@@ -93,7 +93,10 @@ export function ChatPanel({
           {
             mode: active.mode,
             request_id: crypto.randomUUID(),
-            ...(active.cloudId ? { conversation_id: active.cloudId } : {}),
+            history_opt_in: store.keep,
+            ...(store.keep && active.cloudId && !active.contextDetached
+              ? { conversation_id: active.cloudId }
+              : {}),
           },
         ),
       );
@@ -108,7 +111,12 @@ export function ChatPanel({
           messages: completeTurn(active, text, result.reply),
           draft: "",
           title: active.messages.length ? active.title : text.slice(0, 80),
+          // An unsaved continuation must keep its local context, rather than
+          // ask the next request to restore an older saved prefix.
           cloudId: result.conversation_id ?? active.cloudId,
+          contextDetached: result.history_status
+            ? result.history_status !== "saved"
+            : active.contextDetached,
           historyStatus: result.history_status,
         });
     } catch (cause) {

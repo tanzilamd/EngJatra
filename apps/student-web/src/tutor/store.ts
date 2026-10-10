@@ -10,6 +10,7 @@ export type LocalChat = ChatThreadData & {
   busy: boolean;
   error: string;
   cloudId?: string;
+  contextDetached?: boolean;
   historyStatus?: "saved" | "disabled" | "unavailable" | "full";
 };
 type State = {

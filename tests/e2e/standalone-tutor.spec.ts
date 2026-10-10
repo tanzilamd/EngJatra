@@ -312,6 +312,7 @@ test("cloud-history contracts switch and delete safely; long chat does not steal
   await start(page, request);
   const open = page.getByRole("button", { name: "আলাপ", exact: true });
   if (await open.isVisible()) await open.click();
+  await page.getByRole("checkbox", { name: "AI লেখার ইতিহাস রাখব" }).check();
   await page.getByRole("button", { name: /আগের কথোপকথন.*কথোপকথন/ }).click();
   await expect(page).toHaveURL(new RegExp(`/tutor\\?chat=${id}`));
   await expect(page.getByRole("log").locator("article")).toHaveCount(40);
@@ -346,4 +347,147 @@ test("cloud-history contracts switch and delete safely; long chat does not steal
     .getByRole("button", { name: "আলাপ মুছে ফেলি", exact: true })
     .click();
   await expect.poll(() => deleted).toBe(true);
+});
+
+test("cloud link promotion, unsaved continuation and immediate history opt-out retain local context", async ({
+  page,
+  request,
+}) => {
+  const id = "55555555-5555-4555-8555-555555555555";
+  const nextId = "66666666-6666-4666-8666-666666666666";
+  await page.route("**/api/chat/history?*", (route) =>
+    route.fulfill({ json: { available: true, threads: [] } }),
+  );
+  const sent: Record<string, unknown>[] = [];
+  await page.route("**/api/ai/tutor", (route) => {
+    sent.push(route.request().postDataJSON());
+    const status =
+      sent.length === 2
+        ? "unavailable"
+        : sent.length === 4
+          ? "disabled"
+          : "saved";
+    return route.fulfill({
+      json: {
+        reply: fixture("P0-01", true),
+        history_status: status,
+        conversation_id:
+          status === "saved" ? (sent.length === 1 ? id : nextId) : null,
+      },
+    });
+  });
+  await start(page, request);
+  const open = page.getByRole("button", { name: "আলাপ", exact: true });
+  if (await open.isVisible()) await open.click();
+  await page.getByRole("checkbox", { name: "AI লেখার ইতিহাস রাখব" }).check();
+  if (await page.getByRole("dialog").isVisible())
+    await page.getByRole("button", { name: "বন্ধ করি", exact: true }).click();
+  await page.getByRole("checkbox", { name: /আমার বয়স অন্তত ১৮ বছর/ }).check();
+  const input = page.getByLabel("তোমার ইংরেজি উত্তর");
+  const send = page.getByRole("button", { name: "উত্তর পাঠাই", exact: true });
+  await input.fill("I buy apples.");
+  await send.click();
+  await expect(page.getByRole("log").locator("article")).toHaveCount(2);
+  expect(sent[0]).toMatchObject({ history_opt_in: true });
+  expect(sent[0]).not.toHaveProperty("conversation_id");
+  await expect(page).toHaveURL(new RegExp(`chat=${id}`));
+  await input.fill("I buy bananas.");
+  await send.click();
+  await expect(page.getByRole("log").locator("article")).toHaveCount(4);
+  expect(sent[1]).toMatchObject({ conversation_id: id, history_opt_in: true });
+  await input.fill("I buy bread.");
+  await send.click();
+  await expect(page.getByRole("log").locator("article")).toHaveCount(6);
+  expect(sent[2]).not.toHaveProperty("conversation_id");
+  expect(sent[2].context).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({ role: "user", text: "I buy bananas." }),
+    ]),
+  );
+  await expect(page).toHaveURL(new RegExp(`chat=${nextId}`));
+  if (await open.isVisible()) await open.click();
+  await page.getByRole("checkbox", { name: "AI লেখার ইতিহাস রাখব" }).uncheck();
+  if (await page.getByRole("dialog").isVisible())
+    await page.getByRole("button", { name: "বন্ধ করি", exact: true }).click();
+  await input.fill("I buy grapes.");
+  await send.click();
+  await expect(page.getByRole("log").locator("article")).toHaveCount(8);
+  expect(sent[3]).toMatchObject({ history_opt_in: false });
+  expect(sent[3]).not.toHaveProperty("conversation_id");
+  expect(sent[3].context).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({ role: "user", text: "I buy bread." }),
+    ]),
+  );
+  expect(
+    await page.evaluate(() =>
+      Object.keys(sessionStorage).some((k) =>
+        k.startsWith("engjatra.chat.tab."),
+      ),
+    ),
+  ).toBe(false);
+  await expect(page).toHaveURL(new RegExp(`chat=${nextId}`));
+});
+
+test("switching saved threads and browser history never promotes the previous chat over a pending deep link", async ({
+  page,
+  request,
+}) => {
+  const ids = [
+    "88888888-8888-4888-8888-888888888888",
+    "99999999-9999-4999-8999-999999999999",
+  ];
+  const headers = ids.map((id, i) => ({
+    id,
+    unit_id: "P0-01",
+    release: "3.0.13",
+    mode: "conversation",
+    title: i ? "দ্বিতীয় আলাপ" : "প্রথম আলাপ",
+    created_at: "2026-10-10T00:00:00Z",
+  }));
+  await page.route("**/api/chat/history?*", (route) =>
+    route.fulfill({ json: { available: true, threads: headers } }),
+  );
+  for (const [i, id] of ids.entries())
+    await page.route(`**/api/chat/history/${id}`, async (route) => {
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      return route.fulfill({
+        json: {
+          ...headers[i],
+          messages: [
+            {
+              id: crypto.randomUUID(),
+              role: "user",
+              content: i ? "Second saved practice." : "First saved practice.",
+            },
+          ],
+        },
+      });
+    });
+  await start(page, request);
+  const open = page.getByRole("button", { name: "আলাপ", exact: true });
+  if (await open.isVisible()) await open.click();
+  await page.getByRole("button", { name: /প্রথম আলাপ.*কথোপকথন/ }).click();
+  await expect(
+    page.getByRole("log").getByText("First saved practice.", { exact: true }),
+  ).toBeVisible();
+  if (await open.isVisible()) await open.click();
+  await page.getByRole("button", { name: /দ্বিতীয় আলাপ.*কথোপকথন/ }).click();
+  await expect(
+    page.getByRole("log").getByText("Second saved practice.", { exact: true }),
+  ).toBeVisible();
+  await expect(page).toHaveURL(new RegExp(`chat=${ids[1]}`));
+  await expect(
+    page.getByRole("log").getByText("First saved practice.", { exact: true }),
+  ).toHaveCount(0);
+  await page.goBack();
+  await expect(page).toHaveURL(new RegExp(`chat=${ids[0]}`));
+  await expect(
+    page.getByRole("log").getByText("First saved practice.", { exact: true }),
+  ).toBeVisible();
+  await page.goForward();
+  await expect(page).toHaveURL(new RegExp(`chat=${ids[1]}`));
+  await expect(
+    page.getByRole("log").getByText("Second saved practice.", { exact: true }),
+  ).toBeVisible();
 });
