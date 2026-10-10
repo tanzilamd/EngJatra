@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { api } from "../../../packages/data/client";
+import { api, ApiError } from "../../../packages/data/client";
 import type { Progress } from "../../../packages/contracts/api";
 import { Notice } from "../../../packages/ui/components";
 import { Dialog } from "../../../packages/ui/Dialog";
@@ -20,12 +20,12 @@ export function ReportDialog({
     item.endsWith("-ai") ? "ai" : "answer",
   );
   const [sent, setSent] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   async function send(e: React.FormEvent) {
     e.preventDefault();
     setBusy(true);
-    setError(false);
+    setError("");
     try {
       await api("/reports", {
         unit_id: contextUnit ?? state.unit_id,
@@ -35,8 +35,14 @@ export function ReportDialog({
         text,
       });
       setSent(true);
-    } catch {
-      setError(true);
+    } catch (cause) {
+      setError(
+        cause instanceof ApiError && cause.status === 429
+          ? "এখন প্রতিবেদন পাঠানোর সীমা পূর্ণ। কিছুক্ষণ পরে আবার চেষ্টা করো।"
+          : cause instanceof ApiError && cause.status === 401
+            ? "লগইনের মেয়াদ শেষ হয়েছে। আবার লগইন করে প্রতিবেদন পাঠাও।"
+            : "প্রতিবেদন পাঠানো যায়নি। একটু পরে আবার চেষ্টা করো।",
+      );
     } finally {
       setBusy(false);
     }
@@ -78,11 +84,9 @@ export function ReportDialog({
             />
           </label>
           <button className="primary" disabled={busy}>
-            প্রতিবেদন জমা দিই
+            {busy ? "পাঠানো হচ্ছে…" : "প্রতিবেদন জমা দিই"}
           </button>
-          {error && (
-            <Notice error>জমা হয়নি। সংযোগ ফিরে এলে আবার চেষ্টা করো।</Notice>
-          )}
+          {error && <Notice error>{error}</Notice>}
         </form>
       )}
     </Dialog>

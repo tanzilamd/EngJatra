@@ -106,6 +106,7 @@ it("keeps secret values outside runtime config and supplies conservative product
   const generated = apiConfiguration(config);
   expect(generated).toMatchObject({
     name: "engjatra-api",
+    compatibility_flags: ["global_fetch_strictly_public"],
     keep_vars: true,
     vars: {
       LOCAL_DEMO: "false",
@@ -118,6 +119,26 @@ it("keeps secret values outside runtime config and supplies conservative product
 });
 it("checked-in configs resolve to independent static and API targets", async () => {
   await expect(inspectTargets()).resolves.toBeUndefined();
+});
+it("rejects an API configuration that cannot fetch same-zone public learning assets", async () => {
+  const root = await mkdtemp(join(tmpdir(), "engjatra-public-fetch-"));
+  try {
+    await mkdir(join(root, "workers/api"), { recursive: true });
+    await mkdir(join(root, "apps/admin-web"), { recursive: true });
+    await cp("wrangler.jsonc", join(root, "wrangler.jsonc"));
+    await cp(
+      "apps/admin-web/wrangler.jsonc",
+      join(root, "apps/admin-web/wrangler.jsonc"),
+    );
+    const raw = await readFile("workers/api/wrangler.toml", "utf8");
+    await writeFile(
+      join(root, "workers/api/wrangler.toml"),
+      raw.replace(/^compatibility_flags.*\n/m, ""),
+    );
+    await expect(inspectTargets(root)).rejects.toThrow(/public-fetch/);
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
 });
 it("Supabase readiness requires public schema and negative anonymous RPC", async () => {
   const network = vi

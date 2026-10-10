@@ -14,15 +14,14 @@ export default defineConfig({
       args: ["--no-sandbox"],
     },
   },
-  webServer: {
-    command:
-      "npx vite --config apps/student-web/vite.config.ts --mode test --port 5180 --strictPort",
-    url: "http://localhost:5180",
+  webServer: ["student", "admin"].map((service, index) => ({
+    command: `npx vite --config apps/${service}-web/vite.config.ts --mode test --port ${5180 + index} --strictPort`,
+    url: `http://localhost:${5180 + index}`,
     reuseExistingServer: false,
     env: {
       VITE_SUPABASE_URL: "http://localhost:54321",
       VITE_SUPABASE_ANON_KEY: "local-public-test-key",
       VITE_API_URL: "",
     },
-  },
+  })),
 });

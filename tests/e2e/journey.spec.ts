@@ -164,6 +164,21 @@ test("student report reaches separate protected admin; corrections are drafts un
   await page
     .getByLabel("কী সমস্যা পেয়েছ?")
     .fill("Please check this translation.");
+  await page.route("**/api/reports", (route) =>
+    route.fulfill({
+      status: 429,
+      contentType: "application/json",
+      body: JSON.stringify({ error: "RATE_LIMIT" }),
+    }),
+  );
+  await page.getByRole("button", { name: "প্রতিবেদন জমা দিই" }).click();
+  await expect(page.getByRole("alert")).toHaveText(
+    "এখন প্রতিবেদন পাঠানোর সীমা পূর্ণ। কিছুক্ষণ পরে আবার চেষ্টা করো।",
+  );
+  await expect(page.getByLabel("কী সমস্যা পেয়েছ?")).toHaveValue(
+    "Please check this translation.",
+  );
+  await page.unroute("**/api/reports");
   await page.getByRole("button", { name: "প্রতিবেদন জমা দিই" }).click();
   await expect(
     page.getByText("ধন্যবাদ। তোমার প্রতিবেদনটি জমা হয়েছে।"),

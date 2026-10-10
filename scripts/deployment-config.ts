@@ -180,11 +180,14 @@ export async function inspectTargets(root = process.cwd()) {
         !raw.includes(`name = "${target.name}"`) ||
         !raw.includes(`compatibility_date = "${compatibilityDate}"`) ||
         !raw.includes('main = "src/index.ts"') ||
+        !/^compatibility_flags\s*=\s*\["global_fetch_strictly_public"\]/m.test(
+          raw,
+        ) ||
         !raw.includes("keep_vars = true") ||
         /\[assets\]|^\w+ = ""/m.test(raw)
       )
         throw Error(
-          "API configuration: wrong target, missing compatibility/entrypoint/keep_vars, blank binding or unexpected assets",
+          "API configuration: wrong target, missing compatibility/public-fetch/entrypoint/keep_vars, blank binding or unexpected assets",
         );
     } else {
       const errors: ParseError[] = [];
@@ -211,6 +214,7 @@ export function apiConfiguration(config: DeploymentConfig) {
     name: "engjatra-api",
     main: resolve("workers/api/src/index.ts"),
     compatibility_date: compatibilityDate,
+    compatibility_flags: ["global_fetch_strictly_public"],
     workers_dev: true,
     keep_vars: true,
     observability: {

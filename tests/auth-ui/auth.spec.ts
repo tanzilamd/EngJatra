@@ -87,38 +87,46 @@ test("dedicated sign-in/signup/reset flows have one primary action, labelled val
 test("authentication stays accessible and aligned in both themes at phone, tablet and desktop sizes", async ({
   page,
 }) => {
-  await page.goto("/");
-  for (const theme of ["light", "dark"] as const) {
-    await page.emulateMedia({ colorScheme: theme });
-    for (const width of [320, 375, 390, 768, 1024, 1440]) {
-      await page.setViewportSize({ width, height: 900 });
-      await page.evaluate(() => document.fonts.ready);
-      expect(
-        await page
-          .getByRole("group", { name: "রঙের ধরন" })
-          .getByRole("button")
-          .evaluateAll((buttons) =>
-            buttons.every((button) => {
-              const size = button.getBoundingClientRect();
-              return size.width >= 44 && size.height >= 44;
-            }),
+  test.setTimeout(60000);
+  for (const [service, origin] of [
+    ["student", "http://localhost:5180"],
+    ["admin", "http://localhost:5181"],
+  ]) {
+    await page.goto(origin);
+    for (const theme of ["light", "dark"] as const) {
+      await page.emulateMedia({ colorScheme: theme });
+      for (const width of [320, 375, 390, 768, 1024, 1440]) {
+        await page.setViewportSize({ width, height: 900 });
+        await page.evaluate(() => document.fonts.ready);
+        expect(
+          await page
+            .getByRole("group", { name: "রঙের ধরন" })
+            .getByRole("button")
+            .evaluateAll((buttons) =>
+              buttons.every((button) => {
+                const size = button.getBoundingClientRect();
+                return size.width >= 44 && size.height >= 44;
+              }),
+            ),
+        ).toBe(true);
+        expect(
+          await page
+            .getByLabel("ইমেইল", { exact: true })
+            .evaluate((input) => parseFloat(getComputedStyle(input).fontSize)),
+        ).toBeGreaterThanOrEqual(16);
+        expect(
+          await page.evaluate(
+            () => document.documentElement.scrollWidth <= innerWidth,
           ),
-      ).toBe(true);
-      expect(
-        await page
-          .getByLabel("ইমেইল", { exact: true })
-          .evaluate((input) => parseFloat(getComputedStyle(input).fontSize)),
-      ).toBeGreaterThanOrEqual(16);
-      expect(
-        await page.evaluate(
-          () => document.documentElement.scrollWidth <= innerWidth,
-        ),
-      ).toBe(true);
-      expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
-      await page.screenshot({
-        path: `test-results/auth-${theme}-${width}.png`,
-        fullPage: true,
-      });
+        ).toBe(true);
+        expect((await new AxeBuilder({ page }).analyze()).violations).toEqual(
+          [],
+        );
+        await page.screenshot({
+          path: `test-results/${service === "admin" ? "admin-" : ""}auth-${theme}-${width}.png`,
+          fullPage: true,
+        });
+      }
     }
   }
 });

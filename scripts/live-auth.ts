@@ -55,6 +55,8 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
   const browser = await chromium.launch(liveBrowserOptions());
   const checks: string[] = [];
   let deleted = 0;
+  let phase = "preflight";
+  let diagnosticPage: Page | undefined;
   async function supabase(
     path: string,
     method = "GET",
@@ -139,6 +141,8 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     }
     const context = await browser.newContext();
     const page = await context.newPage();
+    phase = "learner login and first lesson";
+    diagnosticPage = page;
     await login(page, config.student, fixtures[0]);
     await page
       .getByRole("button", { name: "একদম নতুন — শূন্য থেকে শুরু" })
@@ -175,29 +179,60 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
       throw Error(
         "Actual Worker persisted progress differs from browser lesson",
       );
+    checks.push(
+      "real password login, six tracks/96 links, lesson navigation and Worker/Supabase step-one persistence",
+    );
     const secondContext = await browser.newContext();
     const restored = await secondContext.newPage();
+    phase = "fresh-context progress restore";
+    diagnosticPage = restored;
     await login(restored, config.student, fixtures[0]);
     await restored.getByRole("button", { name: "শেখা চালিয়ে যাও" }).click();
     await expect(
       restored.getByRole("heading", { name: "শব্দের সঙ্গে বন্ধুত্ব" }),
     ).toBeVisible();
+    phase = "online progress reload";
     await restored.reload();
     await restored.getByRole("button", { name: "শেখা চালিয়ে যাও" }).click();
     await expect(
       restored.getByRole("heading", { name: "শব্দের সঙ্গে বন্ধুত্ব" }),
     ).toBeVisible();
+    checks.push(
+      "fresh-context password login restores the saved step and survives online reload",
+    );
     // Actual production SW + an authenticated account, not mocked transport.
     await restored.evaluate(() => navigator.serviceWorker.ready);
     await expect(
       restored.getByText("সংরক্ষিত হয়েছে", { exact: true }),
     ).toBeVisible({ timeout: 30000 });
+    phase = "authenticated offline lesson reload";
+    const offlineSession = await secondContext.newCDPSession(restored);
+    await offlineSession.send("Network.enable");
     await secondContext.setOffline(true);
+    // Chromium can reset navigator state on reload while transport stays blocked.
+    // Use native Chromium network state as well; never spoof a JS property or
+    // relax the application's fail-closed online suspension check.
+    await offlineSession.send("Network.overrideNetworkState", {
+      offline: true,
+      latency: 0,
+      downloadThroughput: -1,
+      uploadThroughput: -1,
+    });
     await restored.reload();
+    await offlineSession.send("Network.overrideNetworkState", {
+      offline: true,
+      latency: 0,
+      downloadThroughput: -1,
+      uploadThroughput: -1,
+    });
+    await expect
+      .poll(() => restored.evaluate(() => navigator.onLine))
+      .toBe(false);
     await restored.getByRole("button", { name: "শেখা চালিয়ে যাও" }).click();
     await expect(
       restored.getByRole("heading", { name: "শব্দের সঙ্গে বন্ধুত্ব" }),
     ).toBeVisible();
+    phase = "offline checkpoint and reconnect";
     await restored.getByRole("button", { name: "পরের ধাপে যাই" }).click();
     await expect(
       restored.getByRole("heading", { name: "পড়ে বুঝি" }),
@@ -208,6 +243,12 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
       }),
     ).toBeVisible();
     await secondContext.setOffline(false);
+    await offlineSession.send("Network.overrideNetworkState", {
+      offline: false,
+      latency: 0,
+      downloadThroughput: -1,
+      uploadThroughput: -1,
+    });
     await expect(
       restored.getByText("সংরক্ষিত হয়েছে", { exact: true }),
     ).toBeVisible({ timeout: 30000 });
@@ -235,6 +276,7 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     checks.push(
       "real browser password login; all six tracks/96 lesson links; authored lesson navigation; Worker checkpoint/save; fresh-context restore and refresh; two-user isolation/RLS; learner admin rejection",
     );
+    phase = "least-privileged admin reads";
     // Temporary least-privileged reviewer on this new QA identity only.
     const membership = await fetch(
       `https://api.supabase.com/v1/projects/${project}/database/query`,
@@ -265,6 +307,7 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
         "Disposable marked reviewer setup was not confirmed; no existing user adoption permitted",
       );
     const adminPage = await context.newPage();
+    diagnosticPage = adminPage;
     await login(adminPage, config.admin, fixtures[1]);
     await expect(adminPage.getByRole("navigation")).toBeVisible({
       timeout: 30000,
@@ -272,6 +315,29 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     const staff = await api("/admin/session", fixtures[1].token);
     if (!staff.ok || (await staff.json()).role !== "content_reviewer")
       throw Error("Real server-side reviewer authorization failed");
+    for (const name of ["প্রতিবেদন", "সম্পাদনা", "প্রকাশ", "পরিচালনা"]) {
+      await adminPage
+        .getByRole("navigation")
+        .getByRole("button", { name, exact: true })
+        .click();
+      await expect(
+        adminPage.getByRole("heading", { level: 1, name, exact: true }),
+      ).toBeVisible();
+      if (name === "সম্পাদনা") {
+        const preview = await api("/admin/content?id=P0-01", fixtures[1].token);
+        if (!preview.ok)
+          throw Error(`Reviewer content read HTTP ${preview.status}`);
+        const published = await preview.json();
+        if (published.unit?.id !== "P0-01")
+          throw Error("Reviewer content read returned unexpected unit");
+        await adminPage
+          .getByRole("button", { name: "পাঠ খুলুন", exact: true })
+          .click();
+        await expect(
+          adminPage.getByRole("heading", { name: "হ্যালো বলি", exact: true }),
+        ).toBeVisible();
+      }
+    }
     const unauthorizedContext = await browser.newContext();
     const unauthorized = await unauthorizedContext.newPage();
     await login(unauthorized, config.admin, fixtures[0]);
@@ -281,12 +347,46 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
       }),
     ).toBeVisible();
     checks.push(
-      "separate Admin login; real least-privileged reviewer session/read dashboard; learner UI access denied; no owner/editor role or production content mutations",
+      "separate Admin login; real least-privileged reviewer dashboard/reports/content preview/release/ops reads; learner UI access denied; no owner/editor role or production content mutations",
     );
     await context.close();
     await secondContext.close();
     await unauthorizedContext.close();
   } catch (error) {
+    console.error(`Controlled live QA phase: ${phase}`);
+    if (diagnosticPage) {
+      try {
+        console.error(
+          JSON.stringify(
+            await diagnosticPage.evaluate(async () => ({
+              online: navigator.onLine,
+              serviceWorkerControlsPage: !!navigator.serviceWorker.controller,
+              publicSuspensionSnapshotPresent: Object.keys(localStorage).some(
+                (key) => key.startsWith("engjatra.public-suspensions."),
+              ),
+              cachedFirstLesson: !!(await (
+                await caches.open("engjatra-public-content-v2")
+              ).match("/content/3.0.0/P0/P0-01.json")),
+              knownHeadings: [...document.querySelectorAll("h1,h2")]
+                .map((heading) => heading.textContent)
+                .filter((text) =>
+                  [
+                    "আবার স্বাগতম",
+                    "হ্যালো বলি",
+                    "শব্দের সঙ্গে বন্ধুত্ব",
+                    "পড়ে বুঝি",
+                    "এই পাঠ এখন খোলা যাচ্ছে না",
+                    "পাঠ খুঁজে খুলুন",
+                    "সম্পাদনা",
+                  ].includes(text ?? ""),
+                ),
+            })),
+          ),
+        );
+      } catch {
+        /* Failure diagnostics never access keys or private page content. */
+      }
+    }
     console.error(
       redactLog((error as Error).message, {
         ...process.env,
@@ -315,6 +415,7 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     await browser.close();
     const report = {
       status: process.exitCode ? "FAILED" : "VERIFIED",
+      phase,
       checks,
       created_fixtures: fixtures.length,
       deleted_fixtures: deleted,

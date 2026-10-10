@@ -59,14 +59,16 @@ try {
               images: [...document.images].every(
                 (image) => image.complete && image.naturalWidth > 0,
               ),
-              buttons: getComputedStyle(document.querySelector("button")!)
+              buttons: getComputedStyle(document.querySelector(".auth-submit")!)
                 .backgroundColor,
+              theme: document.documentElement.dataset.theme,
             };
           });
           if (
             !style.fonts ||
             !style.fit ||
             !style.images ||
+            style.theme !== theme ||
             style.buttons === "rgba(0, 0, 0, 0)"
           )
             throw Error(
