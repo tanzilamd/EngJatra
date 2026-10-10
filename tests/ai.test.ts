@@ -177,6 +177,54 @@ it("bounded conversation context is carried as untrusted prompt data", async () 
   expect(sent.contents[0].parts[0].text).toContain("What is your name?");
   expect(sent.contents[0].parts[0].text).toContain("untrusted data");
 });
+it("reviewed Gemma 4 requests minimal reasoning and never returns thought parts as tutor text", async () => {
+  const request = vi.fn().mockImplementation(
+    async () =>
+      new Response(
+        JSON.stringify({
+          candidates: [
+            {
+              content: {
+                parts: [
+                  {
+                    text: "Internal reasoning must not appear in learner chat.",
+                    thought: true,
+                  },
+                  { text: JSON.stringify(reply) },
+                ],
+              },
+            },
+          ],
+        }),
+      ),
+  );
+  for (const model of [
+    "gemma-4-26b-a4b-it",
+    "gemma-4-31b-it",
+    "gemma-test-it",
+  ]) {
+    expect(
+      await callProvider(
+        "gemma",
+        { ...env, GEMMA_MODEL: model },
+        unit,
+        "Hello",
+        request,
+      ),
+    ).toEqual(reply);
+    const sent = JSON.parse(
+      request.mock.calls.at(-1)![1].body,
+    ).generationConfig;
+    expect(sent.maxOutputTokens).toBe(500);
+    if (model.startsWith("gemma-4-"))
+      expect(sent.thinkingConfig).toEqual({ thinkingLevel: "minimal" });
+    else expect(sent).not.toHaveProperty("thinkingConfig");
+  }
+  expect(classify(400).diagnostic).toEqual({ stage: "http", status: 400 });
+  expect(() => parseReply("private raw response", unit.id)).toThrow(
+    "AI_INVALID_RESPONSE",
+  );
+});
 it("malformed provider envelopes and JSON classify as invalid responses instead of network failures", async () => {
   for (const raw of [
     "not-json",

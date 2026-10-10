@@ -148,6 +148,7 @@ export async function checkInference(
         error instanceof ProviderError
           ? error.code
           : "Safe inference preflight failed",
+      diagnostic: error instanceof ProviderError ? error.diagnostic : undefined,
     };
   }
 }

@@ -3,6 +3,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      verify_ai:
+        description: Run only two synthetic Gemma checks; never deploy or enable public AI
+        type: boolean
+        required: false
+        default: false
 permissions:
   contents: read
 concurrency:
@@ -10,10 +16,10 @@ concurrency:
   cancel-in-progress: false
 jobs:
   qa:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && inputs.verify_ai != true
     runs-on: ubuntu-latest
     env:
-      CHROMIUM_PATH: ''
+      CHROMIUM_PATH: ""
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -22,7 +28,7 @@ jobs:
           cache: npm
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm run qa && npm run format:check && npm audit
@@ -42,7 +48,7 @@ jobs:
             test-results/
   deploy:
     needs: qa
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && inputs.verify_ai != true
     runs-on: ubuntu-latest
     environment: production
     timeout-minutes: 20
@@ -109,11 +115,11 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Test actual production desktop and mobile browsers
         env:
-          CHROMIUM_PATH: ''
+          CHROMIUM_PATH: ""
         run: npm run test:live:browser
       - name: Verify real authenticated journeys when secure QA access is bound
         env:
-          CHROMIUM_PATH: ''
+          CHROMIUM_PATH: ""
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
         run: npm run test:live:auth
       - uses: actions/upload-artifact@v4
@@ -171,3 +177,33 @@ jobs:
           include-hidden-files: true
           retention-days: 90
           if-no-files-found: error
+  ai_probe:
+    # Explicit reviewed commit marker permits bounded verification through
+    # existing push access; routine commits never spend inference quota.
+    if: github.ref == 'refs/heads/main' && ((github.event_name == 'workflow_dispatch' && inputs.verify_ai == true) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[verify-ai]')))
+    name: Synthetic Gemma readiness (no deployment)
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 5
+    env:
+      GEMMA_API_KEY: ${{ secrets.GEMMA_API_KEY }}
+      GEMMA_MODEL: ${{ vars.GEMMA_MODEL }}
+      # Adult operator in Bangladesh confirmed. Only authored synthetic text;
+      # this test-local flag neither binds a Worker nor enables public inference.
+      GEMMA_FREE_CONFIRMED: "true"
+      GEMMA_ALLOWED_COUNTRIES: BD
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run ai:check
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: synthetic-ai-readiness
+          path: .wrangler/ai-check.local.json
+          include-hidden-files: true
+          retention-days: 30

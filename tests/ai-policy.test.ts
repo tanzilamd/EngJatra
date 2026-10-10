@@ -33,6 +33,9 @@ it("recognizable contact details and credentials in current or previous messages
   ])
     expect(containsPrivateInput(text)).toBe(true);
   expect(containsPrivateInput("I have two friends. I study at 8.")).toBe(false);
+  expect(containsPrivateInput("The meeting is on 2026-10-10.")).toBe(false);
+  expect(containsPrivateInput("তারিখ ২০২৬-১০-১০।")).toBe(false);
+  expect(containsPrivateInput("2026-10-10 01712345678")).toBe(true);
 });
 it("consent defaults false and reply rejects empty/transliterated Bengali or private output", () => {
   expect(

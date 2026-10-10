@@ -10,16 +10,23 @@ export class ProviderError extends Error {
   constructor(
     public code: string,
     public retryable: boolean,
+    public diagnostic?: {
+      stage: "http" | "envelope" | "json" | "schema" | "privacy";
+      status?: number;
+    },
   ) {
     super(code);
   }
 }
 export function classify(status: number): ProviderError {
-  if (status === 429) return new ProviderError("AI_UNCLASSIFIED_429", true);
+  const diagnostic = { stage: "http" as const, status };
+  if (status === 429)
+    return new ProviderError("AI_UNCLASSIFIED_429", true, diagnostic);
   if (status === 401 || status === 403)
-    return new ProviderError("AI_PROVIDER_UNCONFIGURED", false);
-  if (status >= 500) return new ProviderError("AI_PROVIDER_OVERLOAD", true);
-  return new ProviderError("AI_INVALID_RESPONSE", false);
+    return new ProviderError("AI_PROVIDER_UNCONFIGURED", false, diagnostic);
+  if (status >= 500)
+    return new ProviderError("AI_PROVIDER_OVERLOAD", true, diagnostic);
+  return new ProviderError("AI_INVALID_RESPONSE", false, diagnostic);
 }
 export function parseReply(raw: string, unit: string): TutorData {
   const clean = raw
@@ -30,11 +37,11 @@ export function parseReply(raw: string, unit: string): TutorData {
   try {
     data = JSON.parse(clean);
   } catch {
-    throw new ProviderError("AI_INVALID_RESPONSE", true);
+    throw new ProviderError("AI_INVALID_RESPONSE", true, { stage: "json" });
   }
   const parsed = TutorReply.safeParse(data);
   if (!parsed.success || parsed.data.source_unit_id !== unit)
-    throw new ProviderError("AI_INVALID_RESPONSE", true);
+    throw new ProviderError("AI_INVALID_RESPONSE", true, { stage: "schema" });
   if (
     [
       parsed.data.assistant_reply_en,
@@ -43,7 +50,7 @@ export function parseReply(raw: string, unit: string): TutorData {
       parsed.data.next_question_en,
     ].some(containsPrivateInput)
   )
-    throw new ProviderError("AI_INVALID_RESPONSE", true);
+    throw new ProviderError("AI_INVALID_RESPONSE", true, { stage: "privacy" });
   return parsed.data;
 }
 async function providerJson(response: Response) {
@@ -123,7 +130,15 @@ export async function callProvider(
                   parts: [{ text: prompt(unit, text, context) }],
                 },
               ],
-              generationConfig: { maxOutputTokens: 500, temperature: 0.3 },
+              generationConfig: {
+                maxOutputTokens: 500,
+                temperature: 0.3,
+                // Current official Gemma 4 REST documentation supports minimal
+                // to disable reasoning. Preserve older model compatibility.
+                ...(/^gemma-4-(?:26b-a4b|31b)-it$/.test(env.GEMMA_MODEL)
+                  ? { thinkingConfig: { thinkingLevel: "minimal" } }
+                  : {}),
+              },
             }
           : {
               model: env.LLAMA_MODEL,
@@ -137,17 +152,24 @@ export async function callProvider(
     });
     if (!r.ok) throw classify(r.status);
     const data = (await providerJson(r)) as {
-      candidates?: { content: { parts: { text: string }[] } }[];
+      candidates?: {
+        content: { parts: { text: string; thought?: boolean }[] };
+      }[];
       choices?: { message: { content: string } }[];
     };
     const parts = data?.candidates?.[0]?.content?.parts;
     const raw = gemma
       ? Array.isArray(parts) && parts.every((p) => typeof p?.text === "string")
-        ? parts.map((p) => p.text).join("")
+        ? parts
+            .filter((p) => p.thought !== true)
+            .map((p) => p.text)
+            .join("")
         : undefined
       : data?.choices?.[0]?.message?.content;
     if (typeof raw !== "string" || !raw || raw.length > 8000)
-      throw new ProviderError("AI_INVALID_RESPONSE", true);
+      throw new ProviderError("AI_INVALID_RESPONSE", true, {
+        stage: "envelope",
+      });
     return parseReply(raw, unit.id);
   } catch (e) {
     if (e instanceof ProviderError) throw e;

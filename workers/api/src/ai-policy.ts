@@ -66,7 +66,19 @@ export function googleCountryAllowed(
 export function containsPrivateInput(text: string) {
   // Reject recognizable contact details/credentials, not a claim to anonymize
   // arbitrary names or prose. Learners must still avoid personal information.
-  return /[\w.+-]+@[\w.-]+\.[a-z]{2,}|(?:\+?\d[\d ()-]{6,}\d)|\b(?:AIza[\w-]{20,}|gsk_[\w-]{20,}|sb_secret_[\w-]+)|-----BEGIN [A-Z ]*PRIVATE KEY-----/i.test(
-    text.replace(/[০-৯]/g, (digit) => String(digit.charCodeAt(0) - 0x09e6)),
+  const normalized = text.replace(/[০-৯]/g, (digit) =>
+    String(digit.charCodeAt(0) - 0x09e6),
+  );
+  if (
+    /[\w.+-]+@[\w.-]+\.[a-z]{2,}|\b(?:AIza[\w-]{20,}|gsk_[\w-]{20,}|sb_secret_[\w-]+)|-----BEGIN [A-Z ]*PRIVATE KEY-----/i.test(
+      normalized,
+    )
+  )
+    return true;
+  // A complete ISO-shaped date is useful authored practice, not a phone
+  // number. This recognizes formatting only, not whether prose is personal.
+  return (normalized.match(/\+?\d[\d ()-]{6,}\d/g) ?? []).some(
+    (number) =>
+      !/^\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\d|3[01])$/.test(number),
   );
 }
