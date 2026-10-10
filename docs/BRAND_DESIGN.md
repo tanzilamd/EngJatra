@@ -1,25 +1,13 @@
-# EngJatra Brand, UI/UX & Design System — final v1
+# EngJatra design system
 
 ## Identity
 **Name:** EngJatra (exact capitalization). **Tagline:** `Learn English. Enjoy the Journey.` **Bengali supporting line:** `ইংরেজি শেখার আনন্দময় যাত্রা।` **Positioning:** friendly and credible educational journey, not childish or a generic AI chat bot. The logo is a flat speech/path icon with clean EngJatra wordmark; see `/brand/` files, preserve legibility at 16–32px icon size. Starter SVG assets are ready but may be refined without breaking this concept.
 
-## Color tokens (canonical)
-| token | HEX | use |
-|---|---|---|
-| primary | `#2563EB` | primary CTA, selected navigation, important links |
-| primaryHover | `#1D4ED8` | primary hover/focus |
-| textStrong | `#1E293B` | headings, wordmark, strong UI text |
-| textMuted | `#64748B` | support text and captions, ensure contrast |
-| amber | `#F59E0B` | tiny motivating accent, journey step, noncritical callouts |
-| success | `#14B8A6` | success/completion indicators (pair with text) |
-| bg | `#F8FAFC` | page background |
-| surface | `#FFFFFF` | cards, input surfaces |
-| border | `#E2E8F0` | subtle separators |
-| soft | `#EEF2FF` | selected/beginner hint surfaces |
-| danger | `#DC2626` | genuine errors |
-| warning | `#D97706` | warnings |
+## Semantic color system
+`packages/ui/styles.css` is the implemented token source. Preserve recognizable brand blue `#2563EB`; use semantic tokens for page, surface, raised/soft surfaces, text, muted text, borders, accent, success and error. Light uses a cool quiet background, white surfaces and navy text. Dark uses navy surfaces, pale text and accessible blue buttons. Never scatter white backgrounds or literal text colors through feature components. Text and button contrast must pass axe in both themes, including hover/focus and narrow layouts.
 
-Provide adequate contrast; token values may be deepened for accessible text (e.g. don't put white small text on raw amber or teal) without changing brand essence. Never use color alone to signal correct/incorrect.
+## Theme contract
+Default is **System**. An external CSP-compatible `theme-init.js` applies the device theme before the application renders; it listens for device and cross-tab preference changes. `ThemePicker` offers হালকা, গাঢ়, ডিভাইস অনুযায়ী, persists `engjatra.theme`, and keeps manual selection independent of later device changes. If storage is unavailable, selection works for the current page. Both applications share this behavior. Student settings expose the full picker; authentication and desktop headers expose compact controls. Admin keeps its picker reachable on phones. Never animate surface colors between themes: transitional contrast can fail even when endpoints pass.
 
 ## Typography
 - **Hind Siliguri** for Bengali UI/teaching copy; **Inter** for Latin UI and English examples; use bundled font loading or Google Fonts with resilient system fallback, no unnecessary huge font files.
@@ -28,9 +16,9 @@ Provide adequate contrast; token values may be deepened for accessible text (e.g
 
 ## Shape/spacing/elevation
 - Spacing 4,8,12,16,20,24,32,40,48 px multiples as appropriate; plenty of breathing space, no needless giant gaps.
-- Inputs/buttons radius 12px; cards radius 16px; pills 999px. Buttons minimum ~44px tap height. Focus-visible outline, disabled and loading states, keyboard/tab order.
+- Inputs/buttons radius 11–12px; content cards 18–20px; auth/hero surfaces 24px; small labels 8px. Buttons minimum ~44px tap height. Focus-visible outline, disabled and loading states, keyboard/tab order.
 - Flat subtle shadows, simple outline icons (consistent Lucide-like), 1–2 simple delight animations maximum per interaction; respect `prefers-reduced-motion`.
-- React reusable components: AppShell, TopBar, BottomNav, Button, Link, Card, ProgressBar, LessonStep, SentenceTile, ChoiceOption, HintPopover, ReportDialog, Toast, OfflineFallback, EmptyState, ErrorBoundary, AdminTable, LoadingSkeleton.
+- Reuse the implemented Card, Notice, Empty, Loading, ErrorBoundary, native Dialog, ThemePicker, shared Auth/PasswordRecovery and SessionProvider. Use the established shell/navigation, field/choice, table, chat and PWA classes. Do not introduce a heavy UI framework.
 
 ## Screen-by-screen UX contract
 1. **Welcome**: immediate value proposition in Bengali; single prominent get-started action, sign-in.
@@ -52,7 +40,18 @@ Provide adequate contrast; token values may be deepened for accessible text (e.g
 Bengali-first: `শেখা চালিয়ে যাও`, `বাংলায় বুঝিয়ে দাও`, `উত্তর দেখাও`, `আবার চেষ্টা করি`, `পরে দেখব`, `অগ্রগতি সংরক্ষণ হচ্ছে…`, `সংরক্ষিত হয়েছে`, `ইন্টারনেট ফিরে এলে সংরক্ষণ হবে` (only if queued). No fake congratulation for incorrect answer; acknowledge effort and explain actual correction. Student should not see `Research-Based` / `Verified` / `Under Review` badges or internal verification in tooltips or fetched JSON.
 
 ## Hosting and responsive polish
-Mobile-first responsive, bottom nav on small screens, wide max-width learning area on desktop; low-bandwidth unit fetch, lazy loading and good perceived speed; no hero videos, no autoplay or heavy animations. Accessible light theme first; dark mode can be built if not disruptive, but not at expense of core functionality.
+Mobile-first responsive, bottom nav on small screens, wide max-width learning area on desktop; low-bandwidth unit fetch, lazy loading and good perceived speed; no hero videos, no autoplay or heavy animations. Light, dark and System are required across all surfaces. Both palettes and 320px layouts are quality gates.
 
 ## Admin design style
 Same brand typography/color but sober, accessible tables and filters, confirmation on destructive actions, distinct affected content ID + version, clear unsaved/draft vs deployed/published status. Never imply review status is student-facing.
+
+## Authentication and Bengali editorial standards
+Dedicated sign-in, signup and reset screens have one heading and one primary action. Google is a separate provider action; the mode switch is a short secondary prompt. Signup/password reset acknowledgements do not promise email delivery or reveal account existence. Use labelled fields, field-specific validation, correct autocomplete, show/hide password, recoverable network errors and actual loading state. Student uses friendly তুমি copy consistently; admin uses respectful operational wording. Avoid repeated login controls, literal translations, unnecessary technical terms and certification claims. UI copy may change without altering teaching IDs, answers or content releases; uncertain educational edits require editorial review.
+
+## Layout and accessibility
+Controlled widths: auth 1440px shell/440px form, application 1320px, lesson 820px. Spacing uses 4/8/12/16/20/24/32/40/48px. Desktop has a compact sidebar; mobile has exactly three student destinations with safe-area padding. Admin has six compact destinations. Wrap Bengali labels and make tables horizontally scroll within their keyboard-focusable container. Keep short headers and values readable; long JSON must not squeeze other columns into single-letter fragments. Buttons/links target about 44px minimum; focus must stay visible. Native dialogs provide browser focus containment, background inertness, Escape, scrolling and restored trigger focus. Honor reduced motion and text-size preferences. Use colour together with text for feedback.
+
+## Performance and verification
+Signed-out screens do not load the learning/admin workspace. Lesson/library/review/saved-word modules load on demand; vocabulary library pages show 20 words at a time. Fonts are self-hosted; student preloads its critical Bengali/brand weights. Preserve the public-only PWA design in HANDOFF.md. Target initial student JS <=140 KB gzip and CSS <=10 KB gzip with configured public Auth; investigate regressions rather than weakening scans. LCP <=2.5s, INP <=200ms, CLS <=0.1 remain targets, not guarantees.
+
+`npm run test:e2e` captures light/dark screenshots and checks learning/admin workflows at 320/390/768/1440px; `npm run test:auth-ui` checks 320/375/390/768/1024/1440px with explicit local Auth response mocks. Inspect actual screenshots after changes. `npm run test:production` checks real build/service worker/manifest/installability/private-cache exclusions; deployment tests exercise Wrangler. `npm run test:performance` measures the actual public student origin using cold Chromium, 4x CPU and throttled network; samples are lab evidence, not field Core Web Vitals. Keep external email/OAuth/AI and physical-device installation verification separate.

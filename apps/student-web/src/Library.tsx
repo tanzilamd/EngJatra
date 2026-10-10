@@ -17,13 +17,18 @@ export function Library({
   const [data, setData] = useState<LibraryData | null>(null);
   const [error, setError] = useState(false);
   const [tab, setTab] = useState("grammar");
+  const [page, setPage] = useState(0);
   const [search, setSearch] = useState("");
   const [answers, setAnswers] = useState<Record<string, number>>({});
   useEffect(() => {
     let live = true;
     loadLibrary(band, state.release)
       .then((d) => {
-        if (live) setData(d);
+        if (live) {
+          setData(d);
+          setError(false);
+          setPage(0);
+        }
       })
       .catch(() => {
         if (live) setError(true);
@@ -39,6 +44,9 @@ export function Library({
       </Notice>
     );
   if (!data) return <p role="status">সংগ্রহ আসছে…</p>;
+  const vocabulary = data.vocabulary.filter((v) =>
+    `${v.en} ${v.bn}`.toLowerCase().includes(search.toLowerCase()),
+  );
   return (
     <div className="stack">
       <h2>অনুশীলনের সংগ্রহ</h2>
@@ -52,9 +60,13 @@ export function Library({
           ["resources", "শোনা ও বলা"],
         ].map(([id, label]) => (
           <button
+            aria-pressed={tab === id}
             key={id}
             className={tab === id ? "active" : ""}
-            onClick={() => setTab(id)}
+            onClick={() => {
+              setTab(id);
+              setPage(0);
+            }}
           >
             {label}
           </button>
@@ -65,10 +77,23 @@ export function Library({
           খুঁজে দেখি
           <input
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setPage(0);
+            }}
             placeholder="শব্দ বা বিষয়"
           />
         </label>
+      )}
+      {((tab === "grammar" &&
+        !data.grammar.some((g) =>
+          JSON.stringify(g).toLowerCase().includes(search.toLowerCase()),
+        )) ||
+        (tab === "vocabulary" &&
+          !data.vocabulary.some((v) =>
+            `${v.en} ${v.bn}`.toLowerCase().includes(search.toLowerCase()),
+          ))) && (
+        <Notice>কিছু পাওয়া যায়নি। অন্য শব্দ বা বিষয় দিয়ে খুঁজে দেখো।</Notice>
       )}
       {tab === "grammar" &&
         data.grammar
@@ -96,51 +121,64 @@ export function Library({
             </Card>
           ))}
       {tab === "vocabulary" &&
-        data.vocabulary
-          .filter((v) =>
-            `${v.en} ${v.bn}`.toLowerCase().includes(search.toLowerCase()),
-          )
-          .map((v) => (
-            <Card key={v.id}>
-              <h3 lang="en">{v.en}</h3>
-              <button
-                className="quiet small"
-                onClick={() => onReport(v.id, v.units[0])}
-              >
-                সমস্যা জানাই
-              </button>
-              <p>{v.bn}</p>
-              {v.english_example ? (
-                <p lang="en">{v.english_example}</p>
-              ) : (
-                <p className="small muted">
-                  শব্দটি যে পাঠে আছে, সেখানে প্রসঙ্গ মিলিয়ে অনুশীলন করো। এই
-                  শব্দার্থের আলাদা উদাহরণ এখন নেই।
-                </p>
-              )}
-              <button
-                disabled={state.words.some((w) => w.sense_id === v.id)}
-                onClick={() =>
-                  save({
-                    ...state,
-                    words: [
-                      ...state.words,
-                      {
-                        sense_id: v.id,
-                        en: v.en,
-                        bn: v.bn,
-                        unit_id: v.units[0],
-                        stage: 0,
-                        due_at: new Date().toISOString(),
-                      },
-                    ],
-                  })
-                }
-              >
-                পরে অনুশীলন করব
-              </button>
-            </Card>
-          ))}
+        vocabulary.slice(page * 20, (page + 1) * 20).map((v) => (
+          <Card key={v.id}>
+            <h3 lang="en">{v.en}</h3>
+            <button
+              className="quiet small"
+              onClick={() => onReport(v.id, v.units[0])}
+            >
+              সমস্যা জানাই
+            </button>
+            <p>{v.bn}</p>
+            {v.english_example ? (
+              <p lang="en">{v.english_example}</p>
+            ) : (
+              <p className="small muted">
+                শব্দটি যে পাঠে আছে, সেখানে প্রসঙ্গ মিলিয়ে অনুশীলন করো। এই
+                শব্দার্থের আলাদা উদাহরণ এখন নেই।
+              </p>
+            )}
+            <button
+              disabled={state.words.some((w) => w.sense_id === v.id)}
+              onClick={() =>
+                save({
+                  ...state,
+                  words: [
+                    ...state.words,
+                    {
+                      sense_id: v.id,
+                      en: v.en,
+                      bn: v.bn,
+                      unit_id: v.units[0],
+                      stage: 0,
+                      due_at: new Date().toISOString(),
+                    },
+                  ],
+                })
+              }
+            >
+              পরে অনুশীলন করব
+            </button>
+          </Card>
+        ))}
+      {tab === "vocabulary" && vocabulary.length > 20 && (
+        <div className="row between">
+          <button disabled={page === 0} onClick={() => setPage(page - 1)}>
+            আগের শব্দগুলো
+          </button>
+          <span className="small muted">
+            পৃষ্ঠা {(page + 1).toLocaleString("bn-BD")} /{" "}
+            {Math.ceil(vocabulary.length / 20).toLocaleString("bn-BD")}
+          </span>
+          <button
+            disabled={(page + 1) * 20 >= vocabulary.length}
+            onClick={() => setPage(page + 1)}
+          >
+            পরের শব্দগুলো
+          </button>
+        </div>
+      )}
       {tab === "readings" &&
         (data.readings.length ? (
           data.readings.map((r) => (

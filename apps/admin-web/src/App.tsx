@@ -14,7 +14,9 @@ import { bands } from "../../../packages/learning/engine";
 import { Auth } from "../../../packages/ui/Auth";
 import { Card, Notice, bn } from "../../../packages/ui/components";
 import { Activity } from "../../student-web/src/Activity";
-import { Dialog } from "../../student-web/src/Dialogs";
+import { Dialog } from "../../../packages/ui/Dialog";
+import { useSession } from "../../../packages/ui/Session";
+import { ThemePicker } from "../../../packages/ui/Theme";
 interface Draft {
   unit_id: string;
   release: string;
@@ -45,6 +47,12 @@ interface Overview {
   health: { provider: string; category: string; observed_at: string }[];
   blocks: string[];
 }
+const unitIds = bands.flatMap((b) =>
+  Array.from(
+    { length: 16 },
+    (_, i) => `${b}-${String(i + 1).padStart(2, "0")}`,
+  ),
+);
 const nav = [
   ["overview", "সারসংক্ষেপ", LayoutDashboard],
   ["reports", "প্রতিবেদন", MessagesSquare],
@@ -54,9 +62,11 @@ const nav = [
   ["support", "সহায়তা", Shield],
 ] as const;
 export default function App() {
-  const [authenticated, setAuthenticated] = useState(
+  const session = useSession();
+  const [demoAuthenticated, setAuthenticated] = useState(
     demo && sessionStorage.getItem("engjatra.admin.started") === "yes",
   );
+  const authenticated = demo ? demoAuthenticated : !!session.user;
   const [role, setRole] = useState("");
   const [tab, setTab] = useState("overview");
   const [info, setInfo] = useState<Overview | null>(null);
@@ -103,14 +113,6 @@ export default function App() {
       );
       setRole("");
     }
-  }, []);
-  useEffect(() => {
-    if (demo) return;
-    supabase?.auth.getSession().then((r) => setAuthenticated(!!r.data.session));
-    const sub = supabase?.auth.onAuthStateChange((_, s) =>
-      setAuthenticated(!!s),
-    );
-    return () => sub?.data.subscription.unsubscribe();
   }, []);
   useEffect(() => {
     if (authenticated) void Promise.resolve().then(refresh);
@@ -245,6 +247,7 @@ export default function App() {
           <span className="tag">প্রশাসন</span>
         </div>
         <div className="row">
+          <ThemePicker compact />
           <span className="tag" lang="en">
             {role}
           </span>
@@ -266,6 +269,7 @@ export default function App() {
           {nav.map(([id, label, Icon]) => (
             <button
               key={id}
+              aria-label={label}
               className={tab === id ? "active" : ""}
               onClick={() => {
                 setTab(id);
@@ -277,7 +281,10 @@ export default function App() {
               aria-current={tab === id ? "page" : undefined}
             >
               <Icon size={20} />
-              {label}
+              <span className="desktop-nav-label">{label}</span>
+              <span className="mobile-nav-label" aria-hidden="true">
+                {id === "overview" ? "সারাংশ" : label}
+              </span>
             </button>
           ))}
         </nav>
@@ -324,7 +331,12 @@ export default function App() {
           {tab === "reports" && (
             <Card>
               <h2>প্রতিবেদনের তালিকা</h2>
-              <div className="table-wrap">
+              <div
+                className="table-wrap"
+                tabIndex={0}
+                role="region"
+                aria-label="প্রতিবেদনের তালিকা"
+              >
                 <table>
                   <thead>
                     <tr>
@@ -390,7 +402,15 @@ export default function App() {
                   ID বা স্তর দিয়ে খুঁজুন
                   <input
                     value={query}
-                    onChange={(e) => setQuery(e.target.value)}
+                    onChange={(e) => {
+                      const next = e.target.value;
+                      setQuery(next);
+                      const matches = unitIds.filter((id) =>
+                        id.toLowerCase().includes(next.trim().toLowerCase()),
+                      );
+                      if (!matches.includes(unitId) && matches[0])
+                        setUnitId(matches[0]);
+                    }}
                   />
                 </label>
                 <label className="field">
@@ -399,22 +419,28 @@ export default function App() {
                     value={unitId}
                     onChange={(e) => setUnitId(e.target.value)}
                   >
-                    {bands
-                      .flatMap((b) =>
-                        Array.from(
-                          { length: 16 },
-                          (_, i) => `${b}-${String(i + 1).padStart(2, "0")}`,
-                        ),
-                      )
+                    {unitIds
                       .filter((id) =>
-                        id.toLowerCase().includes(query.toLowerCase()),
+                        id.toLowerCase().includes(query.trim().toLowerCase()),
                       )
                       .map((id) => (
                         <option key={id}>{id}</option>
                       ))}
                   </select>
                 </label>
-                <button onClick={() => void load()}>পাঠ খুলুন</button>
+                {!unitIds.some((id) =>
+                  id.toLowerCase().includes(query.trim().toLowerCase()),
+                ) && <Notice>এই ID বা স্তরে কোনো পাঠ পাওয়া যায়নি।</Notice>}
+                <button
+                  disabled={
+                    !unitIds.some((id) =>
+                      id.toLowerCase().includes(query.trim().toLowerCase()),
+                    )
+                  }
+                  onClick={() => void load()}
+                >
+                  পাঠ খুলুন
+                </button>
               </Card>
               {unit && (
                 <Card>
@@ -672,7 +698,12 @@ export default function App() {
               </Notice>
               <Card>
                 <h2>অনুরোধের হিসাব</h2>
-                <div className="table-wrap">
+                <div
+                  className="table-wrap"
+                  tabIndex={0}
+                  role="region"
+                  aria-label="অনুরোধের হিসাব"
+                >
                   <table>
                     <thead>
                       <tr>
@@ -724,7 +755,12 @@ export default function App() {
                 AI লেখা এখানে নেই। ভূমিকা প্রদান ও স্থায়ী মুছে ফেলা মালিকের
                 সুরক্ষিত অপারেশন।
               </p>
-              <div className="table-wrap">
+              <div
+                className="table-wrap"
+                tabIndex={0}
+                role="region"
+                aria-label="সহায়তার অ্যাকাউন্ট তালিকা"
+              >
                 <table>
                   <thead>
                     <tr>
@@ -768,7 +804,12 @@ export default function App() {
 }
 function Audit({ rows }: { rows: Overview["audit"] }) {
   return (
-    <div className="table-wrap">
+    <div
+      className="table-wrap"
+      tabIndex={0}
+      role="region"
+      aria-label="নিরীক্ষার তালিকা"
+    >
       <table>
         <thead>
           <tr>

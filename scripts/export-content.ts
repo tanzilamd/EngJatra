@@ -99,4 +99,9 @@ for (const app of ["student-web", "admin-web"]) {
 }
 console.log("Exported 96 validated units and six segmented libraries.");
 
-await cp("scripts/public-sw.js", `${base}/sw.js`);
+await cp("brand/pwa", `${base}/icons`, { recursive: true });
+await cp("brand/manifest.webmanifest", `${base}/manifest.webmanifest`);
+
+for (const app of ["student", "admin"]) {
+  await cp("scripts/theme-init.js", `apps/${app}-web/public/theme-init.js`);
+}

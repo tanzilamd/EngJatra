@@ -27,7 +27,10 @@ export function Lesson({
     let live = true;
     loadUnit(state.unit_id, state.release)
       .then((u) => {
-        if (live) setUnit(u);
+        if (live) {
+          setUnit(u);
+          setError(false);
+        }
       })
       .catch(() => {
         if (live) setError(true);

@@ -52,3 +52,14 @@ export class ErrorBoundary extends Component<
     );
   }
 }
+
+export function Loading({ label = "পাঠ খুলছি…" }: { label?: string }) {
+  return (
+    <div className="card" role="status" aria-label={label}>
+      <p className="muted small">{label}</p>
+      <div className="skeleton heading" />
+      <div className="skeleton" />
+      <div className="skeleton short" />
+    </div>
+  );
+}

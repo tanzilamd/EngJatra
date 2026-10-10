@@ -101,7 +101,7 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     await page.goto(origin, { waitUntil: "networkidle" });
     await page.getByLabel("ইমেইল", { exact: true }).fill(fixture.email);
     await page.getByLabel("পাসওয়ার্ড", { exact: true }).fill(fixture.password);
-    await page.getByRole("button", { name: "লগইন করি", exact: true }).click();
+    await page.getByRole("button", { name: "লগইন", exact: true }).click();
   }
   try {
     // Check public transport before creating users, avoiding stranded fixtures on egress denial.
@@ -187,6 +187,37 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     await expect(
       restored.getByRole("heading", { name: "শব্দের সঙ্গে বন্ধুত্ব" }),
     ).toBeVisible();
+    // Actual production SW + an authenticated account, not mocked transport.
+    await restored.evaluate(() => navigator.serviceWorker.ready);
+    await expect(
+      restored.getByText("সংরক্ষিত হয়েছে", { exact: true }),
+    ).toBeVisible({ timeout: 30000 });
+    await secondContext.setOffline(true);
+    await restored.reload();
+    await restored.getByRole("button", { name: "শেখা চালিয়ে যাও" }).click();
+    await expect(
+      restored.getByRole("heading", { name: "শব্দের সঙ্গে বন্ধুত্ব" }),
+    ).toBeVisible();
+    await restored.getByRole("button", { name: "পরের ধাপে যাই" }).click();
+    await expect(
+      restored.getByRole("heading", { name: "পড়ে বুঝি" }),
+    ).toBeVisible();
+    await expect(
+      restored.getByText("সংরক্ষণ বাকি — সংযোগ ফিরে এলে পাঠানো হবে", {
+        exact: true,
+      }),
+    ).toBeVisible();
+    await secondContext.setOffline(false);
+    await expect(
+      restored.getByText("সংরক্ষিত হয়েছে", { exact: true }),
+    ).toBeVisible({ timeout: 30000 });
+    const reconnected = await api("/learning/snapshot", fixtures[0].token);
+    const reconnectedState = await reconnected.json();
+    if (!reconnected.ok || reconnectedState.state?.step !== 2)
+      throw Error("Actual offline/reconnect checkpoint did not persist");
+    checks.push(
+      "real authenticated cached lesson survives offline reload; pending checkpoint reconnects and persists through the production Worker/Supabase",
+    );
     const other = await api("/learning/snapshot", fixtures[1].token);
     const otherState = await other.json();
     if (!other.ok || otherState.state?.step !== 0)

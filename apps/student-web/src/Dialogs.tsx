@@ -1,62 +1,9 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useState } from "react";
 import { api } from "../../../packages/data/client";
 import type { Progress } from "../../../packages/contracts/api";
 import { Notice } from "../../../packages/ui/components";
-export function Dialog({
-  title,
-  onClose,
-  children,
-}: {
-  title: string;
-  onClose: () => void;
-  children: ReactNode;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const previous = document.activeElement as HTMLElement;
-    ref.current?.focus();
-    const key = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-      if (e.key === "Tab") {
-        const items = Array.from(
-          ref.current?.querySelectorAll<HTMLElement>(
-            "button,input,textarea,select,a[href]",
-          ) ?? [],
-        ).filter((el) => !el.hasAttribute("disabled"));
-        if (e.shiftKey && document.activeElement === items[0]) {
-          e.preventDefault();
-          items.at(-1)?.focus();
-        } else if (!e.shiftKey && document.activeElement === items.at(-1)) {
-          e.preventDefault();
-          items[0]?.focus();
-        }
-      }
-    };
-    document.addEventListener("keydown", key);
-    return () => {
-      document.removeEventListener("keydown", key);
-      previous?.focus();
-    };
-  }, [onClose]);
-  return (
-    <div className="dialog-backdrop">
-      <div
-        ref={ref}
-        className="dialog"
-        role="dialog"
-        aria-modal="true"
-        aria-label={title}
-        tabIndex={-1}
-      >
-        <button className="modal-close" aria-label="বন্ধ করি" onClick={onClose}>
-          ×
-        </button>
-        <h2>{title}</h2>
-        {children}
-      </div>
-    </div>
-  );
-}
+import { Dialog } from "../../../packages/ui/Dialog";
+export { Dialog } from "../../../packages/ui/Dialog";
 export function ReportDialog({
   state,
   item,
@@ -78,6 +25,7 @@ export function ReportDialog({
   async function send(e: React.FormEvent) {
     e.preventDefault();
     setBusy(true);
+    setError(false);
     try {
       await api("/reports", {
         unit_id: contextUnit ?? state.unit_id,

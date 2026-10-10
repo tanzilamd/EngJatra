@@ -1,5 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
+  outputDir: "test-results/deployment",
   testDir: "tests/deployment",
   workers: 1,
   use: {

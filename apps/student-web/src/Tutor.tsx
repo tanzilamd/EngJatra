@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { UnitData } from "../../../packages/contracts/content";
 import type { TutorData, TutorContext } from "../../../packages/contracts/api";
 import { messages } from "../../../packages/contracts/api";
-import { tutor } from "../../../packages/data/client";
+import { tutor, ApiError } from "../../../packages/data/client";
 import { Notice } from "../../../packages/ui/components";
 export function Tutor({
   unit,
@@ -46,8 +46,12 @@ export function Tutor({
           messages[r.error ?? "AI_PROVIDER_UNCONFIGURED"] ??
             messages.AI_PROVIDER_UNCONFIGURED,
         );
-    } catch {
-      setError(messages.AI_NETWORK_FAILURE);
+    } catch (e) {
+      setError(
+        e instanceof ApiError
+          ? (messages[e.code] ?? messages.AI_NETWORK_FAILURE)
+          : messages.AI_NETWORK_FAILURE,
+      );
     } finally {
       setBusy(false);
     }
@@ -59,12 +63,33 @@ export function Tutor({
         AI-এর পরামর্শ ভুল হতে পারে। ব্যক্তিগত তথ্য পাঠিও না। তোমার লেখা সেবা
         প্রদানকারী প্রক্রিয়া করে।
       </p>
-      <p lang="en" className="example">
-        {reply?.next_question_en ?? unit.quest.npc_question_en}
-      </p>
+      <div
+        className="chat-thread"
+        role="log"
+        aria-label="লেখার কথোপকথন"
+        aria-live="polite"
+      >
+        {!turns.length && (
+          <div className="chat-bubble">
+            <p className="small">অনুশীলনের সঙ্গী</p>
+            <p lang="en">{unit.quest.npc_question_en}</p>
+          </div>
+        )}
+        {turns.map((turn, i) => (
+          <div
+            className={`chat-bubble ${turn.role === "user" ? "user" : ""}`}
+            key={i}
+          >
+            <p className="small">
+              {turn.role === "user" ? "তোমার উত্তর" : "অনুশীলনের সঙ্গী"}
+            </p>
+            <p lang="en">{turn.text}</p>
+          </div>
+        ))}
+      </div>
       {reply && (
         <div className="card">
-          <p lang="en">{reply.assistant_reply_en}</p>
+          <h3>উত্তরটি নিয়ে একটু ভাবি</h3>
           <p>{reply.short_explanation_bn}</p>
           {reply.suggested_revision_en && (
             <p lang="en">{reply.suggested_revision_en}</p>

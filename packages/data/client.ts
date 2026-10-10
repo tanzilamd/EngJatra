@@ -1,4 +1,4 @@
-import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import { publicSuspensions } from "./offline-content";
 import {
   Snapshot,
   initialProgress,
@@ -14,25 +14,8 @@ import {
   type UnitData,
   type Band,
 } from "../contracts/content";
-export const demo = import.meta.env.MODE === "demo";
-export const apiBase = import.meta.env.VITE_API_URL ?? "";
-export const configured =
-  !!import.meta.env.VITE_SUPABASE_URL &&
-  !!import.meta.env.VITE_SUPABASE_ANON_KEY;
-export const supabase: SupabaseClient | null =
-  configured && !demo
-    ? createClient(
-        import.meta.env.VITE_SUPABASE_URL,
-        import.meta.env.VITE_SUPABASE_ANON_KEY,
-        {
-          auth: {
-            persistSession: true,
-            autoRefreshToken: true,
-            detectSessionInUrl: true,
-          },
-        },
-      )
-    : null;
+import { demo, apiBase, supabase } from "./auth";
+export { demo, apiBase, supabase, configured } from "./auth";
 export class ApiError extends Error {
   constructor(
     public code: string,
@@ -67,6 +50,10 @@ export async function api<T>(
   if (!r.ok) throw new ApiError(data.error ?? "REQUEST_FAILED", r.status, data);
   return data as T;
 }
+const publicStorage = {
+  getItem: (key: string) => localStorage.getItem(key),
+  setItem: (key: string, value: string) => localStorage.setItem(key, value),
+};
 export async function loadManifest() {
   const r = await fetch("/content/manifest.json");
   if (!r.ok) throw Error("CONTENT_UNAVAILABLE");
@@ -77,7 +64,14 @@ export async function loadUnit(id: string, version: string): Promise<UnitData> {
   const r = await fetch(`/content/${version}/${band}/${id}.json`);
   if (!r.ok) throw Error("CONTENT_UNAVAILABLE");
   const unit = Unit.parse(await r.json());
-  const blocked = await api<{ items: string[] }>("/content/blocked");
+  const blocked = {
+    items: await publicSuspensions(
+      `${demo ? "demo" : "live"}:${apiBase}`,
+      () => api("/content/blocked"),
+      publicStorage,
+      navigator.onLine,
+    ),
+  };
   if (blocked.items.includes(id)) throw Error("CONTENT_UNAVAILABLE");
   return {
     ...unit,
@@ -88,7 +82,14 @@ export async function loadLibrary(band: Band, version: string) {
   const r = await fetch(`/content/${version}/${band}/library.json`);
   if (!r.ok) throw Error("CONTENT_UNAVAILABLE");
   const library = Library.parse(await r.json());
-  const blocked = await api<{ items: string[] }>("/content/blocked");
+  const blocked = {
+    items: await publicSuspensions(
+      `${demo ? "demo" : "live"}:${apiBase}`,
+      () => api("/content/blocked"),
+      publicStorage,
+      navigator.onLine,
+    ),
+  };
   const ids = new Set(blocked.items);
   return {
     ...library,

@@ -10,10 +10,13 @@ Never report “fully correct”, “100% error-free”, “production verified�
 - `npm run test:content` (counts, schema, refs, public metadata strip, answer consistency, duplicates)
 - `npm run test:docs` (local documentation links/specifications, executable npm commands, public environment names and retired prompt references)
 - `npm run test:e2e` (browser, student/admin flows)
+- `npm run test:auth-ui` (explicit local Auth mocks, truthful failures, recovery and light/dark responsive screenshots; not external email/OAuth verification)
+- `npm run test:production` (real production artifacts, normal-profile PWA installability, public-only caching and offline reload)
 - `npm run build` (both deployable sites/server functions and assets)
 - `npm run test:deployment` (actual Wrangler Static Assets SPA/content/headers/production auth browser checks)
 - `npm run deploy:check -- --offline` (three explicit target dry runs; not external readiness)
 - `npm run qa` to combine all reliably; may use other commands if documented and reproducible.
+- `npm run test:live:browser`, `npm run test:live:auth` and `npm run test:performance` after an authorized release. The controlled Auth check verifies actual offline cached-lesson reload and reconnect persistence, and creates/cleans only disposable learner/reviewer fixtures; its confirmation bypass does not test email delivery. Performance uses two cold samples per viewport, 4x CPU and 1.6 Mbps/150ms network conditions; click-to-frame latency is not field INP.
 - RLS tests: local Supabase CLI/Docker if available; otherwise contract tests and explicitly blocked live RLS tests.
 
 ## Minimum scenario matrix
@@ -41,6 +44,7 @@ Never report “fully correct”, “100% error-free”, “production verified�
 | E20 | Real external tests | live Supabase OAuth/email/RLS, Cloudflare deployed routing, Gemma and Llama response/rate; **BLOCKED until credentials** |
 
 ## Non-automated gates
+- Inspect real browser screenshots across Auth, onboarding, home, paths, lessons/activities, all library tabs, review/progress, settings, install/offline and all six admin workflows. Exercise both themes at 320/390/768/1440px, plus Auth at 375/1024px. Check native dialog keyboard focus, navigation/button geometry and axe violations. Browser installability is separate from physical Android/iOS installation and update verification.
 - Editorial review of every potentially ambiguous/wrong English/Bengali instruction and C1 inference; specialist teacher review recommended. Automated structural QA cannot guarantee semantic correctness.
 - Test with real Bengali-speaking beginners, check confusion points; inspect mobile screenshots, not just desktop.
 - Verify source rights: original example text, linked external official teaching resources not scraped into corpus. Verify legal pages/data processor disclosures if public audience includes minors.

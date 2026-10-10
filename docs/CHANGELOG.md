@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-10 — Product design, themes and PWA
+
+Unified student/admin surfaces with semantic light/dark tokens, premium dedicated Auth modes, validation/password visibility/confirmation/recovery, natural Bengali UI copy and responsive spacing. Added shared session loading, native accessible dialogs, lazy workspaces/learning modules and paginated vocabulary. Fixed lesson retries and admin filtered-unit selection. Preserved teaching data, IDs, answers, progress schema, RLS and the single main deployment mechanism.
+
+Added installable manifest/icons, contextual browser-controlled install UX, dismissals/iOS guidance, explicit updates, bounded public caches, legacy safe cache migration, quota-safe network reads and fresh public suspension snapshots for offline lessons. Added visual/theme/Auth/PWA/security regressions and repeatable public lab measurement. See STATUS.md for executed evidence and external limitations.
+
 ## 2026-10-10 — Autonomous maintenance preparation
 
 Added daily read-only production monitoring against archived verified artifacts, active-deployment publishing/probe guards, privacy-safe sampled API error diagnostics, migration checksums/read-only metadata audits and review-only SQL planning. Added least-privilege connection audit and durable maintenance instructions; tested PostgreSQL private checksum metadata without changing learner data. No live SQL, job cancellation/rerun, credential rotation, paid service or UI redesign.
