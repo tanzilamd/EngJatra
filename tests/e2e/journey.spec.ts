@@ -41,6 +41,7 @@ test("beginner finishes a real lesson, writes freely, sees AI fallback, resumes 
   await page.getByRole("button", { name: "পরের ধাপে যাই" }).click();
   await page.getByRole("button", { name: "পরের ধাপে যাই" }).click();
   await completeFirstLessonActivities(page);
+  await page.getByRole("checkbox", { name: /আমার বয়স অন্তত ১৮ বছর/ }).check();
   await page.getByLabel("তোমার ইংরেজি উত্তর").fill("Hello");
   await page.getByRole("button", { name: "উত্তর পাঠাই" }).click();
   await expect(

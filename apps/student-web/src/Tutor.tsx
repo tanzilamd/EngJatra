@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { UnitData } from "../../../packages/contracts/content";
 import type { TutorData, TutorContext } from "../../../packages/contracts/api";
 import { messages } from "../../../packages/contracts/api";
@@ -19,13 +19,15 @@ export function Tutor({
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const [choice, setChoice] = useState<number | null>(null);
+  const [consent, setConsent] = useState(false);
+  const input = useRef<HTMLTextAreaElement>(null);
   async function send(e: React.FormEvent) {
     e.preventDefault();
-    if (busy || !text.trim()) return;
+    if (busy || !text.trim() || !consent) return;
     setBusy(true);
     setError("");
     try {
-      const r = await tutor(unit.id, release, text, turns);
+      const r = await tutor(unit.id, release, text, turns, consent);
       if (r.reply) {
         setTurns(
           [
@@ -55,6 +57,7 @@ export function Tutor({
       );
     } finally {
       setBusy(false);
+      input.current?.focus();
     }
   }
   return (
@@ -66,6 +69,18 @@ export function Tutor({
         AI সেবার জন্য বয়স অন্তত ১৮ বছর এবং সেবাদাতার অন্য শর্ত পূরণ হওয়া দরকার।
         AI ছাড়াও নিচের গল্পের অনুশীলন করা যায়।
       </p>
+      <label className="row small tutor-consent">
+        <input
+          type="checkbox"
+          checked={consent}
+          onChange={(e) => setConsent(e.target.checked)}
+          disabled={busy}
+        />
+        <span>
+          আমার বয়স অন্তত ১৮ বছর। AI-এ পাঠানো লেখা ব্যবহারের বিজ্ঞপ্তি পড়েছি ও
+          সম্মত আছি।
+        </span>
+      </label>
       <div
         className="chat-thread"
         role="log"
@@ -102,19 +117,37 @@ export function Tutor({
           </button>
         </div>
       )}
-      <form onSubmit={send}>
+      <form onSubmit={send} aria-busy={busy}>
         <label className="field">
           তোমার ইংরেজি উত্তর
           <textarea
+            ref={input}
             lang="en"
             maxLength={1500}
             value={text}
             onChange={(e) => setText(e.target.value)}
             required
+            readOnly={busy}
+            aria-describedby="tutor-input-help"
           />
         </label>
-        <button className="primary" disabled={busy || !text.trim()}>
-          {busy ? "উত্তর আসছে…" : "উত্তর পাঠাই"}
+        <p className="small muted" id="tutor-input-help">
+          ব্যক্তিগত তথ্য ছাড়া ইংরেজি অনুশীলনের বাক্য লেখো। {text.length}/১৫০০
+        </p>
+        {!turns.length && !text && (
+          <button
+            type="button"
+            disabled={busy}
+            onClick={() => {
+              setText(unit.quest.good_response_en);
+              input.current?.focus();
+            }}
+          >
+            শুরুর একটি বাক্য নিই
+          </button>
+        )}
+        <button className="primary" disabled={busy || !text.trim() || !consent}>
+          {busy ? "উত্তর আসছে…" : error ? "আবার পাঠাই" : "উত্তর পাঠাই"}
         </button>
       </form>
       {error && <Notice>{error}</Notice>}

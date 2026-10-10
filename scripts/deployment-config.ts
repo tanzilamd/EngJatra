@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { parse as parseJsonc, type ParseError } from "jsonc-parser";
 import { resolve, dirname } from "node:path";
+import { googleCountries } from "../workers/api/src/ai-policy";
 export type Settings = Record<string, string | undefined>;
 export const targets = [
   {
@@ -26,7 +27,7 @@ export type DeploymentConfig = {
   api: string;
   account?: string;
   token?: string;
-  gemma: { enabled: boolean; model?: string; key?: string };
+  gemma: { enabled: boolean; model?: string; key?: string; countries?: string };
   llama: { enabled: boolean; model?: string; key?: string };
 };
 export function origin(value: string | undefined, name: string): string {
@@ -157,6 +158,11 @@ export function settings(env: Settings, credentials = true): DeploymentConfig {
   };
   const gemma = provider("GEMMA"),
     llama = provider("LLAMA");
+  const countries = googleCountries(env.GEMMA_ALLOWED_COUNTRIES).join(",");
+  if (gemma.enabled && !countries)
+    errors.push(
+      "GEMMA_ALLOWED_COUNTRIES: select explicitly reviewed Google unpaid-service regions; empty/unknown/paid-only regions are blocked",
+    );
   if (errors.length)
     throw Error(`Deployment blocked:\n- ${errors.join("\n- ")}`);
   return {
@@ -167,7 +173,7 @@ export function settings(env: Settings, credentials = true): DeploymentConfig {
     api,
     account: env.CLOUDFLARE_ACCOUNT_ID,
     token: env.CLOUDFLARE_API_TOKEN,
-    gemma,
+    gemma: { ...gemma, countries },
     llama,
   };
 }
@@ -231,6 +237,9 @@ export function apiConfiguration(config: DeploymentConfig) {
       GEMMA_FREE_CONFIRMED: String(config.gemma.enabled),
       LLAMA_FREE_CONFIRMED: String(config.llama.enabled),
       ...(config.gemma.model ? { GEMMA_MODEL: config.gemma.model } : {}),
+      ...(config.gemma.countries
+        ? { GEMMA_ALLOWED_COUNTRIES: config.gemma.countries }
+        : {}),
       ...(config.llama.model ? { LLAMA_MODEL: config.llama.model } : {}),
     },
   };

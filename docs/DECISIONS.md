@@ -72,3 +72,9 @@ Add small, original teaching supplements through append-only versioned source re
 ## 2026-10-10 — Preserve unit publication in the source release chain
 
 Reviewed unit exports must not rewrite immutable 3.0.0 or increment the baseline exporter around already published supplements. `release:prepare` creates hash-anchored new source release files; the shared exporter supports strict unit and library patches, protects existing activity/saved-word IDs, retains old bytes and updates current manifest hashes. The review-artifact CLI remains available, while main Actions stays the sole publisher. Exact verified 3.0.1 publication is recorded through a protected owner-authorized operator transaction with an explicit audit; this is neither a QA content mutation nor a forged owner session/migration ledger.
+
+## 2026-10-10 — Owner supersedes mixed ages with adult-only distribution
+
+Maintain the verified product and Google/Groq adapter architecture. Latest owner instruction restricts distribution to adults 18+; communicate this without collecting identity documents/date of birth. Preserve the prior decision as historical. Operator/account age, region and unpaid-data approval still need evidence before activation. Add an explicit acknowledgement, reviewed configurable country subset and trusted Cloudflare metadata gate, recognizable private text rejection, and stricter bilingual response validation. These controls do not certify identity, anonymization or legal compliance.
+
+Use the sole existing pipeline for conditional two-call inference preflight and one real authenticated deployed browser correction. Current false flags perform metadata only; no paid service, migration, duplicate pipeline or real user/content mutation is introduced. Retain previous content and Auth/PWA/security architecture.

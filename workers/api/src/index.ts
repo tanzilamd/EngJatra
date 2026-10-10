@@ -8,6 +8,7 @@ import {
 } from "../../../packages/contracts/api";
 import { Unit, unitId, Manifest } from "../../../packages/contracts/content";
 import { enabled, routeTutor } from "./ai";
+import { containsPrivateInput, googleCountryAllowed } from "./ai-policy";
 import { logServerFailure } from "./observability";
 import {
   authenticate,
@@ -253,13 +254,42 @@ export async function handle(
           fallback_activity: unit.exercises.find((a) => !blocks.includes(a.id))
             ?.id,
         });
+      const fallback = unit.exercises.find((a) => !blocks.includes(a.id))?.id;
+      if (!p.ai_consent)
+        return json({
+          error: "AI_CONSENT_REQUIRED",
+          fallback_activity: fallback,
+        });
+      if (
+        [p.text, ...p.context.map((turn) => turn.text)].some(
+          containsPrivateInput,
+        )
+      )
+        return json({ error: "AI_PRIVATE_INPUT", fallback_activity: fallback });
+      const country = (request as Request & { cf?: { country?: string } }).cf
+        ?.country;
+      const providerEnv = googleCountryAllowed(
+        env.GEMMA_ALLOWED_COUNTRIES,
+        country,
+      )
+        ? env
+        : { ...env, GEMMA_FREE_CONFIRMED: "false" };
+      if (
+        !identity.demo &&
+        !enabled(providerEnv, "gemma") &&
+        !enabled(providerEnv, "llama")
+      )
+        return json({
+          error: "AI_REGION_UNAVAILABLE",
+          fallback_activity: fallback,
+        });
       const budget = identity.demo
         ? demoBudget(identity.id)
         : await rpc<boolean>("consume_ai", {});
       if (!budget)
         return json({
           error: "AI_USER_FAIR_USE",
-          fallback_activity: unit.exercises[0].id,
+          fallback_activity: fallback,
         });
       if (identity.demo)
         return json({
@@ -269,7 +299,7 @@ export async function handle(
           local_demo: true,
         });
       const result = await routeTutor(
-        env,
+        providerEnv,
         unit,
         p.text,
         network,
@@ -285,7 +315,7 @@ export async function handle(
         }).catch(() => null);
         return json({ reply: result.reply });
       }
-      return json(result);
+      return json({ ...result, fallback_activity: fallback });
     }
     if (url.pathname === "/api/account/export" && request.method === "GET") {
       if (identity.demo)

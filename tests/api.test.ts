@@ -310,6 +310,151 @@ it("disabled production AI does not consume learner or global inference quota", 
   ).toBe(false);
 });
 
+it("enabled AI rejects missing consent, private context and unavailable trusted region before inference or quota consumption", async () => {
+  const { readFileSync } = await import("node:fs");
+  const network = vi.fn().mockImplementation(async (input) => {
+    const path = new URL(String(input)).pathname;
+    if (path === "/auth/v1/user")
+      return new Response(
+        JSON.stringify({
+          id: "11111111-1111-1111-1111-111111111111",
+          email_confirmed_at: "2026-10-10T00:00:00Z",
+        }),
+      );
+    if (path.endsWith("P0-01.json"))
+      return new Response(
+        readFileSync("apps/student-web/public/content/3.0.0/P0/P0-01.json"),
+      );
+    return new Response("[]");
+  });
+  const env = {
+    ...local,
+    ENVIRONMENT: "production",
+    LOCAL_DEMO: undefined,
+    SUPABASE_URL: "https://test.supabase.co",
+    SUPABASE_ANON_KEY: "public-fixture",
+    CONTENT_URL: "https://student.example",
+    GEMMA_FREE_CONFIRMED: "true",
+    GEMMA_MODEL: "gemma-test",
+    GEMMA_API_KEY: "private-fixture",
+    GEMMA_ALLOWED_COUNTRIES: "BD",
+  };
+  for (const [payload, country, error] of [
+    [{ ai_consent: false }, "BD", "AI_CONSENT_REQUIRED"],
+    [
+      {
+        ai_consent: true,
+        context: [{ role: "user", text: "My email is learner@example.com" }],
+      },
+      "BD",
+      "AI_PRIVATE_INPUT",
+    ],
+    [{ ai_consent: true }, "GB", "AI_REGION_UNAVAILABLE"],
+    [{ ai_consent: true }, undefined, "AI_REGION_UNAVAILABLE"],
+  ] as const) {
+    const req = new Request("https://api.example/api/ai/tutor", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer test-token",
+        "Content-Type": "application/json",
+        "CF-IPCountry": "BD",
+      },
+      body: JSON.stringify({
+        unit_id: "P0-01",
+        release: "3.0.0",
+        text: "Hello",
+        ...payload,
+      }),
+    });
+    Object.assign(req, { cf: { country } });
+    expect(await (await handle(req, env, network)).json()).toMatchObject({
+      error,
+    });
+  }
+  expect(
+    network.mock.calls.some(
+      ([url]) =>
+        String(url).includes("consume_ai") ||
+        String(url).includes("googleapis.com"),
+    ),
+  ).toBe(false);
+});
+
+it("consented authenticated AI in a selected trusted country consumes one budget and returns a validated provider reply", async () => {
+  const { readFileSync } = await import("node:fs");
+  const reply = {
+    assistant_reply_en: "Hello!",
+    short_explanation_bn: "ভালো শুরু।",
+    feedback_type: "none",
+    suggested_revision_en: null,
+    next_question_en: "How are you?",
+    learning_tags: ["writing"],
+    source_unit_id: "P0-01",
+  };
+  const network = vi.fn().mockImplementation(async (input) => {
+    const url = new URL(String(input));
+    if (url.pathname === "/auth/v1/user")
+      return new Response(
+        JSON.stringify({
+          id: "11111111-1111-1111-1111-111111111111",
+          email_confirmed_at: "2026-10-10T00:00:00Z",
+        }),
+      );
+    if (url.pathname.endsWith("P0-01.json"))
+      return new Response(
+        readFileSync("apps/student-web/public/content/3.0.0/P0/P0-01.json"),
+      );
+    if (url.pathname.endsWith("consume_ai")) return new Response("true");
+    if (url.hostname === "generativelanguage.googleapis.com")
+      return new Response(
+        JSON.stringify({
+          candidates: [
+            { content: { parts: [{ text: JSON.stringify(reply) }] } },
+          ],
+        }),
+      );
+    return new Response("[]");
+  });
+  const req = new Request("https://api.example/api/ai/tutor", {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer test-token",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      unit_id: "P0-01",
+      release: "3.0.0",
+      text: "Hello",
+      ai_consent: true,
+    }),
+  });
+  Object.assign(req, { cf: { country: "BD" } });
+  const response = await handle(
+    req,
+    {
+      ...local,
+      ENVIRONMENT: "production",
+      LOCAL_DEMO: undefined,
+      SUPABASE_URL: "https://test.supabase.co",
+      SUPABASE_ANON_KEY: "public-fixture",
+      CONTENT_URL: "https://student.example",
+      GEMMA_FREE_CONFIRMED: "true",
+      GEMMA_MODEL: "gemma-test",
+      GEMMA_API_KEY: "private-fixture",
+      GEMMA_ALLOWED_COUNTRIES: "BD",
+    },
+    network,
+  );
+  expect(await response.json()).toEqual({ reply });
+  expect(
+    network.mock.calls.filter(([url]) => String(url).includes("consume_ai")),
+  ).toHaveLength(1);
+  expect(
+    network.mock.calls.filter(([url]) =>
+      String(url).includes("googleapis.com"),
+    ),
+  ).toHaveLength(1);
+});
 it("reviewer can evaluate a draft without changing its public patch", async () => {
   const { readFileSync } = await import("node:fs");
   const { normalizeUnit } = await import("../scripts/content-tools");

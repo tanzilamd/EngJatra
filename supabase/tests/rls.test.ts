@@ -206,6 +206,33 @@ it("fair-use budget denies after four calls in the same minute", async () => {
     ).toBe(false);
   });
 });
+it("daily user/site budgets reject without incrementing counters at either limit", async () => {
+  for (const [userCount, globalCount] of [
+    [20, 4],
+    [0, 200],
+  ]) {
+    await db.exec(
+      `delete from public.usage_counters; insert into public.usage_counters(scope,window_start,minute_start,minute_count,count) values ('${b}',current_date,date_trunc('minute',now()),0,${userCount}),('global',current_date,date_trunc('minute',now()),0,${globalCount});`,
+    );
+    await asUser(b, async () => {
+      expect(
+        (await db.query<{ consume_ai: boolean }>("select public.consume_ai()"))
+          .rows[0].consume_ai,
+      ).toBe(false);
+      await expect(
+        db.query("update public.usage_counters set count=0"),
+      ).rejects.toThrow();
+    });
+    const rows = await db.query<{ scope: string; count: number }>(
+      "select scope,count from public.usage_counters order by scope",
+    );
+    expect(rows.rows.find((r) => r.scope === b)?.count).toBe(userCount);
+    expect(rows.rows.find((r) => r.scope === "global")?.count).toBe(
+      globalCount,
+    );
+  }
+  await db.exec("delete from public.usage_counters");
+});
 it("direct RPC rejects invalid JSON types and extra privileged fields", async () => {
   await asUser(b, async () => {
     await expect(

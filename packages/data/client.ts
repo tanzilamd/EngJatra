@@ -130,13 +130,14 @@ export async function tutor(
   release: string,
   text: string,
   context: TutorContext = [],
+  ai_consent = false,
 ) {
   return api<{
     reply?: TutorData;
     error?: string;
     fallback_activity?: string;
     local_demo?: boolean;
-  }>("/ai/tutor", { unit_id, release, text, context });
+  }>("/ai/tutor", { unit_id, release, text, context, ai_consent });
 }
 export const emptySnapshot = () => ({
   revision: 0,

@@ -1208,6 +1208,19 @@ input[type="checkbox"] {
 label.row:has(input[type="checkbox"]) {
   min-height: 44px;
 }
+.tutor-consent {
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+.tutor-consent input {
+  width: 20px;
+  padding: 0;
+  margin-top: 3px;
+}
+.tutor-consent span {
+  flex: 1;
+  min-width: 0;
+}
 .onboarding {
   background: var(--surface);
   border: 1px solid var(--border);

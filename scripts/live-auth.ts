@@ -6,6 +6,7 @@ import { redactLog } from "./redact-log";
 import { liveBrowserOptions } from "./live-browser-options";
 import { reviewerFixtureQuery } from "./live-auth-fixture";
 import { completeFirstLessonActivities } from "./qa-first-lesson";
+import { TutorReply } from "../packages/contracts/api";
 
 // Credentials remain in process memory. Only newly created disposable QA
 // identities are mutated/deleted; no existing learner or owner role is touched.
@@ -57,6 +58,7 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
   const checks: string[] = [];
   let deleted = 0;
   let phase = "preflight";
+  let aiVerified = false;
   let diagnosticPage: Page | undefined;
   async function supabase(
     path: string,
@@ -366,7 +368,47 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
     phase = "authored first-lesson completion and saved vocabulary";
     await restored.getByRole("button", { name: "পরের ধাপে যাই" }).click();
     await completeFirstLessonActivities(restored);
-    // Do not call an unverified provider. Authored practice completes the lesson.
+    if (process.env.GEMMA_FREE_CONFIRMED === "true") {
+      // Only after the same pipeline's explicit eligibility and synthetic
+      // pre-publication inference gate; no account/session text is submitted.
+      phase = "permitted authenticated production AI";
+      await restored
+        .getByRole("checkbox", { name: /আমার বয়স অন্তত ১৮ বছর/ })
+        .check();
+      await restored
+        .getByLabel("তোমার ইংরেজি উত্তর")
+        .fill("I goes to the market.");
+      const received = restored.waitForResponse(
+        (r) =>
+          r.url() === `${config.api}/api/ai/tutor` &&
+          r.request().method() === "POST",
+      );
+      await restored
+        .getByRole("button", { name: "উত্তর পাঠাই", exact: true })
+        .click();
+      const response = await received;
+      if (!response.ok()) throw Error("Production AI request failed");
+      const data = await response.json();
+      const reply = TutorReply.parse(data.reply);
+      if (
+        data.local_demo ||
+        reply.source_unit_id !== "P0-01" ||
+        reply.feedback_type === "none" ||
+        !reply.suggested_revision_en ||
+        /\bI goes\b/i.test(reply.suggested_revision_en)
+      )
+        throw Error(
+          "Real production AI did not return a valid bilingual correction",
+        );
+      await expect(
+        restored.getByText(reply.short_explanation_bn, { exact: true }),
+      ).toBeVisible();
+      checks.push(
+        "real authenticated production inference: schema-validated English/Bengali correction rendered through the tutor; synthetic practice text only",
+      );
+      aiVerified = true;
+    }
+    // Authored practice remains available independently of eligible inference.
     await restored.getByRole("button", { name: "এখন পাঠ শেষ করি" }).click();
     await restored
       .getByRole("button", { name: "পাঠ শেষ করে পথে ফিরি" })
@@ -639,7 +681,9 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
       not_tested: [
         "real registration/resend/recovery email delivery (provider tokens separately verified)",
         "Google OAuth",
-        "AI providers",
+        ...(aiVerified
+          ? []
+          : ["AI providers: eligibility/activation gate remains disabled"]),
         "real owner login or production content publishing mutations",
       ],
     };

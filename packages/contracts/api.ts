@@ -11,15 +11,20 @@ export const TutorInput = z
     release: Release,
     text: z.string().trim().min(1).max(1500),
     context: z.array(ContextTurn).max(6).default([]),
+    ai_consent: z.boolean().default(false),
   })
   .strict();
 export const TutorReply = z
   .object({
-    assistant_reply_en: z.string().min(1).max(1200),
-    short_explanation_bn: z.string().max(700),
+    assistant_reply_en: z.string().min(1).max(1200).regex(/[a-z]/i),
+    short_explanation_bn: z
+      .string()
+      .min(1)
+      .max(700)
+      .regex(/[\u0980-\u09FF]/),
     feedback_type: z.enum(["none", "suggestion", "clear_error"]),
     suggested_revision_en: z.string().max(1000).nullable(),
-    next_question_en: z.string().min(1).max(400),
+    next_question_en: z.string().min(1).max(400).regex(/[a-z]/i),
     learning_tags: z
       .array(z.enum(["grammar", "vocabulary", "writing", "reading"]))
       .max(4),
@@ -111,6 +116,11 @@ export const messages: Record<string, string> = {
   AI_PROVIDER_UNCONFIGURED:
     "AI অনুশীলন এখন পাওয়া যাচ্ছে না। গল্পের অনুশীলন চালিয়ে যাও।",
   AI_USER_FAIR_USE: "তোমার AI অনুশীলনের বরাদ্দ শেষ। অন্য অনুশীলনগুলো চালু আছে।",
+  AI_CONSENT_REQUIRED: "AI অনুশীলনের বয়স ও তথ্য ব্যবহারের শর্ত পড়ে সম্মতি দাও।",
+  AI_REGION_UNAVAILABLE:
+    "এই অঞ্চলে AI অনুশীলন চালু নেই। গল্পের অনুশীলন চালিয়ে যাও।",
+  AI_PRIVATE_INPUT:
+    "ইমেইল, ফোন নম্বর বা গোপন তথ্য বাদ দিয়ে অনুশীলনের বাক্য পাঠাও।",
   AI_INVALID_RESPONSE:
     "AI উত্তরটি ঠিকভাবে পাওয়া যায়নি। গল্পের অনুশীলন চালিয়ে যাও।",
   AI_REQUESTS_PER_MINUTE:

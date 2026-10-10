@@ -1,5 +1,9 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
+import { normalizeUnit } from "./content-tools";
+import { callProvider, ProviderError } from "../workers/api/src/ai";
+import { googleCountries } from "../workers/api/src/ai-policy";
+import type { Env } from "../workers/api/src/types";
 
 // Credential validation only: never generate content while the deployment's
 // account/free/audience eligibility gate is disabled. No key or raw error output.
@@ -53,12 +57,107 @@ export async function checkGemma(
   };
 }
 
+// The existing main pipeline gates publication on two bounded synthetic
+// inference calls only AFTER the operator's free/terms gate is explicitly true.
+// No learner messages, session, billing changes, raw output or secrets archived.
+export async function checkInference(
+  env: NodeJS.ProcessEnv,
+  network: typeof fetch = fetch,
+) {
+  const metadata = await checkGemma(env, network);
+  if (!metadata.enabled) return metadata;
+  if (!googleCountries(env.GEMMA_ALLOWED_COUNTRIES).length)
+    return {
+      ...metadata,
+      status: "BLOCKED",
+      enabled: false,
+      reason: "No reviewed unpaid-service distribution countries configured",
+    };
+  const unit = normalizeUnit(
+    JSON.parse(await readFile("content/units-public/P0/P0-01.json", "utf8")),
+  );
+  const provider: Env = {
+    ENVIRONMENT: "production",
+    SUPABASE_URL: "",
+    SUPABASE_ANON_KEY: "",
+    CONTENT_URL: "",
+    ALLOWED_ORIGINS: "",
+    GEMMA_API_KEY: env.GEMMA_API_KEY,
+    GEMMA_MODEL: env.GEMMA_MODEL!,
+    GEMMA_FREE_CONFIRMED: "true",
+    LLAMA_FREE_CONFIRMED: "false",
+    LLAMA_MODEL: "",
+  };
+  try {
+    const greeting = await callProvider(
+      "gemma",
+      provider,
+      unit,
+      "Hello. I am learning English.",
+      network,
+    );
+    const corrected = await callProvider(
+      "gemma",
+      provider,
+      unit,
+      "I goes to the market.",
+      network,
+      [
+        { role: "user", text: "Hello. I am learning English." },
+        {
+          role: "assistant",
+          text: `${greeting.assistant_reply_en} ${greeting.next_question_en}`.slice(
+            0,
+            1000,
+          ),
+        },
+      ],
+    );
+    if (
+      corrected.feedback_type === "none" ||
+      !corrected.suggested_revision_en ||
+      /\bI goes\b/i.test(corrected.suggested_revision_en)
+    )
+      return {
+        ...metadata,
+        status: "BLOCKED",
+        enabled: false,
+        inference_tested: true,
+        reason: "Synthetic subject-verb correction was not valid",
+      };
+    return {
+      ...metadata,
+      status: "INFERENCE VERIFIED",
+      inference_tested: true,
+      synthetic_calls: 2,
+      checks: [
+        "bounded English replies and questions",
+        "nonempty Bengali-script explanations",
+        "exact lesson identity/structured schema",
+        "known subject-verb correction",
+        "bounded previous-message context supplied",
+      ],
+    };
+  } catch (error) {
+    return {
+      ...metadata,
+      status: "BLOCKED",
+      enabled: false,
+      inference_tested: true,
+      reason:
+        error instanceof ProviderError
+          ? error.code
+          : "Safe inference preflight failed",
+    };
+  }
+}
+
 if (
   process.argv[1] &&
   import.meta.url === pathToFileURL(process.argv[1]).href
 ) {
   await mkdir(".wrangler", { recursive: true });
-  const report = await checkGemma(process.env).catch(() => ({
+  const report = await checkInference(process.env).catch(() => ({
     status: "BLOCKED",
     enabled: false,
     reason:
@@ -75,7 +174,7 @@ if (
   console.log(JSON.stringify(report));
   if (
     process.env.GEMMA_FREE_CONFIRMED === "true" &&
-    report.status !== "METADATA VERIFIED"
+    report.status !== "INFERENCE VERIFIED"
   )
     process.exitCode = 1;
 }

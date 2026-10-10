@@ -140,6 +140,7 @@ describe("free only provider router", () => {
       /^https:\/\/generativelanguage.googleapis.com/,
     );
     expect(JSON.stringify(result)).not.toContain(env.GEMMA_API_KEY);
+    expect(request.mock.calls[0][1].redirect).toBe("error");
   });
   it("circuits avoid repeating failing provider calls", async () => {
     const request = vi
@@ -149,6 +150,23 @@ describe("free only provider router", () => {
     await routeTutor(env, unit, "Hello", request, 1001);
     expect(request).toHaveBeenCalledTimes(2);
   });
+});
+it("caps streamed provider envelopes and accepts only whitespace/fence cleanup around valid JSON", async () => {
+  expect(
+    parseReply(
+      `\n\x60\x60\x60json\n${JSON.stringify(reply)}\n\x60\x60\x60\n`,
+      unit.id,
+    ),
+  ).toEqual(reply);
+  await expect(
+    callProvider(
+      "gemma",
+      env,
+      unit,
+      "Hello",
+      vi.fn().mockResolvedValue(new Response(" ".repeat(32769))),
+    ),
+  ).rejects.toMatchObject({ code: "AI_INVALID_RESPONSE" });
 });
 it("bounded conversation context is carried as untrusted prompt data", async () => {
   const request = vi.fn().mockResolvedValue(gemma());

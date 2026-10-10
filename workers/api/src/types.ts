@@ -10,6 +10,7 @@ export interface Env {
   GEMMA_MODEL: string;
   LLAMA_MODEL: string;
   GEMMA_API_KEY?: string;
+  GEMMA_ALLOWED_COUNTRIES?: string;
   LLAMA_API_KEY?: string;
 }
 export type Role =

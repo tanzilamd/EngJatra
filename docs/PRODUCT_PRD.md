@@ -4,7 +4,7 @@
 A truly welcoming, fun, mobile-first **Bangla-language** path to learn English from absolute zero. The app is one coherent, interactive journey, not a complicated menu and not just an AI chat box. AI is an enhanced practice coach; **structured authored learning survives complete AI outage**. Meaningful persistence between sessions/devices is essential.
 
 ## Users and learning model
-- Audience: Bengali speakers including absolute beginners, slower learners and learners with limited data budgets; avoid collecting exact age unless operationally required. Respect privacy for minors.
+- Current audience: Bengali speakers aged **18 and above exclusively**, including absolute beginners, slower learners and learners with limited data budgets. This owner-directed restriction supersedes earlier mixed-age planning. Communicate it clearly without collecting identity documents or dates of birth. Live, permitted AI tutoring is a core product requirement; individual learners may still choose authored activities and decline external AI processing.
 - Six teaching bands: **Pre-A1**, A1, A2, B1, B2, **C1-oriented**. Track band is NOT proof of assessed/certified CEFR proficiency.
 - Reading/writing in-app. Listening/speaking have linked official resources, practice scripts and self-study tips only in v1; no mic or speech analysis.
 - Bengali instructional guidance is always available. It decreases contextually as written ability increases but never vanishes with no opt-back.

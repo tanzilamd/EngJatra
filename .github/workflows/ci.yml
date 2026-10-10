@@ -60,6 +60,7 @@ jobs:
       ALLOWED_ORIGINS: ${{ vars.ALLOWED_ORIGINS }}
       GEMMA_MODEL: ${{ vars.GEMMA_MODEL }}
       GEMMA_FREE_CONFIRMED: ${{ vars.GEMMA_FREE_CONFIRMED || 'false' }}
+      GEMMA_ALLOWED_COUNTRIES: ${{ vars.GEMMA_ALLOWED_COUNTRIES }}
       GEMMA_API_KEY: ${{ secrets.GEMMA_API_KEY }}
       LLAMA_MODEL: ${{ vars.LLAMA_MODEL }}
       LLAMA_FREE_CONFIRMED: ${{ vars.LLAMA_FREE_CONFIRMED || 'false' }}
@@ -72,7 +73,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run deploy:check -- --configuration-only
-      - name: Verify configured Gemma credentials and model without inference or learner data
+      - name: Validate Gemma metadata and eligible-only synthetic inference before publication
         run: npm run ai:check
       - uses: actions/upload-artifact@v4
         if: always()

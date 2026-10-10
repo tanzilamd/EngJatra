@@ -1,6 +1,6 @@
 # EngJatra
 
-Bangla-first English practice from Pre-A1 to a C1-oriented track. Fresh React/TypeScript implementation of the original handoff specifications; no discarded application code was imported. Student and admin are independent applications. Reading, vocabulary, authored activities and scripted dialogue work without AI.
+English practice for adults aged **18 and above**, with a Bangla-first interface from Pre-A1 to a C1-oriented track. Fresh React/TypeScript implementation of the original handoff specifications; no discarded application code was imported. Student and admin are independent applications. Reading, vocabulary, authored activities and scripted dialogue work without AI.
 
 ## Start locally
 

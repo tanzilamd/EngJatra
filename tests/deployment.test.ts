@@ -117,6 +117,24 @@ it("keeps secret values outside runtime config and supplies conservative product
   expect(JSON.stringify(generated)).not.toContain(config.publicKey);
   expect(apiSecrets(config)).toEqual({ SUPABASE_ANON_KEY: config.publicKey });
 });
+it("enabling Gemma requires selected reviewed countries and puts its key only in encrypted secret payload", () => {
+  const env = {
+    ...input,
+    GEMMA_MODEL: "gemma-test",
+    GEMMA_API_KEY: "private-fixture",
+    GEMMA_FREE_CONFIRMED: "true",
+  };
+  for (const country of [undefined, "GB", "CH", "DE", "ZZ"])
+    expect(() =>
+      settings({ ...env, GEMMA_ALLOWED_COUNTRIES: country }),
+    ).toThrow(/GEMMA_ALLOWED_COUNTRIES/);
+  const enabled = settings({ ...env, GEMMA_ALLOWED_COUNTRIES: "BD,US" });
+  expect(apiConfiguration(enabled).vars.GEMMA_ALLOWED_COUNTRIES).toBe("BD,US");
+  expect(JSON.stringify(apiConfiguration(enabled))).not.toContain(
+    "private-fixture",
+  );
+  expect(apiSecrets(enabled).GEMMA_API_KEY).toBe("private-fixture");
+});
 it("checked-in configs resolve to independent static and API targets", async () => {
   await expect(inspectTargets()).resolves.toBeUndefined();
 });
