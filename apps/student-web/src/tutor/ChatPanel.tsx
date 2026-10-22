@@ -173,11 +173,11 @@ export function ChatPanel({
   return (
     <div className={`tutor-chat ${embedded ? "tutor-embedded" : ""}`}>
       <details className="tutor-privacy" open={!state.consent}>
-        <summary>AI ব্যবহারের কথা · ১৮+ · বাংলাদেশ</summary>
+        <summary>AI ব্যবহারের তথ্য</summary>
         <p className="small muted">
-          AI-এর পরামর্শ ভুল হতে পারে। ব্যক্তিগত তথ্য পাঠিও না। Google-এর বিনা
-          মূল্যের সেবায় লেখা ও উত্তর পণ্য উন্নয়ন এবং মানুষের পর্যালোচনায় ব্যবহার
-          হতে পারে।
+          এই AI সেবা বাংলাদেশে প্রাপ্তবয়স্কদের জন্য। AI-এর পরামর্শ ভুল হতে পারে।
+          ব্যক্তিগত তথ্য পাঠিও না। Google-এর বিনা মূল্যের সেবায় লেখা ও উত্তর
+          পণ্য উন্নয়ন এবং মানুষের পর্যালোচনায় ব্যবহার হতে পারে।
         </p>
         <label className="row small tutor-consent">
           <input
@@ -187,8 +187,8 @@ export function ChatPanel({
             onChange={(e) => store.consent(e.target.checked)}
           />
           <span>
-            আমার বয়স অন্তত ১৮ বছর। AI-এ পাঠানো লেখা ব্যবহারের বিজ্ঞপ্তি পড়েছি ও
-            সম্মত আছি।
+            আমি প্রাপ্তবয়স্ক। AI-এ পাঠানো লেখা ব্যবহারের বিজ্ঞপ্তি পড়েছি ও সম্মত
+            আছি।
           </span>
         </label>
       </details>

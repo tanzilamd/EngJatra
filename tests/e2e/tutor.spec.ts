@@ -55,7 +55,7 @@ test("tutor acknowledgement, failed-input retry, in-flight protection and bounde
     return route.fulfill({ json: { reply } });
   });
   await page.goto("/");
-  await expect(page.getByText(/EngJatra শুধু ১৮ বছর/)).toBeVisible();
+  await expect(page.getByText(/প্রয়োজনীয় তথ্যই সংরক্ষণ করা হয়/)).toBeVisible();
   await page.getByRole("button", { name: "ডেমোতে শেখা শুরু করি" }).click();
   await page.getByRole("button", { name: "শেখা চালিয়ে যাও" }).click();
   await page.getByRole("button", { name: "শুরুর একটি বাক্য নিই" }).click();
@@ -64,7 +64,7 @@ test("tutor acknowledgement, failed-input retry, in-flight protection and bounde
     page.getByRole("button", { name: "উত্তর পাঠাই", exact: true }),
   ).toBeDisabled();
   expect(sent).toHaveLength(0);
-  await page.getByRole("checkbox", { name: /আমার বয়স অন্তত ১৮ বছর/ }).check();
+  await page.getByRole("checkbox", { name: /আমি প্রাপ্তবয়স্ক/ }).check();
   await page.getByLabel("তোমার ইংরেজি উত্তর").fill("I goes to the market.");
   await page.getByRole("button", { name: "উত্তর পাঠাই", exact: true }).click();
   await expect(

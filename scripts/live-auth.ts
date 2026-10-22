@@ -397,7 +397,7 @@ if (!process.env.SUPABASE_ACCESS_TOKEN) {
         restored.getByRole("heading", { name: "AI টিউটর", exact: true }),
       ).toBeVisible();
       await restored
-        .getByRole("checkbox", { name: /আমার বয়স অন্তত ১৮ বছর/ })
+        .getByRole("checkbox", { name: /আমি প্রাপ্তবয়স্ক/ })
         .check();
       await restored
         .getByLabel("তোমার ইংরেজি উত্তর")

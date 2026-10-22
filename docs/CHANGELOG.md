@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-22 — Neutral everyday copy (publication pending)
+
+Remove repeated numeric age labels from Auth, tutor summary and general privacy description. Keep a clear adult self-declaration, Bangladesh-only AI notice, unpaid processing acknowledgement and all existing server eligibility/consent guards. No teaching, database, provider or layout changes.
+
 ## 2026-10-10 — Product design, themes and PWA
 
 Unified student/admin surfaces with semantic light/dark tokens, premium dedicated Auth modes, validation/password visibility/confirmation/recovery, natural Bengali UI copy and responsive spacing. Added shared session loading, native accessible dialogs, lazy workspaces/learning modules and paginated vocabulary. Fixed lesson retries and admin filtered-unit selection. Preserved teaching data, IDs, answers, progress schema, RLS and the single main deployment mechanism.

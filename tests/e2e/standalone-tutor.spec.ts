@@ -82,7 +82,7 @@ test("standalone chat navigation, opt-in refresh, draft retry, context and confi
   await expect(
     page.getByRole("button", { name: "উত্তর পাঠাই", exact: true }),
   ).toBeDisabled();
-  await page.getByRole("checkbox", { name: /আমার বয়স অন্তত ১৮ বছর/ }).check();
+  await page.getByRole("checkbox", { name: /আমি প্রাপ্তবয়স্ক/ }).check();
   await page.getByRole("button", { name: "উত্তর পাঠাই", exact: true }).click();
   await expect(page.getByRole("button", { name: "আবার পাঠাই" })).toBeVisible();
   expect(await page.getByLabel("তোমার ইংরেজি উত্তর").inputValue()).toContain(
@@ -127,7 +127,7 @@ test("standalone chat navigation, opt-in refresh, draft retry, context and confi
   await page.reload();
   await expect(page.getByText("I buy fruit.", { exact: true })).toBeVisible();
   await expect(
-    page.getByRole("checkbox", { name: /আমার বয়স অন্তত ১৮ বছর/ }),
+    page.getByRole("checkbox", { name: /আমি প্রাপ্তবয়স্ক/ }),
   ).not.toBeChecked();
   if (await historyButton.isVisible()) await historyButton.click();
   await page
@@ -317,7 +317,7 @@ test("cloud-history contracts switch and delete safely; long chat does not steal
   await page.getByRole("button", { name: /আগের কথোপকথন.*কথোপকথন/ }).click();
   await expect(page).toHaveURL(new RegExp(`/tutor\\?chat=${id}`));
   await expect(page.getByRole("log").locator("article")).toHaveCount(40);
-  await page.getByRole("checkbox", { name: /আমার বয়স অন্তত ১৮ বছর/ }).check();
+  await page.getByRole("checkbox", { name: /আমি প্রাপ্তবয়স্ক/ }).check();
   const input = page.getByLabel("তোমার ইংরেজি উত্তর");
   await input.fill("I buy fruit.");
   await input.press("Shift+Enter");
@@ -383,7 +383,7 @@ test("cloud link promotion, unsaved continuation and immediate history opt-out r
   await page.getByRole("checkbox", { name: "AI লেখার ইতিহাস রাখব" }).check();
   if (await page.getByRole("dialog").isVisible())
     await page.getByRole("button", { name: "বন্ধ করি", exact: true }).click();
-  await page.getByRole("checkbox", { name: /আমার বয়স অন্তত ১৮ বছর/ }).check();
+  await page.getByRole("checkbox", { name: /আমি প্রাপ্তবয়স্ক/ }).check();
   const input = page.getByLabel("তোমার ইংরেজি উত্তর");
   const send = page.getByRole("button", { name: "উত্তর পাঠাই", exact: true });
   await input.fill("I buy apples.");
@@ -509,7 +509,7 @@ test("regional denial remains an exact accessible message with authored continua
   await page.route("**/api/ai/tutor", (route) =>
     route.fulfill({ json: denied }),
   );
-  await page.getByRole("checkbox", { name: /আমার বয়স অন্তত ১৮ বছর/ }).check();
+  await page.getByRole("checkbox", { name: /আমি প্রাপ্তবয়স্ক/ }).check();
   const input = page.getByLabel("তোমার ইংরেজি উত্তর");
   await input.fill("I goes to the market.");
   const received = page.waitForResponse(
